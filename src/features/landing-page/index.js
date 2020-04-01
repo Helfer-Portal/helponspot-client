@@ -9,7 +9,6 @@ import Menu from "../menu";
 export default function LandingPage(props) {
     return(
         <div>
-            <Menu />
             <CallToAction />
             <TextIlluView />
             <Usps />
