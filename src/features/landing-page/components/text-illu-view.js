@@ -2,6 +2,23 @@ import React from "react";
 import SingleTextIlluView from "./single-text-illy";
 // import "./App.css";
 
+const data = [
+  {
+    title: "First Feature ",
+    p:
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dui est, feugiat id purus eu, interdum pretium nisi. Vivamus vestibulum convallis augue, vel sagittis lectus tincidunt id. Morbi consectetur ornare neque, placerat blandit erat vulputate sed. Praesent viverra ex vitae augue eleifend, non imperdiet mauris cursus. In commodo fermentum mi ac venenatis. Quisque leo arcu, , eget placerat elit luctus id.",
+    illustration: SVG1,
+    right: false
+  },
+  {
+    title: "Second Feature ",
+    p:
+      "Lorem ipsum dolor sit amet, onvallis augue, vel sagittis lectus tincidunt id. Morbi consectetur ornare neque, placerat blandit erat vulputate sed. Praesent viverra ex vitae augue eleifend, non imperdiet mauris cursus. In commodo fermentum mi ac venenatis. Quisque leo arcu, tempus a odio iaculis, mollis eleifend urna. Pellentesque id sagittis ipsum. Sed bibendum diam sed commodo facilisis. Ind Maecenas tincidunt nulla eget tellus iaculis malesuada. Maecenas laoreet magna scelerisque quam imperdiet accumsan. Nullam vehicula feugiat ante, eget placerat elit luctus id.",
+    illustration: SVG2,
+    right: true
+  }
+];
+
 export default function TextIlluView() {
   return (
     <div>
@@ -51,18 +68,17 @@ export default function TextIlluView() {
           <div class="w-full mb-4">
             <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
           </div>
-          <SingleTextIlluView
-            title={"test"}
-            p={"paragraph text"}
-            illustration={SVG1()}
-            right={false}
-          />
-          <SingleTextIlluView
-            title={"test"}
-            p={"paragraph text"}
-            illustration={SVG2()}
-            right={true}
-          />
+
+          {data.map(el => {
+            return (
+              <SingleTextIlluView
+                title={el.title}
+                p={el.p}
+                illustration={el.illustration()}
+                right={el.right}
+              />
+            );
+          })}
         </div>
       </section>
     </div>
