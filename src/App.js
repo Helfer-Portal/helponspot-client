@@ -1,18 +1,20 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
 import "./App.css";
+import Usps from "./features/Usps";
+
 
 export default function App() {
   return (
     <Router>
-      
+
       <nav id="header" class="fixed w-full z-30 top-0 text-white">
 
 <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
-    
+
   <div class="pl-4 flex items-center">
-    <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"  href="#"> 
- 
+    <a class="toggleColour text-white no-underline hover:no-underline font-bold text-2xl lg:text-4xl"  href="#">
+
       <svg class="h-8 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.005 512.005">
       <rect fill="#2a2a31" x="16.539" y="425.626" width="479.767" height="50.502" transform="matrix(1,0,0,1,0,0)" />
       <path class="plane-take-off" d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z "/>
@@ -52,22 +54,22 @@ export default function App() {
 <div class="pt-24">
 
 <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-  
+
   <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
     <p class="uppercase tracking-loose w-full">What business are you?</p>
     <h1 class="my-4 text-5xl font-bold leading-tight">Main Hero Message to sell yourself!</h1>
     <p class="leading-normal text-2xl mb-8">Sub-hero message, not too long and not too short. Make it just right!</p>
-  
-    
+
+
 
     <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg">Subscribe</button>
-    
+
   </div>
- 
+
   <div class="w-full md:w-3/5 py-6 text-center">
     <img class="w-full md:w-4/5 z-50" src={require("./assets/hero.png")} />
   </div>
-  
+
 </div>
 
 </div>
@@ -93,7 +95,7 @@ export default function App() {
 <section class="bg-white border-b py-8">
 <div class="container max-w-5xl mx-auto m-8">
   <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">Title</h1>
-  <div class="w-full mb-4">	
+  <div class="w-full mb-4">
     <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
   </div>
 
@@ -101,9 +103,9 @@ export default function App() {
     <div class="w-5/6 sm:w-1/2 p-6">
       <h3 class="text-3xl text-gray-800 font-bold leading-none mb-3">Lorem ipsum dolor sit amet</h3>
       <p class="text-gray-600 mb-8">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula.<br /><br />
-      
+
       Images from: <a class="text-orange-500 underline" href="https://undraw.co/">undraw.co</a></p>
-      
+
     </div>
     <div class="w-full sm:w-1/2 p-6">
       <svg class="w-full sm:h-64 mx-auto" viewBox="0 0 1177 598.5" xmlns="http://www.w3.org/2000/svg">
@@ -160,9 +162,9 @@ export default function App() {
 
     </div>
   </div>
-  
-  
-  <div class="flex flex-wrap flex-col-reverse sm:flex-row">	
+
+
+  <div class="flex flex-wrap flex-col-reverse sm:flex-row">
     <div class="w-full sm:w-1/2 p-6 mt-6">
       <svg class="w-5/6 sm:h-64 mx-auto" viewBox="0 0 1176.60617 873.97852" xmlns="http://www.w3.org/2000/svg">
       <title>connected world</title>
@@ -211,78 +213,12 @@ export default function App() {
   </div>
 </div>
 </section>
-  
-  
-  
 
-<section class="bg-white border-b py-8">
 
-<div class="container mx-auto flex flex-wrap pt-4 pb-12">
 
-  <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">Title</h1>
-  <div class="w-full mb-4">	
-    <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-  </div>
-
-  <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-    <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-      <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-        <p class="w-full text-gray-600 text-xs md:text-sm px-6">xGETTING STARTED</p>
-        <div class="w-full font-bold text-xl text-gray-800 px-6">Lorem ipsum dolor sit amet.</div>
-        <p class="text-gray-800 text-base px-6 mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. 
-        </p>
-      </a>
-    </div>
-    <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-      <div class="flex items-center justify-start">
-        <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg">Action</button>
-      </div>
-    </div>
-  </div>
-  
-  
-  
-  <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-    <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-      <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-        <p class="w-full text-gray-600 text-xs md:text-sm px-6">xGETTING STARTED</p>
-        <div class="w-full font-bold text-xl text-gray-800 px-6">Lorem ipsum dolor sit amet.</div>
-        <p class="text-gray-800 text-base px-6 mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. 
-        </p>
-      </a>
-    </div>
-    <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-      <div class="flex items-center justify-center">
-        <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg">Action</button>
-      </div>
-    </div>
-  </div>
-  
-  
-  
-  <div class="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
-    <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-      <a href="#" class="flex flex-wrap no-underline hover:no-underline">
-        <p class="w-full text-gray-600 text-xs md:text-sm px-6">xGETTING STARTED</p>
-        <div class="w-full font-bold text-xl text-gray-800 px-6">Lorem ipsum dolor sit amet.</div>
-        <p class="text-gray-800 text-base px-6 mb-5">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet ligula. 
-        </p>
-      </a>
-    </div>
-    <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-      <div class="flex items-center justify-end">
-        <button class="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg">Action</button>
-      </div>
-    </div>
-  </div>
-  
-  
-</div>
-
-</section>
+<React.StrictMode>
+<Usps />
+</React.StrictMode>,
 
 <section class="bg-gray-100 py-8">
 
@@ -291,14 +227,14 @@ export default function App() {
 <div class="container mx-auto px-2 pt-4 pb-12 text-gray-800">
 
   <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">Pricing</h1>
-  <div class="w-full mb-4">	
+  <div class="w-full mb-4">
     <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
   </div>
 
 
-  
+
   <div class="flex flex-col sm:flex-row justify-center pt-12 my-12 sm:my-4">
-    
+
     <div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4">
       <div class="flex-1 bg-white text-gray-600 rounded-t rounded-b-none overflow-hidden shadow">
         <div class="p-8 text-3xl font-bold text-center border-b-4">Free</div>
@@ -315,9 +251,9 @@ export default function App() {
         </div>
       </div>
     </div>
-    
-    
-    
+
+
+
     <div class="flex flex-col w-5/6 lg:w-1/3 mx-auto lg:mx-0 rounded-lg bg-white mt-4 sm:-mt-6 shadow-lg z-10">
       <div class="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
         <div class="w-full p-8 text-3xl font-bold text-center">Basic</div>
@@ -327,7 +263,7 @@ export default function App() {
           <li class="border-b py-4">Thing</li>
           <li class="border-b py-4">Thing</li>
           <li class="border-b py-4">Thing</li>
-        </ul>					
+        </ul>
       </div>
       <div class="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
         <div class="w-full pt-6 text-4xl font-bold text-center">£x.99 <span class="text-base">/ per user</span></div>
@@ -336,9 +272,9 @@ export default function App() {
         </div>
       </div>
     </div>
-    
-    
-    
+
+
+
     <div class="flex flex-col w-5/6 lg:w-1/4 mx-auto lg:mx-0 rounded-none lg:rounded-l-lg bg-white mt-4">
       <div class="flex-1 bg-white text-gray-600 rounded-t rounded-b-none overflow-hidden shadow">
         <div class="p-8 text-3xl font-bold text-center border-b-4">Pro</div>
@@ -357,10 +293,10 @@ export default function App() {
     </div>
 
   </div>
-  
+
 </div>
-  
-  
+
+
 </section>
 
 
@@ -386,14 +322,14 @@ export default function App() {
 <section class="container mx-auto text-center py-6 mb-12">
 
 <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-white">Call to Action</h1>
-<div class="w-full mb-4">	
+<div class="w-full mb-4">
   <div class="h-1 mx-auto bg-white w-1/6 opacity-25 my-0 py-0 rounded-t"></div>
 </div>
 
-<h3 class="my-4 text-3xl leading-tight">Main Hero Message to sell yourself!</h3>	
+<h3 class="my-4 text-3xl leading-tight">Main Hero Message to sell yourself!</h3>
 
 <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg">Action!</button>
-  
+
 </section>
 
 
@@ -402,20 +338,20 @@ export default function App() {
 <div class="container mx-auto  px-8">
 
       <div class="w-full flex flex-col md:flex-row py-6">
-      
+
     <div class="flex-1 mb-6">
-    
-      <a class="text-orange-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"  href="#"> 
-        
+
+      <a class="text-orange-600 no-underline hover:no-underline font-bold text-2xl lg:text-4xl"  href="#">
+
         <svg class="h-8 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512.005 512.005">
         <rect fill="#2a2a31" x="16.539" y="425.626" width="479.767" height="50.502" transform="matrix(1,0,0,1,0,0)" fill="rgb(0,0,0)" />
         <path class="plane-take-off" d=" M 510.7 189.151 C 505.271 168.95 484.565 156.956 464.365 162.385 L 330.156 198.367 L 155.924 35.878 L 107.19 49.008 L 211.729 230.183 L 86.232 263.767 L 36.614 224.754 L 0 234.603 L 45.957 314.27 L 65.274 347.727 L 105.802 336.869 L 240.011 300.886 L 349.726 271.469 L 483.935 235.486 C 504.134 230.057 516.129 209.352 510.7 189.151 Z "/>
         </svg> LANDING
-        
+
       </a>
     </div>
-  
-  
+
+
           <div class="flex-1">
               <p class="uppercase text-gray-500 md:mb-6">Links</p>
               <ul class="list-reset mb-6">
@@ -475,7 +411,7 @@ export default function App() {
 <a href="https://www.freepik.com/free-photos-vectors/background" class="text-gray-500">Background vector created by freepik - www.freepik.com</a>
 
 </footer>
-     
+
 
 
 
