@@ -7,13 +7,18 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@types/jest": "^25.1.4",
+    "@types/node": "^13.9.8",
+    "@types/react": "^16.9.31",
+    "@types/react-dom": "^16.9.6",
     "autoprefixer": "^9.7.5",
     "postcss-cli": "^7.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.4.1",
-    "tailwindcss": "^1.2.0"
+    "tailwindcss": "^1.2.0",
+    "typescript": "^3.8.3"
   },
   "scripts": {
     "start": "npm run watch:css && react-scripts start",
