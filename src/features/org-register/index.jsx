@@ -1,17 +1,23 @@
 import React from "react";
-import Button from "../../components/Button";
+import ButtonWithLink from "../../components/ButtonWithLink";
+import QuestionWithLabel from "../../components/QuestionWithLabel";
+import InputWithLabel from "../../components/InputWithLabel";
 import "./index.css";
 
 export default function OrgRegister() {
     return(
-        <div class="container">
+        //<br/> are for distance to Menu, otherwise overlap
+        <div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+        <div class="container-form">
 
-        <overline> Schritt 1 von 3 </overline>
-        <h1>Hi, wie heißt deine Organisation</h1>
-            <overline>NAME</overline>
-            <input type="text" id="orgname" name="orgname"/>
-            <Button/>
-
+            <QuestionWithLabel question="Hi, wie heißt deine Organisation" label="Schritt 1 von 3"/>
+            <InputWithLabel fname="orgname" label="Name"/>
+            <ButtonWithLink children="Weiter" link="/org-register2" />
+        </div>
         </div>
     );
   }

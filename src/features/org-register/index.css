@@ -1,5 +1,43 @@
-.container {
-    flex-direction: column;
+.container-form {
+    margin-left:30px ;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: flex-start;
+
+
+}
+
+.first {
+
+    /* overline */
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 13px;
+    line-height: 22px;
+
+    /* identical to box height, or 169% */
+    letter-spacing: 0.025em;
+    text-transform: uppercase;
+
+    /* #6EA5B4 */
+    color: #6C9CCF;
+}
+
+.question {
+
+    /* h1 */
+    margin-bottom: 30px;
+    font-family: DM Sans;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 30px;
+    line-height: 31px;
+
+    /* or 103% */
+    letter-spacing: -0.005em;
+
+    /* #558E9D */
+    color: #146CC1;
 }
