@@ -4,9 +4,8 @@ import CallToAction from "./components/call-to-action";
 import TextIlluView from "./components/text-illu-view";
 import Footer from "./components/footer";
 import Usps from "./components/Usps";
-import Menu from "../menu";
 
-export default function LandingPage(props) {
+export default function LandingPage() {
     return(
         <div>
             <CallToAction />

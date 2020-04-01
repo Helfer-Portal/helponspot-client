@@ -1,7 +1,10 @@
 import React from "react";
-import Button from "../../components/Button";
-import {Link} from "react-router-dom";
+import MenuLink from "./components/MenuLink";
 
+
+/**
+ * Top Menu bar
+ */
 export default function Menu() {
     return(
         <nav id="header" class="fixed w-full z-30 top-0 text-white">
@@ -22,13 +25,13 @@ export default function Menu() {
             >
               <ul class="list-reset flex justify-end flex-1 items-center">
                 <li class="mr-3">
-                  <Link to="/">Home</Link>
+                  <MenuLink to="/">Home</MenuLink>
                 </li>
                 <li class="mr-3">
-                  <Link to="ueber-uns">Über uns</Link>
+                  <MenuLink to="ueber-uns">Über uns</MenuLink>
                 </li>
                 <li class="mr-3">
-                  <Link to="org-register">Register</Link>
+                  <MenuLink to="org-register">Register</MenuLink>
                 </li>
               </ul>
               
