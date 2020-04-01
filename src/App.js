@@ -5,8 +5,13 @@ import LandingPage from "./features/landing-page/index.js";
 import "./App.css";
 
 export default function App() {
+
+  /* adds the gradient to the html body tag to match layout */
+  document.body.classList.add("gradient");
+
   return (
     <Router>
+ 
       <nav id="header" class="fixed w-full z-30 top-0 text-white">
         <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
           <div class="pl-4 flex items-center">

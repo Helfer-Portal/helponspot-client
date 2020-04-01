@@ -3,6 +3,8 @@ import React from "react";
 
 export default function CallToAction() {
   return (
+
+    
     <div class="pt-24">
       <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         <div class="flex flex-col w-full md:w-2/5 justify-center items-start text-center md:text-left">
