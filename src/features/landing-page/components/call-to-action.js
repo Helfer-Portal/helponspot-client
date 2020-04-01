@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 // import "./App.css";
 
 export default function CallToAction() {
@@ -18,7 +19,7 @@ export default function CallToAction() {
           </p>
 
           <button class="mx-auto lg:mx-0 hover:underline bg-white text-gray-800 font-bold rounded-full my-6 py-4 px-8 shadow-lg">
-            Subscribe
+            <Link to="org-register">Jetzt registrieren!</Link>
           </button>
         </div>
 
