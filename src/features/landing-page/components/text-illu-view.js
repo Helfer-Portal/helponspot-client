@@ -9,14 +9,14 @@ const data = [
     title: "Helfer, Macher, Anpacker.",
     p:
       "In schwierigen SituationenIn schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. Wenn’s drauf ankommt hilft jede helfende Hand.",
-    illustration: SVG1,
+    illustration: img1,
     right: true,
   },
   {
     title: "Organisationen, Vereine, Hilfesuchende.",
     p:
       "In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. Wenn’s drauf ankommt hilft jede helfende Hand.",
-    illustration: SVG2,
+    illustration: img2,
     right: false
   }
 ];
@@ -82,6 +82,21 @@ export default function TextIlluView() {
       </section>
     </div>
   );
+}
+
+function img1(){
+  return <img
+      className="w-full md:w-4/5 z-50"
+      src={require("../../../assets/super_dad_1.png")}
+  />
+
+}
+function img2(){
+  return <img
+      className="w-full md:w-4/5 z-50"
+      src={require("../../../assets/team_work_1.png")}
+  />
+
 }
 
 function SVG1() {
