@@ -3,6 +3,7 @@ import ButtonOrange from "../../components/ButtonOrange";
 import QuestionWithLabel from "../../components/QuestionWithLabel";
 import InputWithLabel from "../../components/InputWithLabel";
 import CheckboxButton from "../../components/CheckboxButton";
+import Circle from "../../components/Circle";
 import "./register1.css";
 
 const options_list = ["Plasma", "Führerschein", "medizinische Grundausbildung"]
@@ -23,6 +24,11 @@ export default function NewAnzeige() {
                 <CheckboxButton text ={entry}/>
                 )}
             </div>
+            <div class = "container-helper-numbers">
+                <Circle image="../../assets/minus.png"/>
+                <Circle image="../../assets/plus.png"/>
+            </div>
+
         </div>
         </div>
     );
