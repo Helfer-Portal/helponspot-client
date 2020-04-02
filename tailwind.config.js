@@ -27,6 +27,8 @@ module.exports = {
 
       figmaParagraph: "#577095",
 
+      figmaDescription: "#6C9CCF",
+
 
       gray: {
         100: "#f7fafc",
