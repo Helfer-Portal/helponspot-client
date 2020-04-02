@@ -5,7 +5,7 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Menu from "../features/menu/index.js";
 
 import LandingPage from "../features/landing-page/index.js";
-import OrgRegister1 from "../features/org-register/index.jsx";
+import OrgRegister1 from "../features/org-register/register1.jsx";
 import OrgRegister2 from "../features/org-register/register2.jsx";
 
 export default function RootRouter() {

@@ -2,7 +2,7 @@ import React from "react";
 import ButtonWithLink from "../../components/ButtonWithLink";
 import QuestionWithLabel from "../../components/QuestionWithLabel";
 import InputWithLabel from "../../components/InputWithLabel";
-import "./index.css";
+import "./register1.css";
 
 export default function OrgRegister() {
     return(

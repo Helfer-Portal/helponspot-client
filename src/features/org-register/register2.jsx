@@ -2,7 +2,7 @@ import React from "react";
 import ButtonOrange from "../../components/ButtonOrange";
 import QuestionWithLabel from "../../components/QuestionWithLabel";
 import InputWithLabel from "../../components/InputWithLabel";
-import "./index.css";
+import "./register1.css";
 
 export default function OrgRegister2() {
     return(
