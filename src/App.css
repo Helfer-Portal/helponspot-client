@@ -7,8 +7,23 @@
   pointer-events: none;
 }
 
+/* background */
 .gradient {
-  background: linear-gradient(90deg, #d53369 0%, #daae51 100%);
+  background: linear-gradient(
+    180deg,
+    #eaf3ff 39.7%,
+    rgba(234, 243, 255, 0) 98.97%
+  );
+}
+
+.orange-gradient {
+  background: linear-gradient(90deg, #faad98 0%, #f88478 100%);
+}
+
+.blue-gradient {
+  /* Linear */
+  background: linear-gradient(270deg, #5e94cd 0%, #81b3e3 100%);
+  border-radius: 30px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -41,72 +56,35 @@
   }
 }
 
+/* fonts */
+@import url("https://fonts.googleapis.com/css?family=DM+Sans&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
 
-
-/* for the burger menu */
-/* Position and sizing of burger button */
-.bm-burger-button {
-  position: fixed;
-  width: 36px;
-  height: 30px;
-  left: 36px;
-  top: 36px;
+.font-dm-sans{
+  font-family: "DM Sans", sans-serif;
 }
 
-/* Color/shape of burger icon bars */
-.bm-burger-bars {
-  background: #373a47;
+.font-inter {
+  font-family: 'Inter', sans-serif;
 }
 
-/* Color/shape of burger icon bars on hover*/
-.bm-burger-bars-hover {
-  background: #a90000;
+.font-dm-sans-h1 {
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 56px;
+  line-height: 64px;
+  /* or 114% */
+  letter-spacing: 0.01em;
 }
 
-/* Position and sizing of clickable cross button */
-.bm-cross-button {
-  height: 24px;
-  width: 24px;
-}
+.font-inter-p {
+  font-family: 'Inter', sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 21px;
+  line-height: 31px;
+  /* or 148% */
 
-/* Color/shape of close button cross */
-.bm-cross {
-  background: #bdc3c7;
-}
-
-/*
-Sidebar wrapper styles
-Note: Beware of modifying this element as it can break the animations - you should not need to touch it in most cases
-*/
-.bm-menu-wrap {
-  position: fixed;
-  height: 100%;
-}
-
-/* General sidebar styles */
-.bm-menu {
-  background: #373a47;
-  padding: 2.5em 1.5em 0;
-  font-size: 1.15em;
-}
-
-/* Morph shape necessary with bubble or elastic */
-.bm-morph-shape {
-  fill: #373a47;
-}
-
-/* Wrapper for item list */
-.bm-item-list {
-  color: #b8b7ad;
-  padding: 0.8em;
-}
-
-/* Individual item */
-.bm-item {
-  display: inline-block;
-}
-
-/* Styling of overlay */
-.bm-overlay {
-  background: rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.01em;
 }

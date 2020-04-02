@@ -16,6 +16,18 @@ module.exports = {
       black: "#000",
       white: "#fff",
 
+      /* changing this file you have to restart dev server => not so lässig */
+      figmaHead: "#146CC1",
+
+      figmaSubHead: "#5388C1",
+
+      figmaSectionHead: "#F47766",
+      
+      figmaMenu: "#1661AA", 
+
+      figmaParagraph: "#577095",
+
+
       gray: {
         100: "#f7fafc",
         200: "#edf2f7",
