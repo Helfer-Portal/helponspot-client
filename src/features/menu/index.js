@@ -2,6 +2,7 @@ import React from "react";
 import MenuLink from "./components/MenuLink";
 
 
+
 /**
  * Top Menu bar
  */
@@ -14,7 +15,8 @@ export default function Menu() {
                 class="toggleColour text-white no-underline hover:no-underline font-bold text-4xl"
                 href="#"
               >
-                Logo
+                  <img src={require("../../assets/komb_bildwortmarke_1.png")}/>
+
               </a>
             </div>
 
