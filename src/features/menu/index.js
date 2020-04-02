@@ -8,7 +8,8 @@ import MenuLink from "./components/MenuLink";
  */
 export default function Menu() {
     return(
-        <nav id="header" class="fixed w-full z-30 top-0 text-white">
+        <nav id="header" class=" w-full z-30 top-0 text-white">
+          {/* if header should move with scroll : change position to fixed */}
           <div class="w-full container mx-auto flex flex-wrap items-center justify-between mt-0 py-2">
             <div class="pl-4 flex items-center">
               <a
