@@ -1,27 +1,28 @@
 import React from "react";
+import ButtonBlue from "../../../components/ButtonBlue";
 // import "../../App.css";
 
-const sectionTitle = "Unique Selling Points";
+const sectionTitle = "Das macht uns einzigartig.";
 
 const data = [
   {
-    title: "Test",
-    subTitle: "gibt es dafür kein Framework?",
+    title: "Schnell, effizient, kein unnötiger KrimsKrams.",
+    subTitle: "Keine Einstiegshürden.",
     paragraph:
-      "langer Text a;sdlkfj;alsdkfj;lasdkjf;laskdjf;alskdjfasjdfasdfwuiedfhqwiuyerfiuqhrwgiauwehrfiuwehigofuqwhreiuhgqiuehtiuqwe"
+      "In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. "
   },
   {
-    title: "Test",
-    subTitle: "gibt es dafür kein Framework?",
+    title: "Schnell, effizient, kein unnötiger KrimsKrams.",
+    subTitle: "Keine Einstiegshürden.",
     paragraph:
-      "langer Text a;sdlkfj;alsdkfj;lasdkjf;laskdjf;alskdjfasjdfasdfwuiedfhqwiuyerfiuqhrwgiauwehrfiuwehigofuqwhreiuhgqiuehtiuqwe"
+      "In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. "
   },
   {
-    title: "Test",
-    subTitle: "gibt es dafür kein Framework?",
+    title: "Schnell, effizient, kein unnötiger KrimsKrams.",
+    subTitle: "Keine Einstiegshürden.",
     paragraph:
-      "langer Text a;sdlkfj;alsdkfj;lasdkjf;laskdjf;alskdjfasjdfasdfwuiedfhqwiuyerfiuqhrwgiauwehrfiuwehigofuqwhreiuhgqiuehtiuqwe"
-  }
+      "In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. "
+  },
 ];
 
 /** returns the unique selling point component */
@@ -39,23 +40,23 @@ export default function Usps() {
             href="#"
             className="flex flex-wrap no-underline hover:no-underline"
           >
-            <p className="w-full text-gray-600 text-xs md:text-sm px-6">
+            <p className="w-full text-figmaSubHead font-inter text-xs md:text-sm px-6">
               {subTitle}
             </p>
-            <div className="w-full font-bold text-xl text-gray-800 px-6">
+            <div className="w-full text-figmaSectionHead font-dm-sans font-bold text-xl px-6">
               {title}
             </div>
-            <p className="text-gray-800 text-base px-6 mb-5">{paragraph}</p>
+            <p className="text-figmaParagraph font-inter text-base px-6 mb-5">{paragraph}</p>
           </a>
         </div>
         <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
           <div className="flex items-center justify-start">
-            <button
+            <ButtonBlue
               onClick={callback}
               className="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
             >
-              Action
-            </button>
+              registrieren
+            </ButtonBlue>
           </div>
         </div>
       </div>
@@ -65,7 +66,7 @@ export default function Usps() {
     <div className="Usps">
       <section className="bg-white border-b py-8">
         <div className="container mx-auto flex flex-wrap pt-4 pb-12">
-          <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
+          <h1 className="w-full text-figmaHead font-dm-sans-h1 my-2 text-5xl font-bold leading-tight text-center">
             {sectionTitle}
           </h1>
           <div className="w-full mb-4">

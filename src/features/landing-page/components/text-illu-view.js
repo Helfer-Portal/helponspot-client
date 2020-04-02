@@ -2,20 +2,22 @@ import React from "react";
 import SingleTextIlluView from "./single-text-illy";
 // import "./App.css";
 
+const sectionTitle = "Wir sind da für ...";
+
 const data = [
   {
-    title: "First Feature ",
+    title: "Helfer, Macher, Anpacker.",
     p:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent dui est, feugiat id purus eu, interdum pretium nisi. Vivamus vestibulum convallis augue, vel sagittis lectus tincidunt id. Morbi consectetur ornare neque, placerat blandit erat vulputate sed. Praesent viverra ex vitae augue eleifend, non imperdiet mauris cursus. In commodo fermentum mi ac venenatis. Quisque leo arcu, , eget placerat elit luctus id.",
+      "In schwierigen SituationenIn schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. Wenn’s drauf ankommt hilft jede helfende Hand.",
     illustration: SVG1,
-    right: false
+    right: true,
   },
   {
-    title: "Second Feature ",
+    title: "Organisationen, Vereine, Hilfesuchende.",
     p:
-      "Lorem ipsum dolor sit amet, onvallis augue, vel sagittis lectus tincidunt id. Morbi consectetur ornare neque, placerat blandit erat vulputate sed. Praesent viverra ex vitae augue eleifend, non imperdiet mauris cursus. In commodo fermentum mi ac venenatis. Quisque leo arcu, tempus a odio iaculis, mollis eleifend urna. Pellentesque id sagittis ipsum. Sed bibendum diam sed commodo facilisis. Ind Maecenas tincidunt nulla eget tellus iaculis malesuada. Maecenas laoreet magna scelerisque quam imperdiet accumsan. Nullam vehicula feugiat ante, eget placerat elit luctus id.",
+      "In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. Wenn’s drauf ankommt hilft jede helfende Hand.",
     illustration: SVG2,
-    right: true
+    right: false
   }
 ];
 
@@ -62,12 +64,9 @@ export default function TextIlluView() {
 
       <section class="bg-white border-b py-8">
         <div class="container max-w-5xl mx-auto m-8">
-          <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-gray-800">
-            Title
+          <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-figmaHead font-dm-sans-h1">
+            {sectionTitle}
           </h1>
-          <div class="w-full mb-4">
-            <div class="h-1 mx-auto gradient w-64 opacity-25 my-0 py-0 rounded-t"></div>
-          </div>
 
           {data.map(el => {
             return (

@@ -1,6 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import Button from "../../../components/Button"
+import ButtonOrange from "../../../components/ButtonOrange"
 
 // export interface Props {
 //     to: string,
