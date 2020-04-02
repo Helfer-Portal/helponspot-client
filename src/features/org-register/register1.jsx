@@ -6,7 +6,6 @@ import "./register1.css";
 
 export default function OrgRegister() {
     return(
-        //<br/> are for distance to Menu, otherwise overlap
         <div>
             <br/>
             <br/>
