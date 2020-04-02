@@ -5,7 +5,7 @@ export default class QuestionWithLabel extends Component {
     return (
         <div>
           <overline className="first">{this.props.label}</overline>
-          <h1 className="question">{this.props.question}</h1>
+          <h1 className="question font-dm-sans-h1">{this.props.question}</h1>
         </div>
     )
   }

@@ -6,7 +6,7 @@ export default class ButtonWithLink extends Component {
   render() {
     return (
         <Link to={this.props.link}>
-          <ButtonOrange children={this.props.children}/>
+          <ButtonOrange className={this.props.className} children={this.props.children}/>
         </Link>
     )
   }
