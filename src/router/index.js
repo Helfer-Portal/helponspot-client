@@ -7,6 +7,7 @@ import Menu from "../features/menu/index.js";
 import LandingPage from "../features/landing-page/index.js";
 import OrgRegister1 from "../features/org-register/register1.jsx";
 import OrgRegister2 from "../features/org-register/register2.jsx";
+import NewAnzeige from "../features/org-register/newAnzeige.jsx";
 
 export default function RootRouter() {
   const showSettings = event => {
@@ -30,6 +31,9 @@ export default function RootRouter() {
             </Route>
             <Route path="/org-register2">
               <OrgRegister2 />
+            </Route>
+            <Route path="/org-register3">
+              <NewAnzeige />
             </Route>
 
           </div>
