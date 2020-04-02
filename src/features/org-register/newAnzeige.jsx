@@ -24,6 +24,7 @@ export default function NewAnzeige() {
       <div className="w-full flex" class="container-helper-numbers">
         <div>
           <Circle image="/minus.png" />
+          <div class="number"> 5 </div>
           <Circle image="/plus.png" />
         </div>
         <div>
@@ -40,7 +41,6 @@ export default function NewAnzeige() {
 
       <div>
         <div className="mb-3 text-figmaDescription font-inter">Beschreibung</div>
-
         <div>
           <input type="text" placeholder="Wir suchen Menschen, die..."></input>
         </div>
