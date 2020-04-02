@@ -25,8 +25,8 @@ export default function RootRouter() {
             <Route path="/ueber-uns">
               <About />
             </Route>
-            <Route path="/org-register">
-              <OrgRegister />
+            <Route exact path="/org-register">
+              <OrgRegister/>
             </Route>
             <Route path="/org-register2">
               <OrgRegister2 />
