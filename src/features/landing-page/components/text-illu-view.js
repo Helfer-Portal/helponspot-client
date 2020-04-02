@@ -86,14 +86,14 @@ export default function TextIlluView() {
 
 function img1(){
   return <img
-      className="w-full md:w-4/5 z-50"
+      className="w-full md  md:w-3/5 z-50"
       src={require("../../../assets/super_dad_1.png")}
   />
 
 }
 function img2(){
   return <img
-      className="w-full md:w-4/5 z-50"
+      className="w-full md:w-3/5 z-50"
       src={require("../../../assets/team_work_1.png")}
   />
 
