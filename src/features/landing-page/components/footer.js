@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 export default function Footer() {
   return (
@@ -17,7 +18,7 @@ export default function Footer() {
                   href="#"
                   class="no-underline hover:underline text-gray-800 hover:text-orange-500"
                 >
-                  FAQ
+
                 </a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
@@ -25,7 +26,7 @@ export default function Footer() {
                   href="#"
                   class="no-underline hover:underline text-gray-800 hover:text-orange-500"
                 >
-                  Help
+
                 </a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
@@ -33,7 +34,7 @@ export default function Footer() {
                   href="#"
                   class="no-underline hover:underline text-gray-800 hover:text-orange-500"
                 >
-                  Support
+
                 </a>
               </li>
             </ul>
@@ -46,7 +47,7 @@ export default function Footer() {
                   href="#"
                   class="no-underline hover:underline text-gray-800 hover:text-orange-500"
                 >
-                  Terms
+
                 </a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
@@ -54,7 +55,7 @@ export default function Footer() {
                   href="#"
                   class="no-underline hover:underline text-gray-800 hover:text-orange-500"
                 >
-                  Privacy
+
                 </a>
               </li>
             </ul>
@@ -67,7 +68,7 @@ export default function Footer() {
                   href="#"
                   class="no-underline hover:underline text-gray-800 hover:text-orange-500"
                 >
-                  Facebook
+
                 </a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
@@ -75,7 +76,7 @@ export default function Footer() {
                   href="#"
                   class="no-underline hover:underline text-gray-800 hover:text-orange-500"
                 >
-                  Linkedin
+
                 </a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
@@ -83,7 +84,6 @@ export default function Footer() {
                   href="#"
                   class="no-underline hover:underline text-gray-800 hover:text-orange-500"
                 >
-                  Twitter
                 </a>
               </li>
             </ul>
@@ -96,7 +96,15 @@ export default function Footer() {
                   href="#"
                   class="no-underline hover:underline text-gray-800 hover:text-orange-500"
                 >
-                  Official Blog
+
+                </a>
+              </li>
+              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
+                <a
+                  href="/Ueber-uns"
+                  class="no-underline hover:underline text-gray-800 hover:text-orange-500"
+                >
+                  Über uns
                 </a>
               </li>
               <li class="mt-2 inline-block mr-2 md:block md:mr-0">
@@ -104,15 +112,7 @@ export default function Footer() {
                   href="#"
                   class="no-underline hover:underline text-gray-800 hover:text-orange-500"
                 >
-                  About Us
-                </a>
-              </li>
-              <li class="mt-2 inline-block mr-2 md:block md:mr-0">
-                <a
-                  href="#"
-                  class="no-underline hover:underline text-gray-800 hover:text-orange-500"
-                >
-                  Contact
+
                 </a>
               </li>
             </ul>
