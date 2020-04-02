@@ -8,12 +8,11 @@
 
 
 }
-.container-options {
-    margin-left:30px ;
+.container-helper-numbers {
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: left;
+    align-items: center;
 
 
 }
@@ -64,4 +63,17 @@
     float: left;
     width: 40px;
     height: 40px;
+}
+
+.unlimited {
+    margin-left: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 20px;
+    background: linear-gradient(270deg, #5E94CD 0%, #81B3E3 100%);
+    width: auto;
+    height: auto;
+}
+#lastquestion {
+    margin-top: 10px;
 }

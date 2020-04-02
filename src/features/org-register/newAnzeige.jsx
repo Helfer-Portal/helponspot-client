@@ -27,9 +27,7 @@ export default function NewAnzeige() {
           <div class="number"> 5 </div>
           <Circle image="/plus.png" />
         </div>
-        <div>
-          <button>unbegrenzt</button>
-        </div>
+          <button class="unlimited">unbegrenzt</button>
       </div>
 
       <div className="w-full flex flex-col">
@@ -38,14 +36,9 @@ export default function NewAnzeige() {
           <input type="date"></input>
         </div>
       </div>
-
-      <div>
-        <div className="mb-3 text-figmaDescription font-inter">Beschreibung</div>
-        <div>
-          <input type="text" placeholder="Wir suchen Menschen, die..."></input>
+        <div id="lastquestion">
+        <InputWithLabel fname="Titel" label="Beschreibung" />
         </div>
-      </div>
-
       <ButtonOrange>Anzeige erstellen</ButtonOrange>
     </FullHeightLayout>
   );
