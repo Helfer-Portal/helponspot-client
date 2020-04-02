@@ -52,3 +52,16 @@
     /* #558E9D */
     color: #146CC1;
 }
+
+.number {
+    display: block;
+    padding-top: 5px;
+    text-align: center;
+    align-content: center;
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+    float: left;
+    width: 40px;
+    height: 40px;
+}
