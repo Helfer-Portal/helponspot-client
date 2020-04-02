@@ -1,17 +1,54 @@
 import React from "react";
 import QuestionWithLabel from "../../components/QuestionWithLabel";
-import InputWithLabel from "../../components/InputWithLabel";
 import Circle from "../../components/Circle";
 import "./register1.css";
 import FullHeightLayout from "./components/full-height-layout";
 import Competences from "./components/competences";
-import ButtonOrange from "../../components/ButtonOrange";
+import { ReqContext } from "../../context/mock-requests";
+import { Redirect } from "react-router-dom";
 
 export default function NewAnzeige() {
+  let [redirect, setRedirect] = React.useState(false);
+
+  let [data, setData] = React.useContext(ReqContext);
+
+  let [title, setTitle] = React.useState("");
+  let [date, setDate] = React.useState("");
+
+  const updateTitle = e => {
+    setTitle(e.target.value);
+  };
+
+  const updateDate = e => {
+    setDate(e.target.value);
+  };
+
+  const addData = e => {
+    e.preventDefault();
+    setData(prevData => [
+      ...prevData,
+      {
+        title: title,
+        timeLast: Math.floor(Math.random() * 10) + "2 Tage",
+        reqHelpers: Math.floor(Math.random() * 10),
+        confirmed: Math.floor(Math.random() * 10),
+        denied: 0,
+        open: 0
+      }
+    ]);
+    setRedirect(true);
+  };
+
   return (
     <FullHeightLayout>
       <QuestionWithLabel question="Anzeige erstellen" label="Schritt 3 von 3" />
-      <InputWithLabel fname="Titel" label="Titel" />
+      <div>
+        <overline className="label font-inter text-figmaDescription">
+          Title
+        </overline>
+        <input type="text" name="name" value={title} onChange={updateTitle} />
+      </div>
+
       <div className="my-3 flex flex-col align-start">
         <div className="mb-3 text-figmaDescription font-inter">
           Gesuchte Kompetenzen
@@ -39,14 +76,18 @@ export default function NewAnzeige() {
       </div>
 
       <div>
-        <div className="mb-3 text-figmaDescription font-inter">Beschreibung</div>
+        <div className="mb-3 text-figmaDescription font-inter">
+          Beschreibung
+        </div>
 
         <div>
           <input type="text" placeholder="Wir suchen Menschen, die..."></input>
         </div>
       </div>
 
-      <ButtonOrange>Anzeige erstellen</ButtonOrange>
+      <button onClick={addData}>Anzeige erstellen</button>
+
+      {redirect ? <Redirect to="/all-news"></Redirect> : ""}
     </FullHeightLayout>
   );
 }
