@@ -31,7 +31,7 @@ export default function Menu() {
                   <MenuLink to="ueber-uns">Über uns</MenuLink>
                 </li>
                 <li class="mr-3">
-                  <MenuLink to="org-register">Register</MenuLink>
+                  <MenuLink to="org-register1">Register</MenuLink>
                 </li>
               </ul>
               

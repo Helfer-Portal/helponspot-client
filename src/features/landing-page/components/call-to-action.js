@@ -19,7 +19,7 @@ export default function CallToAction() {
           </p>
 
           <ButtonOrange>
-            <Link to="org-register">registrieren</Link>
+            <Link to="org-register1">registrieren</Link>
           </ButtonOrange>
         </div>
 
