@@ -4,6 +4,7 @@ import QuestionWithLabel from "../../components/QuestionWithLabel";
 import InputWithLabel from "../../components/InputWithLabel";
 import "./register1.css";
 import FullHeightLayout from "./components/full-height-layout";
+import ButtonWithLink from "../../components/ButtonWithLink";
 
 export default function OrgRegister2() {
   return (
@@ -15,7 +16,7 @@ export default function OrgRegister2() {
       <InputWithLabel fname="orglocation" label="Standort" />
       <div>
         <ButtonOrange>Zurück</ButtonOrange>
-        <ButtonOrange children="Weiter" />
+        <ButtonWithLink link={'org-register4'}>Weiter</ButtonWithLink>
       </div>
     </FullHeightLayout>
   );

@@ -8,6 +8,7 @@ import AboutUs from "../features/about-us/index.js";
 import LandingPage from "../features/landing-page/index.js";
 import OrgRegister1 from "../features/org-register/register1.jsx";
 import OrgRegister2 from "../features/org-register/register2.jsx";
+import RegChooseType from "../features/org-register/reg-choose-org-help";
 import NewAnzeige from "../features/org-register/newAnzeige.jsx";
 
 export default function RootRouter() {
@@ -28,15 +29,17 @@ export default function RootRouter() {
               <AboutUs />
             </Route>
             <Route exact path="/org-register1">
-              <OrgRegister1/>
+              <RegChooseType/>
             </Route>
             <Route path="/org-register2">
-              <OrgRegister2 />
+              <OrgRegister1 />
             </Route>
             <Route path="/org-register3">
+              <OrgRegister2 />
+            </Route>
+            <Route path="/org-register4">
               <NewAnzeige />
             </Route>
-
           </div>
         </Switch>
       </div>

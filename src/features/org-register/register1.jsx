@@ -15,7 +15,7 @@ export default function OrgRegister() {
       <InputWithLabel fname="orgname" label="Name" />
       <div>
         <ButtonWithLink children="Zurück" link="/" />
-        <ButtonWithLink children="Weiter" link="/org-register2" />
+        <ButtonWithLink children="Weiter" link="/org-register3" />
       </div>
     </FullHeightLayout>
   );
