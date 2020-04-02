@@ -23,8 +23,8 @@ export default function NewAnzeige() {
 
       <div className="w-full flex" class="container-helper-numbers">
         <div>
-          <Circle image={require("../../assets/hero.png")} />
-          <Circle image={require("../../assets/hero.png")} />
+          <Circle image="/minus.png" />
+          <Circle image="/plus.png" />
         </div>
         <div>
           <button>unbegrenzt</button>
