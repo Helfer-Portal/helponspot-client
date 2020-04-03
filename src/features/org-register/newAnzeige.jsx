@@ -26,7 +26,6 @@ export default function NewAnzeige() {
   const addData = e => {
     e.preventDefault();
     setData(prevData => [
-      ...prevData,
       {
         title: title,
         timeLast: Math.floor(Math.random() * 10) + "2 Tage",
@@ -34,7 +33,7 @@ export default function NewAnzeige() {
         confirmed: Math.floor(Math.random() * 10),
         denied: 0,
         open: 0
-      }
+      }, ...prevData
     ]);
     setRedirect(true);
   };

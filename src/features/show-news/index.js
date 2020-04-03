@@ -37,9 +37,9 @@ export default function ShowNews() {
         <div>
           <Reactions reactNum={12} />
         </div>
-        {data.map(el => {
-          return <OpenRequest {...el} />;
-        })}
+          {data.map(el => {
+            return <OpenRequest {...el} />;
+          })}
       </FullHeightLayout>
     </ReqProvider>
   );
