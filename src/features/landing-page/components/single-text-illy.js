@@ -9,8 +9,8 @@ export default function SingleTextIlluView(props) {
   if (props.right === true) {
     return (
       <div>
-        <div class="flex flex-wrap">
-          <div class="w-5/6 sm:w-1/2 p-6">
+        <div class="flex flex-wrap py-6 px-3">
+          <div class="w-5/6 sm:w-1/2 pr-6">
             <h3 class="text-3xl text-figmaSectionHead font-dm-sans font-bold leading-none mb-3">
               {props.title}
             </h3>

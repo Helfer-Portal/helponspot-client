@@ -9,37 +9,47 @@ const speechBubbles = [
   {
     title: "Das Problem",
     p:
-      " In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. Wenn’s drauf ankommt hilft jede helfende Hand."
+
+      "Durch Krisen kommen Gesundheitssysteme und andere versorgungsrelevante Bereiche an die Grenzen ihrer Kapazitäten. Insbesondere für das Personal wird dann zeitnah Unterstützung benötigt. " +
+        "Doch bisher haben die Institutionen wenig Möglichkeiten, schnell und unkompliziert Helfer:innen zu finden und zu kontaktieren. Gleichzeitig wollen die Menschen zwar ihren Beitrag leisten, fühlen sich aber häufig nutzlos, wenn sie gar nicht oder nur ineffizient als Helfende vermittelt werden.\n"
   },
   {
     title: "Unsere Lösung",
     p:
-      "In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. Wenn’s drauf ankommt hilft jede helfende Hand."
+      "Help-On-Spot ist die zentrale Anlaufstelle, um Helfende gemäß ihrer Kompetenzen und der Anforderungen der Institutionen zu vermitteln. Die hilfesuchenden Institutionen können dann über Help-on-Spot in Echtzeit die Anzahl der verfügbaren Hilfskräfte einsehen, entsprechend der benötigten Tätigkeiten und Qualifikationen filtern, und sie direkt über die App kontaktieren.\n"
   }
 ];
 
-const descriptionsHeadline = "Und noch mehr Beschreibung";
+const descriptionsHeadlines = ["Für wen wurde Help-On-Spot entwickelt?", "Wer ist das Team hinter Help-On-Spot?\n", ];
 
 const descriptions = [
   {
-    title: "Organisationen, Vereine, Hilfesuchende.",
+    title: "Institutionen, die Unterstützung brauchen, um eine funktionierende Infrastruktur zu gewährleisten\n",
     p:
-      "In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. Wenn’s drauf ankommt hilft jede helfende Hand."
+
+
+      "Hilfsorganisationen\n" +
+        "Institutionen des Gesundheitswesens\n" +
+        "Pflege (z.B. Pflegeeinrichtungen, ambulante Pflegedienste, betreutes Wohnen)\n" +
+        "Medizin (z.B. Krankenhäuser, Rettungsdienste, Corona-Teststellen, Apotheken)\n" +
+        "Verwaltung und Öffentlicher Dienst\n" +
+        "Systemrelevante Infrastruktur\n"
   },
   {
-    title: "Organisationen, Vereine, Hilfesuchende.",
+    title: "Helfende, die sich in Krisensituationen engagieren möchten",
     p:
-      "In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. Wenn’s drauf ankommt hilft jede helfende Hand."
+        "Jeder in Bevölkerung, der helfen möchte, kann sich registrieren. Medizinische Vorkenntnisse sind nicht nötig, um in einer Krise einen Beitrag zu leisten, im Gegenteil - jede helfende Hand kann einen Teil dazu beitragen, die Versorgung der Menschen aufrecht zu erhalten.\n"
   },
   {
-    title: "Organisationen, Vereine, Hilfesuchende.",
+    title: "Wie alles begann?",
     p:
-      "In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. Wenn’s drauf ankommt hilft jede helfende Hand."
+      "Während des WirVsVirus-Hackathons der Bundesregierung vom 20.-22. April 2020 entstand eine erste Version von Help-On-Spot. Seitdem haben wir uns mit anderen Initiativen zusammengeschlossen, um ein zentrale Plattform zu entwickeln und wirklich einen gesellschaftlichen Mehrwert zu schaffen. Wir sind ein großes Team aus Entwicklern, Designern, Strategen, Projektmanagern und Kommunikationsexperten aus verschiedenen Branchen und mit unterschiedlichem beruflichen Background. Zusammen verfügen wir also über alle notwendigen Kompetenzen, um Help-On-Spot auch langfristig immer weiter zu entwickeln und anzupassen.\n"
   },
+
   {
-    title: "Organisationen, Vereine, Hilfesuchende.",
+    title: "Was zeichnet uns aus?",
     p:
-      "In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. Wenn’s drauf ankommt hilft jede helfende Hand."
+      "Gerade in Krisensituationen halten die Menschen zusammen, sowohl wir im Team hinter Help-On-Spot als auch in der Gesamtbevölkerung. Deshalb möchten wir mit Help-On-Spot eine Plattform zur Verfügung stellen, die genau diesen Zusammenhalt auch dann ermöglicht, wenn es um die Aufrechterhaltung der systemrelevanten Versorgungsstrukturen geht. Für dieses Ziel werden wir immer weiter arbeiten und Help-On-Spot immer weiter verbessern.\n"
   }
 ];
 
@@ -54,10 +64,9 @@ export default function AboutUs(props) {
         </div>
         <div className="flex w-1/2 ">
           <p class="leading-normal text-figmaParagraph font-inter">
-            HelpOn Spot ist die zentrale Anlaufstelle für Hilfesuchende und
-            Helfer. Eine einfache, intuitive Bedienung sowie geringe
-            Einstiegshürden ermöglichen eine schnelle Reaktion, wenn’s drauf
-            ankommt.
+            Help-On-Spot ist eine praktische Lösung, um Menschen und Institutionen im Umgang mit Krisen zu helfen.
+            Indem engagierte Hilfskräfte schnell und unkompliziert genau dorthin vermittelt werden, wo man Unterstützung braucht,
+            wird personellen Versorgungsengpässen entgegengewirkt.
           </p>
         </div>
       </div>
@@ -72,8 +81,9 @@ export default function AboutUs(props) {
       </div>
 
       <div className="container px-3 mx-auto flex-col flex-wrap items-center ">
-        <div className="mb-8 flex  text-center">
-          <h1 className="my-4 text-lg leading-tight text-figmaHead font-dm-sans-h1">{descriptionsHeadline}</h1>
+        <div className="mb-8 flex flex-row text-center flex-custom">
+          <h1 className="my-4 w-1/2 text-lg leading-tight text-figmaHead font-dm-sans-h2 pr-3">{descriptionsHeadlines[0]}</h1>
+          <h1 className="my-4 w-1/2 text-lg leading-tight text-figmaHead font-dm-sans-h2"pl-3>{descriptionsHeadlines[1]}</h1>
         </div>
 
         <div className="px-3 flex flex-row">
@@ -82,7 +92,7 @@ export default function AboutUs(props) {
               <ShortP title={descriptions[0].title} p={descriptions[0].p} />
             </div>
             <div>
-              <ShortP title={descriptions[1].title} p={descriptions[2].p} />
+              <ShortP title={descriptions[1].title} p={descriptions[1].p} />
             </div>
           </div>
 

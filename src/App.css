@@ -77,6 +77,19 @@
   /* or 114% */
   letter-spacing: 0.01em;
 }
+.font-dm-sans-h2 {
+  font-family: "DM Sans", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 40px;
+  line-height: 64px;
+  /* or 114% */
+  letter-spacing: 0.01em;
+  margin-right: 20px;
+}
+
+
+
 
 .font-inter-p {
   font-family: 'Inter', sans-serif;
