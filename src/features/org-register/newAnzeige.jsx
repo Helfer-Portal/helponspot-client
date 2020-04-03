@@ -49,7 +49,7 @@ export default function NewAnzeige() {
         <input type="text" name="name" value={title} onChange={updateTitle} />
       </div>
 
-      <div className="my-3 flex flex-col align-start py-3">
+      <div className="my-3 flex flex-col align-start py-2">
         <div className="mb-3 text-figmaDescription font-inter">
           Gesuchte Kompetenzen
         </div>
@@ -58,7 +58,7 @@ export default function NewAnzeige() {
         </div>
       </div>
 
-      <div className="flex flex-col py-3" >
+      <div className="flex flex-col py-2" >
         <overline className="label font-inter text-figmaDescription">
           Helferzahl
         </overline>
@@ -71,15 +71,15 @@ export default function NewAnzeige() {
           <button class="unlimited">unbegrenzt</button>
       </div>
       </div>
-      <div className="w-full flex flex-col py-6">
-        <div className="mb-3 text-figmaDescription font-inter">Zeitraum</div>
+      <div className="w-full flex flex-col py-2">
+        <div className="mb-1 text-figmaDescription font-inter">Zeitraum</div>
         <div>
           <input type="date"></input>
         </div>
       </div>
 
-      <div>
-        <div className="mb-3 text-figmaDescription font-inter">
+      <div className="py-2">
+        <div className="mb-1 text-figmaDescription font-inter">
           Beschreibung
         </div>
 
