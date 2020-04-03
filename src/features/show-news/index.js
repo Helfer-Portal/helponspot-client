@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import FullHeightLayout from "../org-register/components/full-height-layout";
+import FullHeightLayoutNoFooter from "../org-register/components/full-height-layout-no-footer";
 import Reactions from "./components/reactions";
 import OpenRequest from "./components/open-request";
 import ReqProvider, { ReqContext } from "../../context/mock-requests";
@@ -27,7 +27,7 @@ export default function ShowNews() {
   const [data, setData] = useContext(ReqContext);
   return (
     <ReqProvider>
-      <FullHeightLayout>
+      <FullHeightLayoutNoFooter>
         <div>
           <h1 className="question font-dm-sans-h1">
             Hi DRK Berlin, das gibt's Neues.
@@ -40,7 +40,7 @@ export default function ShowNews() {
         {data.map(el => {
           return <OpenRequest {...el} />;
         })}
-      </FullHeightLayout>
+      </FullHeightLayoutNoFooter>
     </ReqProvider>
   );
 }
