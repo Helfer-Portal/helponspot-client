@@ -73,7 +73,6 @@ export default function NewAnzeige() {
           <input type="date"></input>
         </div>
       </div>
-<<<<<<< HEAD
 
       <div>
         <div className="mb-3 text-figmaDescription font-inter">
@@ -88,12 +87,6 @@ export default function NewAnzeige() {
       <button onClick={addData}>Anzeige erstellen</button>
 
       {redirect ? <Redirect to="/all-news"></Redirect> : ""}
-=======
-        <div id="lastquestion">
-        <InputWithLabel fname="Titel" label="Beschreibung" />
-        </div>
-      <ButtonOrange>Anzeige erstellen</ButtonOrange>
->>>>>>> 40ff002df98b4d080803264e66081c803216db1d
     </FullHeightLayout>
   );
 }
