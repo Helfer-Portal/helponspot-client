@@ -88,7 +88,8 @@ export default function NewAnzeige() {
         </div>
       </div>
 
-      <button onClick={addData}>Anzeige erstellen</button>
+      <button className="mr-auto lg:mx-0 hover:underline orange-gradient text-white font-bold font-inter rounded-full my-2 py-4 px-8 shadow-lg"
+          onClick={addData}>Anzeige erstellen</button>
 
       {redirect ? <Redirect to="/all-news"></Redirect> : ""}
     </FullHeightLayout>
