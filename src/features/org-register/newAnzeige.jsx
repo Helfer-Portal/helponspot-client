@@ -42,7 +42,7 @@ export default function NewAnzeige() {
         title: title,
         timeLast: dateDiff ? dateDiff + " Tage" : "5 Tage",
         reqHelpers: count,
-        confirmed: Math.floor(Math.random() * count),
+        confirmed: Math.abs(Math.floor(Math.random() * count)),
         denied: 0,
         open: 0
       },
