@@ -13,7 +13,7 @@ export default function CallToAction() {
           </h1>
           <p class="leading-normal text-figmaParagraph font-inter-p">
             Wenn Zeit und Personal knapp sind, ist schnelle und unkomplizierte Unterstützung gefragt.
-            Help-On-Spot ist in diesen Situationen die zentrale Anlaufstelle, um qualifizierte Hilfskräfte in der Nähe sichtbar zu machen
+            HelpOnSpot ist in diesen Situationen die zentrale Anlaufstelle, um qualifizierte Hilfskräfte in der Nähe sichtbar zu machen
             und ihre schnelle Mobilisierung zu ermöglichen!
           </p>
 
