@@ -7,7 +7,7 @@ export default function CallToAction() {
   return (
     <div class="pt-24">
       <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
-        <div class="flex flex-col w-full md:w-3/5 justify-center items-start md:text-left">
+        <div class="flex flex-col w-full md:w-1/2 justify-center items-start md:text-left">
           <h1 class="my-4 text-lg leading-tight text-figmaHead font-dm-sans-h1">
             Unterstützung finden, wenn sie gebraucht wird
           </h1>
@@ -20,11 +20,18 @@ export default function CallToAction() {
           <ButtonOrange>
             <Link to="org-register1">registrieren</Link>
           </ButtonOrange>
+
+
+          <img
+              className="w-full md:w-2/5 z-50 md:mt-16"
+              src={require("../../../assets/hacklogoporjekt.webp")}
+          />
+
         </div>
 
-        <div class="w-full md:w-2/5 py-6 text-center">
+        <div class="w-full h-full md:w-1/2 py-6 text-center md:mt-auto">
           <img
-            class="w-full md:w-4/5 z-50"
+            class="w-full md:w-5/5 z-50 mt-auto"
             src={require("../../../assets/mobile_testing_1.png")}
           />
         </div>
