@@ -6,22 +6,25 @@ const sectionTitle = "Das macht uns einzigartig.";
 
 const data = [
   {
-    title: "Schnell, effizient, kein unnötiger KrimsKrams.",
+    title: "Schnell, effizient, einfach",
     subTitle: "Keine Einstiegshürden.",
     paragraph:
-      "In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. "
+        "Sowohl für die Hilfesuchenden als auch für die Hilfskräfte ist die Registrierung sehr unkompliziert." +
+        " Außerdem können nicht nur medizinisch qualifizierte, sondern auch nicht-qualifizierte Helfer:innen über die App angefragt werden.\n"
   },
   {
-    title: "Schnell, effizient, kein unnötiger KrimsKrams.",
-    subTitle: "Keine Einstiegshürden.",
+    title: "Übersicht in Echtzeit",
+    subTitle: "Vernetzung und Koordination",
     paragraph:
-      "In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. "
+      "Interessierte Helfer:innen definieren ihre möglichen Einsatzgebiete und Fähigkeiten. Anhand dessen können Institutionen in Echtzeit" +
+        " die Anzahl der verfügbaren Hilfskräfte einsehen und entsprechend ihrer Bedürfnisse filtern und kontaktieren.\n"
   },
   {
-    title: "Schnell, effizient, kein unnötiger KrimsKrams.",
-    subTitle: "Keine Einstiegshürden.",
+    title: "Sicherstellung der Versorgung.",
+    subTitle: "Gesellschaftlicher Mehrwert",
     paragraph:
-      "In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. "
+      "Auf Seiten der Institutionen wird die schnelle und unkomplizierte Akquise von Helfer:innen ermöglicht, so dass das eigene Personal entlastet wird und die jeweiligen Kernaufgaben bewältigt werden können." +
+        " Das dient auf der anderen Seite wiederum direkt der Bevölkerung, da so die angemessene Versorgung der Menschen sichergestellt wird.\n"
   },
 ];
 

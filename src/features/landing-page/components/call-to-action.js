@@ -9,13 +9,12 @@ export default function CallToAction() {
       <div class="container px-3 mx-auto flex flex-wrap flex-col md:flex-row items-center">
         <div class="flex flex-col w-full md:w-3/5 justify-center items-start md:text-left">
           <h1 class="my-4 text-lg leading-tight text-figmaHead font-dm-sans-h1">
-            Bereit ein Stück weit die Welt zu retten?
+            Unterstützung finden, wenn sie gebraucht wird
           </h1>
           <p class="leading-normal text-figmaParagraph font-inter-p">
-            HelpOn Spot ist die zentrale Anlaufstelle für Hilfesuchende und
-            Helfer. Eine einfache, intuitive Bedienung sowie geringe
-            Einstiegshürden ermöglichen eine schnelle Reaktion, wenn’s drauf
-            ankommt.
+            Wenn Zeit und Personal knapp sind, ist schnelle und unkomplizierte Unterstützung gefragt.
+            Help-On-Spot ist in diesen Situationen die zentrale Anlaufstelle, um qualifizierte Hilfskräfte in der Nähe sichtbar zu machen
+            und ihre schnelle Mobilisierung zu ermöglichen!
           </p>
 
           <ButtonOrange>

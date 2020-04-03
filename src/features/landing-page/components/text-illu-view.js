@@ -6,16 +6,17 @@ const sectionTitle = "Wir sind da für ...";
 
 const data = [
   {
-    title: "Helfer, Macher, Anpacker.",
+    title: "Freiwillige, Engagierte, Motivierte",
     p:
-      "In schwierigen SituationenIn schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. Wenn’s drauf ankommt hilft jede helfende Hand.",
+      "In schwierigen Situationen sind alle aufeinander angewiesen und jede helfende Hand wird gebraucht. Jeder kann helfen, unabhängig von der Qualifikation.\n",
     illustration: img1,
     right: true,
   },
   {
     title: "Organisationen, Vereine, Hilfesuchende.",
     p:
-      "In schwierigen Situationen sind wir alle aufeinander angewiesen. Egal ob nur schleppen oder medizinische Qualifikation. Wenn’s drauf ankommt hilft jede helfende Hand.",
+      "In Krisenzeiten kommen Gesundheitssysteme an die Grenzen ihrer Kapazitäten. " +
+        "Insbesondere für ihr Personal brauchen Institutionen deshalb zeitnahe Unterstützung, sowohl im medizinischen, als auch im nicht-medizinischen Bereich.",
     illustration: img2,
     right: false
   }
