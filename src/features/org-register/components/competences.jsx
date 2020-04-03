@@ -9,8 +9,9 @@ const customStyles = {
     right: "auto",
     bottom: "auto",
     marginRight: "-50%",
-    transform: "translate(-50%, -50%)"
-  }
+    transform: "translate(-50%, -50%)",
+    background: "#EAF3FF",
+  },
 };
 
 const options_list = [
@@ -65,28 +66,46 @@ export default function Competences() {
         ))}
       </div>
       <div className="flex flex-row ">
-          <div onClick={openModal} className="w-8 rounded-full border-2 text-center align-center border-figmaMenu"> + </div>
-        <div className="underline font-inter text-figmaSubHead font-bold" onClick={openModal}>Kompetenzen hinzufügen</div>
+        <div
+          onClick={openModal}
+          className="w-8 rounded-full border-2 text-center align-center border-figmaMenu"
+        >
+          {" "}
+          +{" "}
+        </div>
+        <div
+          className="underline font-inter text-figmaSubHead font-bold"
+          onClick={openModal}
+        >
+          Kompetenzen hinzufügen
+        </div>
       </div>
       <Modal
         isOpen={modalIsOpen}
         contentLabel="Example Modal"
         style={customStyles}
       >
-        <button onClick={closeModal}>Abbrechen</button>
-        <div>Neue Kompetenz eingeben</div>
-        <form onSubmit={handleSubmit}>
-          <label>
-            Kompetenz
-            <input
-              type="text"
-              value={value}
-              onChange={handleChange}
-              placeholder={"Kompetenz"}
-            />
-          </label>
-          <input type="submit" value="Hinzufügen" />
-        </form>
+        <div className="p-4 flex flex-col">
+          
+          <div className="font-dm-sans font-bold">Neue Kompetenz eingeben</div>
+          <div className="p-4 flex flex-col">
+            <form className="gradient" onSubmit={handleSubmit}>
+              <label>
+                Kompetenz 
+                <input
+                  type="text"
+                  value={value}
+                  onChange={handleChange}
+                  placeholder={"Kompetenz"}
+                  className="m-4"
+                />
+              </label>
+              <br />
+              <button className="unlimited" onClick={closeModal}>Abbrechen</button>
+              <input className="unlimited" type="submit" value="Hinzufügen" />
+            </form>
+          </div>
+        </div>
       </Modal>
     </div>
   );
