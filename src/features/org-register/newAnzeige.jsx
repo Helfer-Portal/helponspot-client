@@ -77,14 +77,10 @@ export default function NewAnzeige() {
       </div>
 
       <div>
-<<<<<<< HEAD
         <div className="mb-3 text-figmaDescription font-inter">
           Beschreibung
         </div>
 
-=======
-        <div className="mb-3 text-figmaDescription font-inter">Beschreibung</div>
->>>>>>> 19a61fa204285538adfa7d5a38ebc3310376a60a
         <div>
           <input type="text" placeholder="Wir suchen Menschen, die..."></input>
         </div>

@@ -21,6 +21,7 @@ const mockData = [
 
 export const ReqContext = React.createContext();
 
+/** stores dummy data for help requests across pages */
 export default function ReqProvider(props)  {
   const [data, setData] = React.useState(mockData);
 
