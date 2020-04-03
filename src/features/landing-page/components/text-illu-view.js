@@ -13,7 +13,7 @@ const data = [
     right: true,
   },
   {
-    title: "Organisationen, Vereine, Hilfesuchende.",
+    title: "Organisationen, Vereine, Institutionen",
     p:
       "In Krisenzeiten kommen Gesundheitssysteme an die Grenzen ihrer Kapazitäten. " +
         "Insbesondere für ihr Personal brauchen Institutionen deshalb zeitnahe Unterstützung, sowohl im medizinischen, als auch im nicht-medizinischen Bereich.",

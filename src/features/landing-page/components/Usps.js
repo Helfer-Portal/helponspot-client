@@ -6,25 +6,30 @@ const sectionTitle = "Das macht uns einzigartig.";
 
 const data = [
   {
-    title: "Schnell, effizient, einfach",
-    subTitle: "Keine Einstiegshürden.",
-    paragraph:
-        "Sowohl für die Hilfesuchenden als auch für die Hilfskräfte ist die Registrierung sehr unkompliziert." +
-        " Außerdem können nicht nur medizinisch qualifizierte, sondern auch nicht-qualifizierte Helfer:innen über die App angefragt werden.\n"
-  },
-  {
     title: "Übersicht in Echtzeit",
     subTitle: "Vernetzung und Koordination",
     paragraph:
-      "Interessierte Helfer:innen definieren ihre möglichen Einsatzgebiete und Fähigkeiten. Anhand dessen können Institutionen in Echtzeit" +
-        " die Anzahl der verfügbaren Hilfskräfte einsehen und entsprechend ihrer Bedürfnisse filtern und kontaktieren.\n"
+        "Interessierte Helfer:innen definieren ihre möglichen Einsatzgebiete und Fähigkeiten. Anhand dessen können Institutionen in Echtzeit" +
+        " die Anzahl der verfügbaren Hilfskräfte einsehen und entsprechend ihrer Bedürfnisse filtern und kontaktieren.\n" ,
+    hasRegisterButton:false
+  },
+  {
+    title: "Schnell, effizient, einfach",
+    subTitle: "Keine Einstiegshürden",
+    paragraph:
+        "Sowohl für die Hilfesuchenden als auch für die Hilfskräfte ist die Registrierung sehr unkompliziert." +
+        " Außerdem können nicht nur medizinisch qualifizierte, sondern auch nicht-qualifizierte Helfer:innen über die App angefragt werden.\n",
+    hasRegisterButton:true
+
   },
   {
     title: "Sicherstellung der Versorgung.",
     subTitle: "Gesellschaftlicher Mehrwert",
     paragraph:
       "Auf Seiten der Institutionen wird die schnelle und unkomplizierte Akquise von Helfer:innen ermöglicht, so dass das eigene Personal entlastet wird und die jeweiligen Kernaufgaben bewältigt werden können." +
-        " Das dient auf der anderen Seite wiederum direkt der Bevölkerung, da so die angemessene Versorgung der Menschen sichergestellt wird.\n"
+        " Das dient auf der anderen Seite wiederum direkt der Bevölkerung, da so die angemessene Versorgung der Menschen sichergestellt wird.\n",
+    hasRegisterButton:false
+
   },
 ];
 
@@ -35,7 +40,7 @@ export default function Usps() {
   };
 
   /** returns a single USP Card, to split up data and style / tags */
-  const createUspCard = (title, subTitle, paragraph, callback) => {
+  const createUspCard = (title, subTitle, paragraph, hasRegisterButton, callback) => {
     return (
       <div className="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
         <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
@@ -52,16 +57,19 @@ export default function Usps() {
             <p className="text-figmaParagraph font-inter text-base px-6 mb-5">{paragraph}</p>
           </a>
         </div>
-        <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
-          <div className="flex items-center justify-start">
-            <ButtonBlue
-              onClick={callback}
-              className="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
-            >
-              registrieren
-            </ButtonBlue>
+        { hasRegisterButton ==true &&
+          <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
+            <div className="flex items-center justify-start">
+
+              <ButtonBlue
+                  onClick={callback}
+                  className="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
+              >
+                registrieren
+              </ButtonBlue>
+            </div>
           </div>
-        </div>
+        }
       </div>
     );
   };
@@ -77,7 +85,7 @@ export default function Usps() {
           </div>
 
           {data.map(el => {
-            return createUspCard(el.title, el.subTitle, el.paragraph, defaultCallback);
+            return createUspCard(el.title, el.subTitle, el.paragraph, el.hasRegisterButton, defaultCallback);
           })}
         </div>
       </section>
