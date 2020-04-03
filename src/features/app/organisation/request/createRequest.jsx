@@ -7,7 +7,7 @@ import FullHeightLayout from "./components/full-height-layout";
 import Competences from "./components/competences";
 import ButtonOrange from "../../components/ButtonOrange";
 
-export default function NewAnzeige() {
+export default function CreateRequest() {
   return (
     <FullHeightLayout>
       <QuestionWithLabel question="Anzeige erstellen" label="Schritt 3 von 3" />

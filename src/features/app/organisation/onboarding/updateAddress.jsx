@@ -6,7 +6,7 @@ import "./register1.css";
 import FullHeightLayout from "./components/full-height-layout";
 import ButtonWithLink from "../../components/ButtonWithLink";
 
-export default function OrgRegister2() {
+export default function updateAddress() {
   return (
     <FullHeightLayout>
       <QuestionWithLabel

@@ -5,7 +5,7 @@ import InputWithLabel from "../../components/InputWithLabel";
 import "./register1.css";
 import FullHeightLayout from './components/full-height-layout';
 
-export default function OrgRegister() {
+export default function createOrganisation() {
   return (
     <FullHeightLayout>
       <QuestionWithLabel

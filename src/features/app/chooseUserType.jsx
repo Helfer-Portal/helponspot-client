@@ -21,7 +21,7 @@ const cardData = [
     }
 ]
 
-export default function RegChooseType() {
+export default function chooseUserType() {
   return (
     <FullHeightLayout>
       <QuestionWithLabel
@@ -34,7 +34,7 @@ export default function RegChooseType() {
                 return <UserCard {... el} />
             })
         }
-        
+
       </div>
     </FullHeightLayout>
   );
