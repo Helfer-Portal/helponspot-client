@@ -92,7 +92,7 @@ export default function NewAnzeige() {
         </div>
 
         <div>
-          <input type="text" placeholder="Wir suchen Menschen, die..."></input>
+          <input class="lastQuestion" type="text" placeholder="Wir suchen Menschen, die..."/>
         </div>
       </div>
 
