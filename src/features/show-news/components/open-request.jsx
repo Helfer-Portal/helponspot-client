@@ -11,7 +11,7 @@ export default function OpenRequest(props) {
 
       <div>
         <p className="font-inter text-figmaParagraph">
-          noch {props.timeLast} | {props.reqHelpers} Teilnehmer
+          noch {props.timeLast} | {props.reqHelpers < 0? "alle" : props.reqHelpers} Teilnehmer
         </p>
       </div>
 
