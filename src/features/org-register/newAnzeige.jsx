@@ -44,12 +44,13 @@ export default function NewAnzeige() {
       <QuestionWithLabel question="Anzeige erstellen" label="Schritt 3 von 3" />
       <div>
         <overline className="label font-inter text-figmaDescription">
-          Title
+          Titel
         </overline>
+        <br/>
         <input type="text" name="name" value={title} onChange={updateTitle} />
       </div>
 
-      <div className="my-3 flex flex-col align-start">
+      <div className="my-3 flex flex-col align-start py-6">
         <div className="mb-3 text-figmaDescription font-inter">
           Gesuchte Kompetenzen
         </div>
@@ -58,6 +59,10 @@ export default function NewAnzeige() {
         </div>
       </div>
 
+      <div className="flex flex-col" >
+        <overline className="label font-inter text-figmaDescription">
+          Helferzahl
+        </overline>
       <div className="w-full flex" class="container-helper-numbers">
         <div>
           <Circle image="/minus.png" />
@@ -66,7 +71,7 @@ export default function NewAnzeige() {
         </div>
           <button class="unlimited">unbegrenzt</button>
       </div>
-
+      </div>
       <div className="w-full flex flex-col">
         <div className="mb-3 text-figmaDescription font-inter">Zeitraum</div>
         <div>
