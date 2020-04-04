@@ -106,7 +106,6 @@ export default function AboutUs(props) {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

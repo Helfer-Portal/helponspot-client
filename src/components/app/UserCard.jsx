@@ -21,7 +21,7 @@ export default function UserCard(props) {
             <ul clasName="list-disc">{listElements}</ul>
           </div>
           <div>
-            <img src={props.img} />
+            <img src={props.img} alt={props.alt}/>
           </div>
         </div>
       </Link>

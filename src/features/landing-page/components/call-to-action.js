@@ -25,6 +25,7 @@ export default function CallToAction() {
           <img
               className="w-full md:w-2/5 z-50 md:mt-16"
               src={require("../../../assets/hacklogoporjekt.webp")}
+              alt={"Logo von #WirVsVirus"}
           />
 
         </div>
@@ -33,6 +34,7 @@ export default function CallToAction() {
           <img
             class="w-full md:w-5/5 z-50 mt-auto"
             src={require("../../../assets/mobile_testing_1.png")}
+            alt={"Dekoratives Bild"}
           />
         </div>
       </div>

@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
 //*********************
 //*** Layouts
@@ -33,49 +33,67 @@ export default function RootRouter() {
 
   return (
     <Router>
+
+      <Route exact path="/">
+        <Redirect
+            to={{
+              pathname: "/home"
+            }}
+        />
+      </Route>
+
       <div id="outer-container">
         <Menu />
-        <Switch>1
+        <Switch>
           <div id="content-wrapper">
 
-            <Route path="/app/">
+            <Route path="/app">
               <LanderLayout>
 
               {/************** ORGANISATION*/}
 
-                <Route exact path="/app/orgsanisation/">
-                  <RegChooseType />
-                </Route>
-                <Route exact path="/app/organisation/createOrganisation">
-                  <createOrganisation />
-                </Route>
-                <Route exact path="/app/organisation/createOrganisation/standort">
-                  <updateAddress />
-                </Route>
-                <Route exact path="/app/organisation/request/">
-                  <createRequest />
-                </Route>
-                <Route exact path="/app/organisation/dashboard/">
-                  <dashboard />
+                <Route path="/app/organisation">
+                  <Route exact path="/app/organisation/chooseType">
+                    <RegChooseType />
+                  </Route>
+                  <Route exact path="/app/organisation/createOrganisation">
+                    <createOrganisation />
+                  </Route>
+                  <Route exact path="/app/organisation/createOrganisation/standort/">
+                    <updateAddress />
+                  </Route>
+                  <Route exact path="/app/organisation/request/">
+                    <createRequest />
+                  </Route>
+                  <Route exact path="/app/organisation/dashboard/">
+                    <dashboard />
+                  </Route>
                 </Route>
 
                 {/************** Helfer*/}
 
-                <Route exact path="/app/helfer/registrierung/">
-                  <RegChooseType />
+                <Route path="/helfer/">
+                  <Route exact path="/app/helfer/registrierung/">
+                    <RegChooseType />
+                  </Route>
                 </Route>
+
+
+
               </LanderLayout>
             </Route>
 
-            <Route path="/">
+
+
+            <Route path="/home">
               <LanderLayout>
 
                 {/************** Landing Page*/}
 
-                <Route exact path="/">
+                <Route exact path="/home">
                   <LandingPage />
                 </Route>
-                <Route exact path="/ueber-uns">
+                <Route exact path="/home/ueber-uns">
                   <AboutUs />
                 </Route>
 
