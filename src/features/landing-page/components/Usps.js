@@ -57,7 +57,7 @@ export default function Usps() {
             <p className="text-figmaParagraph font-inter text-base px-6 mb-5">{paragraph}</p>
           </a>
         </div>
-        { hasRegisterButton ==true &&
+        { hasRegisterButton === true &&
           <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
             <div className="flex items-center justify-start">
 
