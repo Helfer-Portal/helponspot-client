@@ -77,12 +77,8 @@ export default function RootRouter() {
                   </Route>
                 </Route>
 
-
-
               </LanderLayout>
             </Route>
-
-
 
             <Route path="/home">
               <LanderLayout>
@@ -97,6 +93,14 @@ export default function RootRouter() {
                 </Route>
 
               </LanderLayout>
+            </Route>
+
+            <Route>
+              <Redirect
+                  to={{
+                    pathname: "/home"
+                  }}
+              />
             </Route>
           </div>
         </Switch>
