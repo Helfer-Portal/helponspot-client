@@ -18,7 +18,7 @@ export default function CallToAction() {
           </p>
 
           <ButtonOrange>
-            <Link to="org-register1">registrieren</Link>
+            <Link to="/app/organisation/createOrganisation">registrieren</Link>
           </ButtonOrange>
 
 
