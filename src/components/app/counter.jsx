@@ -1,5 +1,5 @@
 import React from "react";
-import Circle from "../../../components/Circle";
+import Circle from "../../components/Circle";
 
 export default function Counter(props) {
   const [count, setCount] = props.countState;
