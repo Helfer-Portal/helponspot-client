@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-d
 //*********************
 
 import LanderLayout from "../features/landing-page/landerLayout";
+import MobileFrame from "../features/landing-page/MobileFrame";
 
 //*********************
 //*** ORGANISATION
@@ -20,7 +21,7 @@ import UpdateAddress from "../features/app/organisation/onboarding/UpdateAddress
 //*********************
 //*** LANDING PAGE
 //*********************
-import Menu from "../features/menu/index.js";
+
 import AboutUs from "../features/landing-page/about-us/index.js";
 import LandingPage from "../features/landing-page/index.js";
 import RegChooseType from "../features/app/ChooseUserType";
@@ -43,48 +44,43 @@ export default function RootRouter() {
         />
       </Route>
 
-      <div id="outer-container">
-        <Menu />
         <Switch>
-          <div id="content-wrapper">
+          <div id="content-wrapper" class={"min-h-screen"}>
 
             <Route path="/app">
               <LanderLayout>
+                <MobileFrame>
 
-              {/************** ORGANISATION*/}
+                {/************** ORGANISATION*/}
 
-                <Route path="/app/organisation">
-                  <Route exact path="/app/organisation/chooseType">
-                    <RegChooseType />
+                  <Route path="/app/organisation">
+                    <Route exact path="/app/organisation/chooseType">
+                      <RegChooseType />
+                    </Route>
+                    <Route exact path="/app/organisation/createOrganisation">
+                      <CreateOrganisation />
+                    </Route>
+                    <Route exact path="/app/organisation/createOrganisation/standort/">
+                      <UpdateAddress />
+                    </Route>
+                    <Route exact path="/app/organisation/request/">
+                      <CreateRequest />
+                    </Route>
+                    <Route exact path="/app/organisation/dashboard/">
+                      <Dashboard />
+                    </Route>
                   </Route>
-                  <Route exact path="/app/organisation/createOrganisation">
-                    <CreateOrganisation />
-                  </Route>
-                  <Route exact path="/app/organisation/createOrganisation/standort/">
-                    <UpdateAddress />
-                  </Route>
-                  <Route exact path="/app/organisation/request/">
-                    <CreateRequest />
-                  </Route>
-                  <Route exact path="/app/organisation/dashboard/">
-                    <Dashboard />
-                  </Route>
-                </Route>
 
-                {/************** Helfer*/}
+                  {/************** Helfer*/}
 
-                <Route path="/helfer/">
-                  <Route exact path="/app/helfer/registrierung/">
-                    <RegChooseType />
+                  <Route path="/helfer/">
+                    <Route exact path="/app/helfer/registrierung/">
+                      <RegChooseType />
+                    </Route>
                   </Route>
-                </Route>
-
-
-
+                </MobileFrame>
               </LanderLayout>
             </Route>
-
-
 
             <Route path="/home">
               <LanderLayout>
@@ -100,9 +96,16 @@ export default function RootRouter() {
 
               </LanderLayout>
             </Route>
+
+            <Route>
+              <Redirect
+                  to={{
+                    pathname: "/home"
+                  }}
+              />
+            </Route>
           </div>
         </Switch>
-      </div>
     </Router>
     </ReqProvider>
   );

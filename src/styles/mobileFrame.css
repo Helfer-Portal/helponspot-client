@@ -1,0 +1,14 @@
+.mobile-frame__outer {
+  background-position: center;
+  background-repeat: no-repeat;
+  width: 450px;
+  height: 950px;
+  padding-top: 126px;
+  padding-left: 41px;
+}
+
+.mobile-frame__inner {
+  width: 365px;
+  height: 650px;
+  margin-top: 20px;
+}

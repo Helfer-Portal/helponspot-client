@@ -35,6 +35,7 @@ module.exports = {
 
       figmaOpen: "#EAF3FF",
 
+      bluePrimary: "#EAF3FF",
 
       gray: {
         100: "#f7fafc",
