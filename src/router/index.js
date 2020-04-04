@@ -42,13 +42,13 @@ export default function RootRouter() {
   return (
     <ReqProvider>
       <Router>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <Redirect
             to={{
               pathname: "/home"
             }}
           />
-        </Route>
+        </Route> */}
 
         <Switch>
           <div id="content-wrapper" class={"min-h-screen"}>
@@ -112,13 +112,13 @@ export default function RootRouter() {
               </LanderLayout>
             </Route>
 
-            <Route>
+            {/* <Route>
               <Redirect
                 to={{
                   pathname: "/home"
                 }}
               />
-            </Route>
+            </Route> */}
           </div>
         </Switch>
       </Router>

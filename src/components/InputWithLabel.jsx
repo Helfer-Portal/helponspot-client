@@ -3,14 +3,13 @@ import React, { Component } from "react";
 export default class QuestionWithAnnotation extends Component {
   render() {
     return (
-      <div>
+      <div className="w-full">
         <overline className="label font-inter text-figmaDescription">
           {this.props.label}
         </overline>
         <br />
         <input
-          style={{ width: 435 }}
-          className="p-2 border-lg"
+          className="p-2 border-lg w-full"
           type="text"
           placeholder={"z.B. DRK Berlin"}
           id={this.props.fname}

@@ -1,21 +1,37 @@
 import React from "react";
-import ButtonOrange from "../../../../components/ButtonOrange";
 import QuestionWithLabel from "../../../../components/QuestionWithLabel";
 import InputWithLabel from "../../../../components/InputWithLabel";
 import ButtonWithLink from "../../../../components/ButtonWithLink";
+import { useHistory } from "react-router-dom";
 
 export default function updateAddress() {
+
+  // let history = useHistory();
+
   return (
-      <div>
-        <QuestionWithLabel
-            question="Wo befindet ihr euch"
-            label="Schritt 2 von 3"
-        />
-        <InputWithLabel fname="orglocation" label="Standort" />
-        <div>
-          <ButtonOrange>Zurück</ButtonOrange>
-          <ButtonWithLink link={'/app/organisation/request/'}>Weiter</ButtonWithLink>
-        </div>
+    <div className="flex flex-col w-full h-full px-8 py-4">
+      <div style={{ flex: 1 }} className="flex w-full">
+        <button
+          // onClick={() => history.goBack()}
+          className="underline font-inter font-bold text-figmaDescription"
+        >
+          ← zurück
+        </button>
       </div>
+      <div style={{ flex: 2 }}>
+        <QuestionWithLabel
+          question="Wo befindet ihr euch"
+          label="Schritt 2 von 3"
+        />
+      </div>
+      <div style={{ flex: 5 }} className="flex items-start">
+        <InputWithLabel fname="orglocation" label="Standort" />
+      </div>
+      <div style={{ flex: 1 }} className="w-full">
+        <ButtonWithLink link={"/app/organisation/request/"}>
+          Weiter
+        </ButtonWithLink>
+      </div>
+    </div>
   );
 }
