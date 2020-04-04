@@ -186,7 +186,7 @@ class FetchService implements Service {
         return Promise.resolve();
     }
 
-    private mockHelper(chance: Chance): Helper {
+    private mockHelper(chance: Chance.Chance): Helper {
         return {
             id: chance.integer({ min: 1, max: 100000 }),
             name: chance.name(),
@@ -197,7 +197,7 @@ class FetchService implements Service {
     }
 
     private mockHelpers(): Helper[] {
-        let chance = new Chance();
+        let chance = new Chance.Chance();
 
         let length = chance.integer({ min: 2, max: 20 });
 
