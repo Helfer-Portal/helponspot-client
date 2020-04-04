@@ -1,6 +1,11 @@
 import React from "react";
 
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 
 //*********************
 //*** Layouts
@@ -17,6 +22,8 @@ import CreateOrganisation from "../features/app/organisation/onboarding/CreateOr
 import Dashboard from "../features/app/organisation/Dashboard";
 import CreateRequest from "../features/app/organisation/request/CreateRequest";
 import UpdateAddress from "../features/app/organisation/onboarding/UpdateAddress";
+import HelperMap from "../features/app/organisation/HelperMap";
+import ProfileView from "../features/app/organisation/profile";
 
 //*********************
 //*** LANDING PAGE
@@ -33,25 +40,22 @@ export default function RootRouter() {
   };*/
 
   return (
-      <ReqProvider>
-    <Router>
-
-      <Route exact path="/">
-        <Redirect
+    <ReqProvider>
+      <Router>
+        <Route exact path="/">
+          <Redirect
             to={{
               pathname: "/home"
             }}
-        />
-      </Route>
+          />
+        </Route>
 
         <Switch>
           <div id="content-wrapper" class={"min-h-screen"}>
-
             <Route path="/app">
               <LanderLayout>
                 <MobileFrame>
-
-                {/************** ORGANISATION*/}
+                  {/************** ORGANISATION*/}
 
                   <Route path="/app/organisation">
                     <Route exact path="/app/organisation/chooseType">
@@ -60,7 +64,10 @@ export default function RootRouter() {
                     <Route exact path="/app/organisation/createOrganisation">
                       <CreateOrganisation />
                     </Route>
-                    <Route exact path="/app/organisation/createOrganisation/standort/">
+                    <Route
+                      exact
+                      path="/app/organisation/createOrganisation/standort/"
+                    >
                       <UpdateAddress />
                     </Route>
                     <Route exact path="/app/organisation/request/">
@@ -69,6 +76,16 @@ export default function RootRouter() {
                     <Route exact path="/app/organisation/dashboard/">
                       <Dashboard />
                     </Route>
+
+                    <Route exact path="/app/organisation/map/">
+                      <HelperMap />
+                    </Route>
+
+                    <Route
+                      exact
+                      path="/app/organisation/profile"
+                      component={ProfileView}
+                    />
                   </Route>
 
                   {/************** Helfer*/}
@@ -84,7 +101,6 @@ export default function RootRouter() {
 
             <Route path="/home">
               <LanderLayout>
-
                 {/************** Landing Page*/}
 
                 <Route exact path="/home">
@@ -93,20 +109,19 @@ export default function RootRouter() {
                 <Route exact path="/home/ueber-uns">
                   <AboutUs />
                 </Route>
-
               </LanderLayout>
             </Route>
 
             <Route>
               <Redirect
-                  to={{
-                    pathname: "/home"
-                  }}
+                to={{
+                  pathname: "/home"
+                }}
               />
             </Route>
           </div>
         </Switch>
-    </Router>
+      </Router>
     </ReqProvider>
   );
 }
