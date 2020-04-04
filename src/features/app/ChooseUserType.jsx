@@ -21,7 +21,7 @@ const cardData = [
     }
 ]
 
-export default function chooseUserType() {
+export default function ChooseUserType() {
   return (
     <div>
       <QuestionWithLabel
