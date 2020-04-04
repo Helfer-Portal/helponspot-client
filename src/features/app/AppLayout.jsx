@@ -5,7 +5,7 @@ import Footer from "../../landing-page/components/footer";
 /** Layout for the register desktop story */
 export default function AppLayout(props) {
   return (
-      <div class="h-full">
+      <div class="min-h-full">
         <div style={{height: '100vh'}} class="h-full m-n8 align-start justify-start m-auto">
           <div class="w-1/3">
             {props.children}

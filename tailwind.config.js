@@ -29,6 +29,7 @@ module.exports = {
 
       figmaDescription: "#6C9CCF",
 
+      bluePrimary: "#EAF3FF",
 
       gray: {
         100: "#f7fafc",
