@@ -29,6 +29,12 @@ module.exports = {
 
       figmaDescription: "#6C9CCF",
 
+      figmaAccept: "#E6FFFC",
+
+      figmaDeny: "#FDDBDB",
+
+      figmaOpen: "#EAF3FF",
+
 
       gray: {
         100: "#f7fafc",

@@ -6,7 +6,8 @@ const cardData = [
     {
         title: "Ich möchte helfen!",
         p: "Ich bin fit und besitze Kompetenzen, die sich als nützlich erweisen könnten!",
-        list: ['Grundausbildungen', 'körperlich fit', 'Führerschein'],
+       // list: ['Grundausbildungen', 'körperlich fit', 'Führerschein'],
+        list: [],
         img: require('../../assets/super_dad_1.png'),
         to: '/',
         alt: 'Ich möchte helfen!'
@@ -14,7 +15,8 @@ const cardData = [
     {
         title: "Wir benötigen Hilfe",
         p: "Es gibt eine Krisensituatuon und wir brauchen helfende Hände!",
-        list: ['Vereine', 'Institutionen', 'DLRG, DRK...'],
+        //list: ['Vereine', 'Institutionen', 'DLRG, DRK...'],
+        list: [],
         img: require('../../assets/team_work_1.png'),
         to: '/app/organisation/createOrganisation',
         alt: 'Ich möchte hifle suchen!'

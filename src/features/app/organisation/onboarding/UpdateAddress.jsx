@@ -14,7 +14,7 @@ export default function updateAddress() {
         <InputWithLabel fname="orglocation" label="Standort" />
         <div>
           <ButtonOrange>Zurück</ButtonOrange>
-          <ButtonWithLink link={'org-register4'}>Weiter</ButtonWithLink>
+          <ButtonWithLink link={'/app/organisation/request/'}>Weiter</ButtonWithLink>
         </div>
       </div>
   );

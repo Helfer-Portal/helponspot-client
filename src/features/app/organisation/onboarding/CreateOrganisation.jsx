@@ -13,7 +13,7 @@ export default function CreateOrganisation() {
         <InputWithLabel fname="orgname" label="Name" />
         <div>
           <ButtonWithLink children="Zurück" link="/" />
-          <ButtonWithLink children="Weiter" link="/org-register3" />
+          <ButtonWithLink children="Weiter" link="/app/organisation/createOrganisation/standort/" />
         </div>
       </div>
   );
