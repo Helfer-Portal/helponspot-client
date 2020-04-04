@@ -16,6 +16,7 @@ import CreateOrganisation from "../features/app/organisation/onboarding/CreateOr
 import Dashboard from "../features/app/organisation/Dashboard";
 import CreateRequest from "../features/app/organisation/request/CreateRequest";
 import UpdateAddress from "../features/app/organisation/onboarding/UpdateAddress";
+import HelperMap from "../features/app/organisation/HelperMap";
 
 //*********************
 //*** LANDING PAGE
@@ -66,6 +67,9 @@ export default function RootRouter() {
                   </Route>
                   <Route exact path="/app/organisation/dashboard/">
                     <Dashboard />
+                  </Route>
+                  <Route exact path="/app/organisation/map/">
+                    <HelperMap />
                   </Route>
                 </Route>
 
