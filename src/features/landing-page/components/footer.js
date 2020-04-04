@@ -6,7 +6,7 @@ export default function Footer() {
       <div class="container mx-auto  px-8">
         <div class="w-full flex flex-col sm:flex-row py-6">
           <div class="flex-1 mb-6">
-            <img src={require("../../../assets/komb_bildwortmarke_1.png")}/>
+            <img src={require("../../../assets/komb_bildwortmarke_1.png")} alt={"HelpOnSpot Logo"}/>
           </div>
 
           <div class="flex-1">

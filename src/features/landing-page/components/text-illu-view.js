@@ -52,6 +52,7 @@ function img1(){
   return <img
       className="w-full md  md:w-3/5 z-50"
       src={require("../../../assets/super_dad_1.png")}
+      alt={"Illustration einer Person, die eine andere Person auf den Schultern trägt"}
   />
 
 }
@@ -59,6 +60,7 @@ function img2(){
   return <img
       className="w-full md:w-3/5 z-50"
       src={require("../../../assets/team_work_1.png")}
+      alt={"Illustration von drei Personen, die an einem gemeinsamen Problem arbeiten"}
   />
 
 }
