@@ -1,6 +1,6 @@
 import React from "react";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //*********************
 //*** Layouts
@@ -27,9 +27,9 @@ import LandingPage from "../features/landing-page/index.js";
 import RegChooseType from "../features/app/chooseUserType";
 
 export default function RootRouter() {
-  const showSettings = event => {
+  /*const showSettings = event => {
     event.preventDefault();
-  };
+  };*/
 
   return (
     <Router>
@@ -44,10 +44,10 @@ export default function RootRouter() {
               {/************** ORGANISATION*/}
 
                 <Route exact path="/app/orgsanisation/">
-                  <RegChooseType/>
+                  <RegChooseType />
                 </Route>
                 <Route exact path="/app/organisation/createOrganisation">
-                  <createOrganisation/>
+                  <createOrganisation />
                 </Route>
                 <Route exact path="/app/organisation/createOrganisation/standort">
                   <updateAddress />
@@ -62,7 +62,7 @@ export default function RootRouter() {
                 {/************** Helfer*/}
 
                 <Route exact path="/app/helfer/registrierung/">
-                  <RegChooseType/>
+                  <RegChooseType />
                 </Route>
               </LanderLayout>
             </Route>
