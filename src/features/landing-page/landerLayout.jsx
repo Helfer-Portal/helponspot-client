@@ -1,19 +1,19 @@
 import React from "react";
 import Footer from "./components/footer";
+import Menu from "./components/menu/index.js";
 
 /** Layout for the register desktop story */
 export default function LanderLayout(props) {
   return (
-    <div class="h-full">
+    <div class="min-h-screen">
+      <Menu />
       <div class="h-full align-start justify-start">
-        <div class="m-auto">
+        <div class="m-auto container">
           {props.children}
         </div>
       </div>
-      <div class="h-8"></div>
-      <div>
-        <Footer />
-      </div>
+      <Footer />
+
     </div>
   );
 }

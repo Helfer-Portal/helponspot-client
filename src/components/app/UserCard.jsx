@@ -18,7 +18,7 @@ export default function UserCard(props) {
         </div>
         <div className="h-2/4 flex flex-row">
           <div className="pt-4 text-figmaParagraph">
-            <ul clasName="list-disc">{listElements}</ul>
+            <ul className="list-disc">{listElements}</ul>
           </div>
           <div>
             <img src={props.img} alt={props.alt}/>

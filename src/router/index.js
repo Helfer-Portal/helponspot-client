@@ -1,12 +1,18 @@
 import React from "react";
 
-import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Redirect
+} from "react-router-dom";
 
 //*********************
 //*** Layouts
 //*********************
 
 import LanderLayout from "../features/landing-page/landerLayout";
+import MobileFrame from "../features/landing-page/MobileFrame";
 
 //*********************
 //*** ORGANISATION
@@ -22,12 +28,11 @@ import ProfileView from "../features/app/organisation/profile";
 //*********************
 //*** LANDING PAGE
 //*********************
-import Menu from "../features/menu/index.js";
+
 import AboutUs from "../features/landing-page/about-us/index.js";
 import LandingPage from "../features/landing-page/index.js";
 import RegChooseType from "../features/app/ChooseUserType";
 import ReqProvider from "../context/mock-requests";
-
 
 export default function RootRouter() {
   /*const showSettings = event => {
@@ -35,69 +40,67 @@ export default function RootRouter() {
   };*/
 
   return (
-      <ReqProvider>
-    <Router>
-
-      <Route exact path="/">
-        <Redirect
+    <ReqProvider>
+      <Router>
+        <Route exact path="/">
+          <Redirect
             to={{
               pathname: "/home"
             }}
-        />
-      </Route>
+          />
+        </Route>
 
-      <div id="outer-container">
-        <Menu />
         <Switch>
-          <div id="content-wrapper">
-
+          <div id="content-wrapper" class={"min-h-screen"}>
             <Route path="/app">
               <LanderLayout>
+                <MobileFrame>
+                  {/************** ORGANISATION*/}
 
-              {/************** ORGANISATION*/}
+                  <Route path="/app/organisation">
+                    <Route exact path="/app/organisation/chooseType">
+                      <RegChooseType />
+                    </Route>
+                    <Route exact path="/app/organisation/createOrganisation">
+                      <CreateOrganisation />
+                    </Route>
+                    <Route
+                      exact
+                      path="/app/organisation/createOrganisation/standort/"
+                    >
+                      <UpdateAddress />
+                    </Route>
+                    <Route exact path="/app/organisation/request/">
+                      <CreateRequest />
+                    </Route>
+                    <Route exact path="/app/organisation/dashboard/">
+                      <Dashboard />
+                    </Route>
 
-                <Route path="/app/organisation">
-                  <Route exact path="/app/organisation/chooseType">
-                    <RegChooseType />
-                  </Route>
-                  <Route exact path="/app/organisation/createOrganisation">
-                    <CreateOrganisation />
-                  </Route>
-                  <Route exact path="/app/organisation/createOrganisation/standort/">
-                    <UpdateAddress />
-                  </Route>
-                  <Route exact path="/app/organisation/request/">
-                    <CreateRequest />
-                  </Route>
-                  <Route exact path="/app/organisation/dashboard/">
-                    <Dashboard />
-                  </Route>
-                  <Route exact path="/app/organisation/map/">
-                    <HelperMap />
-                  </Route>
-                  
-                  <Route exact path="/app/organisation/profile" component={ProfileView} />
-                      
-                </Route>
+                    <Route exact path="/app/organisation/map/">
+                      <HelperMap />
+                    </Route>
 
-                {/************** Helfer*/}
-
-                <Route path="/helfer/">
-                  <Route exact path="/app/helfer/registrierung/">
-                    <RegChooseType />
+                    <Route
+                      exact
+                      path="/app/organisation/profile"
+                      component={ProfileView}
+                    />
                   </Route>
-                </Route>
 
+                  {/************** Helfer*/}
 
-
+                  <Route path="/helfer/">
+                    <Route exact path="/app/helfer/registrierung/">
+                      <RegChooseType />
+                    </Route>
+                  </Route>
+                </MobileFrame>
               </LanderLayout>
             </Route>
 
-
-
             <Route path="/home">
               <LanderLayout>
-
                 {/************** Landing Page*/}
 
                 <Route exact path="/home">
@@ -106,13 +109,19 @@ export default function RootRouter() {
                 <Route exact path="/home/ueber-uns">
                   <AboutUs />
                 </Route>
-
               </LanderLayout>
+            </Route>
+
+            <Route>
+              <Redirect
+                to={{
+                  pathname: "/home"
+                }}
+              />
             </Route>
           </div>
         </Switch>
-      </div>
-    </Router>
+      </Router>
     </ReqProvider>
   );
 }

@@ -16,7 +16,7 @@ export default function Menu() {
                 class="toggleColour text-white no-underline hover:no-underline font-bold text-4xl"
                 href="/"
               >
-                  <img src={require("../../assets/komb_bildwortmarke_1.png")} alt={"Logo"}/>
+                  <img src={require("../../../../assets/komb_bildwortmarke_1.png")} alt={"Logo"}/>
 
               </a>
             </div>

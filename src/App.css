@@ -11,18 +11,18 @@
 .gradient {
   background: linear-gradient(
     180deg,
-    #eaf3ff 39.7%,
-    rgba(234, 243, 255, 0) 98.97%
+    #eaf3ff,
+    white 70%
   );
 }
 
 .orange-gradient {
-  background: linear-gradient(90deg, #faad98 0%, #f88478 100%);
+  background: linear-gradient(90deg, #faad98, #f88478 100%);
 }
 
 .blue-gradient {
   /* Linear */
-  background: linear-gradient(270deg, #5e94cd 0%, #81b3e3 100%);
+  background: linear-gradient(270deg, #5e94cd, #81b3e3 100%);
   border-radius: 30px;
 }
 
