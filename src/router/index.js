@@ -12,11 +12,10 @@ import LanderLayout from "../features/landing-page/landerLayout";
 //*** ORGANISATION
 //*********************
 
-
-import CreateOrganisation from "../features/app/organisation/onboarding/createOrganisation";
-import Dashboard from "../features/app/organisation/dashboard";
-import CreateRequest from "../features/app/organisation/request/createRequest";
-import UpdateAddress from "../features/app/organisation/onboarding/updateAddress";
+import CreateOrganisation from "../features/app/organisation/onboarding/CreateOrganisation";
+import Dashboard from "../features/app/organisation/Dashboard";
+import CreateRequest from "../features/app/organisation/request/CreateRequest";
+import UpdateAddress from "../features/app/organisation/onboarding/UpdateAddress";
 
 //*********************
 //*** LANDING PAGE
@@ -24,7 +23,7 @@ import UpdateAddress from "../features/app/organisation/onboarding/updateAddress
 import Menu from "../features/menu/index.js";
 import AboutUs from "../features/landing-page/about-us/index.js";
 import LandingPage from "../features/landing-page/index.js";
-import RegChooseType from "../features/app/chooseUserType";
+import RegChooseType from "../features/app/ChooseUserType";
 
 export default function RootRouter() {
   /*const showSettings = event => {
