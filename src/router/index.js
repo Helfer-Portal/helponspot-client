@@ -13,10 +13,10 @@ import LanderLayout from "../features/landing-page/landerLayout";
 //*********************
 
 
-import createOrganisation from "../features/app/organisation/onboarding/createOrganisation";
+import CreateOrganisation from "../features/app/organisation/onboarding/CreateOrganisation";
 import dashboard from "../features/app/organisation/dashboard";
-import createRequest from "../features/app/organisation/request/createRequest";
-import updateAddress from "../features/app/organisation/onboarding/updateAddress";
+import CreateRequest from "../features/app/organisation/request/CreateRequest";
+import UpdateAddress from "../features/app/organisation/onboarding/UpdateAddress";
 
 //*********************
 //*** LANDING PAGE
@@ -47,13 +47,13 @@ export default function RootRouter() {
                   <RegChooseType />
                 </Route>
                 <Route exact path="/app/organisation/createOrganisation">
-                  <createOrganisation />
+                  <CreateOrganisation/>
                 </Route>
                 <Route exact path="/app/organisation/createOrganisation/standort">
-                  <updateAddress />
+                  <UpdateAddress />
                 </Route>
                 <Route exact path="/app/organisation/request/">
-                  <createRequest />
+                  <CreateRequest />
                 </Route>
                 <Route exact path="/app/organisation/dashboard/">
                   <dashboard />
