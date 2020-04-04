@@ -3,7 +3,7 @@ import "../register1.css";
 import Footer from "../../landing-page/components/footer";
 
 /** Layout for the register desktop story */
-export default function appLayout(props) {
+export default function AppLayout(props) {
   return (
       <div class="h-full">
         <div style={{height: '100vh'}} class="h-full m-n8 align-start justify-start m-auto">

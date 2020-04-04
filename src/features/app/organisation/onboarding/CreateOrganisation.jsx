@@ -3,7 +3,7 @@ import ButtonWithLink from "../../../../components/ButtonWithLink";
 import QuestionWithLabel from "../../../../components/QuestionWithLabel";
 import InputWithLabel from "../../../../components/InputWithLabel";
 
-export default function createOrganisation() {
+export default function CreateOrganisation() {
   return (
       <div>
         <QuestionWithLabel
