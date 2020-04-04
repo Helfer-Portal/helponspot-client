@@ -9,13 +9,15 @@ const cardData = [
         list: ['Grundausbildungen', 'körperlich fit', 'Führerschein'],
         img: require('../../assets/super_dad_1.png'),
         to: '/',
+        alt: 'Ich möchte helfen!'
     },
     {
         title: "Wir benötigen Hilfe",
         p: "Es gibt eine Krisensituatuon und wir brauchen helfende Hände!",
         list: ['Vereine', 'Institutionen', 'DLRG, DRK...'],
         img: require('../../assets/team_work_1.png'),
-        to: '/app/organisation/createOrganisation'
+        to: '/app/organisation/createOrganisation',
+        alt: 'Ich möchte hifle suchen!'
     }
 ]
 
