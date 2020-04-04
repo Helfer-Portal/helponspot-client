@@ -1,6 +1,6 @@
 import React from "react";
-import SpeechBubble from "../../app/components/speech-bubble";
-import ShortP from "../../app/components/short-p";
+import SpeechBubble from "./components/speech-bubble";
+import ShortP from "./components/short-p";
 import Footer from "../components/footer";
 
 const aboutUsHeadline = "...wer oder was seid ihr eigentlich?";

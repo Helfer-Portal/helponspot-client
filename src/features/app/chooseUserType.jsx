@@ -1,8 +1,6 @@
 import React from "react";
 import QuestionWithLabel from "../../components/QuestionWithLabel";
-import "./register1.css";
-import FullHeightLayout from "./components/full-height-layout";
-import UserCard from "./components/UserCard";
+import UserCard from "../../components/app/UserCard";
 
 const cardData = [
     {
@@ -23,7 +21,7 @@ const cardData = [
 
 export default function chooseUserType() {
   return (
-    <FullHeightLayout>
+    <div>
       <QuestionWithLabel
         question="Wie benutzt Du HelpOnSpot"
         label="Schritt 2 von 3"
@@ -36,6 +34,6 @@ export default function chooseUserType() {
         }
 
       </div>
-    </FullHeightLayout>
+    </div>
   );
 }
