@@ -5,13 +5,13 @@ import Footer from "./components/footer";
 export default function LanderLayout(props) {
   return (
     <div class="h-full">
-      <div style={{height: '100vh'}} class="h-full m-n8 align-start justify-start m-auto">
-        <div class="w-1/3">
+      <div class="h-full align-start justify-start">
+        <div class="m-auto">
           {props.children}
         </div>
       </div>
       <div class="h-8"></div>
-      <div style={{height: '20vh'}} class="h-1/3">
+      <div>
         <Footer />
       </div>
     </div>

@@ -15,7 +15,7 @@ const cardData = [
         p: "Es gibt eine Krisensituatuon und wir brauchen helfende Hände!",
         list: ['Vereine', 'Institutionen', 'DLRG, DRK...'],
         img: require('../../assets/team_work_1.png'),
-        to: 'org-register2'
+        to: '/app/organisation/createOrganisation'
     }
 ]
 

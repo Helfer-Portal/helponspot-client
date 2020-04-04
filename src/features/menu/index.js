@@ -31,14 +31,14 @@ export default function Menu() {
                   <MenuLink to="/">Home</MenuLink>
                 </li>
                 <li class="mr-3">
-                  <MenuLink to="ueber-uns">Über uns</MenuLink>
+                  <MenuLink to="/ueber-uns">Über uns</MenuLink>
                 </li>
                 <li class="mr-3">
-                  <MenuLink to="org-register1">Register</MenuLink>
+                  <MenuLink to="/app/orgsanisation/">Register</MenuLink>
                 </li>
               </ul>
-              
-              
+
+
             </div>
           </div>
 

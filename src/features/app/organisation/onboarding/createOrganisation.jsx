@@ -16,6 +16,5 @@ export default function createOrganisation() {
           <ButtonWithLink children="Weiter" link="/org-register3" />
         </div>
       </div>
-
   );
 }
