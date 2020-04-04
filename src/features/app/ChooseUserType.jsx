@@ -1,8 +1,6 @@
 import React from "react";
 import QuestionWithLabel from "../../components/QuestionWithLabel";
-import "./register1.css";
-import FullHeightLayout from "./components/full-height-layout";
-import UserCard from "./components/UserCard";
+import UserCard from "../../components/app/UserCard";
 
 const cardData = [
     {
@@ -12,6 +10,7 @@ const cardData = [
         list: [],
         img: require('../../assets/super_dad_1.png'),
         to: '/',
+        alt: 'Ich möchte helfen!'
     },
     {
         title: "Wir benötigen Hilfe",
@@ -19,13 +18,14 @@ const cardData = [
         //list: ['Vereine', 'Institutionen', 'DLRG, DRK...'],
         list: [],
         img: require('../../assets/team_work_1.png'),
-        to: 'org-register2'
+        to: '/app/organisation/createOrganisation',
+        alt: 'Ich möchte hifle suchen!'
     }
 ]
 
-export default function RegChooseType() {
+export default function chooseUserType() {
   return (
-    <FullHeightLayout>
+    <div>
       <QuestionWithLabel
         question="Wie benutzt Du HelpOnSpot"
         label="Schritt 2 von 3"
@@ -36,8 +36,8 @@ export default function RegChooseType() {
                 return <UserCard {... el} />
             })
         }
-        
+
       </div>
-    </FullHeightLayout>
+    </div>
   );
 }

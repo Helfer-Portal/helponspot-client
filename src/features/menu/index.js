@@ -14,9 +14,9 @@ export default function Menu() {
             <div class="pl-4 flex items-center">
               <a
                 class="toggleColour text-white no-underline hover:no-underline font-bold text-4xl"
-                href="#"
+                href="/"
               >
-                  <img src={require("../../assets/komb_bildwortmarke_1.png")}/>
+                  <img src={require("../../assets/komb_bildwortmarke_1.png")} alt={"Logo"}/>
 
               </a>
             </div>
@@ -28,17 +28,17 @@ export default function Menu() {
             >
               <ul class="list-reset flex justify-end flex-1 items-center">
                 <li class="mr-3">
-                  <MenuLink to="/">Home</MenuLink>
+                  <MenuLink to="/home">Home</MenuLink>
                 </li>
                 <li class="mr-3">
-                  <MenuLink to="ueber-uns">Über uns</MenuLink>
+                  <MenuLink to="/home/ueber-uns">Über uns</MenuLink>
                 </li>
                 <li class="mr-3">
-                  <MenuLink to="org-register1">Register</MenuLink>
+                  <MenuLink to="/app/organisation/chooseType">Register</MenuLink>
                 </li>
               </ul>
-              
-              
+
+
             </div>
           </div>
 

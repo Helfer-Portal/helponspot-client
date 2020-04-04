@@ -1,56 +1,109 @@
 import React from "react";
 
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route, Redirect } from "react-router-dom";
 
+//*********************
+//*** Layouts
+//*********************
+
+import LanderLayout from "../features/landing-page/landerLayout";
+
+//*********************
+//*** ORGANISATION
+//*********************
+
+import CreateOrganisation from "../features/app/organisation/onboarding/CreateOrganisation";
+import Dashboard from "../features/app/organisation/Dashboard";
+import CreateRequest from "../features/app/organisation/request/CreateRequest";
+import UpdateAddress from "../features/app/organisation/onboarding/UpdateAddress";
+
+//*********************
+//*** LANDING PAGE
+//*********************
 import Menu from "../features/menu/index.js";
-import AboutUs from "../features/about-us/index.js";
-
+import AboutUs from "../features/landing-page/about-us/index.js";
 import LandingPage from "../features/landing-page/index.js";
-import OrgRegister1 from "../features/org-register/register1.jsx";
-import OrgRegister2 from "../features/org-register/register2.jsx";
-import RegChooseType from "../features/org-register/reg-choose-org-help";
-import NewAnzeige from "../features/org-register/newAnzeige.jsx";
-import ShowNews from "../features/show-news/index.js";
-import ReqProvider from "../context/mock-requests.jsx";
+import RegChooseType from "../features/app/ChooseUserType";
+import ReqProvider from "../context/mock-requests";
 
 export default function RootRouter() {
-  const showSettings = event => {
+  /*const showSettings = event => {
     event.preventDefault();
-  };
+  };*/
 
   return (
-    <ReqProvider>
-      <Router>
-        <div id="outer-container">
-          <Menu />
-          <Switch>
-            <div id="content-wrapper">
-              <Route exact path="/">
-                <LandingPage />
-              </Route>
-              <Route path="/ueber-uns">
-                <AboutUs />
-              </Route>
+      <ReqProvider>
+    <Router>
 
-              <Route exact path="/org-register1">
-                <RegChooseType />
-              </Route>
-              <Route path="/org-register2">
-                <OrgRegister1 />
-              </Route>
-              <Route path="/org-register3">
-                <OrgRegister2 />
-              </Route>
-              <Route path="/org-register4">
-                <NewAnzeige />
-              </Route>
-              <Route path="/all-news">
-                <ShowNews />
-              </Route>
-            </div>
-          </Switch>
-        </div>
-      </Router>
+      <Route exact path="/">
+        <Redirect
+            to={{
+              pathname: "/home"
+            }}
+        />
+      </Route>
+
+      <div id="outer-container">
+        <Menu />
+        <Switch>
+          <div id="content-wrapper">
+
+            <Route path="/app">
+              <LanderLayout>
+
+              {/************** ORGANISATION*/}
+
+                <Route path="/app/organisation">
+                  <Route exact path="/app/organisation/chooseType">
+                    <RegChooseType />
+                  </Route>
+                  <Route exact path="/app/organisation/createOrganisation">
+                    <CreateOrganisation />
+                  </Route>
+                  <Route exact path="/app/organisation/createOrganisation/standort/">
+                    <UpdateAddress />
+                  </Route>
+                  <Route exact path="/app/organisation/request/">
+                    <CreateRequest />
+                  </Route>
+                  <Route exact path="/app/organisation/dashboard/">
+                    <Dashboard />
+                  </Route>
+                </Route>
+
+                {/************** Helfer*/}
+
+                <Route path="/helfer/">
+                  <Route exact path="/app/helfer/registrierung/">
+                    <RegChooseType />
+                  </Route>
+                </Route>
+
+
+
+              </LanderLayout>
+            </Route>
+
+
+
+            <Route path="/home">
+              <LanderLayout>
+
+                {/************** Landing Page*/}
+
+                <Route exact path="/home">
+                  <LandingPage />
+                </Route>
+                <Route exact path="/home/ueber-uns">
+                  <AboutUs />
+                </Route>
+
+              </LanderLayout>
+            </Route>
+          </div>
+        </Switch>
+      </div>
+    </Router>
     </ReqProvider>
   );
 }

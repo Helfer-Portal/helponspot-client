@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import CheckboxButton from "../../../components/CheckboxButton";
+import CheckboxButton from "../CheckboxButton";
 
 const customStyles = {
   content: {

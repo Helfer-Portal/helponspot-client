@@ -22,8 +22,8 @@ module.exports = {
       figmaSubHead: "#5388C1",
 
       figmaSectionHead: "#F47766",
-      
-      figmaMenu: "#1661AA", 
+
+      figmaMenu: "#1661AA",
 
       figmaParagraph: "#577095",
 
@@ -166,7 +166,10 @@ module.exports = {
       "40": "10rem",
       "48": "12rem",
       "56": "14rem",
-      "64": "16rem"
+      "64": "16rem",
+      "n8": "-2rem",
+      "n12": "-3rem",
+      "n16": "-4rem"
     },
     backgroundColor: theme => theme("colors"),
     backgroundPosition: {

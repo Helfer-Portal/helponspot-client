@@ -1,6 +1,5 @@
 import React from "react";
-import "../register1.css";
-import Footer from "../../landing-page/components/footer";
+import "../../styles/organisation.css";
 
 /** Layout for the register desktop story */
 export default function FullHeightLayoutNoFooter(props) {
