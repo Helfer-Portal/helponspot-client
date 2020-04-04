@@ -1351,6 +1351,10 @@ video {
   background-color: #EAF3FF;
 }
 
+.hover\:bg-bluePrimary:hover {
+  background-color: #EAF3FF;
+}
+
 .hover\:bg-gray-100:hover {
   background-color: #f7fafc;
 }
