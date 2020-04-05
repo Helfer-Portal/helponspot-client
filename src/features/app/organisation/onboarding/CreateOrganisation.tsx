@@ -22,7 +22,7 @@ export default function CreateOrganisation() {
 
       <div style={{ flex: 1 }} className="w-full">
         <ButtonWithLink
-          className="w-full flex"
+          className="w-full flex justify-center"
           children="Weiter"
           link="/app/organisation/createOrganisation/standort/"
         />
