@@ -1,13 +1,10 @@
 import React from "react";
+import ButtonWithLink from "../../../../components/ButtonWithLink";
 import QuestionWithLabel from "../../../../components/QuestionWithLabel";
 import InputWithLabel from "../../../../components/InputWithLabel";
-import ButtonWithLink from "../../../../components/ButtonWithLink";
-import BackButton from './components/BackButton';
+import BackButton from "./components/BackButton";
 
-/** second Screen of User Story */
-
-export default function UpdateAddress() {
-
+export default function CreateOrganisation() {
   return (
     <div className="flex flex-col w-full h-full px-8 py-4">
       <div style={{ flex: 1 }} className="flex w-full">
@@ -15,17 +12,20 @@ export default function UpdateAddress() {
       </div>
       <div style={{ flex: 2 }}>
         <QuestionWithLabel
-          question="Wo befindet ihr euch"
-          label="Schritt 2 von 3"
+          question="Hi, wie heißt deine Organisation"
+          label="Schritt 1 von 3"
         />
       </div>
       <div style={{ flex: 5 }} className="flex items-start">
-        <InputWithLabel fname="orglocation" label="Standort" />
+        <InputWithLabel fname="orgname" label="Name" />
       </div>
+
       <div style={{ flex: 1 }} className="w-full">
-        <ButtonWithLink link={"/app/organisation/request/"}>
-          Weiter
-        </ButtonWithLink>
+        <ButtonWithLink
+          className="w-full flex"
+          children="Weiter"
+          link="/app/organisation/createOrganisation/standort/"
+        />
       </div>
     </div>
   );

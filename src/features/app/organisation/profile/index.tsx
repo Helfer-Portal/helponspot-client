@@ -5,7 +5,7 @@ type ProfileViewProps = {};
 /** Profile view of organisation story */
 const ProfileView = (props: ProfileViewProps) => {
   return (
-    <div  className="flex flex-col items-center justify-center p-4">
+    <div className="flex flex-col items-center justify-center p-4">
       <div className="flex w-full">
         <h1 className="question font-dm-sans-h1">Dein Profil</h1>
       </div>
