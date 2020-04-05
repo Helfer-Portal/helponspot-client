@@ -74,7 +74,7 @@ export default function CreateRequest() {
                 <overline className="label font-inter text-figmaDescription">
                     Helferzahl
                 </overline>
-                <div className="w-full flex" className="container-helper-numbers">
+                <div className="w-full flex container-helper-numbers">
                     <Counter countState={[count, setCount]} />
                 </div>
             </div>
