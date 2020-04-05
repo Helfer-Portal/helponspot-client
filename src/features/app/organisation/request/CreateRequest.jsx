@@ -74,7 +74,7 @@ export default function CreateRequest() {
                 <overline className="label font-inter text-figmaDescription">
                     Helferzahl
                 </overline>
-                <div className="w-full flex" class="container-helper-numbers">
+                <div className="w-full flex" className="container-helper-numbers">
                     <Counter countState={[count, setCount]} />
                 </div>
             </div>
@@ -91,7 +91,7 @@ export default function CreateRequest() {
                 </div>
 
                 <div>
-                    <input class="lastQuestion" type="text" placeholder="Wir suchen Menschen, die..."/>
+                    <input className="lastQuestion" type="text" placeholder="Wir suchen Menschen, die..."/>
                 </div>
             </div>
 

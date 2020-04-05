@@ -51,7 +51,7 @@ export default function RootRouter() {
         </Route>
 
         <Switch>
-          <div id="content-wrapper" class={"min-h-screen"}>
+          <div id="content-wrapper" className={"min-h-screen"}>
             <Route path="/app">
               <LanderLayout>
                 <MobileFrame>

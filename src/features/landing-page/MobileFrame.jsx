@@ -6,11 +6,11 @@ const imagePath = require('../../../src/assets/handy.png');
 
 export default function MobileFrame(props) {
   return (
-        <div class="m-auto my-8 mobile-frame__outer" style={{
+        <div className="m-auto my-8 mobile-frame__outer" style={{
           backgroundImage: `url(${imagePath})`,
 
         }}>
-          <div class="mobile-frame__inner">
+          <div className="mobile-frame__inner">
             {props.children}
           </div>
         </div>

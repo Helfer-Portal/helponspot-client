@@ -26,9 +26,9 @@ export default function TextIlluView() {
   return (
     <div>
 
-      <section class="border-b py-8">
-        <div class="container mx-auto m-8">
-          <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-figmaHead font-dm-sans-h1">
+      <section className="border-b py-8">
+        <div className="container mx-auto m-8">
+          <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-figmaHead font-dm-sans-h1">
             {sectionTitle}
           </h1>
 
