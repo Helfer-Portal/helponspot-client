@@ -9,12 +9,6 @@ import * as helpersJson from "../assets/helpers.json";
 
    constructor(props){
        super(props);
-       console.log(helpersJson)
-       console.log(helpersJson.type)
-       console.log(this.props.geojson)
-       console.log(this.props.geojson.type)
-       console.log(this.props.geojson.default.type)
-
    }
 
    geoJSONStyle() {
