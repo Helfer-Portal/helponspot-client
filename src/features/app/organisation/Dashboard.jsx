@@ -4,6 +4,7 @@ import Reactions from "../../../components/app/reactions";
 import OpenRequest from "../../../components/app/open-request";
 import ReqProvider, { ReqContext } from "../../../context/mock-requests";
 
+// eslint-disable-next-line no-unused-vars
 const mockData = [
     {
         title: "Helft Tragen und Transportieren",
@@ -24,7 +25,7 @@ const mockData = [
 ];
 
 export default function Dashboard() {
-    const [data, setData] = useContext(ReqContext);
+    const data = useContext(ReqContext);
     return (
         <ReqProvider>
             <FullHeightLayoutNoFooter>
@@ -44,10 +45,10 @@ export default function Dashboard() {
         </ReqProvider>
     );
 }
-{
-    /* <div>
+/*{
+    <div>
                   {mockData.map(el => {
                     return <OpenRequest {...el} />;
                   })}
-                </div> */
-}
+                </div>
+}*/
