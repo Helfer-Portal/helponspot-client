@@ -1,7 +1,6 @@
 import React from "react";
 import SpeechBubble from "./components/speech-bubble";
 import ShortP from "./components/short-p";
-import Footer from "../components/footer";
 
 const aboutUsHeadline = "...wer oder was seid ihr eigentlich?";
 
@@ -55,15 +54,15 @@ const descriptions = [
 
 export default function AboutUs(props) {
   return (
-    <div class="pt-24">
-      <div class="container px-3 mx-auto flex flex-wrap items-center ">
-        <div class="flex  w-1/2 justify-center items-start md:text-left">
-          <h1 class="my-4 text-lg leading-tight text-figmaHead font-dm-sans-h1">
+    <div className="pt-24">
+      <div className="container px-3 mx-auto flex flex-wrap items-center ">
+        <div className="flex  w-1/2 justify-center items-start md:text-left">
+          <h1 className="my-4 text-lg leading-tight text-figmaHead font-dm-sans-h1">
             {aboutUsHeadline}
           </h1>
         </div>
         <div className="flex w-1/2 ">
-          <p class="leading-normal text-figmaParagraph font-inter">
+          <p className="leading-normal text-figmaParagraph font-inter">
             HelpOnSpot ist eine praktische Lösung, um Menschen und Institutionen im Umgang mit Krisen zu helfen.
             Indem engagierte Hilfskräfte schnell und unkompliziert genau dorthin vermittelt werden, wo man Unterstützung braucht,
             wird personellen Versorgungsengpässen entgegengewirkt.
@@ -71,7 +70,7 @@ export default function AboutUs(props) {
         </div>
       </div>
 
-      <div class="container px-3 mx-auto flex flex-wrap items-start ">
+      <div className="container px-3 mx-auto flex flex-wrap items-start ">
             <div className="p-4 w-1/2">
               <SpeechBubble title={speechBubbles[0].title} p={speechBubbles[0].p} />
             </div>

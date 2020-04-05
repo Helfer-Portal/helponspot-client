@@ -1,6 +1,6 @@
 import React from "react";
 import "./leaflet-map.css";
-import { Map, Marker, Popup, TileLayer, GeoJSON} from 'react-leaflet';
+import { Map, TileLayer, GeoJSON} from 'react-leaflet';
 import * as helpersJson from "./helpers.json";
 
 

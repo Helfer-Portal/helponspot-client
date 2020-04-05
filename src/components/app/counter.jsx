@@ -23,11 +23,11 @@ export default function Counter(props) {
         <div onClick={decrease}>
           <Circle image="/minus.png" />
         </div>
-        <div class="number">{count < 0 ? "alle" : count}</div>
+        <div className="number">{count < 0 ? "alle" : count}</div>
         <div onClick={increase}>
           <Circle image="/plus.png" />
         </div>
-        <button class="unlimited" onClick={infty}>unbegrenzt</button>
+        <button className="unlimited" onClick={infty}>unbegrenzt</button>
       </div>
     </div>
   );

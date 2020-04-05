@@ -26,9 +26,9 @@ export default function TextIlluView() {
   return (
     <div>
 
-      <section class="border-b py-8">
-        <div class="container mx-auto m-8">
-          <h1 class="w-full my-2 text-5xl font-bold leading-tight text-center text-figmaHead font-dm-sans-h1">
+      <section className="border-b py-8">
+        <div className="container mx-auto m-8">
+          <h1 className="w-full my-2 text-5xl font-bold leading-tight text-center text-figmaHead font-dm-sans-h1">
             {sectionTitle}
           </h1>
 
@@ -52,6 +52,7 @@ function img1(){
   return <img
       className="w-full md  md:w-3/5 z-50"
       src={require("../../../assets/super_dad_1.png")}
+      alt={"Illustration einer Person, die eine andere Person auf den Schultern trägt"}
   />
 
 }
@@ -59,6 +60,7 @@ function img2(){
   return <img
       className="w-full md:w-3/5 z-50"
       src={require("../../../assets/team_work_1.png")}
+      alt={"Illustration von drei Personen, die an einem gemeinsamen Problem arbeiten"}
   />
 
 }

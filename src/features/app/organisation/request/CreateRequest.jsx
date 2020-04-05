@@ -10,6 +10,7 @@ import Counter from "../../../../components/app/counter";
 export default function CreateRequest() {
     let [redirect, setRedirect] = React.useState(false);
 
+    // eslint-disable-next-line no-unused-vars
     let [data, setData] = React.useContext(ReqContext);
 
     let [title, setTitle] = React.useState("");
@@ -74,7 +75,7 @@ export default function CreateRequest() {
                 <overline className="label font-inter text-figmaDescription">
                     Helferzahl
                 </overline>
-                <div className="w-full flex" class="container-helper-numbers">
+                <div className="w-full flex container-helper-numbers">
                     <Counter countState={[count, setCount]} />
                 </div>
             </div>
@@ -91,7 +92,7 @@ export default function CreateRequest() {
                 </div>
 
                 <div>
-                    <input class="lastQuestion" type="text" placeholder="Wir suchen Menschen, die..."/>
+                    <input className="lastQuestion" type="text" placeholder="Wir suchen Menschen, die..."/>
                 </div>
             </div>
 

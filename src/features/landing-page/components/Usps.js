@@ -44,8 +44,7 @@ export default function Usps() {
     return (
       <div className="w-full md:w-1/3 p-6 flex flex-col flex-grow flex-shrink">
         <div className="flex-1 bg-white rounded-t rounded-b-none overflow-hidden shadow">
-          <a
-            href="#"
+          <span
             className="flex flex-wrap no-underline hover:no-underline"
           >
             <p className="w-full text-figmaSubHead font-inter text-xs md:text-sm px-6">
@@ -55,9 +54,9 @@ export default function Usps() {
               {title}
             </div>
             <p className="text-figmaParagraph font-inter text-base px-6 mb-5">{paragraph}</p>
-          </a>
+          </span>
         </div>
-        { hasRegisterButton ==true &&
+        { hasRegisterButton === true &&
           <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
             <div className="flex items-center justify-start">
 
