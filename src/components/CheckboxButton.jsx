@@ -4,7 +4,7 @@ import "./CheckboxButton.css"
 export default class Button extends Component {
   render() {
     return (
-        <div  className="rounded-lg" id="ck-button">
+        <div style={{position: 'relative'}} className="rounded-lg" id="ck-button">
           <label style={{width: this.props.text.length * 11 +"px"}}>
             <input
                 type="checkbox" value="1"/>

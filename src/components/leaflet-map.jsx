@@ -30,7 +30,7 @@ import * as helpersJson from "./helpers.json";
      render(){
       const position = [53.55, 10.05]
       return (
-        <Map center={position} zoom={11}>
+        <Map style={{position: 'relative', width: '100%', height: '100%'}} center={position} zoom={11}>
            <TileLayer
             attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

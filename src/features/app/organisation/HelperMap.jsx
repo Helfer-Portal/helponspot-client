@@ -4,7 +4,7 @@ import LeafletMap from "../../../components/leaflet-map";
 
 export default function HelperMap() {
   return (
-      <div>
+      <div style={{position: 'relative'}} className="h-full w-full">
         <QuestionWithLabel
             question="Diese Leute sind bereit zu helfen:"
             label="Helferkarte"
