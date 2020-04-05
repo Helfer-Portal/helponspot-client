@@ -52,7 +52,7 @@ export default function CreateRequest() {
     };
 
     return (
-        <div>
+        <div className="flex flex-col w-full h-full px-8 py-4 overflow-y-auto scrolling-touch">
             <QuestionWithLabel question="Anzeige erstellen" label="Schritt 3 von 3" />
             <div>
                 <overline className="label font-inter text-figmaDescription">
@@ -86,13 +86,13 @@ export default function CreateRequest() {
                 </div>
             </div>
 
-            <div className="py-2">
+            <div className="py-2 w-full flex flex-col">
                 <div className="mb-1 text-figmaDescription font-inter">
                     Beschreibung
                 </div>
 
-                <div>
-                    <input className="lastQuestion" type="text" placeholder="Wir suchen Menschen, die..."/>
+                <div className="w-full">
+                    <input style={{width: "100%"}} className="lastQuestion flex" type="text" placeholder="Wir suchen Menschen, die..."/>
                 </div>
             </div>
 
