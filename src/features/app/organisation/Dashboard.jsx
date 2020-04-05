@@ -25,7 +25,8 @@ const mockData = [
 ];
 
 export default function Dashboard() {
-    const data = useContext(ReqContext);
+    const [data] = useContext(ReqContext);
+    
     return (
         <ReqProvider>
             <FullHeightLayoutNoFooter>
