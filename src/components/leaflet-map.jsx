@@ -30,7 +30,6 @@ class LeafletMap extends React.Component {
     const position = [53.55, 10.05];
     return (
       <Map
-        onclick={this.props.onClick}
         style={{
           position: "relative",
           width: "100%",

@@ -222,6 +222,6 @@ const MapOverlay = (props: { modal: boolean; showMap: any }) => (
         Alle Helfer einberufen
       </button>
     </div>
-    <HelperMap onClick={props.showMap} />
+    <HelperMap />
   </div>
 );

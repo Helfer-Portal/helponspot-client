@@ -9,7 +9,7 @@ export default function HelperMap(props) {
             question="Diese Leute sind bereit zu helfen:"
             label="Helferkarte"
         /> */}
-      <LeafletMap onClick={props.onClick}></LeafletMap>
+      <LeafletMap></LeafletMap>
     </div>
   );
 }
