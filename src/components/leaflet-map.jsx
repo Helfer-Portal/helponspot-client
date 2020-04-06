@@ -1,7 +1,6 @@
 import React from "react";
 import "./leaflet-map.css";
 import { Map, TileLayer, GeoJSON } from "react-leaflet";
-import * as helpersJson from "./helpers.json";
 
 /** Leaflet Map component that renders given GeoJSON */
 class LeafletMap extends React.Component {
@@ -27,7 +26,6 @@ class LeafletMap extends React.Component {
   }
 
   render() {
-    const position = [53.55, 10.05];
     return (
       <Map
         style={{
@@ -36,7 +34,7 @@ class LeafletMap extends React.Component {
           height: "100%",
           zIndex: 0,
         }}
-        center={position}
+        center={this.props.location}
         zoom={11}
       >
         <TileLayer
@@ -44,7 +42,7 @@ class LeafletMap extends React.Component {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         <GeoJSON
-          data={helpersJson.features}
+          data={this.props.geojson.default.features}
           style={this.geoJSONStyle}
           onEachFeature={this.onEachFeature}
         />
