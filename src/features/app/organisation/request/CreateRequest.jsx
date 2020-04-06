@@ -41,8 +41,9 @@ const MapOverlay = (props) => (
       style={{
         position: "absolute",
         zIndex: 1,
-        top: "50%",
-        left: "10%",
+        top: "auto",
+        left: "auto",
+        bottom: "10px",
       }}
     >
       <input type="text" placeholder="Straße, Nr" className="m-4 p-3"></input>
@@ -114,11 +115,19 @@ export default function CreateRequest() {
           Titel
         </overline>
         <br />
-        <input type="text" name="name" value={title} onChange={updateTitle} />
+        <input
+          type="text"
+          name="name"
+          className="p-2"
+          value={title}
+          onChange={updateTitle}
+        />
       </div>
 
       <MapOverlay modal={modal} showMap={showMap}></MapOverlay>
-      <button onClick={showMap}>Einsatzort bestimmen</button>
+      <button onClick={showMap} className="unlimited">
+        Einsatzort bestimmen
+      </button>
 
       <div className="my-3 flex flex-col align-start py-2">
         <div className="mb-3 text-figmaDescription font-inter">

@@ -14,8 +14,8 @@ export default function Counter(props) {
   };
 
   const infty = () => {
-      setCount(-1);
-  }
+    setCount(-1);
+  };
 
   return (
     <div className="flex flex-row">
@@ -27,7 +27,13 @@ export default function Counter(props) {
         <div onClick={increase}>
           <Circle image="/plus.png" />
         </div>
-        <button className="unlimited" onClick={infty}>unbegrenzt</button>
+        <button
+          className="unlimited"
+          style={{ marginLeft: 30 }}
+          onClick={infty}
+        >
+          unbegrenzt
+        </button>
       </div>
     </div>
   );
