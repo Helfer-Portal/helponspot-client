@@ -172,15 +172,14 @@ const MapOverlay = (props: { modal: boolean; showMap: any }) => (
     style={{
       position: "absolute",
       zIndex: 2,
-      overflow: "hidden",
+      // overflow: "hidden",
       height: "100%",
       // minHeight: 1000,
       width: "100%",
       top: 0,
       left: 0,
-      display: props.modal ? "block" : "none",
+      visibility: props.modal ? "initial" : "hidden",
     }}
-    className="bg-white"
   >
     {/* Info about the Map */}
     <div

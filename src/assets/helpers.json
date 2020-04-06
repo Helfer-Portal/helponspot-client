@@ -1,0 +1,358 @@
+{
+  "type": "FeatureCollection",
+  "name": "helpers",
+  "crs": {
+    "type": "name",
+    "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" }
+  },
+  "bbox": [
+    9.77211481047126,
+    53.4183350054373,
+    10.2690464035447,
+    53.6905187299499
+  ],
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 0,
+        "qualities": ["LKW", "Ersthelfer", "Blutspender"]
+      },
+      "bbox": [10.227297, 53.418335, 10.227297, 53.418335],
+      "geometry": { "type": "Point", "coordinates": [10.227297, 53.418335] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 1, "qualities": [] },
+      "bbox": [9.903284, 53.640009, 9.903284, 53.640009],
+      "geometry": { "type": "Point", "coordinates": [9.903284, 53.640009] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 2,
+        "qualities": ["PKW", "Med. Ausbildung", "F\u00fchrerschein"]
+      },
+      "bbox": [10.077229, 53.515835, 10.077229, 53.515835],
+      "geometry": { "type": "Point", "coordinates": [10.077229, 53.515835] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 3,
+        "qualities": ["Med. Ausbildung", "F\u00fchrerschein"]
+      },
+      "bbox": [10.056044, 53.63819, 10.056044, 53.63819],
+      "geometry": { "type": "Point", "coordinates": [10.056044, 53.63819] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 4, "qualities": ["PKW"] },
+      "bbox": [10.01613, 53.645088, 10.01613, 53.645088],
+      "geometry": { "type": "Point", "coordinates": [10.01613, 53.645088] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 5, "qualities": ["Blutspender"] },
+      "bbox": [10.269046, 53.422773, 10.269046, 53.422773],
+      "geometry": { "type": "Point", "coordinates": [10.269046, 53.422773] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 6,
+        "qualities": ["Blutspender", "Ersthelfer", "F\u00fchrerschein"]
+      },
+      "bbox": [9.955259, 53.572598, 9.955259, 53.572598],
+      "geometry": { "type": "Point", "coordinates": [9.955259, 53.572598] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 7,
+        "qualities": ["Ersthelfer", "LKW", "COVID19 immun"]
+      },
+      "bbox": [10.148038, 53.660901, 10.148038, 53.660901],
+      "geometry": { "type": "Point", "coordinates": [10.148038, 53.660901] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 8, "qualities": ["Blutspender"] },
+      "bbox": [9.850716, 53.595971, 9.850716, 53.595971],
+      "geometry": { "type": "Point", "coordinates": [9.850716, 53.595971] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 9, "qualities": ["PKW", "Ersthelfer"] },
+      "bbox": [10.142298, 53.481808, 10.142298, 53.481808],
+      "geometry": { "type": "Point", "coordinates": [10.142298, 53.481808] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 11,
+        "qualities": ["Med. Ausbildung", "COVID19 immun", "PKW"]
+      },
+      "bbox": [10.023604, 53.661803, 10.023604, 53.661803],
+      "geometry": { "type": "Point", "coordinates": [10.023604, 53.661803] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 12, "qualities": ["COVID19 immun"] },
+      "bbox": [10.138394, 53.507719, 10.138394, 53.507719],
+      "geometry": { "type": "Point", "coordinates": [10.138394, 53.507719] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 13, "qualities": [] },
+      "bbox": [9.774292, 53.535313, 9.774292, 53.535313],
+      "geometry": { "type": "Point", "coordinates": [9.774292, 53.535313] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 14,
+        "qualities": ["COVID19 immun", "Blutspender", "Ersthelfer"]
+      },
+      "bbox": [9.948039, 53.443036, 9.948039, 53.443036],
+      "geometry": { "type": "Point", "coordinates": [9.948039, 53.443036] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 15,
+        "qualities": ["LKW", "COVID19 immun", "Blutspender"]
+      },
+      "bbox": [10.103128, 53.635764, 10.103128, 53.635764],
+      "geometry": { "type": "Point", "coordinates": [10.103128, 53.635764] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 16, "qualities": ["LKW", "COVID19 immun"] },
+      "bbox": [9.777056, 53.608145, 9.777056, 53.608145],
+      "geometry": { "type": "Point", "coordinates": [9.777056, 53.608145] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 17, "qualities": ["LKW", "Ersthelfer"] },
+      "bbox": [9.810136, 53.480491, 9.810136, 53.480491],
+      "geometry": { "type": "Point", "coordinates": [9.810136, 53.480491] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 18,
+        "qualities": ["F\u00fchrerschein", "Blutspender", "Ersthelfer"]
+      },
+      "bbox": [10.162734, 53.425211, 10.162734, 53.425211],
+      "geometry": { "type": "Point", "coordinates": [10.162734, 53.425211] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 19, "qualities": ["COVID19 immun"] },
+      "bbox": [10.002721, 53.642226, 10.002721, 53.642226],
+      "geometry": { "type": "Point", "coordinates": [10.002721, 53.642226] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 20, "qualities": [] },
+      "bbox": [9.948998, 53.465352, 9.948998, 53.465352],
+      "geometry": { "type": "Point", "coordinates": [9.948998, 53.465352] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 21, "qualities": [] },
+      "bbox": [10.113695, 53.690519, 10.113695, 53.690519],
+      "geometry": { "type": "Point", "coordinates": [10.113695, 53.690519] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 22, "qualities": ["Blutspender", "PKW"] },
+      "bbox": [10.125646, 53.485896, 10.125646, 53.485896],
+      "geometry": { "type": "Point", "coordinates": [10.125646, 53.485896] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 23, "qualities": [] },
+      "bbox": [9.911992, 53.472433, 9.911992, 53.472433],
+      "geometry": { "type": "Point", "coordinates": [9.911992, 53.472433] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 24, "qualities": ["COVID19 immun", "PKW"] },
+      "bbox": [10.208241, 53.511991, 10.208241, 53.511991],
+      "geometry": { "type": "Point", "coordinates": [10.208241, 53.511991] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 25, "qualities": ["F\u00fchrerschein"] },
+      "bbox": [10.034733, 53.528939, 10.034733, 53.528939],
+      "geometry": { "type": "Point", "coordinates": [10.034733, 53.528939] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 26, "qualities": [] },
+      "bbox": [10.167707, 53.592356, 10.167707, 53.592356],
+      "geometry": { "type": "Point", "coordinates": [10.167707, 53.592356] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 27, "qualities": ["COVID19 immun", "LKW"] },
+      "bbox": [10.164562, 53.487944, 10.164562, 53.487944],
+      "geometry": { "type": "Point", "coordinates": [10.164562, 53.487944] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 28,
+        "qualities": ["LKW", "F\u00fchrerschein", "PKW"]
+      },
+      "bbox": [10.193198, 53.486232, 10.193198, 53.486232],
+      "geometry": { "type": "Point", "coordinates": [10.193198, 53.486232] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 29, "qualities": ["Ersthelfer"] },
+      "bbox": [9.98502, 53.619216, 9.98502, 53.619216],
+      "geometry": { "type": "Point", "coordinates": [9.98502, 53.619216] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 30,
+        "qualities": ["LKW", "COVID19 immun", "Ersthelfer"]
+      },
+      "bbox": [9.930636, 53.600967, 9.930636, 53.600967],
+      "geometry": { "type": "Point", "coordinates": [9.930636, 53.600967] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 31,
+        "qualities": ["Blutspender", "PKW", "F\u00fchrerschein"]
+      },
+      "bbox": [9.782293, 53.55493, 9.782293, 53.55493],
+      "geometry": { "type": "Point", "coordinates": [9.782293, 53.55493] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 32,
+        "qualities": ["F\u00fchrerschein", "PKW", "LKW"]
+      },
+      "bbox": [9.772115, 53.563781, 9.772115, 53.563781],
+      "geometry": { "type": "Point", "coordinates": [9.772115, 53.563781] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 33, "qualities": ["LKW", "Med. Ausbildung"] },
+      "bbox": [10.016167, 53.647065, 10.016167, 53.647065],
+      "geometry": { "type": "Point", "coordinates": [10.016167, 53.647065] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 34, "qualities": ["Med. Ausbildung", "LKW"] },
+      "bbox": [9.907779, 53.592148, 9.907779, 53.592148],
+      "geometry": { "type": "Point", "coordinates": [9.907779, 53.592148] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 35, "qualities": ["PKW"] },
+      "bbox": [9.854336, 53.513017, 9.854336, 53.513017],
+      "geometry": { "type": "Point", "coordinates": [9.854336, 53.513017] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 36,
+        "qualities": ["Med. Ausbildung", "COVID19 immun", "F\u00fchrerschein"]
+      },
+      "bbox": [10.028717, 53.672177, 10.028717, 53.672177],
+      "geometry": { "type": "Point", "coordinates": [10.028717, 53.672177] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 37, "qualities": [] },
+      "bbox": [10.130258, 53.586294, 10.130258, 53.586294],
+      "geometry": { "type": "Point", "coordinates": [10.130258, 53.586294] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 38,
+        "qualities": ["Med. Ausbildung", "Blutspender"]
+      },
+      "bbox": [10.013999, 53.566846, 10.013999, 53.566846],
+      "geometry": { "type": "Point", "coordinates": [10.013999, 53.566846] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 40, "qualities": [] },
+      "bbox": [9.913674, 53.588626, 9.913674, 53.588626],
+      "geometry": { "type": "Point", "coordinates": [9.913674, 53.588626] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 41,
+        "qualities": ["LKW", "F\u00fchrerschein", "Blutspender"]
+      },
+      "bbox": [9.856822, 53.457754, 9.856822, 53.457754],
+      "geometry": { "type": "Point", "coordinates": [9.856822, 53.457754] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 42, "qualities": ["Blutspender"] },
+      "bbox": [9.852974, 53.578194, 9.852974, 53.578194],
+      "geometry": { "type": "Point", "coordinates": [9.852974, 53.578194] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 43, "qualities": [] },
+      "bbox": [10.008532, 53.632612, 10.008532, 53.632612],
+      "geometry": { "type": "Point", "coordinates": [10.008532, 53.632612] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 44, "qualities": ["LKW", "COVID19 immun"] },
+      "bbox": [10.181317, 53.465793, 10.181317, 53.465793],
+      "geometry": { "type": "Point", "coordinates": [10.181317, 53.465793] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 45, "qualities": [] },
+      "bbox": [9.871714, 53.558981, 9.871714, 53.558981],
+      "geometry": { "type": "Point", "coordinates": [9.871714, 53.558981] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 46,
+        "qualities": ["Med. Ausbildung", "LKW", "COVID19 immun"]
+      },
+      "bbox": [9.886485, 53.454957, 9.886485, 53.454957],
+      "geometry": { "type": "Point", "coordinates": [9.886485, 53.454957] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 47, "qualities": ["LKW", "COVID19 immun"] },
+      "bbox": [10.136828, 53.593628, 10.136828, 53.593628],
+      "geometry": { "type": "Point", "coordinates": [10.136828, 53.593628] }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "id": 48,
+        "qualities": ["Med. Ausbildung", "Ersthelfer", "COVID19 immun"]
+      },
+      "bbox": [10.197624, 53.452962, 10.197624, 53.452962],
+      "geometry": { "type": "Point", "coordinates": [10.197624, 53.452962] }
+    },
+    {
+      "type": "Feature",
+      "properties": { "id": 49, "qualities": [] },
+      "bbox": [9.794498, 53.543011, 9.794498, 53.543011],
+      "geometry": { "type": "Point", "coordinates": [9.794498, 53.543011] }
+    }
+  ]
+}
