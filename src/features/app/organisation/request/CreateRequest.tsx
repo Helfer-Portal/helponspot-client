@@ -75,18 +75,21 @@ export default function CreateRequest() {
       ref={myContainerRef}
     >
       <QuestionWithLabel question="Anzeige erstellen" label="Schritt 3 von 3" />
+
+      {/* Title */}
       <div>
         <div className="mb-1 text-figmaDescription font-inter">Titel</div>
-        <br />
         <input
           type="text"
           name="name"
           className="p-2"
           value={title}
           onChange={updateTitle}
+          placeholder={"z.B. Brauchen Anpacker"}
         />
       </div>
 
+      {/* address */}
       <div className="mt-4">
         <div className="mb-1 text-figmaDescription font-inter">Adresse</div>
         <input
@@ -97,8 +100,7 @@ export default function CreateRequest() {
         <input type="text" placeholder="Ort" className="my-2 p-2"></input>
       </div>
 
-      <MapOverlay modal={modal} showMap={showMap}></MapOverlay>
-
+      {/* Competences */}
       <div className="my-2 flex flex-col align-start">
         <div className="mb-3 text-figmaDescription font-inter">
           Gesuchte Kompetenzen
@@ -108,19 +110,24 @@ export default function CreateRequest() {
         </div>
       </div>
 
+      {/* Helper Number */}
       <div className="flex flex-col py-2">
         <div className="mb-1 text-figmaDescription font-inter">Helferzahl</div>
-        <div className="w-full flex container-helper-numbers">
+        <div className="w-full p-2 flex container-helper-numbers">
           <Counter countState={[count, setCount]} />
         </div>
       </div>
 
+      {/* map */}
+      <MapOverlay modal={modal} showMap={showMap}></MapOverlay>
       <button onClick={showMap} className="unlimited">
         Mögliche Helfer anzeigen lassen
       </button>
 
+      {/* date */}
       <DatePicker dateState={[date, updateDate]}></DatePicker>
 
+      {/* last textfield */}
       <div className="py-2 w-full flex flex-col">
         <div className="mb-1 text-figmaDescription font-inter">
           Beschreibung
@@ -151,7 +158,7 @@ export default function CreateRequest() {
 const DatePicker = (props: { dateState: any }) => {
   let [date, updateDate] = props.dateState;
   return (
-    <div className="w-full flex flex-col py-2">
+    <div className="w-full flex flex-col py-4">
       <div className="mb-1 text-figmaDescription font-inter">Zeitraum</div>
       <div>
         <input type="date" value={date} onChange={updateDate}></input>
