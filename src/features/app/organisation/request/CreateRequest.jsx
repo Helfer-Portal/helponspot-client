@@ -11,6 +11,47 @@ import Counter from "../../../../components/app/counter";
 import Modal from "react-modal";
 import HelperMap from "../HelperMap";
 
+const MapOverlay = (props) => (
+  <div
+    style={{
+      position: "absolute",
+      zIndex: 2,
+      // overflow: "hidden",
+      height: "100%",
+      width: "100%",
+      top: 0,
+      left: 0,
+      display: props.modal ? "block" : "none",
+    }}
+    className="bg-white"
+  >
+    <button
+      style={{
+        position: "absolute",
+        zIndex: 1,
+        left: "60%",
+        top: "2rem",
+      }}
+      className="bg-white rounded-full px-4 py-2"
+      onClick={props.showMap}
+    >
+      Close Map
+    </button>
+    <div
+      style={{
+        position: "absolute",
+        zIndex: 1,
+        top: "50%",
+        left: "10%",
+      }}
+    >
+      <input type="text" placeholder="Straße, Nr" className="m-4 p-3"></input>
+      <input type="text" placeholder="Ort" className="m-4 p-3"></input>
+    </div>
+    <HelperMap onClick={props.showMap} />
+  </div>
+);
+
 export default function CreateRequest() {
   let [redirect, setRedirect] = React.useState(false);
 
@@ -26,15 +67,14 @@ export default function CreateRequest() {
   let [modal, setModal] = React.useState(true);
 
   const showMap = () => {
-      setModal(!modal);
-      
-  }
+    setModal(!modal);
+  };
 
-  const updateTitle = e => {
+  const updateTitle = (e) => {
     setTitle(e.target.value);
   };
 
-  const updateDate = e => {
+  const updateDate = (e) => {
     setDate(e.target.value);
     let diff = datediff(Date.now(), new Date(e.target.value));
     setDateDiff(diff);
@@ -47,45 +87,27 @@ export default function CreateRequest() {
     return Math.round((second - first) / (1000 * 60 * 60 * 24));
   }
 
-  const addData = e => {
+  const addData = (e) => {
     e.preventDefault();
-    setData(prevData => [
+    setData((prevData) => [
       {
         title: title,
         timeLast: dateDiff ? dateDiff + " Tage" : "5 Tage",
         reqHelpers: count,
         confirmed: Math.abs(Math.floor(Math.random() * count)),
         denied: 0,
-        open: 0
+        open: 0,
       },
-      ...prevData
+      ...prevData,
     ]);
     setRedirect(true);
   };
 
   return (
     <div
-      style={{ position: 'relative'}}
+      style={{ position: "relative" }}
       className="flex flex-col w-full h-full px-8 py-4  overflow-y-auto"
     >
-      <div
-        style={{
-          position: "absolute",
-          zIndex: 2,
-          // overflow: "hidden",
-          height: "100%",
-          width: "100%",
-          top: 0,
-          left: 0,    
-          display: modal? "block" : "none"
-        }}
-        className="bg-white"
-      >
-          <button onClick={showMap}>close</button>
-        <HelperMap /> 
-      </div>
-      <button onClick={showMap}>close</button>
-
       <QuestionWithLabel question="Anzeige erstellen" label="Schritt 3 von 3" />
       <div>
         <overline className="label font-inter text-figmaDescription">
@@ -94,6 +116,9 @@ export default function CreateRequest() {
         <br />
         <input type="text" name="name" value={title} onChange={updateTitle} />
       </div>
+
+      <MapOverlay modal={modal} showMap={showMap}></MapOverlay>
+      <button onClick={showMap}>Einsatzort bestimmen</button>
 
       <div className="my-3 flex flex-col align-start py-2">
         <div className="mb-3 text-figmaDescription font-inter">
