@@ -7,6 +7,14 @@
     overflow:auto;
     float:left;
 }
+#ck-button.red {
+
+    background-color:#FAAD98;
+}
+
+#ck-button.red span {
+    color: #FFFFFF;
+}
 
 #ck-button span {
     color: #F47766;
