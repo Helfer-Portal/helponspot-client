@@ -22,8 +22,9 @@ const options_list = [
 ];
 
 /** competence componente with add function */
-export default function Competences() {
+export default function Competences(props: {defaultColorButtons:string}) {
   /** state holds mock competences */
+  const defaultButtonColor = props.defaultColorButtons;
   const [options, setOptions] = useState(options_list);
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -59,10 +60,10 @@ export default function Competences() {
   }
 
   return (
-    <div className="flex flex-col w-1/2">
+    <div className="flex flex-col w-full">
       <div>
         {options.map(entry => (
-          <CheckboxButton text={entry} />
+          <CheckboxButton color={defaultButtonColor} text={entry} />
         ))}
       </div>
       <div className="flex flex-row ">

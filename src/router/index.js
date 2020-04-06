@@ -23,7 +23,8 @@ import Dashboard from "../features/app/organisation/Dashboard";
 import CreateRequest from "../features/app/organisation/request/CreateRequest";
 import UpdateAddress from "../features/app/organisation/onboarding/UpdateAddress";
 import HelperMap from "../features/app/organisation/HelperMap";
-import ProfileView from "../features/app/organisation/profile";
+import ProfileView from "../features/app/organisation/profile/profile_org";
+import UserProfileView from "../features/app/organisation/profile/ProfileUser";
 
 //*********************
 //*** LANDING PAGE
@@ -85,6 +86,11 @@ export default function RootRouter() {
                       exact
                       path="/app/organisation/profile"
                       component={ProfileView}
+                    />
+                    <Route
+                        exact
+                        path="/app/organisation/userprofile"
+                        component={UserProfileView}
                     />
                   </Route>
 
