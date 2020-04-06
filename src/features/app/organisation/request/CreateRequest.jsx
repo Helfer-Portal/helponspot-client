@@ -16,8 +16,9 @@ const MapOverlay = (props) => (
     style={{
       position: "absolute",
       zIndex: 2,
-      // overflow: "hidden",
+      overflow: "hidden",
       height: "100%",
+      // minHeight: 1000,
       width: "100%",
       top: 0,
       left: 0,
@@ -25,29 +26,45 @@ const MapOverlay = (props) => (
     }}
     className="bg-white"
   >
-    <button
+    {/* Info about the Map */}
+    <div
       style={{
         position: "absolute",
         zIndex: 1,
-        left: "60%",
-        top: "2rem",
+        right: "5%",
+        width: "60%",
       }}
-      className="bg-white rounded-full px-4 py-2"
-      onClick={props.showMap}
+      className="bg-white my-4 p-1 rounded"
     >
-      Close Map
-    </button>
+      <h4 className="font-bold font-dm-sans text-md">Was kann ich machen?</h4>
+      <p className="font-inter text-sm">
+        Durch klicken, können einzelne Helfer vorgemerkt werden.
+      </p>
+    </div>
+    {/* Buttons bottom */}
     <div
       style={{
         position: "absolute",
         zIndex: 1,
         top: "auto",
         left: "auto",
-        bottom: "10px",
+        bottom: "10%",
+        width: "100%",
       }}
+      className="px-4"
     >
-      <input type="text" placeholder="Straße, Nr" className="m-4 p-3"></input>
-      <input type="text" placeholder="Ort" className="m-4 p-3"></input>
+      <button
+        className="bg-white rounded-full w-full px-4 py-2 border-black border-2"
+        onClick={props.showMap}
+      >
+        Helfer Einstellungen modifizieren
+      </button>
+      <button
+        className="bg-white rounded-full w-full px-4 py-2 border-black border-2 my-2"
+        onClick={() => alert("was machen wir hier?")}
+      >
+        Alle Helfer einberufen
+      </button>
     </div>
     <HelperMap onClick={props.showMap} />
   </div>
@@ -65,9 +82,15 @@ export default function CreateRequest() {
   let [count, setCount] = React.useState(0);
 
   // Modal
-  let [modal, setModal] = React.useState(true);
+  let [modal, setModal] = React.useState(false);
+
+  // scroll ref on map click
+  const myContainerRef = React.useRef(null);
 
   const showMap = () => {
+    ((containerRef) => {
+      containerRef.current.scrollTo(0, 0);
+    })(myContainerRef);
     setModal(!modal);
   };
 
@@ -108,6 +131,7 @@ export default function CreateRequest() {
     <div
       style={{ position: "relative" }}
       className="flex flex-col w-full h-full px-8 py-4  overflow-y-auto"
+      ref={myContainerRef}
     >
       <QuestionWithLabel question="Anzeige erstellen" label="Schritt 3 von 3" />
       <div>
@@ -124,12 +148,21 @@ export default function CreateRequest() {
         />
       </div>
 
-      <MapOverlay modal={modal} showMap={showMap}></MapOverlay>
-      <button onClick={showMap} className="unlimited">
-        Einsatzort bestimmen
-      </button>
+      <div className="mt-4">
+        <overline className="label font-inter text-figmaDescription">
+          Adresse
+        </overline>
+        <input
+          type="text"
+          placeholder="Straße, Nr"
+          className="my-1 p-2"
+        ></input>
+        <input type="text" placeholder="Ort" className="my-2 p-2"></input>
+      </div>
 
-      <div className="my-3 flex flex-col align-start py-2">
+      <MapOverlay modal={modal} showMap={showMap}></MapOverlay>
+
+      <div className="my-2 flex flex-col align-start">
         <div className="mb-3 text-figmaDescription font-inter">
           Gesuchte Kompetenzen
         </div>
@@ -146,6 +179,10 @@ export default function CreateRequest() {
           <Counter countState={[count, setCount]} />
         </div>
       </div>
+
+      <button onClick={showMap} className="unlimited">
+        Mögliche Helfer anzeigen lassen
+      </button>
 
       <div className="w-full flex flex-col py-2">
         <div className="mb-1 text-figmaDescription font-inter">Zeitraum</div>
