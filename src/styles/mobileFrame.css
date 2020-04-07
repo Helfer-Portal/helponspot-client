@@ -9,6 +9,15 @@
 
 .mobile-frame__inner {
   width: 365px;
-  height: 650px;
+  height: 595px;
   margin-top: 20px;
+}
+
+.tab-link > div > #tab-label {
+  display: inline-flex;
+}
+
+.tab-link > div {
+  background-color: #fdebdb;
+  border-radius: 9999px;
 }
