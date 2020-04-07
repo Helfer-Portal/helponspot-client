@@ -1,6 +1,6 @@
 import React from "react";
 import QuestionWithLabel from "../../../components/QuestionWithLabel";
-import LeafletMap from "../../../components/leaflet-map";
+import LeafletMap from "../../../components/LeafletMap";
 import * as helpersJson from "../../../assets/helpers.json"; // Mock data until api is ready
 
 /*
