@@ -8,10 +8,11 @@ interface TabProps {
 
 /** single Tab */
 const Tab = ({ to, label }: TabProps) => {
+  const url_base = "/app/organisation/";
   return (
     <div style={{ flex: 1 }} className="flex  justify-center items-center">
       <div>
-        <NavLink to={to} activeClassName="tab-link bg-black">
+        <NavLink to={url_base + to} activeClassName="tab-link bg-black">
           <div
             style={{ color: "#F58576" }}
             className="text-sm font-inter text-center"
@@ -33,7 +34,7 @@ const Tab = ({ to, label }: TabProps) => {
 const TabBar = () => {
   return (
     <div
-      style={{ position: "absolute", height: 55, bottom: 20, width: 365 }}
+      style={{ position: "relative", height: 55, width: 365 }}
       className="bg-white flex border-t-2"
     >
       <Tab to={"dashboard"} label={"Dashboard"} />
