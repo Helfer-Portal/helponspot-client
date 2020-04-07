@@ -83,7 +83,7 @@ const Subheading = ({ children }: { children: string }) => (
   </div>
 );
 
-const ContactInput = ({ placeholder }: { placeholder: string }) => {
+export const ContactInput = ({ placeholder }: { placeholder: string }) => {
   return (
     <div className="flex flex-1 flex-row py-2 w-full">
       <div className="flex w-1/5">hi</div>

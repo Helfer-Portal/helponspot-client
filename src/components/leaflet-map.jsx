@@ -53,8 +53,12 @@ class LeafletMap extends React.Component {
     /* The method bindPopup only takes strings
         but the string can contain html, which will
         then be parsed and rendered */
+    const name = feature.properties.name;
+    const id = feature.properties.id;
     var popupContent = "";
     popupContent += "<Popup>";
+    //include link to user
+    popupContent += `<h2><b><a href='/app/organisation/user/${id}'>${name}</a></b></h2>`;
     popupContent += "<p><b>Bringt mit:</b></p>";
     popupContent += "<ul>";
     feature.properties.qualities.forEach((quality) => {
