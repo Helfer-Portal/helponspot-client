@@ -106,7 +106,7 @@ export default function CreateRequest() {
           Gesuchte Kompetenzen
         </div>
         <div>
-          <Competences />
+          <Competences defaultColorButtons={"#fff"} />
         </div>
       </div>
 

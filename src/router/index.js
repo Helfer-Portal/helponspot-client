@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 
 //*********************
@@ -88,9 +88,9 @@ export default function RootRouter() {
                       component={ProfileView}
                     />
                     <Route
-                        exact
-                        path="/app/organisation/userprofile"
-                        component={UserProfileView}
+                      exact
+                      path="/app/organisation/userprofile"
+                      component={UserProfileView}
                     />
                   </Route>
 

@@ -22,7 +22,7 @@ const options_list = [
 ];
 
 /** competence componente with add function */
-export default function Competences(props: {defaultColorButtons:string}) {
+export default function Competences(props: { defaultColorButtons: string }) {
   /** state holds mock competences */
   const defaultButtonColor = props.defaultColorButtons;
   const [options, setOptions] = useState(options_list);
