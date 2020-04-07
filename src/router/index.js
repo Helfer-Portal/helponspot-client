@@ -89,7 +89,7 @@ export default function RootRouter() {
                     />
                     <Route
                         exact
-                        path="/app/organisation/userprofile"
+                        path="/app/organisation/user/:id"
                         component={UserProfileView}
                     />
                   </Route>
