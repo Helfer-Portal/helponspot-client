@@ -1,33 +1,39 @@
 #ck-button {
+  margin: 4px;
+  background-color: #ffffff;
+  border-radius: 4px;
+  border: 1px solid #d0d0d0;
+  overflow: auto;
+  float: left;
+}
+#ck-button.red {
+  background-color: #faad98;
+}
 
-    margin:4px;
-    background-color:#FFFFFF;
-    border-radius:4px;
-    border:1px solid #D0D0D0;
-    overflow:auto;
-    float:left;
+#ck-button.red span {
+  color: #ffffff;
 }
 
 #ck-button span {
-    color: #F47766;
+  color: #f47766;
 }
 
 #ck-button label {
-    float:left;
+  float: left;
 }
 
 #ck-button label span {
-    text-align:center;
-    padding:3px 0px;
-    display:block;
+  text-align: center;
+  padding: 3px 0px;
+  display: block;
 }
 
 #ck-button label input {
-    position:absolute;
-    top:-20px;
+  position: absolute;
+  top: -20px;
 }
 
 #ck-button input:checked + span {
-    background-color:#FAAD98;
-    color:#fff;
+  background-color: #faad98;
+  color: #fff;
 }

@@ -1,20 +1,27 @@
 import React from "react";
 import QuestionWithLabel from "../../../components/QuestionWithLabel";
 import LeafletMap from "../../../components/leaflet-map";
-import * as helpersJson from "../../../assets/helpers.json";
+import * as helpersJson from "../../../assets/helpers.json"; // Mock data until api is ready
 
-// Diese Informationen müssen an LeafletMap übergeben werden
-var location=[53.55, 10.05];
-var geojson = helpersJson;
+/*
+These are bits of information that need to be passed to the generalised LeafletMap component
+*/
+let geojson = helpersJson; // must be filtered by request to api
+let location = [53.55, 10.05]; // from geocoding the address of the request
+let icon = "helper"; // currently available: "helper", "organisation"
 
-export default function HelperMap() {
+export default function HelperMap(props) {
   return (
-      <div>
-        <QuestionWithLabel
+    <div style={{ position: "relative" }} className="h-full w-full">
+      {/* <QuestionWithLabel
             question="Diese Leute sind bereit zu helfen:"
             label="Helferkarte"
-        />
-        <LeafletMap location={location} geojson={geojson}></LeafletMap>
-      </div>
+        /> */}
+      <LeafletMap
+        geojson={geojson}
+        location={location}
+        icon={icon}
+      ></LeafletMap>
+    </div>
   );
 }

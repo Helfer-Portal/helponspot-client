@@ -67,7 +67,10 @@ const AvatarTitleView = ({ image, title, location }: AvatarTitleViewProps) => {
           {title}
         </div>
         <div className="font-inter text-figmaParagraph text-sm">
-          <span role={"img"} aria-label={"Standort"}>📍</span> {location}
+          <span role={"img"} aria-label={"Standort"}>
+            📍
+          </span>{" "}
+          {location}
         </div>
       </div>
     </div>

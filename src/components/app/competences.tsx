@@ -18,12 +18,13 @@ const options_list = [
   "super",
   "Plasma",
   "Führerschein",
-  "medizinische Grundausbildung"
+  "medizinische Grundausbildung",
 ];
 
 /** competence componente with add function */
-export default function Competences() {
+export default function Competences(props: { defaultColorButtons: string }) {
   /** state holds mock competences */
+  const defaultButtonColor = props.defaultColorButtons;
   const [options, setOptions] = useState(options_list);
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -59,22 +60,21 @@ export default function Competences() {
   }
 
   return (
-    <div className="flex flex-col w-1/2">
+    <div className="flex flex-col w-full">
       <div>
-        {options.map(entry => (
-          <CheckboxButton text={entry} />
+        {options.map((entry) => (
+          <CheckboxButton color={defaultButtonColor} text={entry} />
         ))}
       </div>
-      <div className="flex flex-row ">
+      <div className="flex flex-row w-full ">
         <div
           onClick={openModal}
-          className="w-8 rounded-full border-2 text-center align-center border-figmaMenu"
+          className="px-2 rounded-full border-2 text-center align-center border-figmaMenu"
         >
-          {" "}
-          +{" "}
+          +
         </div>
         <div
-          className="underline font-inter text-figmaSubHead font-bold"
+          className="underline font-inter text-figmaSubHead font-bold ml-1"
           onClick={openModal}
         >
           Kompetenzen hinzufügen
@@ -86,12 +86,11 @@ export default function Competences() {
         style={customStyles}
       >
         <div className="p-4 flex flex-col">
-          
           <div className="font-dm-sans font-bold">Neue Kompetenz eingeben</div>
           <div className="p-4 flex flex-col">
             <form className="gradient" onSubmit={handleSubmit}>
               <label>
-                Kompetenz 
+                Kompetenz
                 <input
                   type="text"
                   value={value}
@@ -101,7 +100,9 @@ export default function Competences() {
                 />
               </label>
               <br />
-              <button className="unlimited" onClick={closeModal}>Abbrechen</button>
+              <button className="unlimited" onClick={closeModal}>
+                Abbrechen
+              </button>
               <input className="unlimited" type="submit" value="Hinzufügen" />
             </form>
           </div>
