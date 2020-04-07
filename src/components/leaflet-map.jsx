@@ -46,13 +46,24 @@ class LeafletMap extends React.Component {
         center: this.props.location,
         zoom: 11,
       },
+      previousViewport: {
+        center: this.props.location,
+        zoom: 11,
+      },
     };
+  }
+
+  componentDidMount() {
+    /* The map object get's it viewport property on change of
+    center or zoom level. Initially it is undefined. To avoid
+    errors, we pass it it's initial viewport upon rendering. */
+    this.map.viewport = this.state.viewport;
   }
 
   createPopup(feature, layer) {
     /* The method bindPopup only takes strings
-        but the string can contain html, which will
-        then be parsed and rendered */
+    but the string can contain html, which will
+    then be parsed and rendered */
     const name = feature.properties.name;
     const id = feature.properties.id;
     var popupContent = "";
@@ -70,24 +81,36 @@ class LeafletMap extends React.Component {
 
   onEachFeature(feature, layer) {
     this.createPopup(feature, layer);
-    /* add click handler to zoom to feature on click */
+
+    /* coordinates in geojson are in reverse order */
     let coordinates = [
       feature.geometry.coordinates[1],
       feature.geometry.coordinates[0],
     ];
+
+    /* add click handler to zoom to feature on click */
     layer.on({
-      click: () =>
-        this.setState({ viewport: { center: coordinates, zoom: 13 } }),
+      click: () => {
+        this.setState({ previousViewport: this.map.viewport });
+        this.setState({ viewport: { center: coordinates, zoom: 13 } });
+      },
     });
   }
 
   pointToLayer(feature, latlng) {
-    return L.marker(latlng, { icon: icons[this.props.icon] });
+    let marker = L.marker(latlng, { icon: icons[this.props.icon] });
+    marker.on("popupclose", () => {
+      this.setState({ viewport: this.state.previousViewport });
+    });
+    return marker;
   }
 
   render() {
     return (
       <Map
+        ref={(ref) => {
+          this.map = ref;
+        }} // makes map object available
         style={{
           position: "relative",
           width: "100%",
