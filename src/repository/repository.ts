@@ -228,7 +228,7 @@ class FetchService implements Service {
     const MOCKED_HELPREQUESTS = [
       {
         id: 1,
-        name: "Am Tannenbusch 13",
+        name: "Helft tragen und transportieren",
         created_at: "22.03.2020 17:12 Uhr",
         organisation_id: 17,
         date_start: "23.03.2020 14:00 Uhr",
@@ -240,7 +240,7 @@ class FetchService implements Service {
       },
       {
         id: 2,
-        name: "Rapsacker 27",
+        name: "Blutspender gesucht",
         created_at: "22.03.2020 17:12 Uhr",
         date_start: "23.03.2020 14:00 Uhr",
         organisation_id: 17,
@@ -256,21 +256,17 @@ class FetchService implements Service {
   }
 
   getHelpRequestById(id: number): Promise<HelpRequest> {
-    return Promise.resolve({
-      id: 1,
-      name: "Am Tannenbusch 13",
-      created_at: "22.03.2020 17:12 Uhr",
-      organisation_id: 17,
-      date_start: "23.03.2020 14:00 Uhr",
-      number_helpers: 5,
-      roles: [],
-      skills: [
-        { id: 1, name: "Führerschein" },
-        { id: 10, name: "Erste Hilfe Kurs" },
-      ],
-      requested_helpers: this.mockHelpers(),
-      confirmed_helpers: this.mockHelpers(),
-    });
+    const temp = async () => {
+      let requests: HelpRequest[] = await this.getHelpRequests();
+      requests = requests.filter((el) => {
+        return el.id == id;
+      });
+      return requests[0];
+    };
+
+    let ours = temp();
+
+    return Promise.resolve(ours);
   }
 
   private get<T>(endpoint: Endpoint, mockValue: T): Promise<T> {

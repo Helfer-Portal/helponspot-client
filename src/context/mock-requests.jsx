@@ -7,7 +7,8 @@ const mockData = [
     reqHelpers: 30,
     confirmed: 14,
     denied: 14,
-    open: 12
+    open: 12,
+    req_id: 1,
   },
   {
     title: "Blutspender gesucht",
@@ -15,14 +16,15 @@ const mockData = [
     reqHelpers: -1,
     confirmed: 140,
     denied: 0,
-    open: 0
-  }
+    open: 0,
+    req_id: 2,
+  },
 ];
 
 export const ReqContext = React.createContext();
 
 /** stores dummy data for help requests across pages */
-export default function ReqProvider(props)  {
+export default function ReqProvider(props) {
   const [data, setData] = React.useState(mockData);
 
   return (
@@ -30,4 +32,4 @@ export default function ReqProvider(props)  {
       {props.children}
     </ReqContext.Provider>
   );
-};
+}
