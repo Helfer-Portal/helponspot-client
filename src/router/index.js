@@ -4,7 +4,7 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Redirect
+  Redirect,
 } from "react-router-dom";
 
 //*********************
@@ -21,6 +21,7 @@ import MobileFrame from "../features/landing-page/MobileFrame";
 import CreateOrganisation from "../features/app/organisation/onboarding/CreateOrganisation";
 import Dashboard from "../features/app/organisation/Dashboard";
 import CreateRequest from "../features/app/organisation/request/CreateRequest";
+import RequestDetails from "../features/app/organisation/request/RequestDetails";
 import UpdateAddress from "../features/app/organisation/onboarding/UpdateAddress";
 import HelperMap from "../features/app/organisation/HelperMap";
 import ProfileView from "../features/app/organisation/profile/profile_org";
@@ -71,9 +72,15 @@ export default function RootRouter() {
                     >
                       <UpdateAddress />
                     </Route>
+
                     <Route exact path="/app/organisation/request/">
                       <CreateRequest />
                     </Route>
+
+                    <Route exact path="/app/organisation/request/details">
+                      <RequestDetails />
+                    </Route>
+
                     <Route exact path="/app/organisation/dashboard/">
                       <Dashboard />
                     </Route>
@@ -88,9 +95,9 @@ export default function RootRouter() {
                       component={ProfileView}
                     />
                     <Route
-                        exact
-                        path="/app/organisation/user/:id"
-                        component={UserProfileView}
+                      exact
+                      path="/app/organisation/user/:id"
+                      component={UserProfileView}
                     />
                   </Route>
 

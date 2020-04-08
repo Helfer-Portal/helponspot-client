@@ -48,6 +48,12 @@ export interface Repository {
   notifyHelpers(matching: HelperSearchDefinition): Promise<any>;
 
   getHelpRequests(): Promise<HelpRequest[]>;
+
+  /**
+   * Returns the help requests details
+   * @param id Help Request ID
+   */
+  getHelpRequestById(id: number): Promise<HelpRequest>;
 }
 
 /**
@@ -79,6 +85,10 @@ export class RepositoryImpl implements Repository {
 
   getHelpRequests(): Promise<HelpRequest[]> {
     return this.service.getHelpRequests();
+  }
+
+  getHelpRequestById(id: number): Promise<HelpRequest> {
+    return this.service.getHelpRequestById(id);
   }
 }
 
@@ -117,6 +127,8 @@ export interface Service {
   notifyHelpers(matching: HelperSearchDefinition): Promise<any>;
 
   getHelpRequests(): Promise<HelpRequest[]>;
+
+  getHelpRequestById(id: number): Promise<HelpRequest>;
 
   getOrganziationInfo(orgId: string): Promise<OrganizationInfo>;
 }
@@ -241,6 +253,24 @@ class FetchService implements Service {
     ];
 
     return this.get(Endpoint.HelpRequest, MOCKED_HELPREQUESTS);
+  }
+
+  getHelpRequestById(id: number): Promise<HelpRequest> {
+    return Promise.resolve({
+      id: 1,
+      name: "Am Tannenbusch 13",
+      created_at: "22.03.2020 17:12 Uhr",
+      organisation_id: 17,
+      date_start: "23.03.2020 14:00 Uhr",
+      number_helpers: 5,
+      roles: [],
+      skills: [
+        { id: 1, name: "Führerschein" },
+        { id: 10, name: "Erste Hilfe Kurs" },
+      ],
+      requested_helpers: this.mockHelpers(),
+      confirmed_helpers: this.mockHelpers(),
+    });
   }
 
   private get<T>(endpoint: Endpoint, mockValue: T): Promise<T> {

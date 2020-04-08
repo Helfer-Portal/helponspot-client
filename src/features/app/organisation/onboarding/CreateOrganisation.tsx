@@ -2,7 +2,7 @@ import React from "react";
 import ButtonWithLink from "../../../../components/ButtonWithLink";
 import QuestionWithLabel from "../../../../components/QuestionWithLabel";
 import InputWithLabel from "../../../../components/InputWithLabel";
-import BackButton from "./components/BackButton";
+import BackButton from "../../../../components/BackButton";
 
 export default function CreateOrganisation() {
   return (
