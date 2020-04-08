@@ -52,12 +52,26 @@ class LeafletMap extends React.Component {
       },
     };
   }
-
   componentDidMount() {
     /* The map object get's it viewport property on change of
     center or zoom level. Initially it is undefined. To avoid
     errors, we pass it it's initial viewport upon rendering. */
     this.map.viewport = this.state.viewport;
+  }
+
+  zoomToMarker(feature){
+    let coordinates = [
+      feature.geometry.coordinates[1],
+      feature.geometry.coordinates[0],
+    ];
+    return () => {
+      this.setState({ previousViewport: this.map.viewport });
+      this.setState({ viewport: { center: coordinates, zoom: 13 } });
+    }
+  }
+  zoomBack() {
+    this.setState({ viewport: this.state.previousViewport });
+
   }
 
   createPopup(feature, layer) {
@@ -79,31 +93,8 @@ class LeafletMap extends React.Component {
     layer.bindPopup(popupContent);
   }
 
-  onEachFeature(feature, layer) {
-    this.createPopup(feature, layer);
 
-    /* coordinates in geojson are in reverse order */
-    let coordinates = [
-      feature.geometry.coordinates[1],
-      feature.geometry.coordinates[0],
-    ];
 
-    /* add click handler to zoom to feature on click */
-    layer.on({
-      click: () => {
-        this.setState({ previousViewport: this.map.viewport });
-        this.setState({ viewport: { center: coordinates, zoom: 13 } });
-      },
-    });
-  }
-
-  pointToLayer(feature, latlng) {
-    let marker = L.marker(latlng, { icon: icons[this.props.icon] });
-    marker.on("popupclose", () => {
-      this.setState({ viewport: this.state.previousViewport });
-    });
-    return marker;
-  }
 
   render() {
     return (
@@ -134,5 +125,4 @@ class LeafletMap extends React.Component {
     );
   }
 }
-
 export default LeafletMap;
