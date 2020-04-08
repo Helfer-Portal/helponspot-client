@@ -1,4 +1,5 @@
 import React from "react";
+const mapIcon = require("../../../../assets/tab-map-icon.svg");
 
 export const DashboardIcon: JSX.Element = (
   <svg
@@ -37,23 +38,7 @@ export const ReqIcon: JSX.Element = (
 );
 
 export const MapIcon: JSX.Element = (
-  <svg
-    width="20"
-    height="21"
-    viewBox="0 0 20 21"
-    fill="none"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      fill-rule="evenodd"
-      clip-rule="evenodd"
-      d="M1.76385 5.27079V19.3263L7.11108 15.8125L13.2222 19.3263L18.5694 15.8125V1.7569L13.2222 5.27079L7.11108 1.7569L1.76385 5.27079V5.27079Z"
-      stroke="#F88478"
-      stroke-width="2"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    />
-  </svg>
+  <img style={{ minWidth: 20 }} src={mapIcon} />
 );
 
 export const ProfileIcon: JSX.Element = (
