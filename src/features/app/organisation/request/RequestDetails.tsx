@@ -7,8 +7,12 @@ import {
   OrganizationInfo,
 } from "../../../../repository/model/helprequest";
 import CheckboxButton from "../../../../components/CheckboxButton";
+import { useParams } from "react-router-dom";
 
 const repository = new RepositoryImpl();
+
+const ERROR_MESSAGE =
+  "Da ist etwas schiefgelaufen, die Request scheint nicht in der Datenbank zu existieren";
 
 /** Profile view of organisation story */
 const RequestDetails = () => {
@@ -16,14 +20,20 @@ const RequestDetails = () => {
   const [orgData, setOrgData] = React.useState<OrganizationInfo | null>(null);
   const [isError, setIsError] = React.useState<boolean>(false);
 
-  async function loadOrgInfo() {
+  let { reqId } = useParams();
+
+  async function loadOrgInfo(id: number): Promise<void> {
     setIsError(false);
     try {
-      let res = await repository.getOrganizationInfo("42");
-      if (res) {
-        setOrgData(res);
+      if (id) {
+        let res = await repository.getOrganizationInfo(String(id));
+        if (res) {
+          setOrgData(res);
+        } else {
+          throw new Error("Unable to fetch Org Infos");
+        }
       } else {
-        throw new Error("Unable to fetch Org Infos");
+        throw new Error("Error fetching with Org ID");
       }
     } catch (err) {
       setIsError(true);
@@ -31,27 +41,36 @@ const RequestDetails = () => {
     }
   }
 
-  async function loadReqInfo() {
+  async function loadReqInfo(): Promise<HelpRequest> {
     setIsError(false);
     try {
-      let res = await repository.getHelpRequestById(12);
-      if (res) {
-        setReqData(res);
+      if (reqId) {
+        let res = await repository.getHelpRequestById(parseInt(reqId));
+        if (res) {
+          setReqData(res);
+          return res;
+        } else {
+          throw new Error("Unable to fetch Request Infos");
+        }
       } else {
-        throw new Error("Unable to fetch Request Infos");
+        throw new Error("No URL params");
       }
     } catch (err) {
       setIsError(true);
       console.log(err);
+      return err.message;
     }
   }
 
   React.useLayoutEffect(() => {
-    loadReqInfo();
-    loadOrgInfo();
+    const loadData = async () => {
+      let reqData = await loadReqInfo();
+      loadOrgInfo(reqData.organisation_id);
+    };
+    loadData();
   }, []);
 
-  return (
+  const onSuccess = (
     <div className="flex flex-col align-stretch w-full h-full px-4 pt-4 pb-4">
       {/* Back */}
       <div style={{ flex: 2 }}>
@@ -138,6 +157,8 @@ const RequestDetails = () => {
       </div>
     </div>
   );
+
+  return isError ? <div>{ERROR_MESSAGE}</div> : onSuccess;
 };
 
 export default RequestDetails;

@@ -77,7 +77,10 @@ export default function RootRouter() {
                       <CreateRequest />
                     </Route>
 
-                    <Route exact path="/app/organisation/request/details">
+                    <Route
+                      exact
+                      path="/app/organisation/request/details/:reqId"
+                    >
                       <RequestDetails />
                     </Route>
 
