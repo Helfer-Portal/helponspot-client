@@ -1,6 +1,7 @@
 import * as React from "react"; // we need this to make JSX compile
 import RepositoryImpl from "../../../../repository/repository";
 import { OrganizationInfo } from "../../../../repository/model/helprequest";
+import { Subheading } from "../../../../components/Subheading";
 
 /** Profile view of organisation story */
 const ProfileView = () => {
@@ -107,12 +108,6 @@ const AvatarTitleView = ({ image, title, location }: AvatarTitleViewProps) => {
     </div>
   );
 };
-
-const Subheading = ({ children }: { children: string }) => (
-  <div className="uppercase text-sm font-inter text-figmaParagraph p-1">
-    {children}
-  </div>
-);
 
 export const ContactInput = ({ placeholder }: { placeholder?: string }) => {
   return (

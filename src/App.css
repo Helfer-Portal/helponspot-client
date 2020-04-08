@@ -9,11 +9,7 @@
 
 /* background */
 .gradient {
-  background: linear-gradient(
-    180deg,
-    #eaf3ff,
-    white 70%
-  );
+  background: linear-gradient(180deg, #eaf3ff, white 70%);
 }
 
 .orange-gradient {
@@ -60,12 +56,12 @@
 @import url("https://fonts.googleapis.com/css?family=DM+Sans&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Inter&display=swap");
 
-.font-dm-sans{
+.font-dm-sans {
   font-family: "DM Sans", sans-serif;
 }
 
 .font-inter {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
 .font-dm-sans-h1 {
@@ -88,11 +84,8 @@
   margin-right: 20px;
 }
 
-
-
-
 .font-inter-p {
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
   font-style: normal;
   font-weight: normal;
   font-size: 21px;
@@ -101,3 +94,7 @@
 
   letter-spacing: 0.01em;
 }
+
+/* * {
+  outline: 1px solid black;
+} */

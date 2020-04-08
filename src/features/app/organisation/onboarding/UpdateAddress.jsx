@@ -2,7 +2,7 @@ import React from "react";
 import QuestionWithLabel from "../../../../components/QuestionWithLabel";
 import InputWithLabel from "../../../../components/InputWithLabel";
 import ButtonWithLink from "../../../../components/ButtonWithLink";
-import BackButton from "./components/BackButton";
+import BackButton from "../../../../components/BackButton";
 
 /** second Screen of User Story */
 
