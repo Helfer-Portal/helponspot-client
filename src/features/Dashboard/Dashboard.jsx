@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import Reactions from "./reactions";
+import Reactions from "./Reactions";
 import OpenRequest from "./OpenRequest";
 import ReqProvider, { ReqContext } from "../../context/mock-requests";
 import { Link } from "react-router-dom";

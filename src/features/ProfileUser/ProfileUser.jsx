@@ -4,7 +4,7 @@ import "../../styles/organisation.css";
 import { Redirect } from "react-router-dom";
 import CheckboxButton from "../../components/CheckboxButton";
 import ProfilePic from "../../components/ProfilePic";
-import { ContactInput } from "../ProfileOrg/OrgProfileView";
+import { ContactInput } from "../ProfileOrg";
 import BackButton from "../../components/BackButton";
 
 const options_list = [

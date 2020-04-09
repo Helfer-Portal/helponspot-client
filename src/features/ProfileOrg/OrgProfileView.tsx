@@ -1,7 +1,9 @@
 import * as React from "react"; // we need this to make JSX compile
+
 import RepositoryImpl from "../../repository/repository";
 import { OrganizationInfo } from "../../repository/model/helprequest";
 import { Subheading } from "../../components/Subheading";
+import ContactInput from "./ContactInput";
 
 /** Profile view of organisation story */
 const OrgProfileView = () => {
@@ -104,17 +106,6 @@ const AvatarTitleView = ({ image, title, location }: AvatarTitleViewProps) => {
           </span>{" "}
           {location}
         </div>
-      </div>
-    </div>
-  );
-};
-
-export const ContactInput = ({ placeholder }: { placeholder?: string }) => {
-  return (
-    <div className="flex flex-1 flex-row py-2 w-full">
-      <div className="flex w-1/5">hi</div>
-      <div className="mx-4 flex w-4/5">
-        <input className="w-full" type="text" placeholder={placeholder} />
       </div>
     </div>
   );
