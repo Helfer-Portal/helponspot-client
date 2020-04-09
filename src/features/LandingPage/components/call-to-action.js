@@ -12,9 +12,10 @@ export default function CallToAction() {
             Unterstützung finden, wenn sie gebraucht wird
           </h1>
           <p className="leading-normal text-figmaParagraph font-inter-p">
-            Wenn Zeit und Personal knapp sind, ist schnelle und unkomplizierte Unterstützung gefragt.
-            HelpOnSpot ist in diesen Situationen die zentrale Anlaufstelle, um qualifizierte Hilfskräfte in der Nähe sichtbar zu machen
-            und ihre schnelle Mobilisierung zu ermöglichen!
+            Wenn Zeit und Personal knapp sind, ist schnelle und unkomplizierte
+            Unterstützung gefragt. HelpOnSpot ist in diesen Situationen die
+            zentrale Anlaufstelle, um qualifizierte Hilfskräfte in der Nähe
+            sichtbar zu machen und ihre schnelle Mobilisierung zu ermöglichen!
           </p>
 
           <ButtonOrange>

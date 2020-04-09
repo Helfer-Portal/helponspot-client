@@ -6,7 +6,10 @@ export default function Footer() {
       <div className="container mx-auto  px-8">
         <div className="w-full flex flex-col sm:flex-row py-6">
           <div className="flex-1 mb-6">
-            <img src={require("../../../assets/komb_bildwortmarke_1.png")} alt={"HelpOnSpot Logo"}/>
+            <img
+              src={require("../../../assets/komb_bildwortmarke_1.png")}
+              alt={"HelpOnSpot Logo"}
+            />
           </div>
 
           <div className="flex-1">
@@ -16,25 +19,19 @@ export default function Footer() {
                 <a
                   href="#"
                   className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-                >
-
-                </a>
+                ></a>
               </li>
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                 <a
                   href="#"
                   className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-                >
-
-                </a>
+                ></a>
               </li>
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                 <a
                   href="#"
                   className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-                >
-
-                </a>
+                ></a>
               </li>
             </ul>
           </div>
@@ -45,17 +42,13 @@ export default function Footer() {
                 <a
                   href="#"
                   className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-                >
-
-                </a>
+                ></a>
               </li>
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                 <a
                   href="#"
                   className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-                >
-
-                </a>
+                ></a>
               </li>
             </ul>
           </div>
@@ -66,24 +59,19 @@ export default function Footer() {
                 <a
                   href="#"
                   className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-                >
-
-                </a>
+                ></a>
               </li>
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                 <a
                   href="#"
                   className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-                >
-
-                </a>
+                ></a>
               </li>
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                 <a
                   href="#"
                   className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-                >
-                </a>
+                ></a>
               </li>
             </ul>
           </div>
@@ -94,9 +82,7 @@ export default function Footer() {
                 <a
                   href="#"
                   className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-                >
-
-                </a>
+                ></a>
               </li>
               <li className="mt-2 inline-block mr-2 md:block md:mr-0">
                 <a
@@ -110,9 +96,7 @@ export default function Footer() {
                 <a
                   href="#"
                   className="no-underline hover:underline text-gray-800 hover:text-orange-500"
-                >
-
-                </a>
+                ></a>
               </li>
             </ul>
           </div>
@@ -122,8 +106,7 @@ export default function Footer() {
       <a
         href="https://www.freepik.com/free-photos-vectors/background"
         className="text-gray-500"
-      >
-      </a>
+      ></a>
     </footer>
   );
 }

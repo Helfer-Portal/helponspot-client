@@ -6,8 +6,8 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 //*** Layouts
 //*********************
 
-import LanderLayout from "../features/landing-page/landerLayout";
-import MobileFrame from "../features/landing-page/MobileFrame";
+import LanderLayout from "../features/LandingPage/landerLayout";
+import MobileFrame from "../features/LandingPage/MobileFrame";
 
 //*********************
 //*** ORGANISATION
@@ -25,10 +25,10 @@ import RequestDetails from "../features/RequestDetails";
 //*** LANDING PAGE
 //*********************
 
-import AboutUs from "../features/landing-page/about-us/index.js";
-import LandingPage from "../features/landing-page/index.js";
+import AboutUs from "../features/LandingPage/about-us/index.js";
+import LandingPage from "../features/LandingPage";
 import ChooseUserType from "../features/ChooseUserType";
-import ReqProvider from "../context/mock-requests";
+import ReqProvider from "../context/MockRequests";
 import CreateRequest from "../features/CreateRequest/CreateRequest";
 
 export default function RootRouter() {

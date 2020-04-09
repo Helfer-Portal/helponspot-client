@@ -8,12 +8,9 @@ export default function LanderLayout(props) {
     <div className="min-h-screen">
       <Menu />
       <div className="h-full align-start justify-start">
-        <div className="m-auto container">
-          {props.children}
-        </div>
+        <div className="m-auto container">{props.children}</div>
       </div>
       <Footer />
-
     </div>
   );
 }

@@ -3,7 +3,7 @@ import QuestionWithLabel from "../../components/QuestionWithLabel";
 
 import "../../styles/organisation.css";
 import Competences from "./Competences";
-import { ReqContext } from "../../context/mock-requests";
+import { ReqContext } from "../../context/MockRequests";
 import { Redirect } from "react-router-dom";
 import Counter from "./Counter";
 

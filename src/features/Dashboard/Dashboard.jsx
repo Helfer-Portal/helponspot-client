@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import Reactions from "./Reactions";
 import OpenRequest from "./OpenRequest";
-import ReqProvider, { ReqContext } from "../../context/mock-requests";
+import ReqProvider, { ReqContext } from "../../context/MockRequests";
 import { Link } from "react-router-dom";
 
 export default function Dashboard() {

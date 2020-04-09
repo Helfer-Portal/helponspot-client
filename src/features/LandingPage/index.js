@@ -5,11 +5,11 @@ import TextIlluView from "./components/text-illu-view";
 import Usps from "./components/Usps";
 
 export default function LandingPage() {
-    return(
-        <div>
-            <CallToAction />
-            <TextIlluView />
-            <Usps />
-        </div>
-    );
-  }
+  return (
+    <div>
+      <CallToAction />
+      <TextIlluView />
+      <Usps />
+    </div>
+  );
+}
