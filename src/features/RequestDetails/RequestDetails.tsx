@@ -1,12 +1,12 @@
 import * as React from "react"; // we need this to make JSX compile
-import BackButton from "../../../../components/BackButton";
-import { Subheading } from "../../../../components/Subheading";
-import RepositoryImpl from "../../../../repository/repository";
+import BackButton from "../../components/BackButton";
+import { Subheading } from "../../components/Subheading";
+import RepositoryImpl from "../../repository/repository";
 import {
   HelpRequest,
   OrganizationInfo,
-} from "../../../../repository/model/helprequest";
-import CheckboxButton from "../../../../components/CheckboxButton";
+} from "../../repository/model/helprequest";
+import CheckboxButton from "../../components/CheckboxButton";
 import { useParams } from "react-router-dom";
 
 const repository = new RepositoryImpl();
@@ -113,7 +113,7 @@ const RequestDetails = () => {
               style={{ height: 50, width: 50, overflow: "hidden" }}
               className="rounded-full bg-white min-w-4"
             >
-              <img src={require("../../../../assets/helfer.png")} />
+              <img src={require("../../assets/helfer.png")} />
             </div>
           </div>
           <div style={{ flex: 3 }} className="flex-col">

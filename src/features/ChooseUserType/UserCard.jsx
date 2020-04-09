@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 export default function UserCard(props) {
-  const listElements = props.list.map(el => {
+  const listElements = props.list.map((el) => {
     return <li>*{el}</li>;
   });
   return (
@@ -21,7 +21,7 @@ export default function UserCard(props) {
             <ul className="list-disc">{listElements}</ul>
           </div>
           <div>
-            <img src={props.img} alt={props.alt}/>
+            <img src={props.img} alt={props.alt} />
           </div>
         </div>
       </Link>

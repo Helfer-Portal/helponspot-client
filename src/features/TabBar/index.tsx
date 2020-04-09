@@ -1,11 +1,6 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
-import {
-  DashboardIcon,
-  ReqIcon,
-  MapIcon,
-  ProfileIcon,
-} from "./components/icons";
+import { DashboardIcon, ReqIcon, MapIcon, ProfileIcon } from "./icons";
 
 interface TabProps {
   to: string;

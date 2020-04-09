@@ -1,7 +1,7 @@
 import React from "react";
-import QuestionWithLabel from "../../../components/QuestionWithLabel";
-import LeafletMap from "../../../components/LeafletMap";
-import * as helpersJson from "../../../assets/helpers.json"; // Mock data until api is ready
+import QuestionWithLabel from "../../components/QuestionWithLabel";
+import LeafletMap from "../../components/LeafletMap";
+import * as helpersJson from "../../assets/helpers.json"; // Mock data until api is ready
 
 /*
 These are bits of information that need to be passed to the generalised LeafletMap component

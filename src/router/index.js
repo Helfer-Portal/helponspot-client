@@ -1,11 +1,6 @@
 import React from "react";
 
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 //*********************
 //*** Layouts
@@ -18,14 +13,13 @@ import MobileFrame from "../features/landing-page/MobileFrame";
 //*** ORGANISATION
 //*********************
 
-import CreateOrganisation from "../features/app/organisation/onboarding/CreateOrganisation";
-import Dashboard from "../features/app/organisation/Dashboard";
-import AllRequest from "../features/app/organisation/request/AllRequests";
-import RequestDetails from "../features/app/organisation/request/RequestDetails";
-import UpdateAddress from "../features/app/organisation/onboarding/UpdateAddress";
-import HelperMap from "../features/app/organisation/HelperMap";
-import ProfileView from "../features/app/organisation/profile/profile_org";
-import UserProfileView from "../features/app/organisation/profile/ProfileUser";
+import AllRequest from "../features/AllRequests";
+import { CreateOrganisation, UpdateAddress } from "../features/OnBoarding";
+import Dashboard from "../features/Dashboard";
+import HelperMap from "../features/HelperMap";
+import OrgProfileView from "../features/ProfileOrg";
+import UserProfileView from "../features/ProfileUser";
+import RequestDetails from "../features/RequestDetails";
 
 //*********************
 //*** LANDING PAGE
@@ -33,9 +27,9 @@ import UserProfileView from "../features/app/organisation/profile/ProfileUser";
 
 import AboutUs from "../features/landing-page/about-us/index.js";
 import LandingPage from "../features/landing-page/index.js";
-import RegChooseType from "../features/app/ChooseUserType";
+import ChooseUserType from "../features/ChooseUserType";
 import ReqProvider from "../context/mock-requests";
-import CreateRequest from "../features/app/organisation/request/CreateRequest";
+import CreateRequest from "../features/CreateRequest/CreateRequest";
 
 export default function RootRouter() {
   /*const showSettings = event => {
@@ -62,7 +56,7 @@ export default function RootRouter() {
 
                   <Route path="/app/organisation">
                     <Route exact path="/app/organisation/chooseType">
-                      <RegChooseType />
+                      <ChooseUserType />
                     </Route>
                     <Route exact path="/app/organisation/createOrganisation">
                       <CreateOrganisation />
@@ -100,7 +94,7 @@ export default function RootRouter() {
                     <Route
                       exact
                       path="/app/organisation/profile"
-                      component={ProfileView}
+                      component={OrgProfileView}
                     />
                     <Route
                       exact
@@ -113,7 +107,7 @@ export default function RootRouter() {
 
                   <Route path="/helfer/">
                     <Route exact path="/app/helfer/registrierung/">
-                      <RegChooseType />
+                      <ChooseUserType />
                     </Route>
                   </Route>
                 </MobileFrame>

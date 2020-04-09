@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import CheckboxButton from "../CheckboxButton";
+import CheckboxButton from "../../components/CheckboxButton";
 
 const customStyles = {
   content: {
@@ -63,7 +63,7 @@ export default function Competences(props: { defaultColorButtons: string }) {
     <div className="flex flex-col w-full">
       <div>
         {options.map((entry) => (
-            <CheckboxButton color={defaultButtonColor} text={entry} />
+          <CheckboxButton color={defaultButtonColor} text={entry} />
         ))}
       </div>
       <div className="flex flex-row w-full ">

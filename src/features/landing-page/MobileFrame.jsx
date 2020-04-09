@@ -1,5 +1,5 @@
 import React from "react";
-import TabBar from "../app/tab-bar";
+import TabBar from "../TabBar";
 
 /** Layout for the register desktop story */
 

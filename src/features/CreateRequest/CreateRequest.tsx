@@ -1,14 +1,14 @@
 import React from "react";
-import QuestionWithLabel from "../../../../components/QuestionWithLabel";
+import QuestionWithLabel from "../../components/QuestionWithLabel";
 
-import "../../../../styles/organisation.css";
-import Competences from "../../../../components/app/competences";
-import { ReqContext } from "../../../../context/mock-requests";
+import "../../styles/organisation.css";
+import Competences from "./Competences";
+import { ReqContext } from "../../context/mock-requests";
 import { Redirect } from "react-router-dom";
-import Counter from "../../../../components/app/counter";
+import Counter from "./Counter";
 
-import HelperMap from "../HelperMap";
-import BackButton from "../../../../components/BackButton";
+import HelperMap from "../HelperMap/HelperMap";
+import BackButton from "../../components/BackButton";
 
 export default function CreateRequest() {
   let [redirect, setRedirect] = React.useState<boolean>(false);

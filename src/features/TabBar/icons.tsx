@@ -1,5 +1,5 @@
 import React from "react";
-const mapIcon = require("../../../../assets/tab-map-icon.svg");
+const mapIcon = require("../../assets/tab-map-icon.svg");
 
 export const DashboardIcon: JSX.Element = (
   <svg

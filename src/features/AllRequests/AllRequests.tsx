@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { HelpRequest } from "../../../../repository/model/helprequest";
-import RepositoryImpl from "../../../../repository/repository";
+import { HelpRequest } from "../../repository/model/helprequest";
+import RepositoryImpl from "../../repository/repository";
 
 import Chance from "chance";
 import { Link } from "react-router-dom";

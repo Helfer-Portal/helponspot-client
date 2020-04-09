@@ -1,10 +1,10 @@
 import * as React from "react"; // we need this to make JSX compile
-import RepositoryImpl from "../../../../repository/repository";
-import { OrganizationInfo } from "../../../../repository/model/helprequest";
-import { Subheading } from "../../../../components/Subheading";
+import RepositoryImpl from "../../repository/repository";
+import { OrganizationInfo } from "../../repository/model/helprequest";
+import { Subheading } from "../../components/Subheading";
 
 /** Profile view of organisation story */
-const ProfileView = () => {
+const OrgProfileView = () => {
   const repository = new RepositoryImpl();
 
   let [orgInfo, setOrgInfo] = React.useState<OrganizationInfo | null>();
@@ -38,7 +38,7 @@ const ProfileView = () => {
 
       {/* Image, Title, Location */}
       <AvatarTitleView
-        image={require("../../../../assets/helfer.png")}
+        image={require("../../assets/helfer.png")}
         title={orgInfo?.name}
         location={orgInfo?.address}
       />
@@ -120,4 +120,4 @@ export const ContactInput = ({ placeholder }: { placeholder?: string }) => {
   );
 };
 
-export default ProfileView;
+export default OrgProfileView;
