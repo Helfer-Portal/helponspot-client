@@ -20,7 +20,7 @@ import MobileFrame from "../features/landing-page/MobileFrame";
 
 import CreateOrganisation from "../features/app/organisation/onboarding/CreateOrganisation";
 import Dashboard from "../features/app/organisation/Dashboard";
-import CreateRequest from "../features/app/organisation/request/CreateRequest";
+import AllRequest from "../features/app/organisation/request/AllRequests";
 import RequestDetails from "../features/app/organisation/request/RequestDetails";
 import UpdateAddress from "../features/app/organisation/onboarding/UpdateAddress";
 import HelperMap from "../features/app/organisation/HelperMap";
@@ -35,6 +35,7 @@ import AboutUs from "../features/landing-page/about-us/index.js";
 import LandingPage from "../features/landing-page/index.js";
 import RegChooseType from "../features/app/ChooseUserType";
 import ReqProvider from "../context/mock-requests";
+import CreateRequest from "../features/app/organisation/request/CreateRequest";
 
 export default function RootRouter() {
   /*const showSettings = event => {
@@ -74,6 +75,10 @@ export default function RootRouter() {
                     </Route>
 
                     <Route exact path="/app/organisation/request/">
+                      <AllRequest />
+                    </Route>
+
+                    <Route exact path="/app/organisation/request/create">
                       <CreateRequest />
                     </Route>
 
