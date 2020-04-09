@@ -2,6 +2,7 @@ import * as React from "react"; // we need this to make JSX compile
 import RepositoryImpl from "../../../../repository/repository";
 import { OrganizationInfo } from "../../../../repository/model/helprequest";
 import { Subheading } from "../../../../components/Subheading";
+import "../../../../styles/organisation.css";
 
 /** Profile view of organisation story */
 const ProfileView = () => {

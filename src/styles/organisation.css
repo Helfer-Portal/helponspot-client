@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: flex-start;
 }
+
 .container-helper-numbers {
   display: flex;
   flex-direction: row;
@@ -58,13 +59,20 @@
 }
 
 .unlimited {
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 15px;
+  padding-right: 15px;
+  padding-top: 5px;
+  padding-bottom: 5px;
   border-radius: 20px;
   background: linear-gradient(270deg, #5e94cd 0%, #81b3e3 100%);
   width: auto;
   height: auto;
+  color: #ffffff;
 }
 #lastquestion {
   margin-top: 10px;
+}
+
+.lastQuestion::placeholder {
+  opacity: 2;
 }

@@ -1,6 +1,12 @@
 import React from "react";
-import "./leaflet-map.css";
-import { Map, Marker, TileLayer, GeoJSON, Popup, FeatureGroup } from "react-leaflet";
+import {
+  Map,
+  Marker,
+  TileLayer,
+  GeoJSON,
+  Popup,
+  FeatureGroup,
+} from "react-leaflet";
 import L from "leaflet";
 import helperIconUrl from "../assets/helfer.png";
 import organisationIconUrl from "../assets/organisationen.png";
@@ -62,7 +68,7 @@ class LeafletMap extends React.Component {
     this.map.viewport = this.state.viewport;
   }
 
-  zoomToMarker(feature){
+  zoomToMarker(feature) {
     let coordinates = [
       feature.geometry.coordinates[1],
       feature.geometry.coordinates[0],
@@ -70,34 +76,40 @@ class LeafletMap extends React.Component {
     return () => {
       this.setState({ previousViewport: this.map.viewport });
       this.setState({ viewport: { center: coordinates, zoom: 13 } });
-    }
+    };
   }
   zoomBack() {
     this.setState({ viewport: this.state.previousViewport });
-
   }
 
   createMarkerWithPopup(feature) {
-
     const id = feature.properties.id;
     const name = feature.properties.name;
 
     return (
-        <Marker onClick={this.zoomToMarker(feature)} onPopupclose={this.zoomBack.bind(this)}
-         icon={icons[this.props.icon]} position= {{lat: feature.geometry.coordinates[1], lng: feature.geometry.coordinates[0]}}>
-          <Popup>
-            <Link to={`/app/organisation/user/${id}`}> {name}</Link>
-            <p><b>Bringt mit:</b></p>"
-            {feature.properties.qualities.map(quality =>
-                <li>  {quality } </li>)
-            };
-          </Popup>
-        </Marker> )
-
+      <Marker
+        onClick={this.zoomToMarker(feature)}
+        onPopupclose={this.zoomBack.bind(this)}
+        icon={icons[this.props.icon]}
+        position={{
+          lat: feature.geometry.coordinates[1],
+          lng: feature.geometry.coordinates[0],
+        }}
+      >
+        <Popup>
+          <Link to={`/app/organisation/user/${id}`}> {name}</Link>
+          <p>
+            <b>Bringt mit:</b>
+          </p>
+          "
+          {feature.properties.qualities.map((quality) => (
+            <li> {quality} </li>
+          ))}
+          ;
+        </Popup>
+      </Marker>
+    );
   }
-
-
-
 
   render() {
     return (
@@ -119,11 +131,9 @@ class LeafletMap extends React.Component {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {
-          this.data.map( feature => {
-            return this.createMarkerWithPopup(feature)
-          })}
-
+        {this.data.map((feature) => {
+          return this.createMarkerWithPopup(feature);
+        })}
       </Map>
     );
   }
