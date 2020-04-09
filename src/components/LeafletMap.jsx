@@ -70,7 +70,7 @@ class LeafletMap extends React.Component {
 
   zoomToMarker(feature) {
     let coordinates = [
-      feature.geometry.coordinates[1],
+      feature.geometry.coordinates[1] + 0.01,
       feature.geometry.coordinates[0],
     ];
     return () => {
