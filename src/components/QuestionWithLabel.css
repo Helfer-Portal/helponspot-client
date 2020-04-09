@@ -1,0 +1,15 @@
+.question {
+  /* h1 */
+  margin-bottom: 30px;
+  font-family: DM Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 30px;
+  line-height: 31px;
+
+  /* or 103% */
+  letter-spacing: -0.005em;
+
+  /* #558E9D */
+  color: #146cc1;
+}
