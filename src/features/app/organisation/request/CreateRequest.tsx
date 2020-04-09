@@ -8,6 +8,7 @@ import { Redirect } from "react-router-dom";
 import Counter from "../../../../components/app/counter";
 
 import HelperMap from "../HelperMap";
+import BackButton from "../../../../components/BackButton";
 
 export default function CreateRequest() {
   let [redirect, setRedirect] = React.useState<boolean>(false);
@@ -74,6 +75,9 @@ export default function CreateRequest() {
       className="flex flex-col w-full h-full px-8 py-4  overflow-y-auto"
       ref={myContainerRef}
     >
+      <div style={{ flex: 1 }} className="flex w-full">
+        <BackButton />
+      </div>
       <QuestionWithLabel question="Anzeige erstellen" label="Schritt 3 von 3" />
 
       {/* Title */}

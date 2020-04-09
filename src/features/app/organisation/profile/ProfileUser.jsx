@@ -9,6 +9,7 @@ import Counter from "../../../../components/app/counter";
 import CheckboxButton from "../../../../components/CheckboxButton";
 import ProfilePic from "../../../../components/ProfilePic";
 import {ContactInput} from "./profile_org";
+import BackButton from "../../../../components/BackButton";
 
 const options_list = [
     "super",
@@ -53,6 +54,9 @@ export default function ProfileUser() {
             style={{position: "relative"}}
             className="flex flex-col w-full h-full px-8 py-4  overflow-y-auto"
         >
+            <div style={{ flex: 1 }} className="flex w-full">
+                <BackButton />
+            </div>
             <div className="my-3 flex flex-row items-center py-2">
                 <ProfilePic image="/SampleProfilePic.png"/>
                 <div className="flex flex-col ml-2">
