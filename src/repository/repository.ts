@@ -250,6 +250,30 @@ class FetchService implements Service {
         requested_helpers: this.mockHelpers(),
         confirmed_helpers: this.mockHelpers(),
       },
+      {
+        id: 2,
+        name: "Blutspender gesucht",
+        created_at: "22.03.2020 17:12 Uhr",
+        date_start: "23.03.2020 14:00 Uhr",
+        organisation_id: 17,
+        number_helpers: 5,
+        roles: [],
+        skills: [],
+        requested_helpers: this.mockHelpers(),
+        confirmed_helpers: this.mockHelpers(),
+      },
+      {
+        id: 2,
+        name: "Blutspender gesucht",
+        created_at: "22.03.2020 17:12 Uhr",
+        date_start: "23.03.2020 14:00 Uhr",
+        organisation_id: 17,
+        number_helpers: 5,
+        roles: [],
+        skills: [],
+        requested_helpers: this.mockHelpers(),
+        confirmed_helpers: this.mockHelpers(),
+      },
     ];
 
     return this.get(Endpoint.HelpRequest, MOCKED_HELPREQUESTS);
