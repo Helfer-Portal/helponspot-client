@@ -22,7 +22,7 @@ export default function CreateRequest() {
   let [count, setCount] = React.useState<number>(0);
 
   // Modal
-  let [modal, setModal] = React.useState<boolean>(false);
+  let [modal, setModal] = React.useState<boolean>(true);
 
   // scroll ref on map click
   const myContainerRef = React.useRef<HTMLDivElement | null>(null);
@@ -219,7 +219,7 @@ const MapOverlay = (props: { modal: boolean; showMap: any }) => (
         Helfer Einstellungen modifizieren
       </button>
       <button
-        className="bg-white rounded-full w-full px-4 py-2 border-black border-2 my-2"
+        className="orange_button_noheight py-2"
         onClick={() => alert("was machen wir hier?")}
       >
         Alle Helfer einberufen

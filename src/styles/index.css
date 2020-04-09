@@ -2,6 +2,25 @@
 
 @tailwind components;
 
+
+
+.orange_button_noheight {
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(90deg, #faad98, #f88478 100%);
+    @apply .mx-auto .w-full .text-white .font-bold .rounded-full .my-6 .shadow-lg
+
+}
+
+.orange_button_noheight:hover{
+    text-decoration: underline;
+}
+
+@screen lg {
+    .orange_button_noheight {
+        @apply .mx-0;
+    }
+
+}
 @tailwind utilities;
 
 

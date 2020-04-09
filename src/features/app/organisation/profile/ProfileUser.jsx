@@ -94,7 +94,7 @@ export default function ProfileUser() {
 
 
             <button
-                className="mr-auto lg:mx-0 hover:underline blue-gradient text-white font-bold font-inter rounded-full my-2 py-4 px-8 shadow-lg"
+                className="orange_button_my py-4"
             >
                 als Helfer einberufen
             </button>
