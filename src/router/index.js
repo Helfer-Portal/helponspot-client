@@ -21,6 +21,9 @@ import OrgProfileView from "../features/ProfileOrg";
 import UserProfileView from "../features/ProfileUser";
 import RequestDetails from "../features/RequestDetails";
 
+import RequestFormProvider from "../context/RequestFormStore";
+import ReqProvider from "../context/MockRequests";
+
 //*********************
 //*** LANDING PAGE
 //*********************
@@ -28,7 +31,7 @@ import RequestDetails from "../features/RequestDetails";
 import AboutUs from "../features/LandingPage/about-us/index.js";
 import LandingPage from "../features/LandingPage";
 import ChooseUserType from "../features/ChooseUserType";
-import ReqProvider from "../context/MockRequests";
+
 import CreateRequest from "../features/CreateRequest/CreateRequest";
 
 export default function RootRouter() {
@@ -38,8 +41,9 @@ export default function RootRouter() {
 
   return (
     <ReqProvider>
-      <Router>
-        {/* <Route exact path="/">
+      <RequestFormProvider>
+        <Router>
+          {/* <Route exact path="/">
           <Redirect
             to={{
               pathname: "/home"
@@ -47,96 +51,97 @@ export default function RootRouter() {
           />
         </Route> */}
 
-        <Switch>
-          <div id="content-wrapper" className={"min-h-screen"}>
-            <Route path="/app">
-              <LanderLayout>
-                <MobileFrame>
-                  {/************** ORGANISATION*/}
+          <Switch>
+            <div id="content-wrapper" className={"min-h-screen"}>
+              <Route path="/app">
+                <LanderLayout>
+                  <MobileFrame>
+                    {/************** ORGANISATION*/}
 
-                  <Route path="/app/organisation">
-                    <Route exact path="/app/organisation/chooseType">
-                      <ChooseUserType />
-                    </Route>
-                    <Route exact path="/app/organisation/createOrganisation">
-                      <CreateOrganisation />
-                    </Route>
-                    <Route
-                      exact
-                      path="/app/organisation/createOrganisation/standort/"
-                    >
-                      <UpdateAddress />
+                    <Route path="/app/organisation">
+                      <Route exact path="/app/organisation/chooseType">
+                        <ChooseUserType />
+                      </Route>
+                      <Route exact path="/app/organisation/createOrganisation">
+                        <CreateOrganisation />
+                      </Route>
+                      <Route
+                        exact
+                        path="/app/organisation/createOrganisation/standort/"
+                      >
+                        <UpdateAddress />
+                      </Route>
+
+                      <Route exact path="/app/organisation/request/">
+                        <AllRequest />
+                      </Route>
+
+                      <Route exact path="/app/organisation/request/create">
+                        <CreateRequest />
+                      </Route>
+
+                      <Route
+                        exact
+                        path="/app/organisation/request/details/:reqId"
+                      >
+                        <RequestDetails />
+                      </Route>
+
+                      <Route exact path="/app/organisation/dashboard/">
+                        <Dashboard />
+                      </Route>
+
+                      <Route exact path="/app/organisation/map/">
+                        <HelperMap />
+                      </Route>
+
+                      <Route
+                        exact
+                        path="/app/organisation/profile"
+                        component={OrgProfileView}
+                      />
+                      <Route
+                        exact
+                        path="/app/organisation/user/:id"
+                        component={UserProfileView}
+                      />
                     </Route>
 
-                    <Route exact path="/app/organisation/request/">
-                      <AllRequest />
-                    </Route>
+                    {/************** Helfer*/}
 
-                    <Route exact path="/app/organisation/request/create">
-                      <CreateRequest />
+                    <Route path="/helfer/">
+                      <Route exact path="/app/helfer/registrierung/">
+                        <ChooseUserType />
+                      </Route>
                     </Route>
+                  </MobileFrame>
+                </LanderLayout>
+              </Route>
 
-                    <Route
-                      exact
-                      path="/app/organisation/request/details/:reqId"
-                    >
-                      <RequestDetails />
-                    </Route>
+              <Route path="/home">
+                <LanderLayout>
+                  {/************** Landing Page*/}
 
-                    <Route exact path="/app/organisation/dashboard/">
-                      <Dashboard />
-                    </Route>
-
-                    <Route exact path="/app/organisation/map/">
-                      <HelperMap />
-                    </Route>
-
-                    <Route
-                      exact
-                      path="/app/organisation/profile"
-                      component={OrgProfileView}
-                    />
-                    <Route
-                      exact
-                      path="/app/organisation/user/:id"
-                      component={UserProfileView}
-                    />
+                  <Route exact path="/home">
+                    <LandingPage />
                   </Route>
-
-                  {/************** Helfer*/}
-
-                  <Route path="/helfer/">
-                    <Route exact path="/app/helfer/registrierung/">
-                      <ChooseUserType />
-                    </Route>
+                  <Route exact path="/home/ueber-uns">
+                    <AboutUs />
                   </Route>
-                </MobileFrame>
-              </LanderLayout>
-            </Route>
+                </LanderLayout>
+              </Route>
 
-            <Route path="/home">
-              <LanderLayout>
-                {/************** Landing Page*/}
-
-                <Route exact path="/home">
-                  <LandingPage />
-                </Route>
-                <Route exact path="/home/ueber-uns">
-                  <AboutUs />
-                </Route>
-              </LanderLayout>
-            </Route>
-
-            {/* <Route>
+              {/* <Route>
               <Redirect
                 to={{
                   pathname: "/home"
                 }}
               />
             </Route> */}
-          </div>
-        </Switch>
-      </Router>
+            </div>
+          </Switch>
+        </Router>
+      </RequestFormProvider>
     </ReqProvider>
   );
 }

@@ -3,7 +3,10 @@ import QuestionWithLabel from "../../components/QuestionWithLabel";
 
 import "../../styles/organisation.css";
 import Competences from "./Competences";
-import { ReqContext } from "../../context/MockRequests";
+import {
+  RequestFormContext,
+  RequestForm,
+} from "../../context/RequestFormStore";
 import { Redirect } from "react-router-dom";
 import Counter from "./Counter";
 
@@ -13,13 +16,7 @@ import BackButton from "../../components/BackButton";
 export default function CreateRequest() {
   let [redirect, setRedirect] = React.useState<boolean>(false);
 
-  // eslint-disable-next-line no-unused-vars
-  let [data, setData] = React.useContext(ReqContext);
-
-  let [title, setTitle] = React.useState<string>("");
-  let [date, setDate] = React.useState<string>("");
-  let [dateDiff, setDateDiff] = React.useState<number>(0);
-  let [count, setCount] = React.useState<number>(0);
+  let [data, setData] = React.useContext<RequestForm | any>(RequestFormContext);
 
   // Modal
   let [modal, setModal] = React.useState<boolean>(false);
@@ -37,13 +34,20 @@ export default function CreateRequest() {
   };
 
   const updateTitle = (e: React.FormEvent<HTMLInputElement>): void => {
-    setTitle(e.currentTarget.value);
+    setData({ ...data, title: e.currentTarget.value });
+  };
+
+  const updateStreet = (e: React.FormEvent<HTMLInputElement>): void => {
+    setData({ ...data, street: e.currentTarget.value });
+  };
+
+  const updateTown = (e: React.FormEvent<HTMLInputElement>): void => {
+    setData({ ...data, town: e.currentTarget.value });
   };
 
   const updateDate = (e: React.FormEvent<HTMLInputElement>): void => {
-    setDate(e.currentTarget.value);
     let diff = datediff(Date.now(), new Date(e.currentTarget.value));
-    setDateDiff(diff);
+    setData({ ...data, date: e.currentTarget.value, dateDiff: diff });
   };
 
   /** thank you Stackoverflow https://stackoverflow.com/questions/542938/how-do-i-get-the-number-of-days-between-two-dates-in-javascript */
@@ -53,19 +57,16 @@ export default function CreateRequest() {
     return Math.round((second - first) / (1000 * 60 * 60 * 24));
   }
 
+  const updateCount = (count: number) => {
+    setData({ ...data, helperNum: count });
+  };
+
+  const updateDescription = (e: React.FormEvent<HTMLInputElement>): void => {
+    setData({ ...data, description: e.currentTarget.value });
+  };
+
   const addData = (e: React.SyntheticEvent): void => {
     e.preventDefault();
-    setData((prevData) => [
-      {
-        title: title,
-        timeLast: dateDiff ? dateDiff + " Tage" : "5 Tage",
-        reqHelpers: count,
-        confirmed: Math.abs(Math.floor(Math.random() * count)),
-        denied: 0,
-        open: 0,
-      },
-      ...prevData,
-    ]);
     setRedirect(true);
   };
 
@@ -87,9 +88,9 @@ export default function CreateRequest() {
           type="text"
           name="name"
           className="p-2"
-          value={title}
+          value={data.title ? data.title : ""}
           onChange={updateTitle}
-          placeholder={"z.B. Brauchen Anpacker"}
+          placeholder={data.title ? data.title : "z.B. Brauchen Anpacker"}
         />
       </div>
 
@@ -100,8 +101,16 @@ export default function CreateRequest() {
           type="text"
           placeholder="Straße, Nr"
           className="my-1 p-2"
+          value={data.street}
+          onChange={updateStreet}
         ></input>
-        <input type="text" placeholder="Ort" className="my-2 p-2"></input>
+        <input
+          value={data.town}
+          onChange={updateTown}
+          type="text"
+          placeholder="Ort"
+          className="my-2 p-2"
+        ></input>
       </div>
 
       {/* Competences */}
@@ -118,7 +127,7 @@ export default function CreateRequest() {
       <div className="flex flex-col py-2">
         <div className="mb-1 text-figmaDescription font-inter">Helferzahl</div>
         <div className="w-full p-2 flex container-helper-numbers">
-          <Counter countState={[count, setCount]} />
+          <Counter countState={[data.helperNum, updateCount]} />
         </div>
       </div>
 
@@ -129,7 +138,7 @@ export default function CreateRequest() {
       </button>
 
       {/* date */}
-      <DatePicker dateState={[date, updateDate]}></DatePicker>
+      <DatePicker dateState={[data.date, updateDate]}></DatePicker>
 
       {/* last textfield */}
       <div className="py-2 w-full flex flex-col">
@@ -143,6 +152,8 @@ export default function CreateRequest() {
             className="lastQuestion flex"
             type="text"
             placeholder="Wir suchen Menschen, die..."
+            value={data.description}
+            onChange={updateDescription}
           />
         </div>
       </div>

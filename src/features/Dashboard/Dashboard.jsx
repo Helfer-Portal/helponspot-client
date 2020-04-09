@@ -5,7 +5,7 @@ import ReqProvider, { ReqContext } from "../../context/MockRequests";
 import { Link } from "react-router-dom";
 
 export default function Dashboard() {
-  const [data] = useContext(ReqContext);
+  const [data, setData] = useContext(ReqContext);
 
   return (
     <ReqProvider>

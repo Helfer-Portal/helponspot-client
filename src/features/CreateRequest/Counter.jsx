@@ -5,6 +5,10 @@ import "../../styles/organisation.css";
 export default function Counter(props) {
   const [count, setCount] = props.countState;
 
+  if (count === undefined) {
+    setCount(0);
+  }
+
   const increase = () => {
     setCount(count + 1);
   };
