@@ -5,7 +5,7 @@ export type RequestForm = {
   title: string;
   street: string;
   town: string;
-  competences: Skill[];
+  selected_competences: Skill[];
   added_competences: Skill[];
   helperNum: number;
   date: Date;
