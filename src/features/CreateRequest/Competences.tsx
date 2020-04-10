@@ -1,6 +1,10 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
 import CheckboxButton from "../../components/CheckboxButton";
+import {
+  RequestFormContext,
+  RequestForm,
+} from "../../context/RequestFormStore";
 
 const customStyles = {
   content: {
@@ -21,11 +25,14 @@ const options_list = [
   "medizinische Grundausbildung",
 ];
 
+
 /** competence componente with add function */
+
 export default function Competences(props: { defaultColorButtons: string }) {
   /** state holds mock competences */
   const defaultButtonColor = props.defaultColorButtons;
   const [options, setOptions] = useState(options_list);
+  let [data, setData] = React.useContext<RequestForm | any>(RequestFormContext);
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -33,9 +40,16 @@ export default function Competences(props: { defaultColorButtons: string }) {
   const [value, setValue] = useState("");
 
   const addCompetence = (competence: string) => {
-    let new_options = [...options, competence];
-    setOptions(new_options);
+    let new_options = data.added_competences != null ? [...data.added_competences, competence]: [competence];
+    setData({...data, added_competences: new_options});
   };
+
+  //keep Options in sync with data
+  React.useEffect( ()=> {
+    //prevent adding undefined when added_competences is empty. TODO: initialize data.added_competences wiht []
+    let added_competences = data.added_competences != null ? data.added_competences : [];
+    setOptions([...options_list, ...added_competences])
+  }, [data])
 
   function openModal() {
     setIsOpen(true);

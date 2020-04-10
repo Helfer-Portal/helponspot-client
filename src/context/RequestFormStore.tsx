@@ -6,6 +6,7 @@ export type RequestForm = {
   street: string;
   town: string;
   competences: Skill[];
+  added_competences: Skill[];
   helperNum: number;
   date: Date;
   dateDiff: string;
