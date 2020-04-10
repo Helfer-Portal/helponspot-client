@@ -88,9 +88,9 @@ export default function CreateRequest() {
           type="text"
           name="name"
           className="p-2"
-          value={data.title ? data.title : ""}
+          value={data?.title ? data.title : ""}
           onChange={updateTitle}
-          placeholder={data.title ? data.title : "z.B. Brauchen Anpacker"}
+          placeholder={data?.title ? data.title : "z.B. Brauchen Anpacker"}
         />
       </div>
 
@@ -101,11 +101,11 @@ export default function CreateRequest() {
           type="text"
           placeholder="Straße, Nr"
           className="my-1 p-2"
-          value={data.street}
+          value={data?.street}
           onChange={updateStreet}
         ></input>
         <input
-          value={data.town}
+          value={data?.town}
           onChange={updateTown}
           type="text"
           placeholder="Ort"
@@ -127,7 +127,7 @@ export default function CreateRequest() {
       <div className="flex flex-col py-2">
         <div className="mb-1 text-figmaDescription font-inter">Helferzahl</div>
         <div className="w-full p-2 flex container-helper-numbers">
-          <Counter countState={[data.helperNum, updateCount]} />
+          <Counter countState={[data?.helperNum, updateCount]} />
         </div>
       </div>
 
@@ -138,7 +138,7 @@ export default function CreateRequest() {
       </button>
 
       {/* date */}
-      <DatePicker dateState={[data.date, updateDate]}></DatePicker>
+      <DatePicker dateState={[data?.date, updateDate]}></DatePicker>
 
       {/* last textfield */}
       <div className="py-2 w-full flex flex-col">
@@ -152,7 +152,7 @@ export default function CreateRequest() {
             className="lastQuestion flex"
             type="text"
             placeholder="Wir suchen Menschen, die..."
-            value={data.description}
+            value={data?.description}
             onChange={updateDescription}
           />
         </div>
