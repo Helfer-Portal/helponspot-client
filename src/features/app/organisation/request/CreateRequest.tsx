@@ -218,6 +218,7 @@ const MapOverlay = (props: { modal: boolean; showMap: any }) => (
       >
         Helfer Einstellungen modifizieren
       </button>
+      {/* Use smaller buttons here, to not take away space on the map */}
       <button
         className="orange_button_noheight py-2"
         onClick={() => alert("was machen wir hier?")}
