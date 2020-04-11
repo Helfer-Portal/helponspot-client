@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonBlue from "../../../components/ButtonBlue";
+import ButtonBlue from "../../../components/ButtonPrimaryBlue";
 // import "../../App.css";
 
 const sectionTitle = "Das macht uns einzigartig.";
