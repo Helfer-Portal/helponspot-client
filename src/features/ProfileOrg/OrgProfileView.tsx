@@ -4,7 +4,7 @@ import RepositoryImpl from "../../repository/repository";
 import { OrganizationInfo } from "../../repository/model/helprequest";
 import { Subheading } from "../../components/Subheading";
 import ContactInput from "./ContactInput";
-import { ButtonPrimaryBlue } from "../../components/UiKit";
+import { ButtonPrimaryBlue, ButtonSecondaryBlue } from "../../components/UiKit";
 
 /** Profile view of organisation story */
 const OrgProfileView = () => {
@@ -34,7 +34,7 @@ const OrgProfileView = () => {
   }, []);
 
   const ProfileViewContent = (
-    <div className="flex flex-col items-center justify-center p-4">
+    <div className="flex flex-col h-full items-center justify-center p-4 bg-bluePrimary">
       <div className="flex w-full">
         <h1 className="question font-dm-sans-h1">Dein Profil</h1>
       </div>
@@ -70,15 +70,15 @@ const OrgProfileView = () => {
 
         {/* Löschen */}
         <div className="py-2 flex w-full justify-center">
-          <button className="flex-1 bg-white text-figmaDescription border-figmaDescription border-2 rounded-full py-1 px-3">
+          <ButtonSecondaryBlue>
             <span>Account löschen</span>
-          </button>
+          </ButtonSecondaryBlue>
         </div>
       </div>
     </div>
   );
 
-  return <div>{isError ? <div>hello</div> : ProfileViewContent}</div>;
+  return <>{isError ? <div>hello</div> : ProfileViewContent}</>;
 };
 
 type AvatarTitleViewProps = {

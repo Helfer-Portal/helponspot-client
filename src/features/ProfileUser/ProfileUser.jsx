@@ -6,6 +6,8 @@ import CheckboxButton from "../../components/CheckboxButton";
 import ProfilePic from "../../components/ProfilePic";
 import { ContactInput } from "../ProfileOrg";
 import BackButton from "../../components/BackButton";
+import ButtonSecondaryBlue from "../../components/UiKit/ButtonSecondaryBlue";
+import ButtonPrimaryOrange from "../../components/UiKit/ButtonPrimaryOrange";
 
 const options_list = [
   "super",
@@ -86,12 +88,8 @@ export default function ProfileUser() {
         </div>
       </div>
 
-      <button className="orange_button_noheight py-4">
-        als Helfer einberufen
-      </button>
-      <button className="mr-auto lg:mx-0 hover:underline text-black font-bold font-inter rounded-full my-2 py-4 px-8 shadow-lg">
-        zurück zur Karte
-      </button>
+      <ButtonPrimaryOrange>als Helfer einberufen</ButtonPrimaryOrange>
+      <ButtonSecondaryBlue border>Zurück zur Karte</ButtonSecondaryBlue>
       {redirect ? <Redirect to="/app/organisation/dashboard"></Redirect> : ""}
     </div>
   );

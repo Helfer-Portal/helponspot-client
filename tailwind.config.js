@@ -27,6 +27,7 @@ module.exports = {
 
       figmaMenu: "#1661AA",
 
+      /* used also by secondary blue button */
       figmaParagraph: "#577095",
 
       figmaDescription: "#6C9CCF",
