@@ -13,6 +13,7 @@ import Counter from "./Counter";
 import HelperMap from "../HelperMap/HelperMap";
 import BackButton from "../../components/BackButton";
 import { ButtonPrimaryBlue } from "../../components/UiKit";
+import ButtonPrimaryOrange from "../../components/UiKit/ButtonPrimaryOrange";
 
 export default function CreateRequest() {
   let [redirect, setRedirect] = React.useState<boolean>(false);
@@ -159,12 +160,9 @@ export default function CreateRequest() {
         </div>
       </div>
 
-      <button
-        className="mr-auto lg:mx-0 hover:underline orange-gradient text-white font-bold font-inter rounded-full my-2 py-4 px-8 shadow-lg"
-        onClick={addData}
-      >
+      <ButtonPrimaryOrange onClick={addData}>
         Anzeige erstellen
-      </button>
+      </ButtonPrimaryOrange>
 
       {redirect ? <Redirect to="/app/organisation/dashboard"></Redirect> : ""}
     </div>
