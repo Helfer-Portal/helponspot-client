@@ -19,7 +19,7 @@ export default function CreateRequest() {
   let [data, setData] = React.useContext<RequestForm | any>(RequestFormContext);
 
   // Modal
-  let [modal, setModal] = React.useState<boolean>(true);
+  let [modal, setModal] = React.useState<boolean>(false);
 
   // scroll ref on map click
   const myContainerRef = React.useRef<HTMLDivElement | null>(null);
