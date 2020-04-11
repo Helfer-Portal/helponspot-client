@@ -1,6 +1,7 @@
 import React from "react";
 import Circle from "../../components/Circle";
 import "../../styles/organisation.css";
+import ButtonPrimaryBlue from "../../components/ButtonPrimaryBlue";
 
 export default function Counter(props) {
   const [count, setCount] = props.countState;
@@ -32,13 +33,9 @@ export default function Counter(props) {
         <div onClick={increase}>
           <Circle image="/plus.png" />
         </div>
-        <button
-          className="unlimited"
-          style={{ marginLeft: 30 }}
-          onClick={infty}
-        >
+        <ButtonPrimaryBlue style={{ marginLeft: 30 }} onClick={infty}>
           unbegrenzt
-        </button>
+        </ButtonPrimaryBlue>
       </div>
     </div>
   );

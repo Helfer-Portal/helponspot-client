@@ -4,6 +4,7 @@ import RepositoryImpl from "../../repository/repository";
 import { OrganizationInfo } from "../../repository/model/helprequest";
 import { Subheading } from "../../components/Subheading";
 import ContactInput from "./ContactInput";
+import ButtonPrimaryBlue from "../../components/ButtonPrimaryBlue";
 
 /** Profile view of organisation story */
 const OrgProfileView = () => {
@@ -64,7 +65,7 @@ const OrgProfileView = () => {
       <div className="flex flex-col w-full">
         {/* Ausloggen */}
         <div className="py-2 flex w-full justify-center">
-          <button className="flex-1 unlimited ml-0">Ausloggen</button>
+          <ButtonPrimaryBlue>Ausloggen</ButtonPrimaryBlue>
         </div>
 
         {/* Löschen */}

@@ -6,6 +6,7 @@ import {
   RequestForm,
 } from "../../context/RequestFormStore";
 import { Skill } from "../../repository/model/helprequest";
+import ButtonPrimaryBlue from "../../components/ButtonPrimaryBlue";
 
 const customStyles = {
   content: {
@@ -174,10 +175,10 @@ export default function Competences(props: { defaultColorButtons: string }) {
                 />
               </label>
               <br />
-              <button className="unlimited" onClick={closeModal}>
+              <ButtonPrimaryBlue onClick={closeModal}>
                 Abbrechen
-              </button>
-              <input className="unlimited" type="submit" value="Hinzufügen" />
+              </ButtonPrimaryBlue>
+              <ButtonPrimaryBlue>Hinzufügen</ButtonPrimaryBlue>
             </form>
           </div>
         </div>

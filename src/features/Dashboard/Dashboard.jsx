@@ -1,8 +1,10 @@
 import React, { useContext } from "react";
-import Reactions from "./Reactions";
-import OpenRequest from "./OpenRequest";
-import ReqProvider, { ReqContext } from "../../context/MockRequests";
 import { Link } from "react-router-dom";
+
+import OpenRequest from "./OpenRequest";
+import Reactions from "./Reactions";
+import ReqProvider, { ReqContext } from "../../context/MockRequests";
+import ButtonPrimaryBlue from "../../components/ButtonPrimaryBlue";
 
 export default function Dashboard() {
   const [data, setData] = useContext(ReqContext);
@@ -17,11 +19,11 @@ export default function Dashboard() {
         </div>
 
         <div>
-          <div className="unlimited text-center mb-2">
+          <ButtonPrimaryBlue className="mb-2">
             <Link to="request/create">
               <div>Neue Anzeige erstellen</div>
             </Link>
-          </div>
+          </ButtonPrimaryBlue>
           <Reactions reactNum={12} />
         </div>
         {data.map((el) => {

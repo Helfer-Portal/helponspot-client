@@ -12,6 +12,7 @@ import Counter from "./Counter";
 
 import HelperMap from "../HelperMap/HelperMap";
 import BackButton from "../../components/BackButton";
+import ButtonPrimaryBlue from "../../components/ButtonPrimaryBlue";
 
 export default function CreateRequest() {
   let [redirect, setRedirect] = React.useState<boolean>(false);
@@ -133,9 +134,9 @@ export default function CreateRequest() {
 
       {/* map */}
       <MapOverlay modal={modal} showMap={showMap}></MapOverlay>
-      <button onClick={showMap} className="unlimited">
+      <ButtonPrimaryBlue onClick={showMap}>
         Mögliche Helfer anzeigen lassen
-      </button>
+      </ButtonPrimaryBlue>
 
       {/* date */}
       <DatePicker dateState={[data?.date, updateDate]}></DatePicker>
