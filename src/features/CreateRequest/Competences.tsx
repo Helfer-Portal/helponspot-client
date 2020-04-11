@@ -6,7 +6,11 @@ import {
   RequestForm,
 } from "../../context/RequestFormStore";
 import { Skill } from "../../repository/model/helprequest";
-import { ButtonPrimaryBlue } from "../../components/UiKit";
+import {
+  ButtonPrimaryBlue,
+  ButtonTertiary,
+  ButtonTertiaryPlus,
+} from "../../components/UiKit";
 
 const customStyles = {
   content: {
@@ -141,7 +145,7 @@ export default function Competences(props: { defaultColorButtons: string }) {
         ))}
       </div>
       <div className="flex flex-row w-full ">
-        <div
+        {/* <div
           onClick={openModal}
           className="px-2 rounded-full border-2 text-center align-center border-figmaMenu"
         >
@@ -152,7 +156,10 @@ export default function Competences(props: { defaultColorButtons: string }) {
           onClick={openModal}
         >
           Kompetenzen hinzufügen
-        </div>
+        </div> */}
+        <ButtonTertiaryPlus onClick={openModal}>
+          Kompetenz hinzufügen
+        </ButtonTertiaryPlus>
       </div>
       <Modal
         isOpen={modalIsOpen}

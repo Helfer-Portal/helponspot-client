@@ -3,6 +3,8 @@ import ButtonPrimaryBlue from "./ButtonPrimaryBlue";
 import ButtonPrimaryOrange from "./ButtonPrimaryOrange";
 import ButtonSecondaryBlue from "./ButtonSecondaryBlue";
 import ButtonSecondaryOrange from "./ButtonSecondaryOrange";
+import ButtonTertiary from "./ButtonTertiary";
+import ButtonTertiaryPlus from "./ButtonTertiaryPlus";
 
 export {
   ButtonOrange,
@@ -10,4 +12,6 @@ export {
   ButtonPrimaryOrange,
   ButtonSecondaryBlue,
   ButtonSecondaryOrange,
+  ButtonTertiary,
+  ButtonTertiaryPlus,
 };
