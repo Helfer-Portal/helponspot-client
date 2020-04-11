@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import OpenRequest from "./OpenRequest";
 import Reactions from "./Reactions";
 import ReqProvider, { ReqContext } from "../../context/MockRequests";
-import ButtonPrimaryBlue from "../../components/ButtonPrimaryBlue";
+import { ButtonPrimaryBlue } from "../../components/UiKit";
 
 export default function Dashboard() {
   const [data, setData] = useContext(ReqContext);

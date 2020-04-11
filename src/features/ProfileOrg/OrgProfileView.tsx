@@ -4,7 +4,7 @@ import RepositoryImpl from "../../repository/repository";
 import { OrganizationInfo } from "../../repository/model/helprequest";
 import { Subheading } from "../../components/Subheading";
 import ContactInput from "./ContactInput";
-import ButtonPrimaryBlue from "../../components/ButtonPrimaryBlue";
+import { ButtonPrimaryBlue } from "../../components/UiKit";
 
 /** Profile view of organisation story */
 const OrgProfileView = () => {

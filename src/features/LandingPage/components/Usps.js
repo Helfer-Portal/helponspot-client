@@ -1,5 +1,5 @@
 import React from "react";
-import ButtonBlue from "../../../components/ButtonPrimaryBlue";
+import { ButtonPrimaryBlue } from "../../../components/UiKit";
 // import "../../App.css";
 
 const sectionTitle = "Das macht uns einzigartig.";
@@ -63,12 +63,9 @@ export default function Usps() {
         {hasRegisterButton === true && (
           <div className="flex-none mt-auto bg-white rounded-b rounded-t-none overflow-hidden shadow p-6">
             <div className="flex items-center justify-start">
-              <ButtonBlue
-                onClick={callback}
-                className="mx-auto lg:mx-0 hover:underline gradient text-white font-bold rounded-full my-6 py-4 px-8 shadow-lg"
-              >
+              <ButtonPrimaryBlue onClick={callback}>
                 registrieren
-              </ButtonBlue>
+              </ButtonPrimaryBlue>
             </div>
           </div>
         )}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import ButtonOrange from "../../../components/ButtonOrange";
+import { ButtonOrange } from "../../../components/UiKit";
 // import "./App.css";
 
 export default function CallToAction() {

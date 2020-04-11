@@ -1,7 +1,7 @@
 import React from "react";
 import Circle from "../../components/Circle";
 import "../../styles/organisation.css";
-import ButtonPrimaryBlue from "../../components/ButtonPrimaryBlue";
+import { ButtonPrimaryBlue } from "../../components/UiKit";
 
 export default function Counter(props) {
   const [count, setCount] = props.countState;

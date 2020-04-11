@@ -12,7 +12,7 @@ import Counter from "./Counter";
 
 import HelperMap from "../HelperMap/HelperMap";
 import BackButton from "../../components/BackButton";
-import ButtonPrimaryBlue from "../../components/ButtonPrimaryBlue";
+import { ButtonPrimaryBlue } from "../../components/UiKit";
 
 export default function CreateRequest() {
   let [redirect, setRedirect] = React.useState<boolean>(false);

@@ -6,7 +6,7 @@ import {
   RequestForm,
 } from "../../context/RequestFormStore";
 import { Skill } from "../../repository/model/helprequest";
-import ButtonPrimaryBlue from "../../components/ButtonPrimaryBlue";
+import { ButtonPrimaryBlue } from "../../components/UiKit";
 
 const customStyles = {
   content: {
