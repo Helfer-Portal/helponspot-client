@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 /** Style guide: Primary, blue button */
 const ButtonPrimaryBlue = (
