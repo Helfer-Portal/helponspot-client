@@ -20,7 +20,7 @@ const ButtonIcon = (
         }}
         className={(() => {
           let styles: string[] = [
-            "rounded-full p-4",
+            "rounded-full p-4 bg-white",
             "border-figmaParagraph border",
           ];
           return props.border ? styles.join(" ") : styles[0];

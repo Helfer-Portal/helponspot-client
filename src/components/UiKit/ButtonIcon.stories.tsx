@@ -13,6 +13,12 @@ export const Orange = () => <ButtonIconOrange icon={PlusIcon} />;
 
 export const Secondary = () => <ButtonIcon border icon={PlusIconBlue} />;
 
+export const SecondaryWithBG = () => (
+  <div className="bg-bluePrimary p-4">
+    <ButtonIcon icon={PlusIconBlue} />
+  </div>
+);
+
 const PlusIcon = (
   <svg
     width="14"
