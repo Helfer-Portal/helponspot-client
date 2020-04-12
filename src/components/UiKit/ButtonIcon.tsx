@@ -5,6 +5,7 @@ const ButtonIcon = (
   props: React.PropsWithoutRef<JSX.IntrinsicElements["button"]> & {
     icon: JSX.Element;
     color?: string;
+    border?: boolean;
   }
 ) => {
   return (
@@ -17,7 +18,13 @@ const ButtonIcon = (
         style={{
           ...props?.style,
         }}
-        className="rounded-full p-4"
+        className={(() => {
+          let styles: string[] = [
+            "rounded-full p-4",
+            "border-figmaParagraph border",
+          ];
+          return props.border ? styles.join(" ") : styles[0];
+        })()}
       >
         <div className="flex">{props.icon}</div>
       </button>
