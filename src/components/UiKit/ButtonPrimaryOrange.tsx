@@ -2,7 +2,9 @@ import React, { Component } from "react";
 
 /** Style guide: Primary, blue button */
 const ButtonPrimaryOrange = (
-  props: React.PropsWithoutRef<JSX.IntrinsicElements["button"]>
+  props: React.PropsWithoutRef<JSX.IntrinsicElements["button"]> & {
+    icon?: JSX.Element;
+  }
 ) => {
   return (
     // container styles, className is completed if props contain more classes
@@ -18,9 +20,10 @@ const ButtonPrimaryOrange = (
         style={{
           ...props?.style,
         }}
-        className="py-2 font-inter text-sm orange_button_noheight"
+        className="py-2 inline-flex justify-center font-inter text-sm orange_button_noheight"
       >
-        {props.children}
+        {props.icon && <div className="flex">{props.icon}</div>}
+        <div className="ml-2">{props.children}</div>
       </button>
     </div>
   );
