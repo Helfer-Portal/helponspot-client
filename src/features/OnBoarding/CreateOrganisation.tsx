@@ -1,7 +1,7 @@
 import React from "react";
 import ButtonWithLink from "../../components/ButtonWithLink";
 import QuestionWithLabel from "../../components/QuestionWithLabel";
-import InputWithLabel from "../../components/InputWithLabel";
+import InputWithLabel from "../../components/UiKit/InputWithLabel";
 import BackButton from "../../components/BackButton";
 
 export default function CreateOrganisation() {
@@ -17,7 +17,7 @@ export default function CreateOrganisation() {
         />
       </div>
       <div style={{ flex: 5 }} className="flex items-start">
-        <InputWithLabel fname="orgname" label="Name" />
+        <InputWithLabel title="Name" placeholder={"z.B. DRK Berlin"} />
       </div>
 
       <div style={{ flex: 1 }} className="w-full">
