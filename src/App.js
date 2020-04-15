@@ -1,15 +1,16 @@
 import React from "react";
+import Amplify from "aws-amplify";
+import "@aws-amplify/ui/dist/style.css";
+import { withAuthenticator } from "aws-amplify-react";
+import { awsConfig, signUpConfig } from "./aws-exports";
 import "./App.css";
 import RootRouter from "./router/index.js";
 
-export default function App() {
+Amplify.configure(awsConfig);
 
-  /* adds the gradient to the html body tag to match layout */
+function App() {
   document.body.classList.add("gradient");
-
   return <RootRouter />;
-    
 }
 
-
-
+export default withAuthenticator(App, { includeGreetings: true, signUpConfig });
