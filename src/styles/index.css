@@ -8,6 +8,12 @@
   @apply .mx-auto .w-full .text-white .font-bold .rounded-full .my-6;
 }
 
+.orange_button_noheight_nowidth {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(90deg, #faad98, #f88478 100%);
+  @apply .mx-auto .text-white .font-bold .rounded-full .my-6;
+}
+
 .orange_button_noheight:hover {
   text-decoration: underline;
 }

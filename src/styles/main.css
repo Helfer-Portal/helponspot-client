@@ -174,8 +174,7 @@ textarea {
  */
 
 button,
-input {
-  /* 1 */
+input { /* 1 */
   overflow: visible;
 }
 
@@ -185,8 +184,7 @@ input {
  */
 
 button,
-select {
-  /* 1 */
+select { /* 1 */
   text-transform: none;
 }
 
@@ -416,9 +414,7 @@ ul {
  */
 
 html {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 1 */
   line-height: 1.5; /* 2 */
 }
 
@@ -546,8 +542,7 @@ pre,
 code,
 kbd,
 samp {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-    monospace;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 /**
@@ -613,8 +608,8 @@ video {
 
 .form-input {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: #ffffff;
   border-color: #d2d6dc;
   border-width: 1px;
@@ -640,8 +635,8 @@ video {
 
 .form-textarea {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: #ffffff;
   border-color: #d2d6dc;
   border-width: 1px;
@@ -667,8 +662,8 @@ video {
 
 .form-multiselect {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   background-color: #ffffff;
   border-color: #d2d6dc;
   border-width: 1px;
@@ -690,10 +685,10 @@ video {
 .form-select {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='none'%3e%3cpath d='M7 7l3-3 3 3m0 6l-3 3-3-3' stroke='%239fa6b2' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3e%3c/svg%3e");
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   -webkit-print-color-adjust: exact;
-  color-adjust: exact;
+          color-adjust: exact;
   background-repeat: no-repeat;
   background-color: #ffffff;
   border-color: #d2d6dc;
@@ -720,8 +715,7 @@ video {
   }
 }
 
-@media print and (-ms-high-contrast: active),
-  print and (-ms-high-contrast: none) {
+@media print and (-ms-high-contrast: active), print and (-ms-high-contrast: none) {
   .form-select {
     padding-right: 0.75rem;
   }
@@ -735,15 +729,15 @@ video {
 
 .form-checkbox {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   -webkit-print-color-adjust: exact;
-  color-adjust: exact;
+          color-adjust: exact;
   display: inline-block;
   vertical-align: middle;
   background-origin: border-box;
   -webkit-user-select: none;
-  user-select: none;
+          user-select: none;
   flex-shrink: 0;
   height: 1rem;
   width: 1rem;
@@ -785,15 +779,15 @@ video {
 
 .form-radio {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
   -webkit-print-color-adjust: exact;
-  color-adjust: exact;
+          color-adjust: exact;
   display: inline-block;
   vertical-align: middle;
   background-origin: border-box;
   -webkit-user-select: none;
-  user-select: none;
+          user-select: none;
   flex-shrink: 0;
   border-radius: 100%;
   height: 1rem;
@@ -840,8 +834,22 @@ video {
   margin-right: auto;
   width: 100%;
   color: #fff;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 9999px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.orange_button_noheight_nowidth {
+  font-family: "Inter", sans-serif;
+  background: linear-gradient(90deg, #faad98, #f88478 100%);
+  margin-left: auto;
+  margin-right: auto;
+  color: #fff;
+  font-weight: 700;
+  border-radius: 9999px;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
 }
 
 .orange_button_noheight:hover {
@@ -903,8 +911,8 @@ video {
 
 .appearance-none {
   -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 
 .bg-fixed {
@@ -932,23 +940,23 @@ video {
 }
 
 .bg-figmaHead {
-  background-color: #146cc1;
+  background-color: #146CC1;
 }
 
 .bg-figmaSubHead {
-  background-color: #5388c1;
+  background-color: #5388C1;
 }
 
 .bg-figmaSectionHead {
-  background-color: #f47766;
+  background-color: #F47766;
 }
 
 .bg-figmaOrange {
-  background-color: #f88478;
+  background-color: #F88478;
 }
 
 .bg-figmaMenu {
-  background-color: #1661aa;
+  background-color: #1661AA;
 }
 
 .bg-figmaParagraph {
@@ -956,23 +964,23 @@ video {
 }
 
 .bg-figmaDescription {
-  background-color: #6c9ccf;
+  background-color: #6C9CCF;
 }
 
 .bg-figmaAccept {
-  background-color: #e6fffc;
+  background-color: #E6FFFC;
 }
 
 .bg-figmaDeny {
-  background-color: #fddbdb;
+  background-color: #FDDBDB;
 }
 
 .bg-figmaOpen {
-  background-color: #eaf3ff;
+  background-color: #EAF3FF;
 }
 
 .bg-bluePrimary {
-  background-color: #eaf3ff;
+  background-color: #EAF3FF;
 }
 
 .bg-gray-100 {
@@ -1348,23 +1356,23 @@ video {
 }
 
 .hover\:bg-figmaHead:hover {
-  background-color: #146cc1;
+  background-color: #146CC1;
 }
 
 .hover\:bg-figmaSubHead:hover {
-  background-color: #5388c1;
+  background-color: #5388C1;
 }
 
 .hover\:bg-figmaSectionHead:hover {
-  background-color: #f47766;
+  background-color: #F47766;
 }
 
 .hover\:bg-figmaOrange:hover {
-  background-color: #f88478;
+  background-color: #F88478;
 }
 
 .hover\:bg-figmaMenu:hover {
-  background-color: #1661aa;
+  background-color: #1661AA;
 }
 
 .hover\:bg-figmaParagraph:hover {
@@ -1372,23 +1380,23 @@ video {
 }
 
 .hover\:bg-figmaDescription:hover {
-  background-color: #6c9ccf;
+  background-color: #6C9CCF;
 }
 
 .hover\:bg-figmaAccept:hover {
-  background-color: #e6fffc;
+  background-color: #E6FFFC;
 }
 
 .hover\:bg-figmaDeny:hover {
-  background-color: #fddbdb;
+  background-color: #FDDBDB;
 }
 
 .hover\:bg-figmaOpen:hover {
-  background-color: #eaf3ff;
+  background-color: #EAF3FF;
 }
 
 .hover\:bg-bluePrimary:hover {
-  background-color: #eaf3ff;
+  background-color: #EAF3FF;
 }
 
 .hover\:bg-gray-100:hover {
@@ -1764,23 +1772,23 @@ video {
 }
 
 .focus\:bg-figmaHead:focus {
-  background-color: #146cc1;
+  background-color: #146CC1;
 }
 
 .focus\:bg-figmaSubHead:focus {
-  background-color: #5388c1;
+  background-color: #5388C1;
 }
 
 .focus\:bg-figmaSectionHead:focus {
-  background-color: #f47766;
+  background-color: #F47766;
 }
 
 .focus\:bg-figmaOrange:focus {
-  background-color: #f88478;
+  background-color: #F88478;
 }
 
 .focus\:bg-figmaMenu:focus {
-  background-color: #1661aa;
+  background-color: #1661AA;
 }
 
 .focus\:bg-figmaParagraph:focus {
@@ -1788,23 +1796,23 @@ video {
 }
 
 .focus\:bg-figmaDescription:focus {
-  background-color: #6c9ccf;
+  background-color: #6C9CCF;
 }
 
 .focus\:bg-figmaAccept:focus {
-  background-color: #e6fffc;
+  background-color: #E6FFFC;
 }
 
 .focus\:bg-figmaDeny:focus {
-  background-color: #fddbdb;
+  background-color: #FDDBDB;
 }
 
 .focus\:bg-figmaOpen:focus {
-  background-color: #eaf3ff;
+  background-color: #EAF3FF;
 }
 
 .focus\:bg-bluePrimary:focus {
-  background-color: #eaf3ff;
+  background-color: #EAF3FF;
 }
 
 .focus\:bg-gray-100:focus {
@@ -2260,23 +2268,23 @@ video {
 }
 
 .border-figmaHead {
-  border-color: #146cc1;
+  border-color: #146CC1;
 }
 
 .border-figmaSubHead {
-  border-color: #5388c1;
+  border-color: #5388C1;
 }
 
 .border-figmaSectionHead {
-  border-color: #f47766;
+  border-color: #F47766;
 }
 
 .border-figmaOrange {
-  border-color: #f88478;
+  border-color: #F88478;
 }
 
 .border-figmaMenu {
-  border-color: #1661aa;
+  border-color: #1661AA;
 }
 
 .border-figmaParagraph {
@@ -2284,23 +2292,23 @@ video {
 }
 
 .border-figmaDescription {
-  border-color: #6c9ccf;
+  border-color: #6C9CCF;
 }
 
 .border-figmaAccept {
-  border-color: #e6fffc;
+  border-color: #E6FFFC;
 }
 
 .border-figmaDeny {
-  border-color: #fddbdb;
+  border-color: #FDDBDB;
 }
 
 .border-figmaOpen {
-  border-color: #eaf3ff;
+  border-color: #EAF3FF;
 }
 
 .border-bluePrimary {
-  border-color: #eaf3ff;
+  border-color: #EAF3FF;
 }
 
 .border-gray-100 {
@@ -2676,23 +2684,23 @@ video {
 }
 
 .hover\:border-figmaHead:hover {
-  border-color: #146cc1;
+  border-color: #146CC1;
 }
 
 .hover\:border-figmaSubHead:hover {
-  border-color: #5388c1;
+  border-color: #5388C1;
 }
 
 .hover\:border-figmaSectionHead:hover {
-  border-color: #f47766;
+  border-color: #F47766;
 }
 
 .hover\:border-figmaOrange:hover {
-  border-color: #f88478;
+  border-color: #F88478;
 }
 
 .hover\:border-figmaMenu:hover {
-  border-color: #1661aa;
+  border-color: #1661AA;
 }
 
 .hover\:border-figmaParagraph:hover {
@@ -2700,23 +2708,23 @@ video {
 }
 
 .hover\:border-figmaDescription:hover {
-  border-color: #6c9ccf;
+  border-color: #6C9CCF;
 }
 
 .hover\:border-figmaAccept:hover {
-  border-color: #e6fffc;
+  border-color: #E6FFFC;
 }
 
 .hover\:border-figmaDeny:hover {
-  border-color: #fddbdb;
+  border-color: #FDDBDB;
 }
 
 .hover\:border-figmaOpen:hover {
-  border-color: #eaf3ff;
+  border-color: #EAF3FF;
 }
 
 .hover\:border-bluePrimary:hover {
-  border-color: #eaf3ff;
+  border-color: #EAF3FF;
 }
 
 .hover\:border-gray-100:hover {
@@ -3092,23 +3100,23 @@ video {
 }
 
 .focus\:border-figmaHead:focus {
-  border-color: #146cc1;
+  border-color: #146CC1;
 }
 
 .focus\:border-figmaSubHead:focus {
-  border-color: #5388c1;
+  border-color: #5388C1;
 }
 
 .focus\:border-figmaSectionHead:focus {
-  border-color: #f47766;
+  border-color: #F47766;
 }
 
 .focus\:border-figmaOrange:focus {
-  border-color: #f88478;
+  border-color: #F88478;
 }
 
 .focus\:border-figmaMenu:focus {
-  border-color: #1661aa;
+  border-color: #1661AA;
 }
 
 .focus\:border-figmaParagraph:focus {
@@ -3116,23 +3124,23 @@ video {
 }
 
 .focus\:border-figmaDescription:focus {
-  border-color: #6c9ccf;
+  border-color: #6C9CCF;
 }
 
 .focus\:border-figmaAccept:focus {
-  border-color: #e6fffc;
+  border-color: #E6FFFC;
 }
 
 .focus\:border-figmaDeny:focus {
-  border-color: #fddbdb;
+  border-color: #FDDBDB;
 }
 
 .focus\:border-figmaOpen:focus {
-  border-color: #eaf3ff;
+  border-color: #EAF3FF;
 }
 
 .focus\:border-bluePrimary:focus {
-  border-color: #eaf3ff;
+  border-color: #EAF3FF;
 }
 
 .focus\:border-gray-100:focus {
@@ -4190,9 +4198,7 @@ video {
 }
 
 .font-sans {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-    "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .font-serif {
@@ -4200,8 +4206,7 @@ video {
 }
 
 .font-mono {
-  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-    monospace;
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
 .font-hairline {
@@ -4413,7 +4418,7 @@ video {
 }
 
 .leading-3 {
-  line-height: 0.75rem;
+  line-height: .75rem;
 }
 
 .leading-4 {
@@ -6753,23 +6758,23 @@ video {
 }
 
 .placeholder-figmaHead::placeholder {
-  color: #146cc1;
+  color: #146CC1;
 }
 
 .placeholder-figmaSubHead::placeholder {
-  color: #5388c1;
+  color: #5388C1;
 }
 
 .placeholder-figmaSectionHead::placeholder {
-  color: #f47766;
+  color: #F47766;
 }
 
 .placeholder-figmaOrange::placeholder {
-  color: #f88478;
+  color: #F88478;
 }
 
 .placeholder-figmaMenu::placeholder {
-  color: #1661aa;
+  color: #1661AA;
 }
 
 .placeholder-figmaParagraph::placeholder {
@@ -6777,23 +6782,23 @@ video {
 }
 
 .placeholder-figmaDescription::placeholder {
-  color: #6c9ccf;
+  color: #6C9CCF;
 }
 
 .placeholder-figmaAccept::placeholder {
-  color: #e6fffc;
+  color: #E6FFFC;
 }
 
 .placeholder-figmaDeny::placeholder {
-  color: #fddbdb;
+  color: #FDDBDB;
 }
 
 .placeholder-figmaOpen::placeholder {
-  color: #eaf3ff;
+  color: #EAF3FF;
 }
 
 .placeholder-bluePrimary::placeholder {
-  color: #eaf3ff;
+  color: #EAF3FF;
 }
 
 .placeholder-gray-100::placeholder {
@@ -7169,23 +7174,23 @@ video {
 }
 
 .focus\:placeholder-figmaHead:focus::placeholder {
-  color: #146cc1;
+  color: #146CC1;
 }
 
 .focus\:placeholder-figmaSubHead:focus::placeholder {
-  color: #5388c1;
+  color: #5388C1;
 }
 
 .focus\:placeholder-figmaSectionHead:focus::placeholder {
-  color: #f47766;
+  color: #F47766;
 }
 
 .focus\:placeholder-figmaOrange:focus::placeholder {
-  color: #f88478;
+  color: #F88478;
 }
 
 .focus\:placeholder-figmaMenu:focus::placeholder {
-  color: #1661aa;
+  color: #1661AA;
 }
 
 .focus\:placeholder-figmaParagraph:focus::placeholder {
@@ -7193,23 +7198,23 @@ video {
 }
 
 .focus\:placeholder-figmaDescription:focus::placeholder {
-  color: #6c9ccf;
+  color: #6C9CCF;
 }
 
 .focus\:placeholder-figmaAccept:focus::placeholder {
-  color: #e6fffc;
+  color: #E6FFFC;
 }
 
 .focus\:placeholder-figmaDeny:focus::placeholder {
-  color: #fddbdb;
+  color: #FDDBDB;
 }
 
 .focus\:placeholder-figmaOpen:focus::placeholder {
-  color: #eaf3ff;
+  color: #EAF3FF;
 }
 
 .focus\:placeholder-bluePrimary:focus::placeholder {
-  color: #eaf3ff;
+  color: #EAF3FF;
 }
 
 .focus\:placeholder-gray-100:focus::placeholder {
@@ -7696,18 +7701,15 @@ video {
 }
 
 .shadow-md {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .shadow-lg {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .shadow-xl {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .shadow-2xl {
@@ -7739,18 +7741,15 @@ video {
 }
 
 .hover\:shadow-md:hover {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .hover\:shadow-lg:hover {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .hover\:shadow-xl:hover {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .hover\:shadow-2xl:hover {
@@ -7782,18 +7781,15 @@ video {
 }
 
 .focus\:shadow-md:focus {
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .focus\:shadow-lg:focus {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .focus\:shadow-xl:focus {
-  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .focus\:shadow-2xl:focus {
@@ -7869,23 +7865,23 @@ video {
 }
 
 .text-figmaHead {
-  color: #146cc1;
+  color: #146CC1;
 }
 
 .text-figmaSubHead {
-  color: #5388c1;
+  color: #5388C1;
 }
 
 .text-figmaSectionHead {
-  color: #f47766;
+  color: #F47766;
 }
 
 .text-figmaOrange {
-  color: #f88478;
+  color: #F88478;
 }
 
 .text-figmaMenu {
-  color: #1661aa;
+  color: #1661AA;
 }
 
 .text-figmaParagraph {
@@ -7893,23 +7889,23 @@ video {
 }
 
 .text-figmaDescription {
-  color: #6c9ccf;
+  color: #6C9CCF;
 }
 
 .text-figmaAccept {
-  color: #e6fffc;
+  color: #E6FFFC;
 }
 
 .text-figmaDeny {
-  color: #fddbdb;
+  color: #FDDBDB;
 }
 
 .text-figmaOpen {
-  color: #eaf3ff;
+  color: #EAF3FF;
 }
 
 .text-bluePrimary {
-  color: #eaf3ff;
+  color: #EAF3FF;
 }
 
 .text-gray-100 {
@@ -8285,23 +8281,23 @@ video {
 }
 
 .hover\:text-figmaHead:hover {
-  color: #146cc1;
+  color: #146CC1;
 }
 
 .hover\:text-figmaSubHead:hover {
-  color: #5388c1;
+  color: #5388C1;
 }
 
 .hover\:text-figmaSectionHead:hover {
-  color: #f47766;
+  color: #F47766;
 }
 
 .hover\:text-figmaOrange:hover {
-  color: #f88478;
+  color: #F88478;
 }
 
 .hover\:text-figmaMenu:hover {
-  color: #1661aa;
+  color: #1661AA;
 }
 
 .hover\:text-figmaParagraph:hover {
@@ -8309,23 +8305,23 @@ video {
 }
 
 .hover\:text-figmaDescription:hover {
-  color: #6c9ccf;
+  color: #6C9CCF;
 }
 
 .hover\:text-figmaAccept:hover {
-  color: #e6fffc;
+  color: #E6FFFC;
 }
 
 .hover\:text-figmaDeny:hover {
-  color: #fddbdb;
+  color: #FDDBDB;
 }
 
 .hover\:text-figmaOpen:hover {
-  color: #eaf3ff;
+  color: #EAF3FF;
 }
 
 .hover\:text-bluePrimary:hover {
-  color: #eaf3ff;
+  color: #EAF3FF;
 }
 
 .hover\:text-gray-100:hover {
@@ -8701,23 +8697,23 @@ video {
 }
 
 .focus\:text-figmaHead:focus {
-  color: #146cc1;
+  color: #146CC1;
 }
 
 .focus\:text-figmaSubHead:focus {
-  color: #5388c1;
+  color: #5388C1;
 }
 
 .focus\:text-figmaSectionHead:focus {
-  color: #f47766;
+  color: #F47766;
 }
 
 .focus\:text-figmaOrange:focus {
-  color: #f88478;
+  color: #F88478;
 }
 
 .focus\:text-figmaMenu:focus {
-  color: #1661aa;
+  color: #1661AA;
 }
 
 .focus\:text-figmaParagraph:focus {
@@ -8725,23 +8721,23 @@ video {
 }
 
 .focus\:text-figmaDescription:focus {
-  color: #6c9ccf;
+  color: #6C9CCF;
 }
 
 .focus\:text-figmaAccept:focus {
-  color: #e6fffc;
+  color: #E6FFFC;
 }
 
 .focus\:text-figmaDeny:focus {
-  color: #fddbdb;
+  color: #FDDBDB;
 }
 
 .focus\:text-figmaOpen:focus {
-  color: #eaf3ff;
+  color: #EAF3FF;
 }
 
 .focus\:text-bluePrimary:focus {
-  color: #eaf3ff;
+  color: #EAF3FF;
 }
 
 .focus\:text-gray-100:focus {
@@ -9240,22 +9236,22 @@ video {
 
 .select-none {
   -webkit-user-select: none;
-  user-select: none;
+          user-select: none;
 }
 
 .select-text {
   -webkit-user-select: text;
-  user-select: text;
+          user-select: text;
 }
 
 .select-all {
   -webkit-user-select: all;
-  user-select: all;
+          user-select: all;
 }
 
 .select-auto {
   -webkit-user-select: auto;
-  user-select: auto;
+          user-select: auto;
 }
 
 .align-baseline {
@@ -10251,10 +10247,7 @@ video {
   --transform-skew-y: 0;
   --transform-scale-x: 1;
   --transform-scale-y: 1;
-  transform: translateX(var(--transform-translate-x))
-    translateY(var(--transform-translate-y)) rotate(var(--transform-rotate))
-    skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y))
-    scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+  transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
 }
 
 .transform-none {
@@ -10303,23 +10296,23 @@ video {
 }
 
 .scale-50 {
-  --transform-scale-x: 0.5;
-  --transform-scale-y: 0.5;
+  --transform-scale-x: .5;
+  --transform-scale-y: .5;
 }
 
 .scale-75 {
-  --transform-scale-x: 0.75;
-  --transform-scale-y: 0.75;
+  --transform-scale-x: .75;
+  --transform-scale-y: .75;
 }
 
 .scale-90 {
-  --transform-scale-x: 0.9;
-  --transform-scale-y: 0.9;
+  --transform-scale-x: .9;
+  --transform-scale-y: .9;
 }
 
 .scale-95 {
-  --transform-scale-x: 0.95;
-  --transform-scale-y: 0.95;
+  --transform-scale-x: .95;
+  --transform-scale-y: .95;
 }
 
 .scale-100 {
@@ -10352,19 +10345,19 @@ video {
 }
 
 .scale-x-50 {
-  --transform-scale-x: 0.5;
+  --transform-scale-x: .5;
 }
 
 .scale-x-75 {
-  --transform-scale-x: 0.75;
+  --transform-scale-x: .75;
 }
 
 .scale-x-90 {
-  --transform-scale-x: 0.9;
+  --transform-scale-x: .9;
 }
 
 .scale-x-95 {
-  --transform-scale-x: 0.95;
+  --transform-scale-x: .95;
 }
 
 .scale-x-100 {
@@ -10392,19 +10385,19 @@ video {
 }
 
 .scale-y-50 {
-  --transform-scale-y: 0.5;
+  --transform-scale-y: .5;
 }
 
 .scale-y-75 {
-  --transform-scale-y: 0.75;
+  --transform-scale-y: .75;
 }
 
 .scale-y-90 {
-  --transform-scale-y: 0.9;
+  --transform-scale-y: .9;
 }
 
 .scale-y-95 {
-  --transform-scale-y: 0.95;
+  --transform-scale-y: .95;
 }
 
 .scale-y-100 {
@@ -10433,23 +10426,23 @@ video {
 }
 
 .hover\:scale-50:hover {
-  --transform-scale-x: 0.5;
-  --transform-scale-y: 0.5;
+  --transform-scale-x: .5;
+  --transform-scale-y: .5;
 }
 
 .hover\:scale-75:hover {
-  --transform-scale-x: 0.75;
-  --transform-scale-y: 0.75;
+  --transform-scale-x: .75;
+  --transform-scale-y: .75;
 }
 
 .hover\:scale-90:hover {
-  --transform-scale-x: 0.9;
-  --transform-scale-y: 0.9;
+  --transform-scale-x: .9;
+  --transform-scale-y: .9;
 }
 
 .hover\:scale-95:hover {
-  --transform-scale-x: 0.95;
-  --transform-scale-y: 0.95;
+  --transform-scale-x: .95;
+  --transform-scale-y: .95;
 }
 
 .hover\:scale-100:hover {
@@ -10482,19 +10475,19 @@ video {
 }
 
 .hover\:scale-x-50:hover {
-  --transform-scale-x: 0.5;
+  --transform-scale-x: .5;
 }
 
 .hover\:scale-x-75:hover {
-  --transform-scale-x: 0.75;
+  --transform-scale-x: .75;
 }
 
 .hover\:scale-x-90:hover {
-  --transform-scale-x: 0.9;
+  --transform-scale-x: .9;
 }
 
 .hover\:scale-x-95:hover {
-  --transform-scale-x: 0.95;
+  --transform-scale-x: .95;
 }
 
 .hover\:scale-x-100:hover {
@@ -10522,19 +10515,19 @@ video {
 }
 
 .hover\:scale-y-50:hover {
-  --transform-scale-y: 0.5;
+  --transform-scale-y: .5;
 }
 
 .hover\:scale-y-75:hover {
-  --transform-scale-y: 0.75;
+  --transform-scale-y: .75;
 }
 
 .hover\:scale-y-90:hover {
-  --transform-scale-y: 0.9;
+  --transform-scale-y: .9;
 }
 
 .hover\:scale-y-95:hover {
-  --transform-scale-y: 0.95;
+  --transform-scale-y: .95;
 }
 
 .hover\:scale-y-100:hover {
@@ -10563,23 +10556,23 @@ video {
 }
 
 .focus\:scale-50:focus {
-  --transform-scale-x: 0.5;
-  --transform-scale-y: 0.5;
+  --transform-scale-x: .5;
+  --transform-scale-y: .5;
 }
 
 .focus\:scale-75:focus {
-  --transform-scale-x: 0.75;
-  --transform-scale-y: 0.75;
+  --transform-scale-x: .75;
+  --transform-scale-y: .75;
 }
 
 .focus\:scale-90:focus {
-  --transform-scale-x: 0.9;
-  --transform-scale-y: 0.9;
+  --transform-scale-x: .9;
+  --transform-scale-y: .9;
 }
 
 .focus\:scale-95:focus {
-  --transform-scale-x: 0.95;
-  --transform-scale-y: 0.95;
+  --transform-scale-x: .95;
+  --transform-scale-y: .95;
 }
 
 .focus\:scale-100:focus {
@@ -10612,19 +10605,19 @@ video {
 }
 
 .focus\:scale-x-50:focus {
-  --transform-scale-x: 0.5;
+  --transform-scale-x: .5;
 }
 
 .focus\:scale-x-75:focus {
-  --transform-scale-x: 0.75;
+  --transform-scale-x: .75;
 }
 
 .focus\:scale-x-90:focus {
-  --transform-scale-x: 0.9;
+  --transform-scale-x: .9;
 }
 
 .focus\:scale-x-95:focus {
-  --transform-scale-x: 0.95;
+  --transform-scale-x: .95;
 }
 
 .focus\:scale-x-100:focus {
@@ -10652,19 +10645,19 @@ video {
 }
 
 .focus\:scale-y-50:focus {
-  --transform-scale-y: 0.5;
+  --transform-scale-y: .5;
 }
 
 .focus\:scale-y-75:focus {
-  --transform-scale-y: 0.75;
+  --transform-scale-y: .75;
 }
 
 .focus\:scale-y-90:focus {
-  --transform-scale-y: 0.9;
+  --transform-scale-y: .9;
 }
 
 .focus\:scale-y-95:focus {
-  --transform-scale-y: 0.95;
+  --transform-scale-y: .95;
 }
 
 .focus\:scale-y-100:focus {
@@ -12076,8 +12069,7 @@ video {
 }
 
 .transition {
-  transition-property: background-color, border-color, color, fill, stroke,
-    opacity, box-shadow, transform;
+  transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
 }
 
 .transition-colors {
@@ -12193,8 +12185,8 @@ video {
 
   .sm\:appearance-none {
     -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
 
   .sm\:bg-fixed {
@@ -12222,23 +12214,23 @@ video {
   }
 
   .sm\:bg-figmaHead {
-    background-color: #146cc1;
+    background-color: #146CC1;
   }
 
   .sm\:bg-figmaSubHead {
-    background-color: #5388c1;
+    background-color: #5388C1;
   }
 
   .sm\:bg-figmaSectionHead {
-    background-color: #f47766;
+    background-color: #F47766;
   }
 
   .sm\:bg-figmaOrange {
-    background-color: #f88478;
+    background-color: #F88478;
   }
 
   .sm\:bg-figmaMenu {
-    background-color: #1661aa;
+    background-color: #1661AA;
   }
 
   .sm\:bg-figmaParagraph {
@@ -12246,23 +12238,23 @@ video {
   }
 
   .sm\:bg-figmaDescription {
-    background-color: #6c9ccf;
+    background-color: #6C9CCF;
   }
 
   .sm\:bg-figmaAccept {
-    background-color: #e6fffc;
+    background-color: #E6FFFC;
   }
 
   .sm\:bg-figmaDeny {
-    background-color: #fddbdb;
+    background-color: #FDDBDB;
   }
 
   .sm\:bg-figmaOpen {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .sm\:bg-bluePrimary {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .sm\:bg-gray-100 {
@@ -12638,23 +12630,23 @@ video {
   }
 
   .sm\:hover\:bg-figmaHead:hover {
-    background-color: #146cc1;
+    background-color: #146CC1;
   }
 
   .sm\:hover\:bg-figmaSubHead:hover {
-    background-color: #5388c1;
+    background-color: #5388C1;
   }
 
   .sm\:hover\:bg-figmaSectionHead:hover {
-    background-color: #f47766;
+    background-color: #F47766;
   }
 
   .sm\:hover\:bg-figmaOrange:hover {
-    background-color: #f88478;
+    background-color: #F88478;
   }
 
   .sm\:hover\:bg-figmaMenu:hover {
-    background-color: #1661aa;
+    background-color: #1661AA;
   }
 
   .sm\:hover\:bg-figmaParagraph:hover {
@@ -12662,23 +12654,23 @@ video {
   }
 
   .sm\:hover\:bg-figmaDescription:hover {
-    background-color: #6c9ccf;
+    background-color: #6C9CCF;
   }
 
   .sm\:hover\:bg-figmaAccept:hover {
-    background-color: #e6fffc;
+    background-color: #E6FFFC;
   }
 
   .sm\:hover\:bg-figmaDeny:hover {
-    background-color: #fddbdb;
+    background-color: #FDDBDB;
   }
 
   .sm\:hover\:bg-figmaOpen:hover {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .sm\:hover\:bg-bluePrimary:hover {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .sm\:hover\:bg-gray-100:hover {
@@ -13054,23 +13046,23 @@ video {
   }
 
   .sm\:focus\:bg-figmaHead:focus {
-    background-color: #146cc1;
+    background-color: #146CC1;
   }
 
   .sm\:focus\:bg-figmaSubHead:focus {
-    background-color: #5388c1;
+    background-color: #5388C1;
   }
 
   .sm\:focus\:bg-figmaSectionHead:focus {
-    background-color: #f47766;
+    background-color: #F47766;
   }
 
   .sm\:focus\:bg-figmaOrange:focus {
-    background-color: #f88478;
+    background-color: #F88478;
   }
 
   .sm\:focus\:bg-figmaMenu:focus {
-    background-color: #1661aa;
+    background-color: #1661AA;
   }
 
   .sm\:focus\:bg-figmaParagraph:focus {
@@ -13078,23 +13070,23 @@ video {
   }
 
   .sm\:focus\:bg-figmaDescription:focus {
-    background-color: #6c9ccf;
+    background-color: #6C9CCF;
   }
 
   .sm\:focus\:bg-figmaAccept:focus {
-    background-color: #e6fffc;
+    background-color: #E6FFFC;
   }
 
   .sm\:focus\:bg-figmaDeny:focus {
-    background-color: #fddbdb;
+    background-color: #FDDBDB;
   }
 
   .sm\:focus\:bg-figmaOpen:focus {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .sm\:focus\:bg-bluePrimary:focus {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .sm\:focus\:bg-gray-100:focus {
@@ -13550,23 +13542,23 @@ video {
   }
 
   .sm\:border-figmaHead {
-    border-color: #146cc1;
+    border-color: #146CC1;
   }
 
   .sm\:border-figmaSubHead {
-    border-color: #5388c1;
+    border-color: #5388C1;
   }
 
   .sm\:border-figmaSectionHead {
-    border-color: #f47766;
+    border-color: #F47766;
   }
 
   .sm\:border-figmaOrange {
-    border-color: #f88478;
+    border-color: #F88478;
   }
 
   .sm\:border-figmaMenu {
-    border-color: #1661aa;
+    border-color: #1661AA;
   }
 
   .sm\:border-figmaParagraph {
@@ -13574,23 +13566,23 @@ video {
   }
 
   .sm\:border-figmaDescription {
-    border-color: #6c9ccf;
+    border-color: #6C9CCF;
   }
 
   .sm\:border-figmaAccept {
-    border-color: #e6fffc;
+    border-color: #E6FFFC;
   }
 
   .sm\:border-figmaDeny {
-    border-color: #fddbdb;
+    border-color: #FDDBDB;
   }
 
   .sm\:border-figmaOpen {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .sm\:border-bluePrimary {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .sm\:border-gray-100 {
@@ -13966,23 +13958,23 @@ video {
   }
 
   .sm\:hover\:border-figmaHead:hover {
-    border-color: #146cc1;
+    border-color: #146CC1;
   }
 
   .sm\:hover\:border-figmaSubHead:hover {
-    border-color: #5388c1;
+    border-color: #5388C1;
   }
 
   .sm\:hover\:border-figmaSectionHead:hover {
-    border-color: #f47766;
+    border-color: #F47766;
   }
 
   .sm\:hover\:border-figmaOrange:hover {
-    border-color: #f88478;
+    border-color: #F88478;
   }
 
   .sm\:hover\:border-figmaMenu:hover {
-    border-color: #1661aa;
+    border-color: #1661AA;
   }
 
   .sm\:hover\:border-figmaParagraph:hover {
@@ -13990,23 +13982,23 @@ video {
   }
 
   .sm\:hover\:border-figmaDescription:hover {
-    border-color: #6c9ccf;
+    border-color: #6C9CCF;
   }
 
   .sm\:hover\:border-figmaAccept:hover {
-    border-color: #e6fffc;
+    border-color: #E6FFFC;
   }
 
   .sm\:hover\:border-figmaDeny:hover {
-    border-color: #fddbdb;
+    border-color: #FDDBDB;
   }
 
   .sm\:hover\:border-figmaOpen:hover {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .sm\:hover\:border-bluePrimary:hover {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .sm\:hover\:border-gray-100:hover {
@@ -14382,23 +14374,23 @@ video {
   }
 
   .sm\:focus\:border-figmaHead:focus {
-    border-color: #146cc1;
+    border-color: #146CC1;
   }
 
   .sm\:focus\:border-figmaSubHead:focus {
-    border-color: #5388c1;
+    border-color: #5388C1;
   }
 
   .sm\:focus\:border-figmaSectionHead:focus {
-    border-color: #f47766;
+    border-color: #F47766;
   }
 
   .sm\:focus\:border-figmaOrange:focus {
-    border-color: #f88478;
+    border-color: #F88478;
   }
 
   .sm\:focus\:border-figmaMenu:focus {
-    border-color: #1661aa;
+    border-color: #1661AA;
   }
 
   .sm\:focus\:border-figmaParagraph:focus {
@@ -14406,23 +14398,23 @@ video {
   }
 
   .sm\:focus\:border-figmaDescription:focus {
-    border-color: #6c9ccf;
+    border-color: #6C9CCF;
   }
 
   .sm\:focus\:border-figmaAccept:focus {
-    border-color: #e6fffc;
+    border-color: #E6FFFC;
   }
 
   .sm\:focus\:border-figmaDeny:focus {
-    border-color: #fddbdb;
+    border-color: #FDDBDB;
   }
 
   .sm\:focus\:border-figmaOpen:focus {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .sm\:focus\:border-bluePrimary:focus {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .sm\:focus\:border-gray-100:focus {
@@ -15480,10 +15472,7 @@ video {
   }
 
   .sm\:font-sans {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-      "Noto Color Emoji";
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .sm\:font-serif {
@@ -15491,8 +15480,7 @@ video {
   }
 
   .sm\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-      monospace;
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
   .sm\:font-hairline {
@@ -15704,7 +15692,7 @@ video {
   }
 
   .sm\:leading-3 {
-    line-height: 0.75rem;
+    line-height: .75rem;
   }
 
   .sm\:leading-4 {
@@ -18044,23 +18032,23 @@ video {
   }
 
   .sm\:placeholder-figmaHead::placeholder {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .sm\:placeholder-figmaSubHead::placeholder {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .sm\:placeholder-figmaSectionHead::placeholder {
-    color: #f47766;
+    color: #F47766;
   }
 
   .sm\:placeholder-figmaOrange::placeholder {
-    color: #f88478;
+    color: #F88478;
   }
 
   .sm\:placeholder-figmaMenu::placeholder {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .sm\:placeholder-figmaParagraph::placeholder {
@@ -18068,23 +18056,23 @@ video {
   }
 
   .sm\:placeholder-figmaDescription::placeholder {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .sm\:placeholder-figmaAccept::placeholder {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .sm\:placeholder-figmaDeny::placeholder {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .sm\:placeholder-figmaOpen::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .sm\:placeholder-bluePrimary::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .sm\:placeholder-gray-100::placeholder {
@@ -18460,23 +18448,23 @@ video {
   }
 
   .sm\:focus\:placeholder-figmaHead:focus::placeholder {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .sm\:focus\:placeholder-figmaSubHead:focus::placeholder {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .sm\:focus\:placeholder-figmaSectionHead:focus::placeholder {
-    color: #f47766;
+    color: #F47766;
   }
 
   .sm\:focus\:placeholder-figmaOrange:focus::placeholder {
-    color: #f88478;
+    color: #F88478;
   }
 
   .sm\:focus\:placeholder-figmaMenu:focus::placeholder {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .sm\:focus\:placeholder-figmaParagraph:focus::placeholder {
@@ -18484,23 +18472,23 @@ video {
   }
 
   .sm\:focus\:placeholder-figmaDescription:focus::placeholder {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .sm\:focus\:placeholder-figmaAccept:focus::placeholder {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .sm\:focus\:placeholder-figmaDeny:focus::placeholder {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .sm\:focus\:placeholder-figmaOpen:focus::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .sm\:focus\:placeholder-bluePrimary:focus::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .sm\:focus\:placeholder-gray-100:focus::placeholder {
@@ -18987,18 +18975,15 @@ video {
   }
 
   .sm\:shadow-md {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .sm\:shadow-lg {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .sm\:shadow-xl {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .sm\:shadow-2xl {
@@ -19030,18 +19015,15 @@ video {
   }
 
   .sm\:hover\:shadow-md:hover {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .sm\:hover\:shadow-lg:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .sm\:hover\:shadow-xl:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .sm\:hover\:shadow-2xl:hover {
@@ -19073,18 +19055,15 @@ video {
   }
 
   .sm\:focus\:shadow-md:focus {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .sm\:focus\:shadow-lg:focus {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .sm\:focus\:shadow-xl:focus {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .sm\:focus\:shadow-2xl:focus {
@@ -19160,23 +19139,23 @@ video {
   }
 
   .sm\:text-figmaHead {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .sm\:text-figmaSubHead {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .sm\:text-figmaSectionHead {
-    color: #f47766;
+    color: #F47766;
   }
 
   .sm\:text-figmaOrange {
-    color: #f88478;
+    color: #F88478;
   }
 
   .sm\:text-figmaMenu {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .sm\:text-figmaParagraph {
@@ -19184,23 +19163,23 @@ video {
   }
 
   .sm\:text-figmaDescription {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .sm\:text-figmaAccept {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .sm\:text-figmaDeny {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .sm\:text-figmaOpen {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .sm\:text-bluePrimary {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .sm\:text-gray-100 {
@@ -19576,23 +19555,23 @@ video {
   }
 
   .sm\:hover\:text-figmaHead:hover {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .sm\:hover\:text-figmaSubHead:hover {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .sm\:hover\:text-figmaSectionHead:hover {
-    color: #f47766;
+    color: #F47766;
   }
 
   .sm\:hover\:text-figmaOrange:hover {
-    color: #f88478;
+    color: #F88478;
   }
 
   .sm\:hover\:text-figmaMenu:hover {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .sm\:hover\:text-figmaParagraph:hover {
@@ -19600,23 +19579,23 @@ video {
   }
 
   .sm\:hover\:text-figmaDescription:hover {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .sm\:hover\:text-figmaAccept:hover {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .sm\:hover\:text-figmaDeny:hover {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .sm\:hover\:text-figmaOpen:hover {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .sm\:hover\:text-bluePrimary:hover {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .sm\:hover\:text-gray-100:hover {
@@ -19992,23 +19971,23 @@ video {
   }
 
   .sm\:focus\:text-figmaHead:focus {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .sm\:focus\:text-figmaSubHead:focus {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .sm\:focus\:text-figmaSectionHead:focus {
-    color: #f47766;
+    color: #F47766;
   }
 
   .sm\:focus\:text-figmaOrange:focus {
-    color: #f88478;
+    color: #F88478;
   }
 
   .sm\:focus\:text-figmaMenu:focus {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .sm\:focus\:text-figmaParagraph:focus {
@@ -20016,23 +19995,23 @@ video {
   }
 
   .sm\:focus\:text-figmaDescription:focus {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .sm\:focus\:text-figmaAccept:focus {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .sm\:focus\:text-figmaDeny:focus {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .sm\:focus\:text-figmaOpen:focus {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .sm\:focus\:text-bluePrimary:focus {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .sm\:focus\:text-gray-100:focus {
@@ -20531,22 +20510,22 @@ video {
 
   .sm\:select-none {
     -webkit-user-select: none;
-    user-select: none;
+            user-select: none;
   }
 
   .sm\:select-text {
     -webkit-user-select: text;
-    user-select: text;
+            user-select: text;
   }
 
   .sm\:select-all {
     -webkit-user-select: all;
-    user-select: all;
+            user-select: all;
   }
 
   .sm\:select-auto {
     -webkit-user-select: auto;
-    user-select: auto;
+            user-select: auto;
   }
 
   .sm\:align-baseline {
@@ -21542,10 +21521,7 @@ video {
     --transform-skew-y: 0;
     --transform-scale-x: 1;
     --transform-scale-y: 1;
-    transform: translateX(var(--transform-translate-x))
-      translateY(var(--transform-translate-y)) rotate(var(--transform-rotate))
-      skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y))
-      scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+    transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
   }
 
   .sm\:transform-none {
@@ -21594,23 +21570,23 @@ video {
   }
 
   .sm\:scale-50 {
-    --transform-scale-x: 0.5;
-    --transform-scale-y: 0.5;
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
   }
 
   .sm\:scale-75 {
-    --transform-scale-x: 0.75;
-    --transform-scale-y: 0.75;
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
   }
 
   .sm\:scale-90 {
-    --transform-scale-x: 0.9;
-    --transform-scale-y: 0.9;
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
   }
 
   .sm\:scale-95 {
-    --transform-scale-x: 0.95;
-    --transform-scale-y: 0.95;
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
   }
 
   .sm\:scale-100 {
@@ -21643,19 +21619,19 @@ video {
   }
 
   .sm\:scale-x-50 {
-    --transform-scale-x: 0.5;
+    --transform-scale-x: .5;
   }
 
   .sm\:scale-x-75 {
-    --transform-scale-x: 0.75;
+    --transform-scale-x: .75;
   }
 
   .sm\:scale-x-90 {
-    --transform-scale-x: 0.9;
+    --transform-scale-x: .9;
   }
 
   .sm\:scale-x-95 {
-    --transform-scale-x: 0.95;
+    --transform-scale-x: .95;
   }
 
   .sm\:scale-x-100 {
@@ -21683,19 +21659,19 @@ video {
   }
 
   .sm\:scale-y-50 {
-    --transform-scale-y: 0.5;
+    --transform-scale-y: .5;
   }
 
   .sm\:scale-y-75 {
-    --transform-scale-y: 0.75;
+    --transform-scale-y: .75;
   }
 
   .sm\:scale-y-90 {
-    --transform-scale-y: 0.9;
+    --transform-scale-y: .9;
   }
 
   .sm\:scale-y-95 {
-    --transform-scale-y: 0.95;
+    --transform-scale-y: .95;
   }
 
   .sm\:scale-y-100 {
@@ -21724,23 +21700,23 @@ video {
   }
 
   .sm\:hover\:scale-50:hover {
-    --transform-scale-x: 0.5;
-    --transform-scale-y: 0.5;
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
   }
 
   .sm\:hover\:scale-75:hover {
-    --transform-scale-x: 0.75;
-    --transform-scale-y: 0.75;
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
   }
 
   .sm\:hover\:scale-90:hover {
-    --transform-scale-x: 0.9;
-    --transform-scale-y: 0.9;
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
   }
 
   .sm\:hover\:scale-95:hover {
-    --transform-scale-x: 0.95;
-    --transform-scale-y: 0.95;
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
   }
 
   .sm\:hover\:scale-100:hover {
@@ -21773,19 +21749,19 @@ video {
   }
 
   .sm\:hover\:scale-x-50:hover {
-    --transform-scale-x: 0.5;
+    --transform-scale-x: .5;
   }
 
   .sm\:hover\:scale-x-75:hover {
-    --transform-scale-x: 0.75;
+    --transform-scale-x: .75;
   }
 
   .sm\:hover\:scale-x-90:hover {
-    --transform-scale-x: 0.9;
+    --transform-scale-x: .9;
   }
 
   .sm\:hover\:scale-x-95:hover {
-    --transform-scale-x: 0.95;
+    --transform-scale-x: .95;
   }
 
   .sm\:hover\:scale-x-100:hover {
@@ -21813,19 +21789,19 @@ video {
   }
 
   .sm\:hover\:scale-y-50:hover {
-    --transform-scale-y: 0.5;
+    --transform-scale-y: .5;
   }
 
   .sm\:hover\:scale-y-75:hover {
-    --transform-scale-y: 0.75;
+    --transform-scale-y: .75;
   }
 
   .sm\:hover\:scale-y-90:hover {
-    --transform-scale-y: 0.9;
+    --transform-scale-y: .9;
   }
 
   .sm\:hover\:scale-y-95:hover {
-    --transform-scale-y: 0.95;
+    --transform-scale-y: .95;
   }
 
   .sm\:hover\:scale-y-100:hover {
@@ -21854,23 +21830,23 @@ video {
   }
 
   .sm\:focus\:scale-50:focus {
-    --transform-scale-x: 0.5;
-    --transform-scale-y: 0.5;
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
   }
 
   .sm\:focus\:scale-75:focus {
-    --transform-scale-x: 0.75;
-    --transform-scale-y: 0.75;
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
   }
 
   .sm\:focus\:scale-90:focus {
-    --transform-scale-x: 0.9;
-    --transform-scale-y: 0.9;
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
   }
 
   .sm\:focus\:scale-95:focus {
-    --transform-scale-x: 0.95;
-    --transform-scale-y: 0.95;
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
   }
 
   .sm\:focus\:scale-100:focus {
@@ -21903,19 +21879,19 @@ video {
   }
 
   .sm\:focus\:scale-x-50:focus {
-    --transform-scale-x: 0.5;
+    --transform-scale-x: .5;
   }
 
   .sm\:focus\:scale-x-75:focus {
-    --transform-scale-x: 0.75;
+    --transform-scale-x: .75;
   }
 
   .sm\:focus\:scale-x-90:focus {
-    --transform-scale-x: 0.9;
+    --transform-scale-x: .9;
   }
 
   .sm\:focus\:scale-x-95:focus {
-    --transform-scale-x: 0.95;
+    --transform-scale-x: .95;
   }
 
   .sm\:focus\:scale-x-100:focus {
@@ -21943,19 +21919,19 @@ video {
   }
 
   .sm\:focus\:scale-y-50:focus {
-    --transform-scale-y: 0.5;
+    --transform-scale-y: .5;
   }
 
   .sm\:focus\:scale-y-75:focus {
-    --transform-scale-y: 0.75;
+    --transform-scale-y: .75;
   }
 
   .sm\:focus\:scale-y-90:focus {
-    --transform-scale-y: 0.9;
+    --transform-scale-y: .9;
   }
 
   .sm\:focus\:scale-y-95:focus {
-    --transform-scale-y: 0.95;
+    --transform-scale-y: .95;
   }
 
   .sm\:focus\:scale-y-100:focus {
@@ -23367,8 +23343,7 @@ video {
   }
 
   .sm\:transition {
-    transition-property: background-color, border-color, color, fill, stroke,
-      opacity, box-shadow, transform;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
   }
 
   .sm\:transition-colors {
@@ -23485,8 +23460,8 @@ video {
 
   .md\:appearance-none {
     -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
 
   .md\:bg-fixed {
@@ -23514,23 +23489,23 @@ video {
   }
 
   .md\:bg-figmaHead {
-    background-color: #146cc1;
+    background-color: #146CC1;
   }
 
   .md\:bg-figmaSubHead {
-    background-color: #5388c1;
+    background-color: #5388C1;
   }
 
   .md\:bg-figmaSectionHead {
-    background-color: #f47766;
+    background-color: #F47766;
   }
 
   .md\:bg-figmaOrange {
-    background-color: #f88478;
+    background-color: #F88478;
   }
 
   .md\:bg-figmaMenu {
-    background-color: #1661aa;
+    background-color: #1661AA;
   }
 
   .md\:bg-figmaParagraph {
@@ -23538,23 +23513,23 @@ video {
   }
 
   .md\:bg-figmaDescription {
-    background-color: #6c9ccf;
+    background-color: #6C9CCF;
   }
 
   .md\:bg-figmaAccept {
-    background-color: #e6fffc;
+    background-color: #E6FFFC;
   }
 
   .md\:bg-figmaDeny {
-    background-color: #fddbdb;
+    background-color: #FDDBDB;
   }
 
   .md\:bg-figmaOpen {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .md\:bg-bluePrimary {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .md\:bg-gray-100 {
@@ -23930,23 +23905,23 @@ video {
   }
 
   .md\:hover\:bg-figmaHead:hover {
-    background-color: #146cc1;
+    background-color: #146CC1;
   }
 
   .md\:hover\:bg-figmaSubHead:hover {
-    background-color: #5388c1;
+    background-color: #5388C1;
   }
 
   .md\:hover\:bg-figmaSectionHead:hover {
-    background-color: #f47766;
+    background-color: #F47766;
   }
 
   .md\:hover\:bg-figmaOrange:hover {
-    background-color: #f88478;
+    background-color: #F88478;
   }
 
   .md\:hover\:bg-figmaMenu:hover {
-    background-color: #1661aa;
+    background-color: #1661AA;
   }
 
   .md\:hover\:bg-figmaParagraph:hover {
@@ -23954,23 +23929,23 @@ video {
   }
 
   .md\:hover\:bg-figmaDescription:hover {
-    background-color: #6c9ccf;
+    background-color: #6C9CCF;
   }
 
   .md\:hover\:bg-figmaAccept:hover {
-    background-color: #e6fffc;
+    background-color: #E6FFFC;
   }
 
   .md\:hover\:bg-figmaDeny:hover {
-    background-color: #fddbdb;
+    background-color: #FDDBDB;
   }
 
   .md\:hover\:bg-figmaOpen:hover {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .md\:hover\:bg-bluePrimary:hover {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .md\:hover\:bg-gray-100:hover {
@@ -24346,23 +24321,23 @@ video {
   }
 
   .md\:focus\:bg-figmaHead:focus {
-    background-color: #146cc1;
+    background-color: #146CC1;
   }
 
   .md\:focus\:bg-figmaSubHead:focus {
-    background-color: #5388c1;
+    background-color: #5388C1;
   }
 
   .md\:focus\:bg-figmaSectionHead:focus {
-    background-color: #f47766;
+    background-color: #F47766;
   }
 
   .md\:focus\:bg-figmaOrange:focus {
-    background-color: #f88478;
+    background-color: #F88478;
   }
 
   .md\:focus\:bg-figmaMenu:focus {
-    background-color: #1661aa;
+    background-color: #1661AA;
   }
 
   .md\:focus\:bg-figmaParagraph:focus {
@@ -24370,23 +24345,23 @@ video {
   }
 
   .md\:focus\:bg-figmaDescription:focus {
-    background-color: #6c9ccf;
+    background-color: #6C9CCF;
   }
 
   .md\:focus\:bg-figmaAccept:focus {
-    background-color: #e6fffc;
+    background-color: #E6FFFC;
   }
 
   .md\:focus\:bg-figmaDeny:focus {
-    background-color: #fddbdb;
+    background-color: #FDDBDB;
   }
 
   .md\:focus\:bg-figmaOpen:focus {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .md\:focus\:bg-bluePrimary:focus {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .md\:focus\:bg-gray-100:focus {
@@ -24842,23 +24817,23 @@ video {
   }
 
   .md\:border-figmaHead {
-    border-color: #146cc1;
+    border-color: #146CC1;
   }
 
   .md\:border-figmaSubHead {
-    border-color: #5388c1;
+    border-color: #5388C1;
   }
 
   .md\:border-figmaSectionHead {
-    border-color: #f47766;
+    border-color: #F47766;
   }
 
   .md\:border-figmaOrange {
-    border-color: #f88478;
+    border-color: #F88478;
   }
 
   .md\:border-figmaMenu {
-    border-color: #1661aa;
+    border-color: #1661AA;
   }
 
   .md\:border-figmaParagraph {
@@ -24866,23 +24841,23 @@ video {
   }
 
   .md\:border-figmaDescription {
-    border-color: #6c9ccf;
+    border-color: #6C9CCF;
   }
 
   .md\:border-figmaAccept {
-    border-color: #e6fffc;
+    border-color: #E6FFFC;
   }
 
   .md\:border-figmaDeny {
-    border-color: #fddbdb;
+    border-color: #FDDBDB;
   }
 
   .md\:border-figmaOpen {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .md\:border-bluePrimary {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .md\:border-gray-100 {
@@ -25258,23 +25233,23 @@ video {
   }
 
   .md\:hover\:border-figmaHead:hover {
-    border-color: #146cc1;
+    border-color: #146CC1;
   }
 
   .md\:hover\:border-figmaSubHead:hover {
-    border-color: #5388c1;
+    border-color: #5388C1;
   }
 
   .md\:hover\:border-figmaSectionHead:hover {
-    border-color: #f47766;
+    border-color: #F47766;
   }
 
   .md\:hover\:border-figmaOrange:hover {
-    border-color: #f88478;
+    border-color: #F88478;
   }
 
   .md\:hover\:border-figmaMenu:hover {
-    border-color: #1661aa;
+    border-color: #1661AA;
   }
 
   .md\:hover\:border-figmaParagraph:hover {
@@ -25282,23 +25257,23 @@ video {
   }
 
   .md\:hover\:border-figmaDescription:hover {
-    border-color: #6c9ccf;
+    border-color: #6C9CCF;
   }
 
   .md\:hover\:border-figmaAccept:hover {
-    border-color: #e6fffc;
+    border-color: #E6FFFC;
   }
 
   .md\:hover\:border-figmaDeny:hover {
-    border-color: #fddbdb;
+    border-color: #FDDBDB;
   }
 
   .md\:hover\:border-figmaOpen:hover {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .md\:hover\:border-bluePrimary:hover {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .md\:hover\:border-gray-100:hover {
@@ -25674,23 +25649,23 @@ video {
   }
 
   .md\:focus\:border-figmaHead:focus {
-    border-color: #146cc1;
+    border-color: #146CC1;
   }
 
   .md\:focus\:border-figmaSubHead:focus {
-    border-color: #5388c1;
+    border-color: #5388C1;
   }
 
   .md\:focus\:border-figmaSectionHead:focus {
-    border-color: #f47766;
+    border-color: #F47766;
   }
 
   .md\:focus\:border-figmaOrange:focus {
-    border-color: #f88478;
+    border-color: #F88478;
   }
 
   .md\:focus\:border-figmaMenu:focus {
-    border-color: #1661aa;
+    border-color: #1661AA;
   }
 
   .md\:focus\:border-figmaParagraph:focus {
@@ -25698,23 +25673,23 @@ video {
   }
 
   .md\:focus\:border-figmaDescription:focus {
-    border-color: #6c9ccf;
+    border-color: #6C9CCF;
   }
 
   .md\:focus\:border-figmaAccept:focus {
-    border-color: #e6fffc;
+    border-color: #E6FFFC;
   }
 
   .md\:focus\:border-figmaDeny:focus {
-    border-color: #fddbdb;
+    border-color: #FDDBDB;
   }
 
   .md\:focus\:border-figmaOpen:focus {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .md\:focus\:border-bluePrimary:focus {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .md\:focus\:border-gray-100:focus {
@@ -26772,10 +26747,7 @@ video {
   }
 
   .md\:font-sans {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-      "Noto Color Emoji";
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .md\:font-serif {
@@ -26783,8 +26755,7 @@ video {
   }
 
   .md\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-      monospace;
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
   .md\:font-hairline {
@@ -26996,7 +26967,7 @@ video {
   }
 
   .md\:leading-3 {
-    line-height: 0.75rem;
+    line-height: .75rem;
   }
 
   .md\:leading-4 {
@@ -29336,23 +29307,23 @@ video {
   }
 
   .md\:placeholder-figmaHead::placeholder {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .md\:placeholder-figmaSubHead::placeholder {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .md\:placeholder-figmaSectionHead::placeholder {
-    color: #f47766;
+    color: #F47766;
   }
 
   .md\:placeholder-figmaOrange::placeholder {
-    color: #f88478;
+    color: #F88478;
   }
 
   .md\:placeholder-figmaMenu::placeholder {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .md\:placeholder-figmaParagraph::placeholder {
@@ -29360,23 +29331,23 @@ video {
   }
 
   .md\:placeholder-figmaDescription::placeholder {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .md\:placeholder-figmaAccept::placeholder {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .md\:placeholder-figmaDeny::placeholder {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .md\:placeholder-figmaOpen::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .md\:placeholder-bluePrimary::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .md\:placeholder-gray-100::placeholder {
@@ -29752,23 +29723,23 @@ video {
   }
 
   .md\:focus\:placeholder-figmaHead:focus::placeholder {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .md\:focus\:placeholder-figmaSubHead:focus::placeholder {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .md\:focus\:placeholder-figmaSectionHead:focus::placeholder {
-    color: #f47766;
+    color: #F47766;
   }
 
   .md\:focus\:placeholder-figmaOrange:focus::placeholder {
-    color: #f88478;
+    color: #F88478;
   }
 
   .md\:focus\:placeholder-figmaMenu:focus::placeholder {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .md\:focus\:placeholder-figmaParagraph:focus::placeholder {
@@ -29776,23 +29747,23 @@ video {
   }
 
   .md\:focus\:placeholder-figmaDescription:focus::placeholder {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .md\:focus\:placeholder-figmaAccept:focus::placeholder {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .md\:focus\:placeholder-figmaDeny:focus::placeholder {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .md\:focus\:placeholder-figmaOpen:focus::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .md\:focus\:placeholder-bluePrimary:focus::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .md\:focus\:placeholder-gray-100:focus::placeholder {
@@ -30279,18 +30250,15 @@ video {
   }
 
   .md\:shadow-md {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .md\:shadow-lg {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .md\:shadow-xl {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .md\:shadow-2xl {
@@ -30322,18 +30290,15 @@ video {
   }
 
   .md\:hover\:shadow-md:hover {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .md\:hover\:shadow-lg:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .md\:hover\:shadow-xl:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .md\:hover\:shadow-2xl:hover {
@@ -30365,18 +30330,15 @@ video {
   }
 
   .md\:focus\:shadow-md:focus {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .md\:focus\:shadow-lg:focus {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .md\:focus\:shadow-xl:focus {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .md\:focus\:shadow-2xl:focus {
@@ -30452,23 +30414,23 @@ video {
   }
 
   .md\:text-figmaHead {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .md\:text-figmaSubHead {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .md\:text-figmaSectionHead {
-    color: #f47766;
+    color: #F47766;
   }
 
   .md\:text-figmaOrange {
-    color: #f88478;
+    color: #F88478;
   }
 
   .md\:text-figmaMenu {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .md\:text-figmaParagraph {
@@ -30476,23 +30438,23 @@ video {
   }
 
   .md\:text-figmaDescription {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .md\:text-figmaAccept {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .md\:text-figmaDeny {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .md\:text-figmaOpen {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .md\:text-bluePrimary {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .md\:text-gray-100 {
@@ -30868,23 +30830,23 @@ video {
   }
 
   .md\:hover\:text-figmaHead:hover {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .md\:hover\:text-figmaSubHead:hover {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .md\:hover\:text-figmaSectionHead:hover {
-    color: #f47766;
+    color: #F47766;
   }
 
   .md\:hover\:text-figmaOrange:hover {
-    color: #f88478;
+    color: #F88478;
   }
 
   .md\:hover\:text-figmaMenu:hover {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .md\:hover\:text-figmaParagraph:hover {
@@ -30892,23 +30854,23 @@ video {
   }
 
   .md\:hover\:text-figmaDescription:hover {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .md\:hover\:text-figmaAccept:hover {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .md\:hover\:text-figmaDeny:hover {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .md\:hover\:text-figmaOpen:hover {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .md\:hover\:text-bluePrimary:hover {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .md\:hover\:text-gray-100:hover {
@@ -31284,23 +31246,23 @@ video {
   }
 
   .md\:focus\:text-figmaHead:focus {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .md\:focus\:text-figmaSubHead:focus {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .md\:focus\:text-figmaSectionHead:focus {
-    color: #f47766;
+    color: #F47766;
   }
 
   .md\:focus\:text-figmaOrange:focus {
-    color: #f88478;
+    color: #F88478;
   }
 
   .md\:focus\:text-figmaMenu:focus {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .md\:focus\:text-figmaParagraph:focus {
@@ -31308,23 +31270,23 @@ video {
   }
 
   .md\:focus\:text-figmaDescription:focus {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .md\:focus\:text-figmaAccept:focus {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .md\:focus\:text-figmaDeny:focus {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .md\:focus\:text-figmaOpen:focus {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .md\:focus\:text-bluePrimary:focus {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .md\:focus\:text-gray-100:focus {
@@ -31823,22 +31785,22 @@ video {
 
   .md\:select-none {
     -webkit-user-select: none;
-    user-select: none;
+            user-select: none;
   }
 
   .md\:select-text {
     -webkit-user-select: text;
-    user-select: text;
+            user-select: text;
   }
 
   .md\:select-all {
     -webkit-user-select: all;
-    user-select: all;
+            user-select: all;
   }
 
   .md\:select-auto {
     -webkit-user-select: auto;
-    user-select: auto;
+            user-select: auto;
   }
 
   .md\:align-baseline {
@@ -32834,10 +32796,7 @@ video {
     --transform-skew-y: 0;
     --transform-scale-x: 1;
     --transform-scale-y: 1;
-    transform: translateX(var(--transform-translate-x))
-      translateY(var(--transform-translate-y)) rotate(var(--transform-rotate))
-      skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y))
-      scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+    transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
   }
 
   .md\:transform-none {
@@ -32886,23 +32845,23 @@ video {
   }
 
   .md\:scale-50 {
-    --transform-scale-x: 0.5;
-    --transform-scale-y: 0.5;
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
   }
 
   .md\:scale-75 {
-    --transform-scale-x: 0.75;
-    --transform-scale-y: 0.75;
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
   }
 
   .md\:scale-90 {
-    --transform-scale-x: 0.9;
-    --transform-scale-y: 0.9;
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
   }
 
   .md\:scale-95 {
-    --transform-scale-x: 0.95;
-    --transform-scale-y: 0.95;
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
   }
 
   .md\:scale-100 {
@@ -32935,19 +32894,19 @@ video {
   }
 
   .md\:scale-x-50 {
-    --transform-scale-x: 0.5;
+    --transform-scale-x: .5;
   }
 
   .md\:scale-x-75 {
-    --transform-scale-x: 0.75;
+    --transform-scale-x: .75;
   }
 
   .md\:scale-x-90 {
-    --transform-scale-x: 0.9;
+    --transform-scale-x: .9;
   }
 
   .md\:scale-x-95 {
-    --transform-scale-x: 0.95;
+    --transform-scale-x: .95;
   }
 
   .md\:scale-x-100 {
@@ -32975,19 +32934,19 @@ video {
   }
 
   .md\:scale-y-50 {
-    --transform-scale-y: 0.5;
+    --transform-scale-y: .5;
   }
 
   .md\:scale-y-75 {
-    --transform-scale-y: 0.75;
+    --transform-scale-y: .75;
   }
 
   .md\:scale-y-90 {
-    --transform-scale-y: 0.9;
+    --transform-scale-y: .9;
   }
 
   .md\:scale-y-95 {
-    --transform-scale-y: 0.95;
+    --transform-scale-y: .95;
   }
 
   .md\:scale-y-100 {
@@ -33016,23 +32975,23 @@ video {
   }
 
   .md\:hover\:scale-50:hover {
-    --transform-scale-x: 0.5;
-    --transform-scale-y: 0.5;
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
   }
 
   .md\:hover\:scale-75:hover {
-    --transform-scale-x: 0.75;
-    --transform-scale-y: 0.75;
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
   }
 
   .md\:hover\:scale-90:hover {
-    --transform-scale-x: 0.9;
-    --transform-scale-y: 0.9;
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
   }
 
   .md\:hover\:scale-95:hover {
-    --transform-scale-x: 0.95;
-    --transform-scale-y: 0.95;
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
   }
 
   .md\:hover\:scale-100:hover {
@@ -33065,19 +33024,19 @@ video {
   }
 
   .md\:hover\:scale-x-50:hover {
-    --transform-scale-x: 0.5;
+    --transform-scale-x: .5;
   }
 
   .md\:hover\:scale-x-75:hover {
-    --transform-scale-x: 0.75;
+    --transform-scale-x: .75;
   }
 
   .md\:hover\:scale-x-90:hover {
-    --transform-scale-x: 0.9;
+    --transform-scale-x: .9;
   }
 
   .md\:hover\:scale-x-95:hover {
-    --transform-scale-x: 0.95;
+    --transform-scale-x: .95;
   }
 
   .md\:hover\:scale-x-100:hover {
@@ -33105,19 +33064,19 @@ video {
   }
 
   .md\:hover\:scale-y-50:hover {
-    --transform-scale-y: 0.5;
+    --transform-scale-y: .5;
   }
 
   .md\:hover\:scale-y-75:hover {
-    --transform-scale-y: 0.75;
+    --transform-scale-y: .75;
   }
 
   .md\:hover\:scale-y-90:hover {
-    --transform-scale-y: 0.9;
+    --transform-scale-y: .9;
   }
 
   .md\:hover\:scale-y-95:hover {
-    --transform-scale-y: 0.95;
+    --transform-scale-y: .95;
   }
 
   .md\:hover\:scale-y-100:hover {
@@ -33146,23 +33105,23 @@ video {
   }
 
   .md\:focus\:scale-50:focus {
-    --transform-scale-x: 0.5;
-    --transform-scale-y: 0.5;
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
   }
 
   .md\:focus\:scale-75:focus {
-    --transform-scale-x: 0.75;
-    --transform-scale-y: 0.75;
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
   }
 
   .md\:focus\:scale-90:focus {
-    --transform-scale-x: 0.9;
-    --transform-scale-y: 0.9;
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
   }
 
   .md\:focus\:scale-95:focus {
-    --transform-scale-x: 0.95;
-    --transform-scale-y: 0.95;
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
   }
 
   .md\:focus\:scale-100:focus {
@@ -33195,19 +33154,19 @@ video {
   }
 
   .md\:focus\:scale-x-50:focus {
-    --transform-scale-x: 0.5;
+    --transform-scale-x: .5;
   }
 
   .md\:focus\:scale-x-75:focus {
-    --transform-scale-x: 0.75;
+    --transform-scale-x: .75;
   }
 
   .md\:focus\:scale-x-90:focus {
-    --transform-scale-x: 0.9;
+    --transform-scale-x: .9;
   }
 
   .md\:focus\:scale-x-95:focus {
-    --transform-scale-x: 0.95;
+    --transform-scale-x: .95;
   }
 
   .md\:focus\:scale-x-100:focus {
@@ -33235,19 +33194,19 @@ video {
   }
 
   .md\:focus\:scale-y-50:focus {
-    --transform-scale-y: 0.5;
+    --transform-scale-y: .5;
   }
 
   .md\:focus\:scale-y-75:focus {
-    --transform-scale-y: 0.75;
+    --transform-scale-y: .75;
   }
 
   .md\:focus\:scale-y-90:focus {
-    --transform-scale-y: 0.9;
+    --transform-scale-y: .9;
   }
 
   .md\:focus\:scale-y-95:focus {
-    --transform-scale-y: 0.95;
+    --transform-scale-y: .95;
   }
 
   .md\:focus\:scale-y-100:focus {
@@ -34659,8 +34618,7 @@ video {
   }
 
   .md\:transition {
-    transition-property: background-color, border-color, color, fill, stroke,
-      opacity, box-shadow, transform;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
   }
 
   .md\:transition-colors {
@@ -34777,8 +34735,8 @@ video {
 
   .lg\:appearance-none {
     -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
 
   .lg\:bg-fixed {
@@ -34806,23 +34764,23 @@ video {
   }
 
   .lg\:bg-figmaHead {
-    background-color: #146cc1;
+    background-color: #146CC1;
   }
 
   .lg\:bg-figmaSubHead {
-    background-color: #5388c1;
+    background-color: #5388C1;
   }
 
   .lg\:bg-figmaSectionHead {
-    background-color: #f47766;
+    background-color: #F47766;
   }
 
   .lg\:bg-figmaOrange {
-    background-color: #f88478;
+    background-color: #F88478;
   }
 
   .lg\:bg-figmaMenu {
-    background-color: #1661aa;
+    background-color: #1661AA;
   }
 
   .lg\:bg-figmaParagraph {
@@ -34830,23 +34788,23 @@ video {
   }
 
   .lg\:bg-figmaDescription {
-    background-color: #6c9ccf;
+    background-color: #6C9CCF;
   }
 
   .lg\:bg-figmaAccept {
-    background-color: #e6fffc;
+    background-color: #E6FFFC;
   }
 
   .lg\:bg-figmaDeny {
-    background-color: #fddbdb;
+    background-color: #FDDBDB;
   }
 
   .lg\:bg-figmaOpen {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .lg\:bg-bluePrimary {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .lg\:bg-gray-100 {
@@ -35222,23 +35180,23 @@ video {
   }
 
   .lg\:hover\:bg-figmaHead:hover {
-    background-color: #146cc1;
+    background-color: #146CC1;
   }
 
   .lg\:hover\:bg-figmaSubHead:hover {
-    background-color: #5388c1;
+    background-color: #5388C1;
   }
 
   .lg\:hover\:bg-figmaSectionHead:hover {
-    background-color: #f47766;
+    background-color: #F47766;
   }
 
   .lg\:hover\:bg-figmaOrange:hover {
-    background-color: #f88478;
+    background-color: #F88478;
   }
 
   .lg\:hover\:bg-figmaMenu:hover {
-    background-color: #1661aa;
+    background-color: #1661AA;
   }
 
   .lg\:hover\:bg-figmaParagraph:hover {
@@ -35246,23 +35204,23 @@ video {
   }
 
   .lg\:hover\:bg-figmaDescription:hover {
-    background-color: #6c9ccf;
+    background-color: #6C9CCF;
   }
 
   .lg\:hover\:bg-figmaAccept:hover {
-    background-color: #e6fffc;
+    background-color: #E6FFFC;
   }
 
   .lg\:hover\:bg-figmaDeny:hover {
-    background-color: #fddbdb;
+    background-color: #FDDBDB;
   }
 
   .lg\:hover\:bg-figmaOpen:hover {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .lg\:hover\:bg-bluePrimary:hover {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .lg\:hover\:bg-gray-100:hover {
@@ -35638,23 +35596,23 @@ video {
   }
 
   .lg\:focus\:bg-figmaHead:focus {
-    background-color: #146cc1;
+    background-color: #146CC1;
   }
 
   .lg\:focus\:bg-figmaSubHead:focus {
-    background-color: #5388c1;
+    background-color: #5388C1;
   }
 
   .lg\:focus\:bg-figmaSectionHead:focus {
-    background-color: #f47766;
+    background-color: #F47766;
   }
 
   .lg\:focus\:bg-figmaOrange:focus {
-    background-color: #f88478;
+    background-color: #F88478;
   }
 
   .lg\:focus\:bg-figmaMenu:focus {
-    background-color: #1661aa;
+    background-color: #1661AA;
   }
 
   .lg\:focus\:bg-figmaParagraph:focus {
@@ -35662,23 +35620,23 @@ video {
   }
 
   .lg\:focus\:bg-figmaDescription:focus {
-    background-color: #6c9ccf;
+    background-color: #6C9CCF;
   }
 
   .lg\:focus\:bg-figmaAccept:focus {
-    background-color: #e6fffc;
+    background-color: #E6FFFC;
   }
 
   .lg\:focus\:bg-figmaDeny:focus {
-    background-color: #fddbdb;
+    background-color: #FDDBDB;
   }
 
   .lg\:focus\:bg-figmaOpen:focus {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .lg\:focus\:bg-bluePrimary:focus {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .lg\:focus\:bg-gray-100:focus {
@@ -36134,23 +36092,23 @@ video {
   }
 
   .lg\:border-figmaHead {
-    border-color: #146cc1;
+    border-color: #146CC1;
   }
 
   .lg\:border-figmaSubHead {
-    border-color: #5388c1;
+    border-color: #5388C1;
   }
 
   .lg\:border-figmaSectionHead {
-    border-color: #f47766;
+    border-color: #F47766;
   }
 
   .lg\:border-figmaOrange {
-    border-color: #f88478;
+    border-color: #F88478;
   }
 
   .lg\:border-figmaMenu {
-    border-color: #1661aa;
+    border-color: #1661AA;
   }
 
   .lg\:border-figmaParagraph {
@@ -36158,23 +36116,23 @@ video {
   }
 
   .lg\:border-figmaDescription {
-    border-color: #6c9ccf;
+    border-color: #6C9CCF;
   }
 
   .lg\:border-figmaAccept {
-    border-color: #e6fffc;
+    border-color: #E6FFFC;
   }
 
   .lg\:border-figmaDeny {
-    border-color: #fddbdb;
+    border-color: #FDDBDB;
   }
 
   .lg\:border-figmaOpen {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .lg\:border-bluePrimary {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .lg\:border-gray-100 {
@@ -36550,23 +36508,23 @@ video {
   }
 
   .lg\:hover\:border-figmaHead:hover {
-    border-color: #146cc1;
+    border-color: #146CC1;
   }
 
   .lg\:hover\:border-figmaSubHead:hover {
-    border-color: #5388c1;
+    border-color: #5388C1;
   }
 
   .lg\:hover\:border-figmaSectionHead:hover {
-    border-color: #f47766;
+    border-color: #F47766;
   }
 
   .lg\:hover\:border-figmaOrange:hover {
-    border-color: #f88478;
+    border-color: #F88478;
   }
 
   .lg\:hover\:border-figmaMenu:hover {
-    border-color: #1661aa;
+    border-color: #1661AA;
   }
 
   .lg\:hover\:border-figmaParagraph:hover {
@@ -36574,23 +36532,23 @@ video {
   }
 
   .lg\:hover\:border-figmaDescription:hover {
-    border-color: #6c9ccf;
+    border-color: #6C9CCF;
   }
 
   .lg\:hover\:border-figmaAccept:hover {
-    border-color: #e6fffc;
+    border-color: #E6FFFC;
   }
 
   .lg\:hover\:border-figmaDeny:hover {
-    border-color: #fddbdb;
+    border-color: #FDDBDB;
   }
 
   .lg\:hover\:border-figmaOpen:hover {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .lg\:hover\:border-bluePrimary:hover {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .lg\:hover\:border-gray-100:hover {
@@ -36966,23 +36924,23 @@ video {
   }
 
   .lg\:focus\:border-figmaHead:focus {
-    border-color: #146cc1;
+    border-color: #146CC1;
   }
 
   .lg\:focus\:border-figmaSubHead:focus {
-    border-color: #5388c1;
+    border-color: #5388C1;
   }
 
   .lg\:focus\:border-figmaSectionHead:focus {
-    border-color: #f47766;
+    border-color: #F47766;
   }
 
   .lg\:focus\:border-figmaOrange:focus {
-    border-color: #f88478;
+    border-color: #F88478;
   }
 
   .lg\:focus\:border-figmaMenu:focus {
-    border-color: #1661aa;
+    border-color: #1661AA;
   }
 
   .lg\:focus\:border-figmaParagraph:focus {
@@ -36990,23 +36948,23 @@ video {
   }
 
   .lg\:focus\:border-figmaDescription:focus {
-    border-color: #6c9ccf;
+    border-color: #6C9CCF;
   }
 
   .lg\:focus\:border-figmaAccept:focus {
-    border-color: #e6fffc;
+    border-color: #E6FFFC;
   }
 
   .lg\:focus\:border-figmaDeny:focus {
-    border-color: #fddbdb;
+    border-color: #FDDBDB;
   }
 
   .lg\:focus\:border-figmaOpen:focus {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .lg\:focus\:border-bluePrimary:focus {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .lg\:focus\:border-gray-100:focus {
@@ -38064,10 +38022,7 @@ video {
   }
 
   .lg\:font-sans {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-      "Noto Color Emoji";
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .lg\:font-serif {
@@ -38075,8 +38030,7 @@ video {
   }
 
   .lg\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-      monospace;
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
   .lg\:font-hairline {
@@ -38288,7 +38242,7 @@ video {
   }
 
   .lg\:leading-3 {
-    line-height: 0.75rem;
+    line-height: .75rem;
   }
 
   .lg\:leading-4 {
@@ -40628,23 +40582,23 @@ video {
   }
 
   .lg\:placeholder-figmaHead::placeholder {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .lg\:placeholder-figmaSubHead::placeholder {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .lg\:placeholder-figmaSectionHead::placeholder {
-    color: #f47766;
+    color: #F47766;
   }
 
   .lg\:placeholder-figmaOrange::placeholder {
-    color: #f88478;
+    color: #F88478;
   }
 
   .lg\:placeholder-figmaMenu::placeholder {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .lg\:placeholder-figmaParagraph::placeholder {
@@ -40652,23 +40606,23 @@ video {
   }
 
   .lg\:placeholder-figmaDescription::placeholder {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .lg\:placeholder-figmaAccept::placeholder {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .lg\:placeholder-figmaDeny::placeholder {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .lg\:placeholder-figmaOpen::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .lg\:placeholder-bluePrimary::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .lg\:placeholder-gray-100::placeholder {
@@ -41044,23 +40998,23 @@ video {
   }
 
   .lg\:focus\:placeholder-figmaHead:focus::placeholder {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .lg\:focus\:placeholder-figmaSubHead:focus::placeholder {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .lg\:focus\:placeholder-figmaSectionHead:focus::placeholder {
-    color: #f47766;
+    color: #F47766;
   }
 
   .lg\:focus\:placeholder-figmaOrange:focus::placeholder {
-    color: #f88478;
+    color: #F88478;
   }
 
   .lg\:focus\:placeholder-figmaMenu:focus::placeholder {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .lg\:focus\:placeholder-figmaParagraph:focus::placeholder {
@@ -41068,23 +41022,23 @@ video {
   }
 
   .lg\:focus\:placeholder-figmaDescription:focus::placeholder {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .lg\:focus\:placeholder-figmaAccept:focus::placeholder {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .lg\:focus\:placeholder-figmaDeny:focus::placeholder {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .lg\:focus\:placeholder-figmaOpen:focus::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .lg\:focus\:placeholder-bluePrimary:focus::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .lg\:focus\:placeholder-gray-100:focus::placeholder {
@@ -41571,18 +41525,15 @@ video {
   }
 
   .lg\:shadow-md {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .lg\:shadow-lg {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .lg\:shadow-xl {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .lg\:shadow-2xl {
@@ -41614,18 +41565,15 @@ video {
   }
 
   .lg\:hover\:shadow-md:hover {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .lg\:hover\:shadow-lg:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .lg\:hover\:shadow-xl:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .lg\:hover\:shadow-2xl:hover {
@@ -41657,18 +41605,15 @@ video {
   }
 
   .lg\:focus\:shadow-md:focus {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .lg\:focus\:shadow-lg:focus {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .lg\:focus\:shadow-xl:focus {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .lg\:focus\:shadow-2xl:focus {
@@ -41744,23 +41689,23 @@ video {
   }
 
   .lg\:text-figmaHead {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .lg\:text-figmaSubHead {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .lg\:text-figmaSectionHead {
-    color: #f47766;
+    color: #F47766;
   }
 
   .lg\:text-figmaOrange {
-    color: #f88478;
+    color: #F88478;
   }
 
   .lg\:text-figmaMenu {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .lg\:text-figmaParagraph {
@@ -41768,23 +41713,23 @@ video {
   }
 
   .lg\:text-figmaDescription {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .lg\:text-figmaAccept {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .lg\:text-figmaDeny {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .lg\:text-figmaOpen {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .lg\:text-bluePrimary {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .lg\:text-gray-100 {
@@ -42160,23 +42105,23 @@ video {
   }
 
   .lg\:hover\:text-figmaHead:hover {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .lg\:hover\:text-figmaSubHead:hover {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .lg\:hover\:text-figmaSectionHead:hover {
-    color: #f47766;
+    color: #F47766;
   }
 
   .lg\:hover\:text-figmaOrange:hover {
-    color: #f88478;
+    color: #F88478;
   }
 
   .lg\:hover\:text-figmaMenu:hover {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .lg\:hover\:text-figmaParagraph:hover {
@@ -42184,23 +42129,23 @@ video {
   }
 
   .lg\:hover\:text-figmaDescription:hover {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .lg\:hover\:text-figmaAccept:hover {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .lg\:hover\:text-figmaDeny:hover {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .lg\:hover\:text-figmaOpen:hover {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .lg\:hover\:text-bluePrimary:hover {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .lg\:hover\:text-gray-100:hover {
@@ -42576,23 +42521,23 @@ video {
   }
 
   .lg\:focus\:text-figmaHead:focus {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .lg\:focus\:text-figmaSubHead:focus {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .lg\:focus\:text-figmaSectionHead:focus {
-    color: #f47766;
+    color: #F47766;
   }
 
   .lg\:focus\:text-figmaOrange:focus {
-    color: #f88478;
+    color: #F88478;
   }
 
   .lg\:focus\:text-figmaMenu:focus {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .lg\:focus\:text-figmaParagraph:focus {
@@ -42600,23 +42545,23 @@ video {
   }
 
   .lg\:focus\:text-figmaDescription:focus {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .lg\:focus\:text-figmaAccept:focus {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .lg\:focus\:text-figmaDeny:focus {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .lg\:focus\:text-figmaOpen:focus {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .lg\:focus\:text-bluePrimary:focus {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .lg\:focus\:text-gray-100:focus {
@@ -43115,22 +43060,22 @@ video {
 
   .lg\:select-none {
     -webkit-user-select: none;
-    user-select: none;
+            user-select: none;
   }
 
   .lg\:select-text {
     -webkit-user-select: text;
-    user-select: text;
+            user-select: text;
   }
 
   .lg\:select-all {
     -webkit-user-select: all;
-    user-select: all;
+            user-select: all;
   }
 
   .lg\:select-auto {
     -webkit-user-select: auto;
-    user-select: auto;
+            user-select: auto;
   }
 
   .lg\:align-baseline {
@@ -44126,10 +44071,7 @@ video {
     --transform-skew-y: 0;
     --transform-scale-x: 1;
     --transform-scale-y: 1;
-    transform: translateX(var(--transform-translate-x))
-      translateY(var(--transform-translate-y)) rotate(var(--transform-rotate))
-      skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y))
-      scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+    transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
   }
 
   .lg\:transform-none {
@@ -44178,23 +44120,23 @@ video {
   }
 
   .lg\:scale-50 {
-    --transform-scale-x: 0.5;
-    --transform-scale-y: 0.5;
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
   }
 
   .lg\:scale-75 {
-    --transform-scale-x: 0.75;
-    --transform-scale-y: 0.75;
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
   }
 
   .lg\:scale-90 {
-    --transform-scale-x: 0.9;
-    --transform-scale-y: 0.9;
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
   }
 
   .lg\:scale-95 {
-    --transform-scale-x: 0.95;
-    --transform-scale-y: 0.95;
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
   }
 
   .lg\:scale-100 {
@@ -44227,19 +44169,19 @@ video {
   }
 
   .lg\:scale-x-50 {
-    --transform-scale-x: 0.5;
+    --transform-scale-x: .5;
   }
 
   .lg\:scale-x-75 {
-    --transform-scale-x: 0.75;
+    --transform-scale-x: .75;
   }
 
   .lg\:scale-x-90 {
-    --transform-scale-x: 0.9;
+    --transform-scale-x: .9;
   }
 
   .lg\:scale-x-95 {
-    --transform-scale-x: 0.95;
+    --transform-scale-x: .95;
   }
 
   .lg\:scale-x-100 {
@@ -44267,19 +44209,19 @@ video {
   }
 
   .lg\:scale-y-50 {
-    --transform-scale-y: 0.5;
+    --transform-scale-y: .5;
   }
 
   .lg\:scale-y-75 {
-    --transform-scale-y: 0.75;
+    --transform-scale-y: .75;
   }
 
   .lg\:scale-y-90 {
-    --transform-scale-y: 0.9;
+    --transform-scale-y: .9;
   }
 
   .lg\:scale-y-95 {
-    --transform-scale-y: 0.95;
+    --transform-scale-y: .95;
   }
 
   .lg\:scale-y-100 {
@@ -44308,23 +44250,23 @@ video {
   }
 
   .lg\:hover\:scale-50:hover {
-    --transform-scale-x: 0.5;
-    --transform-scale-y: 0.5;
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
   }
 
   .lg\:hover\:scale-75:hover {
-    --transform-scale-x: 0.75;
-    --transform-scale-y: 0.75;
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
   }
 
   .lg\:hover\:scale-90:hover {
-    --transform-scale-x: 0.9;
-    --transform-scale-y: 0.9;
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
   }
 
   .lg\:hover\:scale-95:hover {
-    --transform-scale-x: 0.95;
-    --transform-scale-y: 0.95;
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
   }
 
   .lg\:hover\:scale-100:hover {
@@ -44357,19 +44299,19 @@ video {
   }
 
   .lg\:hover\:scale-x-50:hover {
-    --transform-scale-x: 0.5;
+    --transform-scale-x: .5;
   }
 
   .lg\:hover\:scale-x-75:hover {
-    --transform-scale-x: 0.75;
+    --transform-scale-x: .75;
   }
 
   .lg\:hover\:scale-x-90:hover {
-    --transform-scale-x: 0.9;
+    --transform-scale-x: .9;
   }
 
   .lg\:hover\:scale-x-95:hover {
-    --transform-scale-x: 0.95;
+    --transform-scale-x: .95;
   }
 
   .lg\:hover\:scale-x-100:hover {
@@ -44397,19 +44339,19 @@ video {
   }
 
   .lg\:hover\:scale-y-50:hover {
-    --transform-scale-y: 0.5;
+    --transform-scale-y: .5;
   }
 
   .lg\:hover\:scale-y-75:hover {
-    --transform-scale-y: 0.75;
+    --transform-scale-y: .75;
   }
 
   .lg\:hover\:scale-y-90:hover {
-    --transform-scale-y: 0.9;
+    --transform-scale-y: .9;
   }
 
   .lg\:hover\:scale-y-95:hover {
-    --transform-scale-y: 0.95;
+    --transform-scale-y: .95;
   }
 
   .lg\:hover\:scale-y-100:hover {
@@ -44438,23 +44380,23 @@ video {
   }
 
   .lg\:focus\:scale-50:focus {
-    --transform-scale-x: 0.5;
-    --transform-scale-y: 0.5;
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
   }
 
   .lg\:focus\:scale-75:focus {
-    --transform-scale-x: 0.75;
-    --transform-scale-y: 0.75;
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
   }
 
   .lg\:focus\:scale-90:focus {
-    --transform-scale-x: 0.9;
-    --transform-scale-y: 0.9;
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
   }
 
   .lg\:focus\:scale-95:focus {
-    --transform-scale-x: 0.95;
-    --transform-scale-y: 0.95;
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
   }
 
   .lg\:focus\:scale-100:focus {
@@ -44487,19 +44429,19 @@ video {
   }
 
   .lg\:focus\:scale-x-50:focus {
-    --transform-scale-x: 0.5;
+    --transform-scale-x: .5;
   }
 
   .lg\:focus\:scale-x-75:focus {
-    --transform-scale-x: 0.75;
+    --transform-scale-x: .75;
   }
 
   .lg\:focus\:scale-x-90:focus {
-    --transform-scale-x: 0.9;
+    --transform-scale-x: .9;
   }
 
   .lg\:focus\:scale-x-95:focus {
-    --transform-scale-x: 0.95;
+    --transform-scale-x: .95;
   }
 
   .lg\:focus\:scale-x-100:focus {
@@ -44527,19 +44469,19 @@ video {
   }
 
   .lg\:focus\:scale-y-50:focus {
-    --transform-scale-y: 0.5;
+    --transform-scale-y: .5;
   }
 
   .lg\:focus\:scale-y-75:focus {
-    --transform-scale-y: 0.75;
+    --transform-scale-y: .75;
   }
 
   .lg\:focus\:scale-y-90:focus {
-    --transform-scale-y: 0.9;
+    --transform-scale-y: .9;
   }
 
   .lg\:focus\:scale-y-95:focus {
-    --transform-scale-y: 0.95;
+    --transform-scale-y: .95;
   }
 
   .lg\:focus\:scale-y-100:focus {
@@ -45951,8 +45893,7 @@ video {
   }
 
   .lg\:transition {
-    transition-property: background-color, border-color, color, fill, stroke,
-      opacity, box-shadow, transform;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
   }
 
   .lg\:transition-colors {
@@ -46069,8 +46010,8 @@ video {
 
   .xl\:appearance-none {
     -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
+       -moz-appearance: none;
+            appearance: none;
   }
 
   .xl\:bg-fixed {
@@ -46098,23 +46039,23 @@ video {
   }
 
   .xl\:bg-figmaHead {
-    background-color: #146cc1;
+    background-color: #146CC1;
   }
 
   .xl\:bg-figmaSubHead {
-    background-color: #5388c1;
+    background-color: #5388C1;
   }
 
   .xl\:bg-figmaSectionHead {
-    background-color: #f47766;
+    background-color: #F47766;
   }
 
   .xl\:bg-figmaOrange {
-    background-color: #f88478;
+    background-color: #F88478;
   }
 
   .xl\:bg-figmaMenu {
-    background-color: #1661aa;
+    background-color: #1661AA;
   }
 
   .xl\:bg-figmaParagraph {
@@ -46122,23 +46063,23 @@ video {
   }
 
   .xl\:bg-figmaDescription {
-    background-color: #6c9ccf;
+    background-color: #6C9CCF;
   }
 
   .xl\:bg-figmaAccept {
-    background-color: #e6fffc;
+    background-color: #E6FFFC;
   }
 
   .xl\:bg-figmaDeny {
-    background-color: #fddbdb;
+    background-color: #FDDBDB;
   }
 
   .xl\:bg-figmaOpen {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .xl\:bg-bluePrimary {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .xl\:bg-gray-100 {
@@ -46514,23 +46455,23 @@ video {
   }
 
   .xl\:hover\:bg-figmaHead:hover {
-    background-color: #146cc1;
+    background-color: #146CC1;
   }
 
   .xl\:hover\:bg-figmaSubHead:hover {
-    background-color: #5388c1;
+    background-color: #5388C1;
   }
 
   .xl\:hover\:bg-figmaSectionHead:hover {
-    background-color: #f47766;
+    background-color: #F47766;
   }
 
   .xl\:hover\:bg-figmaOrange:hover {
-    background-color: #f88478;
+    background-color: #F88478;
   }
 
   .xl\:hover\:bg-figmaMenu:hover {
-    background-color: #1661aa;
+    background-color: #1661AA;
   }
 
   .xl\:hover\:bg-figmaParagraph:hover {
@@ -46538,23 +46479,23 @@ video {
   }
 
   .xl\:hover\:bg-figmaDescription:hover {
-    background-color: #6c9ccf;
+    background-color: #6C9CCF;
   }
 
   .xl\:hover\:bg-figmaAccept:hover {
-    background-color: #e6fffc;
+    background-color: #E6FFFC;
   }
 
   .xl\:hover\:bg-figmaDeny:hover {
-    background-color: #fddbdb;
+    background-color: #FDDBDB;
   }
 
   .xl\:hover\:bg-figmaOpen:hover {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .xl\:hover\:bg-bluePrimary:hover {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .xl\:hover\:bg-gray-100:hover {
@@ -46930,23 +46871,23 @@ video {
   }
 
   .xl\:focus\:bg-figmaHead:focus {
-    background-color: #146cc1;
+    background-color: #146CC1;
   }
 
   .xl\:focus\:bg-figmaSubHead:focus {
-    background-color: #5388c1;
+    background-color: #5388C1;
   }
 
   .xl\:focus\:bg-figmaSectionHead:focus {
-    background-color: #f47766;
+    background-color: #F47766;
   }
 
   .xl\:focus\:bg-figmaOrange:focus {
-    background-color: #f88478;
+    background-color: #F88478;
   }
 
   .xl\:focus\:bg-figmaMenu:focus {
-    background-color: #1661aa;
+    background-color: #1661AA;
   }
 
   .xl\:focus\:bg-figmaParagraph:focus {
@@ -46954,23 +46895,23 @@ video {
   }
 
   .xl\:focus\:bg-figmaDescription:focus {
-    background-color: #6c9ccf;
+    background-color: #6C9CCF;
   }
 
   .xl\:focus\:bg-figmaAccept:focus {
-    background-color: #e6fffc;
+    background-color: #E6FFFC;
   }
 
   .xl\:focus\:bg-figmaDeny:focus {
-    background-color: #fddbdb;
+    background-color: #FDDBDB;
   }
 
   .xl\:focus\:bg-figmaOpen:focus {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .xl\:focus\:bg-bluePrimary:focus {
-    background-color: #eaf3ff;
+    background-color: #EAF3FF;
   }
 
   .xl\:focus\:bg-gray-100:focus {
@@ -47426,23 +47367,23 @@ video {
   }
 
   .xl\:border-figmaHead {
-    border-color: #146cc1;
+    border-color: #146CC1;
   }
 
   .xl\:border-figmaSubHead {
-    border-color: #5388c1;
+    border-color: #5388C1;
   }
 
   .xl\:border-figmaSectionHead {
-    border-color: #f47766;
+    border-color: #F47766;
   }
 
   .xl\:border-figmaOrange {
-    border-color: #f88478;
+    border-color: #F88478;
   }
 
   .xl\:border-figmaMenu {
-    border-color: #1661aa;
+    border-color: #1661AA;
   }
 
   .xl\:border-figmaParagraph {
@@ -47450,23 +47391,23 @@ video {
   }
 
   .xl\:border-figmaDescription {
-    border-color: #6c9ccf;
+    border-color: #6C9CCF;
   }
 
   .xl\:border-figmaAccept {
-    border-color: #e6fffc;
+    border-color: #E6FFFC;
   }
 
   .xl\:border-figmaDeny {
-    border-color: #fddbdb;
+    border-color: #FDDBDB;
   }
 
   .xl\:border-figmaOpen {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .xl\:border-bluePrimary {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .xl\:border-gray-100 {
@@ -47842,23 +47783,23 @@ video {
   }
 
   .xl\:hover\:border-figmaHead:hover {
-    border-color: #146cc1;
+    border-color: #146CC1;
   }
 
   .xl\:hover\:border-figmaSubHead:hover {
-    border-color: #5388c1;
+    border-color: #5388C1;
   }
 
   .xl\:hover\:border-figmaSectionHead:hover {
-    border-color: #f47766;
+    border-color: #F47766;
   }
 
   .xl\:hover\:border-figmaOrange:hover {
-    border-color: #f88478;
+    border-color: #F88478;
   }
 
   .xl\:hover\:border-figmaMenu:hover {
-    border-color: #1661aa;
+    border-color: #1661AA;
   }
 
   .xl\:hover\:border-figmaParagraph:hover {
@@ -47866,23 +47807,23 @@ video {
   }
 
   .xl\:hover\:border-figmaDescription:hover {
-    border-color: #6c9ccf;
+    border-color: #6C9CCF;
   }
 
   .xl\:hover\:border-figmaAccept:hover {
-    border-color: #e6fffc;
+    border-color: #E6FFFC;
   }
 
   .xl\:hover\:border-figmaDeny:hover {
-    border-color: #fddbdb;
+    border-color: #FDDBDB;
   }
 
   .xl\:hover\:border-figmaOpen:hover {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .xl\:hover\:border-bluePrimary:hover {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .xl\:hover\:border-gray-100:hover {
@@ -48258,23 +48199,23 @@ video {
   }
 
   .xl\:focus\:border-figmaHead:focus {
-    border-color: #146cc1;
+    border-color: #146CC1;
   }
 
   .xl\:focus\:border-figmaSubHead:focus {
-    border-color: #5388c1;
+    border-color: #5388C1;
   }
 
   .xl\:focus\:border-figmaSectionHead:focus {
-    border-color: #f47766;
+    border-color: #F47766;
   }
 
   .xl\:focus\:border-figmaOrange:focus {
-    border-color: #f88478;
+    border-color: #F88478;
   }
 
   .xl\:focus\:border-figmaMenu:focus {
-    border-color: #1661aa;
+    border-color: #1661AA;
   }
 
   .xl\:focus\:border-figmaParagraph:focus {
@@ -48282,23 +48223,23 @@ video {
   }
 
   .xl\:focus\:border-figmaDescription:focus {
-    border-color: #6c9ccf;
+    border-color: #6C9CCF;
   }
 
   .xl\:focus\:border-figmaAccept:focus {
-    border-color: #e6fffc;
+    border-color: #E6FFFC;
   }
 
   .xl\:focus\:border-figmaDeny:focus {
-    border-color: #fddbdb;
+    border-color: #FDDBDB;
   }
 
   .xl\:focus\:border-figmaOpen:focus {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .xl\:focus\:border-bluePrimary:focus {
-    border-color: #eaf3ff;
+    border-color: #EAF3FF;
   }
 
   .xl\:focus\:border-gray-100:focus {
@@ -49356,10 +49297,7 @@ video {
   }
 
   .xl\:font-sans {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
-      Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif,
-      "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
-      "Noto Color Emoji";
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   }
 
   .xl\:font-serif {
@@ -49367,8 +49305,7 @@ video {
   }
 
   .xl\:font-mono {
-    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
-      monospace;
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   }
 
   .xl\:font-hairline {
@@ -49580,7 +49517,7 @@ video {
   }
 
   .xl\:leading-3 {
-    line-height: 0.75rem;
+    line-height: .75rem;
   }
 
   .xl\:leading-4 {
@@ -51920,23 +51857,23 @@ video {
   }
 
   .xl\:placeholder-figmaHead::placeholder {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .xl\:placeholder-figmaSubHead::placeholder {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .xl\:placeholder-figmaSectionHead::placeholder {
-    color: #f47766;
+    color: #F47766;
   }
 
   .xl\:placeholder-figmaOrange::placeholder {
-    color: #f88478;
+    color: #F88478;
   }
 
   .xl\:placeholder-figmaMenu::placeholder {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .xl\:placeholder-figmaParagraph::placeholder {
@@ -51944,23 +51881,23 @@ video {
   }
 
   .xl\:placeholder-figmaDescription::placeholder {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .xl\:placeholder-figmaAccept::placeholder {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .xl\:placeholder-figmaDeny::placeholder {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .xl\:placeholder-figmaOpen::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .xl\:placeholder-bluePrimary::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .xl\:placeholder-gray-100::placeholder {
@@ -52336,23 +52273,23 @@ video {
   }
 
   .xl\:focus\:placeholder-figmaHead:focus::placeholder {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .xl\:focus\:placeholder-figmaSubHead:focus::placeholder {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .xl\:focus\:placeholder-figmaSectionHead:focus::placeholder {
-    color: #f47766;
+    color: #F47766;
   }
 
   .xl\:focus\:placeholder-figmaOrange:focus::placeholder {
-    color: #f88478;
+    color: #F88478;
   }
 
   .xl\:focus\:placeholder-figmaMenu:focus::placeholder {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .xl\:focus\:placeholder-figmaParagraph:focus::placeholder {
@@ -52360,23 +52297,23 @@ video {
   }
 
   .xl\:focus\:placeholder-figmaDescription:focus::placeholder {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .xl\:focus\:placeholder-figmaAccept:focus::placeholder {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .xl\:focus\:placeholder-figmaDeny:focus::placeholder {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .xl\:focus\:placeholder-figmaOpen:focus::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .xl\:focus\:placeholder-bluePrimary:focus::placeholder {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .xl\:focus\:placeholder-gray-100:focus::placeholder {
@@ -52863,18 +52800,15 @@ video {
   }
 
   .xl\:shadow-md {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .xl\:shadow-lg {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .xl\:shadow-xl {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .xl\:shadow-2xl {
@@ -52906,18 +52840,15 @@ video {
   }
 
   .xl\:hover\:shadow-md:hover {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .xl\:hover\:shadow-lg:hover {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .xl\:hover\:shadow-xl:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .xl\:hover\:shadow-2xl:hover {
@@ -52949,18 +52880,15 @@ video {
   }
 
   .xl\:focus\:shadow-md:focus {
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   }
 
   .xl\:focus\:shadow-lg:focus {
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-      0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   }
 
   .xl\:focus\:shadow-xl:focus {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-      0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
   }
 
   .xl\:focus\:shadow-2xl:focus {
@@ -53036,23 +52964,23 @@ video {
   }
 
   .xl\:text-figmaHead {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .xl\:text-figmaSubHead {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .xl\:text-figmaSectionHead {
-    color: #f47766;
+    color: #F47766;
   }
 
   .xl\:text-figmaOrange {
-    color: #f88478;
+    color: #F88478;
   }
 
   .xl\:text-figmaMenu {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .xl\:text-figmaParagraph {
@@ -53060,23 +52988,23 @@ video {
   }
 
   .xl\:text-figmaDescription {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .xl\:text-figmaAccept {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .xl\:text-figmaDeny {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .xl\:text-figmaOpen {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .xl\:text-bluePrimary {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .xl\:text-gray-100 {
@@ -53452,23 +53380,23 @@ video {
   }
 
   .xl\:hover\:text-figmaHead:hover {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .xl\:hover\:text-figmaSubHead:hover {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .xl\:hover\:text-figmaSectionHead:hover {
-    color: #f47766;
+    color: #F47766;
   }
 
   .xl\:hover\:text-figmaOrange:hover {
-    color: #f88478;
+    color: #F88478;
   }
 
   .xl\:hover\:text-figmaMenu:hover {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .xl\:hover\:text-figmaParagraph:hover {
@@ -53476,23 +53404,23 @@ video {
   }
 
   .xl\:hover\:text-figmaDescription:hover {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .xl\:hover\:text-figmaAccept:hover {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .xl\:hover\:text-figmaDeny:hover {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .xl\:hover\:text-figmaOpen:hover {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .xl\:hover\:text-bluePrimary:hover {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .xl\:hover\:text-gray-100:hover {
@@ -53868,23 +53796,23 @@ video {
   }
 
   .xl\:focus\:text-figmaHead:focus {
-    color: #146cc1;
+    color: #146CC1;
   }
 
   .xl\:focus\:text-figmaSubHead:focus {
-    color: #5388c1;
+    color: #5388C1;
   }
 
   .xl\:focus\:text-figmaSectionHead:focus {
-    color: #f47766;
+    color: #F47766;
   }
 
   .xl\:focus\:text-figmaOrange:focus {
-    color: #f88478;
+    color: #F88478;
   }
 
   .xl\:focus\:text-figmaMenu:focus {
-    color: #1661aa;
+    color: #1661AA;
   }
 
   .xl\:focus\:text-figmaParagraph:focus {
@@ -53892,23 +53820,23 @@ video {
   }
 
   .xl\:focus\:text-figmaDescription:focus {
-    color: #6c9ccf;
+    color: #6C9CCF;
   }
 
   .xl\:focus\:text-figmaAccept:focus {
-    color: #e6fffc;
+    color: #E6FFFC;
   }
 
   .xl\:focus\:text-figmaDeny:focus {
-    color: #fddbdb;
+    color: #FDDBDB;
   }
 
   .xl\:focus\:text-figmaOpen:focus {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .xl\:focus\:text-bluePrimary:focus {
-    color: #eaf3ff;
+    color: #EAF3FF;
   }
 
   .xl\:focus\:text-gray-100:focus {
@@ -54407,22 +54335,22 @@ video {
 
   .xl\:select-none {
     -webkit-user-select: none;
-    user-select: none;
+            user-select: none;
   }
 
   .xl\:select-text {
     -webkit-user-select: text;
-    user-select: text;
+            user-select: text;
   }
 
   .xl\:select-all {
     -webkit-user-select: all;
-    user-select: all;
+            user-select: all;
   }
 
   .xl\:select-auto {
     -webkit-user-select: auto;
-    user-select: auto;
+            user-select: auto;
   }
 
   .xl\:align-baseline {
@@ -55418,10 +55346,7 @@ video {
     --transform-skew-y: 0;
     --transform-scale-x: 1;
     --transform-scale-y: 1;
-    transform: translateX(var(--transform-translate-x))
-      translateY(var(--transform-translate-y)) rotate(var(--transform-rotate))
-      skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y))
-      scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
+    transform: translateX(var(--transform-translate-x)) translateY(var(--transform-translate-y)) rotate(var(--transform-rotate)) skewX(var(--transform-skew-x)) skewY(var(--transform-skew-y)) scaleX(var(--transform-scale-x)) scaleY(var(--transform-scale-y));
   }
 
   .xl\:transform-none {
@@ -55470,23 +55395,23 @@ video {
   }
 
   .xl\:scale-50 {
-    --transform-scale-x: 0.5;
-    --transform-scale-y: 0.5;
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
   }
 
   .xl\:scale-75 {
-    --transform-scale-x: 0.75;
-    --transform-scale-y: 0.75;
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
   }
 
   .xl\:scale-90 {
-    --transform-scale-x: 0.9;
-    --transform-scale-y: 0.9;
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
   }
 
   .xl\:scale-95 {
-    --transform-scale-x: 0.95;
-    --transform-scale-y: 0.95;
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
   }
 
   .xl\:scale-100 {
@@ -55519,19 +55444,19 @@ video {
   }
 
   .xl\:scale-x-50 {
-    --transform-scale-x: 0.5;
+    --transform-scale-x: .5;
   }
 
   .xl\:scale-x-75 {
-    --transform-scale-x: 0.75;
+    --transform-scale-x: .75;
   }
 
   .xl\:scale-x-90 {
-    --transform-scale-x: 0.9;
+    --transform-scale-x: .9;
   }
 
   .xl\:scale-x-95 {
-    --transform-scale-x: 0.95;
+    --transform-scale-x: .95;
   }
 
   .xl\:scale-x-100 {
@@ -55559,19 +55484,19 @@ video {
   }
 
   .xl\:scale-y-50 {
-    --transform-scale-y: 0.5;
+    --transform-scale-y: .5;
   }
 
   .xl\:scale-y-75 {
-    --transform-scale-y: 0.75;
+    --transform-scale-y: .75;
   }
 
   .xl\:scale-y-90 {
-    --transform-scale-y: 0.9;
+    --transform-scale-y: .9;
   }
 
   .xl\:scale-y-95 {
-    --transform-scale-y: 0.95;
+    --transform-scale-y: .95;
   }
 
   .xl\:scale-y-100 {
@@ -55600,23 +55525,23 @@ video {
   }
 
   .xl\:hover\:scale-50:hover {
-    --transform-scale-x: 0.5;
-    --transform-scale-y: 0.5;
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
   }
 
   .xl\:hover\:scale-75:hover {
-    --transform-scale-x: 0.75;
-    --transform-scale-y: 0.75;
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
   }
 
   .xl\:hover\:scale-90:hover {
-    --transform-scale-x: 0.9;
-    --transform-scale-y: 0.9;
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
   }
 
   .xl\:hover\:scale-95:hover {
-    --transform-scale-x: 0.95;
-    --transform-scale-y: 0.95;
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
   }
 
   .xl\:hover\:scale-100:hover {
@@ -55649,19 +55574,19 @@ video {
   }
 
   .xl\:hover\:scale-x-50:hover {
-    --transform-scale-x: 0.5;
+    --transform-scale-x: .5;
   }
 
   .xl\:hover\:scale-x-75:hover {
-    --transform-scale-x: 0.75;
+    --transform-scale-x: .75;
   }
 
   .xl\:hover\:scale-x-90:hover {
-    --transform-scale-x: 0.9;
+    --transform-scale-x: .9;
   }
 
   .xl\:hover\:scale-x-95:hover {
-    --transform-scale-x: 0.95;
+    --transform-scale-x: .95;
   }
 
   .xl\:hover\:scale-x-100:hover {
@@ -55689,19 +55614,19 @@ video {
   }
 
   .xl\:hover\:scale-y-50:hover {
-    --transform-scale-y: 0.5;
+    --transform-scale-y: .5;
   }
 
   .xl\:hover\:scale-y-75:hover {
-    --transform-scale-y: 0.75;
+    --transform-scale-y: .75;
   }
 
   .xl\:hover\:scale-y-90:hover {
-    --transform-scale-y: 0.9;
+    --transform-scale-y: .9;
   }
 
   .xl\:hover\:scale-y-95:hover {
-    --transform-scale-y: 0.95;
+    --transform-scale-y: .95;
   }
 
   .xl\:hover\:scale-y-100:hover {
@@ -55730,23 +55655,23 @@ video {
   }
 
   .xl\:focus\:scale-50:focus {
-    --transform-scale-x: 0.5;
-    --transform-scale-y: 0.5;
+    --transform-scale-x: .5;
+    --transform-scale-y: .5;
   }
 
   .xl\:focus\:scale-75:focus {
-    --transform-scale-x: 0.75;
-    --transform-scale-y: 0.75;
+    --transform-scale-x: .75;
+    --transform-scale-y: .75;
   }
 
   .xl\:focus\:scale-90:focus {
-    --transform-scale-x: 0.9;
-    --transform-scale-y: 0.9;
+    --transform-scale-x: .9;
+    --transform-scale-y: .9;
   }
 
   .xl\:focus\:scale-95:focus {
-    --transform-scale-x: 0.95;
-    --transform-scale-y: 0.95;
+    --transform-scale-x: .95;
+    --transform-scale-y: .95;
   }
 
   .xl\:focus\:scale-100:focus {
@@ -55779,19 +55704,19 @@ video {
   }
 
   .xl\:focus\:scale-x-50:focus {
-    --transform-scale-x: 0.5;
+    --transform-scale-x: .5;
   }
 
   .xl\:focus\:scale-x-75:focus {
-    --transform-scale-x: 0.75;
+    --transform-scale-x: .75;
   }
 
   .xl\:focus\:scale-x-90:focus {
-    --transform-scale-x: 0.9;
+    --transform-scale-x: .9;
   }
 
   .xl\:focus\:scale-x-95:focus {
-    --transform-scale-x: 0.95;
+    --transform-scale-x: .95;
   }
 
   .xl\:focus\:scale-x-100:focus {
@@ -55819,19 +55744,19 @@ video {
   }
 
   .xl\:focus\:scale-y-50:focus {
-    --transform-scale-y: 0.5;
+    --transform-scale-y: .5;
   }
 
   .xl\:focus\:scale-y-75:focus {
-    --transform-scale-y: 0.75;
+    --transform-scale-y: .75;
   }
 
   .xl\:focus\:scale-y-90:focus {
-    --transform-scale-y: 0.9;
+    --transform-scale-y: .9;
   }
 
   .xl\:focus\:scale-y-95:focus {
-    --transform-scale-y: 0.95;
+    --transform-scale-y: .95;
   }
 
   .xl\:focus\:scale-y-100:focus {
@@ -57243,8 +57168,7 @@ video {
   }
 
   .xl\:transition {
-    transition-property: background-color, border-color, color, fill, stroke,
-      opacity, box-shadow, transform;
+    transition-property: background-color, border-color, color, fill, stroke, opacity, box-shadow, transform;
   }
 
   .xl\:transition-colors {
