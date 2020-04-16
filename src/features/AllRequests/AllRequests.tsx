@@ -41,7 +41,7 @@ export default function AllRequests() {
   }, []);
 
   const success = (
-    <div className="flex flex-col w-full h-full px-8 py-4 pt-8 w-full ">
+    <div className="bg-bluePrimary flex flex-col w-full h-full px-8 py-4 pt-8 w-full ">
       <div style={{ flex: 1 }}>
         <h1 className="question font-dm-sans-h1">Deine Anzeigen</h1>
       </div>
