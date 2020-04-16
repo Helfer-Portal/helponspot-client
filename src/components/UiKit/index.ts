@@ -11,6 +11,9 @@ import ButtonTertiaryPlus from "./ButtonTertiaryPlus";
 import InputWithLabel from "./InputWithLabel";
 import InputWithIcon from "./InputWithIcon";
 
+// Badges
+import InformationalBadge, { BadgeType } from "./InformationalBadge";
+
 export {
   ButtonOrange,
   ButtonPrimaryBlue,
@@ -21,4 +24,6 @@ export {
   ButtonTertiaryPlus,
   InputWithLabel,
   InputWithIcon,
+  InformationalBadge,
+  BadgeType,
 };
