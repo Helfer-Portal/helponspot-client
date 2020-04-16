@@ -33,6 +33,9 @@ import LandingPage from "../features/LandingPage";
 import ChooseUserType from "../features/ChooseUserType";
 
 import CreateRequest from "../features/CreateRequest/CreateRequest";
+import HelperSkills from "../features/OnBoarding/Helper/HelperSkills";
+import HelperName from "../features/OnBoarding/Helper/HelperName";
+import HelperStandort from "../features/OnBoarding/Helper/HelperStandort";
 
 export default function RootRouter() {
   /*const showSettings = event => {
@@ -109,9 +112,18 @@ export default function RootRouter() {
 
                     {/************** Helfer*/}
 
-                    <Route path="/helfer/">
+                    <Route path="/app/helfer/">
                       <Route exact path="/app/helfer/registrierung/">
                         <ChooseUserType />
+                      </Route>
+                      <Route exact path="/app/helfer/createHelper/skills">
+                        <HelperSkills />
+                      </Route>
+                      <Route exact path="/app/helfer/createHelper/name">
+                        <HelperName />
+                      </Route>
+                      <Route exact path="/app/helfer/createHelper/standort">
+                        <HelperStandort/>
                       </Route>
                     </Route>
                   </MobileFrame>
