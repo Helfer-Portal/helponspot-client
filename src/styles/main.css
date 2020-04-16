@@ -840,6 +840,18 @@ video {
   margin-bottom: 1.5rem;
 }
 
+.white_button_red_font_noheight{
+  font-family: "Inter", sans-serif;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  font-weight: 700;
+  border-radius: 9999px;
+  color: #F88478;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
 .orange_button_noheight_nowidth {
   font-family: "Inter", sans-serif;
   background: linear-gradient(90deg, #faad98, #f88478 100%);

@@ -5,6 +5,7 @@ import Competences from "../../CreateRequest/Competences";
 import ButtonWithLink from "../../../components/ButtonWithLink";
 import InputWithLabel from "../../../components/InputWithLabel";
 import {Subheading} from "../../../components/Subheading";
+import {Link} from "react-router-dom";
 
 export default function HelperStandort() {
     return (
@@ -21,19 +22,26 @@ export default function HelperStandort() {
                     Möchtest du deinen Standort jetzt freigeben?
                 </div>
             </div>
-            <div style={{ flex: 1 }} className="w-full flex-row justify-around">
-                <button
-                    className="orange_button_noheight_nowidth py-2"
-                    onClick={() => alert("was machen wir hier?")}
+            <div style={{"flexBasis":"10%" }}  className="w-full flex flex-row justify-start flex-grow-0">
+                <div style={{"flexBasis":"50%"}}>
+                <Link to="/home">
+                    <button
+                    className="orange_button_noheight py-2 flex-grow-0 "
+
                 >
-                    Alle Helfer einberufen
+                    ja, bitte!
                 </button>
-                <ButtonWithLink
-                    className="w-1/2"
-                    children="Vorerst nicht"
-                    link="/app/helfer/createHelper/standort/"
-                />
+                </Link>
+                </div>
+                <button style={{"flexBasis":"50%"}}
+                        className="white_button_red_font_noheight py-2 flex-grow-0"
+                        onClick={() => alert("was machen wir hier?")}
+                >
+                    vorerst nicht
+                </button>
+
             </div>
+
         </div>
     );
 }
