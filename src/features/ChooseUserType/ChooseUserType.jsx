@@ -1,6 +1,7 @@
 import React from "react";
 import QuestionWithLabel from "../../components/QuestionWithLabel";
 import UserCard from "./UserCard";
+import BackButton from "../../components/BackButton";
 
 const cardData = [
   {
@@ -10,7 +11,7 @@ const cardData = [
     // list: ['Grundausbildungen', 'körperlich fit', 'Führerschein'],
     list: [],
     img: require("../../assets/super_dad_1.png"),
-    to: "/",
+    to: "/app/helfer/createHelper/skills",
     alt: "Ich möchte helfen!",
   },
   {
@@ -26,12 +27,14 @@ const cardData = [
 
 export default function ChooseUserType() {
   return (
-    <div>
-      <QuestionWithLabel
-        question="Wie benutzt Du HelpOnSpot"
-        label="Schritt 2 von 3"
-      />
-      <div className="flex flex-row w-full">
+    <div className="flex flex-col bg-bluePrimary h-full w-full px-4 py-4">
+      <div style={{ flex: 1 }}>
+        <BackButton />
+      </div>
+      <div style={{ flex: 1 }}>
+        <QuestionWithLabel question="Wie benutzt Du HelpOnSpot" label="" />
+      </div>
+      <div style={{ flex: 3 }} className="flex flex-col w-full">
         {cardData.map((el) => {
           return <UserCard {...el} />;
         })}

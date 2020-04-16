@@ -2,11 +2,14 @@ import QuestionWithLabel from "../../../components/QuestionWithLabel";
 import React from "react";
 import ButtonWithLink from "../../../components/ButtonWithLink";
 import { InputWithLabel } from "../../../components/UiKit";
+import BackButton from "../../../components/BackButton";
 
 export default function HelperName() {
   return (
-    <div className="flex flex-col w-full h-full px-8 py-4">
-      <div style={{ flexBasis: "20%" }}> </div>
+    <div className="bg-bluePrimary flex flex-col w-full h-full px-8 py-4">
+      <div style={{ flexBasis: "20%" }}>
+        <BackButton />{" "}
+      </div>
       <div className="">
         <QuestionWithLabel question="Wie heißt du?" label="Schritt 2 von 3" />
       </div>

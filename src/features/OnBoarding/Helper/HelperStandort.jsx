@@ -2,10 +2,14 @@ import QuestionWithLabel from "../../../components/QuestionWithLabel";
 import React from "react";
 import ButtonWithLink from "../../../components/ButtonWithLink";
 import { ButtonSecondaryOrange } from "../../../components/UiKit";
+import BackButton from "../../../components/BackButton";
+
 export default function HelperStandort() {
   return (
-    <div className="flex flex-col w-full h-full px-8 py-4">
-      <div style={{ flexBasis: "20%" }}> </div>
+    <div className="flex flex-col w-full h-full px-8 py-4 bg-bluePrimary">
+      <div style={{ flexBasis: "20%" }}>
+        <BackButton />
+      </div>
       <div className="">
         <QuestionWithLabel
           question="Teile deinen Standort, damit man dich schneller findet!"
