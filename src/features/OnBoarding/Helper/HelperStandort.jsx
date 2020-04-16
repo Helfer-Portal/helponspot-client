@@ -1,7 +1,5 @@
 import QuestionWithLabel from "../../../components/QuestionWithLabel";
-import UserCard from "../../ChooseUserType/UserCard";
 import React from "react";
-import Competences from "../../CreateRequest/Competences";
 import ButtonWithLink from "../../../components/ButtonWithLink";
 import InputWithLabel from "../../../components/InputWithLabel";
 import {Subheading} from "../../../components/Subheading";
@@ -43,5 +41,24 @@ export default function HelperStandort() {
             </div>
 
         </div>
-    );
+      </div>
+      <div style={{ flex: 1 }} className="flex py-4 flex-row">
+        <div style={{ flex: 1 }} className="pr-2">
+          <ButtonWithLink
+            children="ja, bitte!"
+            link="/app/helfer/createHelper/standort/"
+          />
+        </div>
+        <div style={{ flex: 1 }}>
+          <div className="pl-2">
+            <ButtonSecondaryOrange
+              onClick={() => alert("was machen wir hier?")}
+            >
+              vorerst nicht
+            </ButtonSecondaryOrange>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import QuestionWithLabel from "../../components/QuestionWithLabel";
-import InputWithLabel from "../../components/InputWithLabel";
+import InputWithLabel from "../../components/UiKit/InputWithLabel";
 import ButtonWithLink from "../../components/ButtonWithLink";
 import BackButton from "../../components/BackButton";
 
@@ -19,7 +19,7 @@ export default function UpdateAddress() {
         />
       </div>
       <div style={{ flex: 5 }} className="flex items-start">
-        <InputWithLabel fname="orglocation" label="Standort" />
+        <InputWithLabel title="Standort" placeholder={"z.B. Musterstraße 13"} />
       </div>
       <div style={{ flex: 1 }} className="w-full">
         <ButtonWithLink

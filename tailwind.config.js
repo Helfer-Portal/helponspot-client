@@ -40,6 +40,10 @@ module.exports = {
 
       bluePrimary: "#EAF3FF",
 
+      figmaPlaceholder: "#AECEF0",
+
+      figmaInputIcon: "#D8E4F8",
+
       gray: {
         100: "#f7fafc",
         200: "#edf2f7",
