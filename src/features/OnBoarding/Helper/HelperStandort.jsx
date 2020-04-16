@@ -1,14 +1,11 @@
 import QuestionWithLabel from "../../../components/QuestionWithLabel";
-import UserCard from "../../ChooseUserType/UserCard";
 import React from "react";
-import Competences from "../../CreateRequest/Competences";
 import ButtonWithLink from "../../../components/ButtonWithLink";
-import { InputWithLabel } from "../../../components/UiKit";
-import { Subheading } from "../../../components/Subheading";
+import { ButtonSecondaryOrange } from "../../../components/UiKit";
 
 export default function HelperStandort() {
   return (
-    <div className="flex flex-col w-full h-full px-8 py-4">
+    <div className="flex flex-col w-full h-full px-8 py-4 bg-bluePrimary">
       <div style={{ flexBasis: "20%" }}> </div>
       <div className="">
         <QuestionWithLabel
@@ -21,18 +18,22 @@ export default function HelperStandort() {
           Möchtest du deinen Standort jetzt freigeben?
         </div>
       </div>
-      <div style={{ flex: 1 }} className="w-full flex-row justify-around">
-        <button
-          className="orange_button_noheight_nowidth py-2"
-          onClick={() => alert("was machen wir hier?")}
-        >
-          Alle Helfer einberufen
-        </button>
-        <ButtonWithLink
-          className="w-1/2"
-          children="Vorerst nicht"
-          link="/app/helfer/createHelper/standort/"
-        />
+      <div style={{ flex: 1 }} className="flex py-4 flex-row">
+        <div style={{ flex: 1 }} className="pr-2">
+          <ButtonWithLink
+            children="ja, bitte!"
+            link="/app/helfer/createHelper/standort/"
+          />
+        </div>
+        <div style={{ flex: 1 }}>
+          <div className="pl-2">
+            <ButtonSecondaryOrange
+              onClick={() => alert("was machen wir hier?")}
+            >
+              vorerst nicht
+            </ButtonSecondaryOrange>
+          </div>
+        </div>
       </div>
     </div>
   );
