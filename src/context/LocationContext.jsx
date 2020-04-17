@@ -1,24 +1,27 @@
 import React from "react";
+import { Skill } from "../repository/model/helprequest";
 
-const mockData =
-  {
-    latitude: "abc",
-    longitude: "efg",
-    automatic:false
-  };
+const locMockdata = {
+  latitude: "abc",
+  longitude: "efg",
+  automatic: false,
+};
 
+const defaultRequestData = {
+  name: null,
+  selected_competences: [],
+  location: locMockdata,
+};
 
-export const LocContext = React.createContext(
-    [mockData, ()=>{}]
-);
+export const CreateHelperContext = React.createContext([]);
 
 /** stores dummy data for help requests across pages */
-export default function LocProvider(props) {
-  const [data, setData] = React.useState(mockData);
+export default function CreateHelperProvider(props) {
+  const [requestData, setRequestData] = React.useState(defaultRequestData);
 
   return (
-    <LocContext.Provider value={[data, setData]}>
+    <CreateHelperContext.Provider value={[requestData, setRequestData]}>
       {props.children}
-    </LocContext.Provider>
+    </CreateHelperContext.Provider>
   );
 }
