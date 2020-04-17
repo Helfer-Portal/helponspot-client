@@ -1,10 +1,48 @@
 import QuestionWithLabel from "../../../components/QuestionWithLabel";
-import React from "react";
+import React, { useContext, useState } from "react";
 import ButtonWithLink from "../../../components/ButtonWithLink";
 import { ButtonSecondaryOrange } from "../../../components/UiKit";
 import BackButton from "../../../components/BackButton";
 
+import { CreateHelperContext } from "../../../context/LocationContext";
+import { usePosition } from "../../../repository/useLocation";
+import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
+
 export default function HelperStandort() {
+  console.log("loaded HelperStandort");
+  let [locPermissionButton, setLocPermission] = useState(false);
+  let history = useHistory();
+
+  let [requestData, setRequestData] = React.useContext(CreateHelperContext);
+
+  const callback = (location) => {
+    setRequestData({ ...requestData, location: location });
+    console.log("callback called");
+    history.push("/app/helfer/createHelper/name");
+  };
+
+  let { latitude, longitude, error } = usePosition(
+    locPermissionButton,
+    callback
+  );
+
+  if (locPermissionButton && !error) {
+    console.log("returned permission");
+    let location = {
+      latitude: latitude,
+      longitude: longitude,
+      automatic: true,
+    };
+    setRequestData(requestData);
+    console.log(requestData);
+    //history.push("/home");
+    //setRedirect(true);
+  }
+  const triggerUpdate = () => {
+    locPermissionButton = true;
+  };
+
   return (
     <div className="flex flex-col w-full h-full px-8 py-4 bg-bluePrimary">
       <div style={{ flexBasis: "20%" }}>
@@ -22,7 +60,12 @@ export default function HelperStandort() {
         </div>
       </div>
       <div style={{ flex: 1 }} className="flex py-4 flex-row">
-        <div style={{ flex: 1 }} className="pr-2">
+        {/*settingPermission to True triggers update */}
+        <div
+          onClick={() => setLocPermission(true)}
+          style={{ flex: 1 }}
+          className="pr-2"
+        >
           <ButtonWithLink
             children="ja, bitte!"
             link="/app/helfer/createHelper/standort/"

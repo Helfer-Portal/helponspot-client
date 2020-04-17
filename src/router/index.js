@@ -39,6 +39,7 @@ import HelperSkills from "../features/OnBoarding/Helper/HelperSkills";
 import HelperName from "../features/OnBoarding/Helper/HelperName";
 import HelperStandort from "../features/OnBoarding/Helper/HelperStandort";
 import AuthorizationContextProvider from "../context/AuthorizationStore";
+import CreateHelperProvider from "../context/LocationContext";
 
 export default function RootRouter() {
   /*const showSettings = event => {
@@ -123,21 +124,22 @@ export default function RootRouter() {
                       </Route>
 
                       {/************** Helfer*/}
-
-                      <Route path="/app/helfer/">
-                        <Route exact path="/app/helfer/registrierung/">
-                          <ChooseUserType />
+                      <CreateHelperProvider>
+                        <Route path="/app/helfer/">
+                          <Route exact path="/app/helfer/registrierung/">
+                            <ChooseUserType />
+                          </Route>
+                          <Route exact path="/app/helfer/createHelper/skills">
+                            <HelperSkills />
+                          </Route>
+                          <Route exact path="/app/helfer/createHelper/name">
+                            <HelperName />
+                          </Route>
+                          <Route exact path="/app/helfer/createHelper/standort">
+                            <HelperStandort />
+                          </Route>
                         </Route>
-                        <Route exact path="/app/helfer/createHelper/skills">
-                          <HelperSkills />
-                        </Route>
-                        <Route exact path="/app/helfer/createHelper/name">
-                          <HelperName />
-                        </Route>
-                        <Route exact path="/app/helfer/createHelper/standort">
-                          <HelperStandort />
-                        </Route>
-                      </Route>
+                      </CreateHelperProvider>
                     </MobileFrame>
                   </LanderLayout>
                 </Route>

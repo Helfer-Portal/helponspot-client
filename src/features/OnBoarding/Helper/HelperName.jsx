@@ -3,8 +3,14 @@ import React from "react";
 import ButtonWithLink from "../../../components/ButtonWithLink";
 import { InputWithLabel } from "../../../components/UiKit";
 import BackButton from "../../../components/BackButton";
+import { CreateHelperContext } from "../../../context/LocationContext";
 
 export default function HelperName() {
+  let [locationContext, setLocationContext] = React.useContext(
+    CreateHelperContext
+  );
+  console.log("loc");
+  console.log(locationContext);
   return (
     <div className="bg-bluePrimary flex flex-col w-full h-full px-8 py-4">
       <div style={{ flexBasis: "20%" }}>
