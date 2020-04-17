@@ -1,9 +1,37 @@
 import QuestionWithLabel from "../../../components/QuestionWithLabel";
-import React from "react";
+import React, {useContext, useState} from "react";
 import ButtonWithLink from "../../../components/ButtonWithLink";
 import { ButtonSecondaryOrange } from "../../../components/UiKit";
+import {LocContext} from "../../../context/LocationContext";
+import {usePosition} from "../../../repository/useLocation";
+import {Redirect} from "react-router-dom";
+
+
 export default function HelperStandort() {
+    let [locPermissionButton, setLocPermission] = useState(false);
+    let [redirect, setRedirect] = useState(false);
+
+
+
+    let [locationContext, setLocationContext] = React.useContext(LocContext);
+    console.log("loc")
+    console.log(locationContext)
+
+    let {latitude, longitude, error} = usePosition(locPermissionButton);
+    if(locPermissionButton && !error ){
+        locationContext = {latitude:latitude, longitude: longitude, automatic:true};
+        setLocationContext(locationContext);
+        setRedirect(true);
+    }
+    const triggerUpdate = () => {
+        locPermissionButton = true;
+    }
+    if (redirect) {
+        console.log("redirecting")
+    //    return <Redirect to={this.state.redirect}/>
+    };
   return (
+
     <div className="flex flex-col w-full h-full px-8 py-4">
       <div style={{ flexBasis: "20%" }}> </div>
       <div className="">
@@ -18,7 +46,8 @@ export default function HelperStandort() {
         </div>
       </div>
       <div style={{ flex: 1 }} className="flex py-4 flex-row">
-        <div style={{ flex: 1 }} className="pr-2">
+          {/*settingPermission to True triggers update */}
+        <div onClick={ () => setLocPermission(true)}  style={{ flex: 1 }} className="pr-2">
           <ButtonWithLink
             children="ja, bitte!"
             link="/app/helfer/createHelper/standort/"
