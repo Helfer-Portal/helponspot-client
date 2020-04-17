@@ -24,6 +24,8 @@ import RequestDetails from "../features/RequestDetails";
 import RequestFormProvider from "../context/RequestFormStore";
 import ReqProvider from "../context/MockRequests";
 
+import ProfileView from "../features/ProfileView";
+
 //*********************
 //*** LANDING PAGE
 //*********************
@@ -74,8 +76,8 @@ export default function RootRouter() {
 
                         <Route
                           exact
-                          path="/app/organisation/user/:id"
-                          component={UserProfileView}
+                          path="/app/:role/profile"
+                          component={ProfileView}
                         />
                       </Route>
 
@@ -115,8 +117,8 @@ export default function RootRouter() {
 
                         <Route
                           exact
-                          path="/app/organisation/profile"
-                          component={OrgProfileView}
+                          path="/app/organisation/user/:id"
+                          component={UserProfileView}
                         />
                       </Route>
 
