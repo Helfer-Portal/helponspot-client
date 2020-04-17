@@ -36,6 +36,7 @@ import CreateRequest from "../features/CreateRequest/CreateRequest";
 import HelperSkills from "../features/OnBoarding/Helper/HelperSkills";
 import HelperName from "../features/OnBoarding/Helper/HelperName";
 import HelperStandort from "../features/OnBoarding/Helper/HelperStandort";
+import AuthorizationContextProvider from "../context/AuthorizationStore";
 
 export default function RootRouter() {
   /*const showSettings = event => {
@@ -45,8 +46,9 @@ export default function RootRouter() {
   return (
     <ReqProvider>
       <RequestFormProvider>
-        <Router>
-          {/* <Route exact path="/">
+        <AuthorizationContextProvider>
+          <Router>
+            {/* <Route exact path="/">
           <Redirect
             to={{
               pathname: "/home"
@@ -54,105 +56,114 @@ export default function RootRouter() {
           />
         </Route> */}
 
-          <Switch>
-            <div id="content-wrapper" className={"min-h-screen"}>
-              <Route path="/app">
-                <LanderLayout>
-                  <MobileFrame>
-                    {/************** ORGANISATION*/}
+            <Switch>
+              <div id="content-wrapper" className={"min-h-screen"}>
+                <Route path="/app">
+                  <LanderLayout>
+                    <MobileFrame>
+                      {/* hybrid */}
 
-                    <Route path="/app/organisation">
-                      <Route exact path="/app/organisation/chooseType">
-                        <ChooseUserType />
-                      </Route>
-                      <Route exact path="/app/organisation/createOrganisation">
-                        <CreateOrganisation />
-                      </Route>
-                      <Route
-                        exact
-                        path="/app/organisation/createOrganisation/standort/"
-                      >
-                        <UpdateAddress />
-                      </Route>
+                      <Route path="/app/:role/">
+                        <Route path="/app/:role/dashboard">
+                          <Dashboard />
+                        </Route>
 
-                      <Route exact path="/app/organisation/request/">
-                        <AllRequest />
+                        <Route exact path="/app/:role/map/">
+                          <HelperMap />
+                        </Route>
+
+                        <Route
+                          exact
+                          path="/app/organisation/user/:id"
+                          component={UserProfileView}
+                        />
                       </Route>
 
-                      <Route exact path="/app/organisation/request/create">
-                        <CreateRequest />
+                      {/************** ORGANISATION*/}
+
+                      <Route path="/app/organisation">
+                        <Route exact path="/app/organisation/chooseType">
+                          <ChooseUserType />
+                        </Route>
+                        <Route
+                          exact
+                          path="/app/organisation/createOrganisation"
+                        >
+                          <CreateOrganisation />
+                        </Route>
+                        <Route
+                          exact
+                          path="/app/organisation/createOrganisation/standort/"
+                        >
+                          <UpdateAddress />
+                        </Route>
+
+                        <Route exact path="/app/organisation/request/">
+                          <AllRequest />
+                        </Route>
+
+                        <Route exact path="/app/organisation/request/create">
+                          <CreateRequest />
+                        </Route>
+
+                        <Route
+                          exact
+                          path="/app/organisation/request/details/:reqId"
+                        >
+                          <RequestDetails />
+                        </Route>
+
+                        <Route
+                          exact
+                          path="/app/organisation/profile"
+                          component={OrgProfileView}
+                        />
                       </Route>
 
-                      <Route
-                        exact
-                        path="/app/organisation/request/details/:reqId"
-                      >
-                        <RequestDetails />
-                      </Route>
+                      {/************** Helfer*/}
 
-                      <Route exact path="/app/organisation/dashboard/">
-                        <Dashboard />
+                      <Route path="/app/helfer/">
+                        <Route exact path="/app/helfer/registrierung/">
+                          <ChooseUserType />
+                        </Route>
+                        <Route exact path="/app/helfer/createHelper/skills">
+                          <HelperSkills />
+                        </Route>
+                        <Route exact path="/app/helfer/createHelper/name">
+                          <HelperName />
+                        </Route>
+                        <Route exact path="/app/helfer/createHelper/standort">
+                          <HelperStandort />
+                        </Route>
                       </Route>
+                    </MobileFrame>
+                  </LanderLayout>
+                </Route>
 
-                      <Route exact path="/app/organisation/map/">
-                        <HelperMap />
-                      </Route>
+                <Route path="/home">
+                  <LanderLayout>
+                    {/************** Landing Page*/}
 
-                      <Route
-                        exact
-                        path="/app/organisation/profile"
-                        component={OrgProfileView}
-                      />
-                      <Route
-                        exact
-                        path="/app/organisation/user/:id"
-                        component={UserProfileView}
-                      />
+                    <Route exact path="/home">
+                      <LandingPage />
                     </Route>
-
-                    {/************** Helfer*/}
-
-                    <Route path="/app/helfer/">
-                      <Route exact path="/app/helfer/registrierung/">
-                        <ChooseUserType />
-                      </Route>
-                      <Route exact path="/app/helfer/createHelper/skills">
-                        <HelperSkills />
-                      </Route>
-                      <Route exact path="/app/helfer/createHelper/name">
-                        <HelperName />
-                      </Route>
-                      <Route exact path="/app/helfer/createHelper/standort">
-                        <HelperStandort/>
-                      </Route>
+                    <Route exact path="/home/ueber-uns">
+                      <AboutUs />
                     </Route>
-                  </MobileFrame>
-                </LanderLayout>
-              </Route>
+                  </LanderLayout>
+                </Route>
 
-              <Route path="/home">
-                <LanderLayout>
-                  {/************** Landing Page*/}
-
-                  <Route exact path="/home">
-                    <LandingPage />
-                  </Route>
-                  <Route exact path="/home/ueber-uns">
-                    <AboutUs />
-                  </Route>
-                </LanderLayout>
-              </Route>
-
-              {/* <Route>
+                {/* <Route>
               <Redirect
                 to={{
                   pathname: "/home"
                 }}
               />
             </Route> */}
-            </div>
-          </Switch>
-        </Router>
+              </div>
+            </Switch>
+          </Router>
+        </AuthorizationContextProvider>
       </RequestFormProvider>
     </ReqProvider>
   );

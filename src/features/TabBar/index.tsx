@@ -1,6 +1,11 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, Redirect, useLocation } from "react-router-dom";
 import { DashboardIcon, ReqIcon, MapIcon, ProfileIcon } from "./icons";
+import {
+  AuthorizationContext,
+  UserRole,
+} from "../../context/AuthorizationStore";
+import { ButtonPrimaryBlue } from "../../components/UiKit";
 
 interface TabProps {
   to: string;
@@ -10,7 +15,17 @@ interface TabProps {
 
 /** single Tab */
 const Tab = ({ to, label, icon }: TabProps) => {
-  const url_base = "/app/organisation/";
+  const [data, setData] = React.useContext(AuthorizationContext);
+  const [url_base, setUrlBase] = React.useState<String>();
+
+  React.useEffect(() => {
+    if (data.role == UserRole.organisation) {
+      setUrlBase("/app/organisation/");
+    } else if (data.role == UserRole.helper) {
+      setUrlBase("/app/helper/");
+    }
+  });
+
   return (
     <div style={{ flex: 1 }} className="flex px-2 justify-center items-center">
       <div>
@@ -34,16 +49,50 @@ const Tab = ({ to, label, icon }: TabProps) => {
 };
 
 const TabBar = () => {
+  const [data, setData] = React.useContext(AuthorizationContext);
+
+  const location = useLocation();
+
+  const [redirect, setRedirect] = React.useState<boolean>(false);
+
+  const [redirURL, setRedirURL] = React.useState<string>(location.pathname);
+
+  /** changes the users authorization role */
+  const changeRole = async () => {
+    switch (data.role) {
+      case UserRole.helper:
+        setData({ ...data, role: UserRole.organisation });
+        setRedirURL(location.pathname.replace("helper", "organisation"));
+        break;
+      case UserRole.organisation:
+        setData({ ...data, role: UserRole.helper });
+        setRedirURL(location.pathname.replace("organisation", "helper"));
+        break;
+      default:
+        break;
+    }
+    setRedirect(true);
+  };
+
   return (
-    <div
-      style={{ position: "relative", height: 55, width: 365 }}
-      className="bg-white flex border-t-2"
-    >
-      <Tab to={"dashboard"} label={"Dashboard"} icon={DashboardIcon} />
-      <Tab to={"request"} label={"Anzeige"} icon={ReqIcon} />
-      <Tab to={"map"} label={"Karte"} icon={MapIcon} />
-      <Tab to={"profile"} label={"Profil"} icon={ProfileIcon} />
-    </div>
+    <>
+      <div
+        style={{ position: "relative", height: 55, width: 365 }}
+        className="bg-white flex border-t-2"
+      >
+        <Tab to={"dashboard"} label={"Dashboard"} icon={DashboardIcon} />
+        <Tab to={"request"} label={"Anzeige"} icon={ReqIcon} />
+        <Tab to={"map"} label={"Karte"} icon={MapIcon} />
+        <Tab to={"profile"} label={"Profil"} icon={ProfileIcon} />
+      </div>
+      <div
+        style={{ position: "absolute", top: "50%", left: 0, width: 200 }}
+        className="p-2"
+      >
+        <ButtonPrimaryBlue onClick={changeRole}>change role</ButtonPrimaryBlue>
+      </div>
+      {redirect && <Redirect to={redirURL} />}
+    </>
   );
 };
 
