@@ -224,7 +224,16 @@ class FetchService implements Service {
     return arr;
   }
 
-  getHelpRequests(): Promise<HelpRequest[]> {
+  async getHelpRequests(): Promise<HelpRequest[]> {
+    const response = await fetch(
+      "https://cors-anywhere.herokuapp.com/https://js7pyl1b87.execute-api.eu-central-1.amazonaws.com/dev/qualifications"
+    );
+    const data = await response.json();
+    console.log(data);
+    const skills = data.map((el) => {
+      return { id: el.id, name: el.name };
+    });
+
     const MOCKED_HELPREQUESTS = [
       {
         id: 1,
@@ -234,7 +243,7 @@ class FetchService implements Service {
         date_start: "23.03.2020 14:00 Uhr",
         number_helpers: 5,
         roles: [],
-        skills: [],
+        skills: [...skills],
         requested_helpers: this.mockHelpers(),
         confirmed_helpers: this.mockHelpers(),
       },
@@ -246,7 +255,7 @@ class FetchService implements Service {
         organisation_id: 17,
         number_helpers: 5,
         roles: [],
-        skills: [],
+        skills: [...skills],
         requested_helpers: this.mockHelpers(),
         confirmed_helpers: this.mockHelpers(),
       },
