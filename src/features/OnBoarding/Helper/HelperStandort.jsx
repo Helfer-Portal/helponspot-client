@@ -8,14 +8,13 @@ import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 export default function HelperStandort() {
-  console.log("loaded HelperStandort");
   let [locPermissionButton, setLocPermission] = useState(false);
   let history = useHistory();
 
   let [requestData, setRequestData] = React.useContext(CreateHelperContext);
+
   const callback = (location) => {
     setRequestData({ ...requestData, location: location });
-    console.log("callback called");
     history.push("/app/helfer/createHelper/name");
   };
 
@@ -23,19 +22,12 @@ export default function HelperStandort() {
     locPermissionButton,
     callback
   );
-
-  if (locPermissionButton && !error) {
-    console.log("returned permission");
-    let location = {
-      latitude: latitude,
-      longitude: longitude,
-      automatic: true,
-    };
-    setRequestData(requestData);
-    console.log(requestData);
-    //history.push("/home");
-    //setRedirect(true);
+  console.log(error);
+  if (error) {
+    alert("Something went wrong, please enter address manually");
   }
+  //TODO: error handling
+
   const triggerUpdate = () => {
     locPermissionButton = true;
   };

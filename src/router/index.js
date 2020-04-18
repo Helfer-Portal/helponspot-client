@@ -113,6 +113,7 @@ export default function RootRouter() {
 
                     {/************** Helfer*/}
                     <Route path="/app/helfer/">
+                      {/*all routes downstream have access to the Provided values */}
                       <CreateHelperProvider>
                         <Route exact path="/app/helfer/registrierung/">
                           <ChooseUserType />

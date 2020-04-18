@@ -8,7 +8,7 @@ const defaultSettings = {
 
 export const usePosition = (
   permission = false,
-  callback = {},
+  callback = (location) => {},
   watch = false,
   settings = defaultSettings
 ) => {
@@ -17,7 +17,6 @@ export const usePosition = (
 
   const onChange = ({ coords, timestamp }) => {
     let location = { latitude: coords.latitude, longitude: coords.longitude };
-    console.log("something changed");
     setPosition({
       latitude: coords.latitude,
       longitude: coords.longitude,
@@ -50,8 +49,5 @@ export const usePosition = (
 
     return () => watcher && geo.clearWatch(watcher);
   }, [permission]);
-  console.log(error);
-  console.log("returned");
-  console.log(position);
   return { ...position, error, browserPermissionGranted: true };
 };
