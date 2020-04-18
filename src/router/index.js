@@ -9,11 +9,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import LanderLayout from "../features/LandingPage/landerLayout";
 import MobileFrame from "../features/LandingPage/MobileFrame";
 
+import RequestsView from "../features/RequestsView";
+
 //*********************
 //*** ORGANISATION
 //*********************
 
-import AllRequest from "../features/AllRequests";
 import { CreateOrganisation, UpdateAddress } from "../features/OnBoarding";
 import Dashboard from "../features/Dashboard";
 import HelperMap from "../features/HelperMap";
@@ -40,6 +41,8 @@ import HelperName from "../features/OnBoarding/Helper/HelperName";
 import HelperStandort from "../features/OnBoarding/Helper/HelperStandort";
 import AuthorizationContextProvider from "../context/AuthorizationStore";
 import CreateHelperProvider from "../context/LocationContext";
+
+import CurrentRequestsView from "../features/CurrentRequests";
 
 export default function RootRouter() {
   /*const showSettings = event => {
@@ -80,6 +83,12 @@ export default function RootRouter() {
                           path="/app/:role/profile"
                           component={ProfileView}
                         />
+
+                        <Route
+                          exact
+                          path="/app/:role/request"
+                          component={RequestsView}
+                        />
                       </Route>
 
                       {/************** ORGANISATION*/}
@@ -99,10 +108,6 @@ export default function RootRouter() {
                           path="/app/organisation/createOrganisation/standort/"
                         >
                           <UpdateAddress />
-                        </Route>
-
-                        <Route exact path="/app/organisation/request/">
-                          <AllRequest />
                         </Route>
 
                         <Route exact path="/app/organisation/request/create">
