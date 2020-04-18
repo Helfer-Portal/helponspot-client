@@ -13,6 +13,7 @@ import InputWithIcon from "./InputWithIcon";
 
 // Badges
 import InformationalBadge, { BadgeType } from "./InformationalBadge";
+import SkillBadge from "./SkillBadge";
 
 export {
   ButtonOrange,
@@ -26,4 +27,5 @@ export {
   InputWithIcon,
   InformationalBadge,
   BadgeType,
+  SkillBadge,
 };
