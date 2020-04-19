@@ -75,11 +75,8 @@ const TabBar = () => {
   };
 
   return (
-    <>
-      <div
-        style={{ position: "relative", height: 55, width: 365 }}
-        className="bg-white flex border-t-2"
-      >
+    <div className={"footer"}>
+      <div className="bg-white flex border-t-2 relative">
         <Tab to={"dashboard"} label={"Dashboard"} icon={DashboardIcon} />
         <Tab to={"request"} label={"Anzeige"} icon={ReqIcon} />
         <Tab to={"map"} label={"Karte"} icon={MapIcon} />
@@ -92,7 +89,7 @@ const TabBar = () => {
         <ButtonPrimaryBlue onClick={changeRole}>change role</ButtonPrimaryBlue>
       </div>
       {redirect && <Redirect to={redirURL} />}
-    </>
+    </div>
   );
 };
 

@@ -7,7 +7,7 @@
   background: linear-gradient(90deg, #faad98, #f88478 100%);
   @apply .mx-auto .w-full .text-white .font-bold .rounded-full;
 }
-.white_button_red_font_noheight{
+.white_button_red_font_noheight {
   font-family: "Inter", sans-serif;
   @apply .mx-auto .w-full  .font-bold .rounded-full .text-figmaOrange .my-6;
 }
@@ -28,3 +28,10 @@
   }
 }
 @tailwind utilities;
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+}
