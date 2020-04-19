@@ -7,6 +7,8 @@ import {
 } from "./model/helprequest";
 import Chance from "chance";
 
+import client from "helponspot-api-gateway/sdk/apiGateway-js-sdk/apigClient.js";
+
 /*
 
 This file is mostly taken from a similar project written by @Jeremy Boy.
@@ -162,16 +164,35 @@ class FetchService implements Service {
   createHelpRequest(request: HelpRequest): Promise<HelpRequest> {
     return this.post(Endpoint.HelpRequest, request);
   }
-  getOrganziationInfo(orgId: string): Promise<OrganizationInfo> {
-    return Promise.resolve({
-      id: 12,
-      name: "DRK BERLIN",
-      description:
-        "Good organisation, only high motivated helpers here. And some more text could be here.",
-      address: "Reichsdamm 12",
-      email: "drk@berlin.de",
-      phone: "015546546",
-    });
+  async getOrganziationInfo(orgId: string): Promise<OrganizationInfo> {
+    let config = {
+      invokeUrl:
+        "https://cors-anywhere.herokuapp.com/https://js7pyl1b87.execute-api.eu-central-1.amazonaws.com/dev",
+    };
+    var apigClientFactory = require("aws-api-gateway-client").default;
+    let apigClient = apigClientFactory.newClient(config);
+    let res = await apigClient.invokeApi({}, "/organisations", "get");
+    let [mockOrg] = res.data;
+
+    // we use the first organisation until we have authentification
+    res = await apigClient.invokeApi(
+      { organisationId: mockOrg.id },
+      "/organisations/{organisationId}",
+      "get"
+    );
+
+    if (res.status === 200) {
+      let [orgData] = res.data;
+      return Promise.resolve({
+        id: orgData.id,
+        name: orgData.name,
+        description:
+          "Good organisation, only high motivated helpers here. And some more text could be here.",
+        address: orgData.street,
+        email: orgData.email,
+        phone: "015546546",
+      });
+    }
   }
 
   findHelpers(matching: HelperSearchDefinition): Promise<HelpRequestHelpers> {
