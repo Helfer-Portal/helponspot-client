@@ -7,8 +7,6 @@ import {
 } from "./model/helprequest";
 import Chance from "chance";
 
-import client from "helponspot-api-gateway/sdk/apiGateway-js-sdk/apigClient.js";
-
 /*
 
 This file is mostly taken from a similar project written by @Jeremy Boy.
@@ -56,6 +54,11 @@ export interface Repository {
    * @param id Help Request ID
    */
   getHelpRequestById(id: number): Promise<HelpRequest>;
+
+  /**
+   * Returns all available skills
+   */
+  getQualifications(): Promise<Skill[]>;
 }
 
 /**
@@ -91,6 +94,10 @@ export class RepositoryImpl implements Repository {
 
   getHelpRequestById(id: number): Promise<HelpRequest> {
     return this.service.getHelpRequestById(id);
+  }
+
+  getQualifications(): Promise<Skill[]> {
+    return this.service.getQualifications();
   }
 }
 
@@ -133,6 +140,8 @@ export interface Service {
   getHelpRequestById(id: number): Promise<HelpRequest>;
 
   getOrganziationInfo(orgId: string): Promise<OrganizationInfo>;
+
+  getQualifications(): Promise<Skill[]>;
 }
 
 /**
@@ -157,6 +166,20 @@ class FetchService implements Service {
   static HOST = "http://127.0.0.1/";
   static ENDPOINT_PREFIX = "api/v1/";
 
+  private chance = new Chance.Chance();
+  static config = {
+    invokeUrl:
+      "https://cors-anywhere.herokuapp.com/https://js7pyl1b87.execute-api.eu-central-1.amazonaws.com/dev",
+  };
+  static apigClientFactory = require("aws-api-gateway-client").default;
+  private apigClient;
+
+  constructor() {
+    this.apigClient = FetchService.apigClientFactory.newClient(
+      FetchService.config
+    );
+  }
+
   createHelper(helper: Helper): Promise<Helper> {
     return this.post(Endpoint.Helper, helper);
   }
@@ -165,17 +188,12 @@ class FetchService implements Service {
     return this.post(Endpoint.HelpRequest, request);
   }
   async getOrganziationInfo(orgId: string): Promise<OrganizationInfo> {
-    let config = {
-      invokeUrl:
-        "https://cors-anywhere.herokuapp.com/https://js7pyl1b87.execute-api.eu-central-1.amazonaws.com/dev",
-    };
-    var apigClientFactory = require("aws-api-gateway-client").default;
-    let apigClient = apigClientFactory.newClient(config);
-    let res = await apigClient.invokeApi({}, "/organisations", "get");
+    let res = await this.apigClient.invokeApi({}, "/organisations", "get");
+    console.log(res);
     let [mockOrg] = res.data;
 
     // we use the first organisation until we have authentification
-    res = await apigClient.invokeApi(
+    res = await this.apigClient.invokeApi(
       { organisationId: mockOrg.id },
       "/organisations/{organisationId}",
       "get"
@@ -187,10 +205,11 @@ class FetchService implements Service {
         id: orgData.id,
         name: orgData.name,
         description:
+          orgData.teaser ||
           "Good organisation, only high motivated helpers here. And some more text could be here.",
-        address: orgData.street,
-        email: orgData.email,
-        phone: "015546546",
+        address: orgData.street || "no address given",
+        email: orgData.responsibles[0].email,
+        phone: String(this.chance.integer({ min: 10000000, max: 100000000 })),
       });
     }
   }
@@ -321,6 +340,23 @@ class FetchService implements Service {
     let ours = temp();
 
     return Promise.resolve(ours);
+  }
+
+  async getQualifications(): Promise<Skill[]> {
+    try {
+      let res = await this.apigClient.invokeApi({}, "/qualifications", "get");
+      if (res.status == 200) {
+        let qualifications: Skill[] = res.data.map((el) => ({
+          id: el.id,
+          name: el.name,
+        }));
+        console.log(qualifications);
+        return qualifications;
+      }
+      throw new Error();
+    } catch (err) {
+      return err;
+    }
   }
 
   private get<T>(endpoint: Endpoint, mockValue: T): Promise<T> {

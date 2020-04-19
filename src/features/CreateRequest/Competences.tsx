@@ -11,6 +11,10 @@ import {
   ButtonTertiary,
   ButtonTertiaryPlus,
 } from "../../components/UiKit";
+import RepositoryImpl from "../../repository/repository";
+import Skeleton from "react-loading-skeleton";
+
+let repository = new RepositoryImpl();
 
 const customStyles = {
   content: {
@@ -36,7 +40,8 @@ const options_list = [
 export default function Competences(props: { defaultColorButtons: string }) {
   /** state holds mock competences */
   const defaultButtonColor = props.defaultColorButtons;
-  const [options, setOptions] = useState(options_list);
+  const [options, setOptions] = useState([]);
+  const [loading, setLoading] = useState<boolean>(false);
   let [data, setData] = React.useContext<RequestForm | any>(RequestFormContext);
 
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -51,6 +56,15 @@ export default function Competences(props: { defaultColorButtons: string }) {
         : [competence];
     setData({ ...data, added_competences: new_options });
   };
+
+  React.useEffect(() => {
+    (async () => {
+      setLoading(true);
+      let qualifications: Skill[] = await repository.getQualifications();
+      setOptions(qualifications.map((el) => el.name));
+      setLoading(false);
+    })();
+  }, []);
 
   /**
    * This function is async, as we need to set the context and then update the
@@ -90,12 +104,15 @@ export default function Competences(props: { defaultColorButtons: string }) {
 
   /** this should be somehow nicer via id or so */
   const isCompetenceSelected = (text: string): boolean => {
+    console.log("searching for ", text, "in ", data.selected_competences);
     if (data.selected_competences) {
       let position = data.selected_competences
+        // TODO: Match competences via. ID
         .map((el: Skill) => {
-          return el.name;
+          return el.name === text;
         })
-        .indexOf(text);
+        .indexOf(true);
+      console.log(position);
       return position < 0 ? false : true;
     } else {
       return false;
@@ -107,7 +124,7 @@ export default function Competences(props: { defaultColorButtons: string }) {
     // prevent adding undefined when added_competences is empty. TODO: initialize data.added_competences with []
     let added_competences =
       data.added_competences != null ? data.added_competences : [];
-    setOptions([...options_list, ...added_competences]);
+    setOptions([...options, ...added_competences]);
   }, [data.added_competences]);
 
   function openModal() {
@@ -135,14 +152,16 @@ export default function Competences(props: { defaultColorButtons: string }) {
   return (
     <div className="flex flex-col w-full">
       <div>
-        {options.map((entry) => (
-          <CheckboxButton
-            color={defaultButtonColor}
-            text={entry}
-            addToSelectedSkills={selectCompetence}
-            isCompetenceSelected={isCompetenceSelected}
-          />
-        ))}
+        {loading && <Skeleton count={4} />}
+        {!loading &&
+          options.map((entry) => (
+            <CheckboxButton
+              color={defaultButtonColor}
+              text={entry}
+              addToSelectedSkills={selectCompetence}
+              isCompetenceSelected={isCompetenceSelected}
+            />
+          ))}
       </div>
       <div className="flex flex-row w-full ">
         {/* <div
