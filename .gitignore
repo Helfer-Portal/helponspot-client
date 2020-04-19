@@ -22,3 +22,9 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 /.idea/
+/cordova/node_modules
+/cordova/platforms
+/cordova/plugins
+/cordova/www/*
+
+
