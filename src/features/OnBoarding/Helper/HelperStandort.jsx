@@ -8,6 +8,10 @@ import { CreateHelperContext } from "../../../context/LocationContext";
 import { usePosition } from "../../../repository/useLocation";
 import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
+import { convertToNewHelperPostRequest } from "../../../context/LocationContext";
+import RepositoryImpl from "../../../repository/repository";
+
+let repository = new RepositoryImpl();
 
 export default function HelperStandort() {
   console.log("loaded HelperStandort");
@@ -16,8 +20,11 @@ export default function HelperStandort() {
 
   let [requestData, setRequestData] = React.useContext(CreateHelperContext);
 
-  const callback = (location) => {
-    setRequestData({ ...requestData, location: location });
+  const callback = async (location) => {
+    await setRequestData({
+      ...requestData,
+      location: { ...location, automatic: true },
+    });
     console.log("callback called");
     history.push("/app/helfer/createHelper/name");
   };
@@ -74,7 +81,11 @@ export default function HelperStandort() {
         <div style={{ flex: 1 }}>
           <div className="pl-2">
             <ButtonSecondaryOrange
-              onClick={() => alert("was machen wir hier?")}
+              onClick={() =>
+                repository.createHelper(
+                  convertToNewHelperPostRequest(requestData)
+                )
+              }
             >
               vorerst nicht
             </ButtonSecondaryOrange>

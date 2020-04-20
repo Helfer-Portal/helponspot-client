@@ -4,8 +4,11 @@ import React from "react";
 import Competences from "../../CreateRequest/Competences";
 import ButtonWithLink from "../../../components/ButtonWithLink";
 import BackButton from "../../../components/BackButton";
+import { CreateHelperContext } from "../../../context/LocationContext";
 
 export default function HelperSkills() {
+  // get the boarding context, we save this until we post to api
+  let [boardingData, setBoardingData] = React.useContext(CreateHelperContext);
   return (
     <div className="bg-bluePrimary flex flex-col w-full h-full px-8 py-4">
       <div style={{ flexBasis: "20%" }}>
@@ -21,7 +24,10 @@ export default function HelperSkills() {
           Deine Qualifikationen
         </div>
         <div>
-          <Competences defaultColorButtons={"#fff"} />
+          <Competences
+            defaultColorButtons={"#fff"}
+            storeSelectedInThisContext={[boardingData, setBoardingData]}
+          />
         </div>
       </div>
       <div style={{ flex: 1 }} className="w-full">

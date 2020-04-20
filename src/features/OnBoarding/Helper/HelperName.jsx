@@ -6,11 +6,23 @@ import BackButton from "../../../components/BackButton";
 import { CreateHelperContext } from "../../../context/LocationContext";
 
 export default function HelperName() {
-  let [locationContext, setLocationContext] = React.useContext(
-    CreateHelperContext
-  );
+  let [boardingData, setBoardingData] = React.useContext(CreateHelperContext);
   console.log("loc");
-  console.log(locationContext);
+  console.log(boardingData);
+  // chnage handler for the input
+  const onChangeFirstName = (e) => {
+    setBoardingData({
+      ...boardingData,
+      firstName: e.target.value,
+    });
+  };
+  const onChangeLastName = (e) => {
+    setBoardingData({
+      ...boardingData,
+      lastName: e.target.value,
+    });
+  };
+
   return (
     <div className="bg-bluePrimary flex flex-col w-full h-full px-8 py-4">
       <div style={{ flexBasis: "20%" }}>
@@ -24,6 +36,7 @@ export default function HelperName() {
           fname="first_name"
           title="Vorname"
           placeholder={"z.b. Max"}
+          onChange={onChangeFirstName}
         />
       </div>
       <div className="my-3">
@@ -31,6 +44,7 @@ export default function HelperName() {
           fname="surname"
           title="Nachname"
           placeholder="z.B. Mustermann"
+          onChange={onChangeLastName}
         />
       </div>
 

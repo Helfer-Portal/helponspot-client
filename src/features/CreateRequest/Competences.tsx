@@ -13,6 +13,7 @@ import {
 } from "../../components/UiKit";
 import RepositoryImpl from "../../repository/repository";
 import Skeleton from "react-loading-skeleton";
+import { HelperOnBoardingStore } from "../../context/LocationContext";
 
 let repository = new RepositoryImpl();
 
@@ -28,21 +29,23 @@ const customStyles = {
   },
 };
 
-const options_list = [
-  "super",
-  "Plasma",
-  "Führerschein",
-  "medizinische Grundausbildung",
-];
+export interface CompetencesSelectorProps {
+  defaultColorButtons: string;
+  /** The component can use a passed context */
+  storeSelectedInThisContext?: [HelperOnBoardingStore, () => void];
+}
 
 /** competence componente with add function */
 
-export default function Competences(props: { defaultColorButtons: string }) {
+export default function Competences(props: CompetencesSelectorProps) {
   /** state holds mock competences */
   const defaultButtonColor = props.defaultColorButtons;
   const [options, setOptions] = useState([]);
   const [loading, setLoading] = useState<boolean>(false);
   let [data, setData] = React.useContext<RequestForm | any>(RequestFormContext);
+  if (props.storeSelectedInThisContext) {
+    [data, setData] = props.storeSelectedInThisContext;
+  }
 
   const [modalIsOpen, setIsOpen] = useState(false);
 
@@ -60,8 +63,8 @@ export default function Competences(props: { defaultColorButtons: string }) {
   React.useEffect(() => {
     (async () => {
       setLoading(true);
-      let qualifications: Skill[] = await repository.getQualifications();
-      setOptions(qualifications.map((el) => el.name));
+      let qualifications = await repository.getQualifications();
+      setOptions(qualifications);
       setLoading(false);
     })();
   }, []);
@@ -74,7 +77,8 @@ export default function Competences(props: { defaultColorButtons: string }) {
    */
   const selectCompetence = async (
     e: React.FormEvent<HTMLInputElement>,
-    text: string
+    text: string,
+    key: string
   ): Promise<void> => {
     try {
       if (!data.selected_competences) data.selected_competences = [];
@@ -84,7 +88,7 @@ export default function Competences(props: { defaultColorButtons: string }) {
             ...data,
             selected_competences: [
               ...data.selected_competences,
-              { id: 0, name: text },
+              { id: 0, name: text, key: key },
             ],
           });
           break;
@@ -154,10 +158,12 @@ export default function Competences(props: { defaultColorButtons: string }) {
       <div>
         {loading && <Skeleton count={4} />}
         {!loading &&
-          options.map((entry) => (
+          options.map((entry, i) => (
             <CheckboxButton
+              key={i}
+              identifier={entry.key}
               color={defaultButtonColor}
-              text={entry}
+              text={entry.name}
               addToSelectedSkills={selectCompetence}
               isCompetenceSelected={isCompetenceSelected}
             />
