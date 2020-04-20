@@ -1,9 +1,9 @@
 import React from "react";
 
-/** Style guide: Secondary, blue button */
-const ButtonSecondaryBlue = (
+/** Style guide: Primary, blue button */
+const ButtonPrimaryBlue = (
   props: React.PropsWithoutRef<JSX.IntrinsicElements["button"]> & {
-    border?: boolean;
+    icon?: JSX.Element;
   }
 ) => {
   return (
@@ -19,21 +19,16 @@ const ButtonSecondaryBlue = (
         // if there is style passed, include it
         style={{
           ...props?.style,
+          background: "linear-gradient(270deg, #5FC0A9 0%, #89CEBE 100%)",
         }}
-        // if border is set, border classes will be added to CSS
-        className={(() => {
-          let styles: string[] = [
-            "w-full py-2 bg-white text-center hover:underline rounded-full font-semibold font-inter text-figmaParagraph text-sm",
-            "border-figmaParagraph border",
-          ];
-          return props.border ? styles.join(" ") : styles[0];
-        })()}
+        className="w-full py-2 inline-flex justify-center text-center hover:underline rounded-full font-semibold font-inter text-white text-sm"
       >
-        {props.children}
+        {props.icon && <div className="flex">{props.icon}</div>}
+        <div className="ml-2">{props.children}</div>
       </button>
     </div>
   );
 };
 
 /* use memo here as this component will never rerender */
-export default React.memo(ButtonSecondaryBlue);
+export default React.memo(ButtonPrimaryBlue);
