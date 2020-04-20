@@ -32,12 +32,15 @@ const CheckboxButton = (props: CheckboxButtonProps) => {
     };
   }
 
+  // TODO: this hook runs on every render. this should be better.
   React.useEffect(() => {
     if (props.isCompetenceSelected) {
+      // console.log("checking ", props.text);
       let status = props.isCompetenceSelected(props.text);
+      // console.log(status);
       setChecked(status);
     }
-  }, [checked]);
+  });
 
   return (
     <div
