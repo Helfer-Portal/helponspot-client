@@ -51,7 +51,6 @@ const RequestDetails = (props: RequestDetailsProps = { helper: false }) => {
     try {
       if (reqId) {
         let res = await repository.getHelpRequestById(parseInt(reqId));
-        console.log("res");
         if (res) {
           setReqData(res);
           return res;
