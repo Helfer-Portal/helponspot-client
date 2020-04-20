@@ -20,7 +20,7 @@ import UserDashboard from "../features/Dashboard/UserDashboard";
 import HelperMap from "../features/HelperMap";
 import OrgProfileView from "../features/ProfileOrg";
 import UserProfileView from "../features/ProfileUser";
-import RequestDetails from "../features/RequestDetails";
+import RequestDetails from "../features/RequestViews";
 
 import RequestFormProvider from "../context/RequestFormStore";
 import ReqProvider from "../context/MockRequests";
@@ -41,6 +41,7 @@ import HelperName from "../features/OnBoarding/Helper/HelperName";
 import HelperStandort from "../features/OnBoarding/Helper/HelperStandort";
 import AuthorizationContextProvider from "../context/AuthorizationStore";
 import CreateHelperProvider from "../context/LocationContext";
+import AllRequestsHelper from "../features/RequestViews/AllRequestsHelper";
 
 export default function RootRouter() {
   /*const showSettings = event => {
@@ -144,8 +145,12 @@ export default function RootRouter() {
                       <Route exact path="/app/helfer/helperdashboard/">
                         <UserDashboard />
                       </Route>
+
                       <Route exact path="/app/helfer/request/details/:reqId">
                         <RequestDetails helper={true} />
+                      </Route>
+                      <Route exact path="/app/helfer/request/currentrequests/">
+                        <AllRequestsHelper />
                       </Route>
                     </MobileFrame>
                   </LanderLayout>

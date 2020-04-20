@@ -5,9 +5,13 @@ import { ButtonSecondaryOrange } from "../../components/UiKit";
 import ButtonPrimaryGreen from "../../components/UiKit/ButtonPrimaryGreen";
 
 export default function OpenRequest(props) {
+  //TODO: define alias
+  const roleString = props.helper !== true ? "organisation" : "helfer";
+  console.log(props);
   return (
     <div className="flex flex-col my-4 p-4 max-w-sm bg-white rounded-lg">
-      <Link to={`../organisation/request/details/${props.req_id}`}>
+      {/* use absolute path to prevent problems when calling from a different path than expected */}
+      <Link to={`/app/${roleString}/request/details/${props.req_id}`}>
         <div>
           <h5 className="font-dm-sans font-bold text-figmaDescription">
             {props.title}
@@ -42,7 +46,8 @@ export default function OpenRequest(props) {
           </div>
         </div>
       )}
-      {props.helper && (
+      {/* props.overview for when a list of all requests is to be displayed; this list should not contain buttons */}
+      {props.helper && !props.overview && (
         <div style={{ flex: 1 }} className="flex py-4 flex-row">
           {/*settingPermission to True triggers update */}
           <div style={{ flex: 1 }} className="pr-2">
