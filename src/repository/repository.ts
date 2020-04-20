@@ -1,4 +1,4 @@
-import { Helper } from "./model/helper";
+import { Helper, NewHelperPostRequest } from "./model/helper";
 import {
   HelpRequest,
   HelpRequestHelpers,
@@ -24,7 +24,8 @@ export interface Repository {
   getOrganizationInfo(orgId: string): Promise<OrganizationInfo>;
   // createHelper(helper: Helper): Promise<Helper>;
 
-  createHelper(helper: Helper): Promise<Helper>;
+  // createHelper(helper: Helper): Promise<Helper>;
+  createHelper(helper: NewHelperPostRequest): Promise<Helper>;
 
   /**
    * create help request
@@ -71,7 +72,10 @@ export class RepositoryImpl implements Repository {
 
   constructor(private service: Service = new FetchService()) {}
 
-  createHelper(helper: Helper): Promise<Helper> {
+  // createHelper(helper: Helper): Promise<Helper> {
+  //   return this.service.createHelper(helper);
+  // }
+  createHelper(helper: NewHelperPostRequest): Promise<Helper> {
     return this.service.createHelper(helper);
   }
 
@@ -115,7 +119,8 @@ export interface Service {
    *
    * @param helper
    */
-  createHelper(helper: Helper): Promise<Helper>;
+  // createHelper(helper: Helper): Promise<Helper>;
+  createHelper(helper: NewHelperPostRequest): Promise<Helper>;
 
   /**
    * Create a help request
@@ -180,8 +185,19 @@ class FetchService implements Service {
     );
   }
 
-  createHelper(helper: Helper): Promise<Helper> {
-    return this.post(Endpoint.Helper, helper);
+  // createHelper(helper: Helper): Promise<Helper> {
+  //   return this.post(Endpoint.Helper, helper);
+  // }
+  async createHelper(helper: NewHelperPostRequest): Promise<Helper> {
+    console.log(helper);
+    let res = await this.apigClient.invokeApi({}, "/users", "post", {}, helper);
+    console.log(res);
+    return {
+      name: "",
+      email: "",
+      postcode: "",
+      phone: "",
+    };
   }
 
   createHelpRequest(request: HelpRequest): Promise<HelpRequest> {
@@ -349,6 +365,7 @@ class FetchService implements Service {
         let qualifications: Skill[] = res.data.map((el) => ({
           id: el.id,
           name: el.name,
+          key: el.key,
         }));
         console.log(qualifications);
         return qualifications;
