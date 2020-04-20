@@ -15,7 +15,8 @@ import MobileFrame from "../features/LandingPage/MobileFrame";
 
 import AllRequest from "../features/AllRequests";
 import { CreateOrganisation, UpdateAddress } from "../features/OnBoarding";
-import Dashboard from "../features/Dashboard";
+import Dashboard from "../features/Dashboard/Dashboard";
+import UserDashboard from "../features/Dashboard/UserDashboard";
 import HelperMap from "../features/HelperMap";
 import OrgProfileView from "../features/ProfileOrg";
 import UserProfileView from "../features/ProfileUser";
@@ -140,6 +141,12 @@ export default function RootRouter() {
                           </Route>
                         </Route>
                       </CreateHelperProvider>
+                      <Route exact path="/app/helfer/helperdashboard/">
+                        <UserDashboard />
+                      </Route>
+                      <Route exact path="/app/helfer/request/details/:reqId">
+                        <RequestDetails helper={true} />
+                      </Route>
                     </MobileFrame>
                   </LanderLayout>
                 </Route>

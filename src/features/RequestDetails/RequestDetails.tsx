@@ -15,7 +15,12 @@ const ERROR_MESSAGE =
   "Da ist etwas schiefgelaufen, die Request scheint nicht in der Datenbank zu existieren";
 
 /** Profile view of organisation story */
-const RequestDetails = () => {
+
+type RequestDetailsProps = {
+  helper: boolean;
+};
+
+const RequestDetails = (props: RequestDetailsProps = { helper: false }) => {
   const [reqData, setReqData] = React.useState<HelpRequest | null>(null);
   const [orgData, setOrgData] = React.useState<OrganizationInfo | null>(null);
   const [isError, setIsError] = React.useState<boolean>(false);
@@ -46,6 +51,7 @@ const RequestDetails = () => {
     try {
       if (reqId) {
         let res = await repository.getHelpRequestById(parseInt(reqId));
+        console.log("res");
         if (res) {
           setReqData(res);
           return res;
@@ -140,21 +146,33 @@ const RequestDetails = () => {
       </div>
 
       {/* Actions */}
-      <div style={{ flex: 3 }}>
-        {/* Ausloggen */}
-        <div className="py-2 flex w-full justify-center">
-          <button className="flex-1 orange-gradient rounded-full text-white py-2 px-4 ml-0">
-            jetzt Hilfe anfordern
-          </button>
-        </div>
+      {!props.helper && (
+        <div style={{ flex: 3 }}>
+          <div className="py-2 flex w-full justify-center">
+            <button className="flex-1 orange-gradient rounded-full text-white py-2 px-4 ml-0">
+              jetzt Hilfe anfordern
+            </button>
+          </div>
 
-        {/* Löschen */}
-        <div className="py-2 flex w-full justify-center">
-          <button className="flex-1 bg-white text-figmaOrange border-figmaOrange border-2 rounded-full py-1 px-3">
-            Anzeige stoppen
-          </button>
+          {/* Löschen */}
+          <div className="py-2 flex w-full justify-center">
+            <button className="flex-1 bg-white text-figmaOrange border-figmaOrange border-2 rounded-full py-1 px-3">
+              Anzeige stoppen
+            </button>
+          </div>
         </div>
-      </div>
+      )}
+      {props.helper && (
+        <div style={{ flex: 3 }}>
+          <div className="py-2 flex w-full justify-center">
+            <button className="flex-1 orange-gradient rounded-full text-white py-2 px-4 ml-0">
+              jetzt bewerben
+            </button>
+          </div>
+
+          {/* Löschen */}
+        </div>
+      )}
     </div>
   );
 
