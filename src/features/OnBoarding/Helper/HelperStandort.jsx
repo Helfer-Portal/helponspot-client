@@ -19,7 +19,7 @@ export default function HelperStandort() {
   const callback = (location) => {
     setRequestData({ ...requestData, location: location });
     console.log("callback called");
-    history.push("/app/helfer/createHelper/name");
+    history.push("/app/helper/createHelper/name");
   };
 
   let { latitude, longitude, error } = usePosition(
@@ -68,7 +68,7 @@ export default function HelperStandort() {
         >
           <ButtonWithLink
             children="ja, bitte!"
-            link="/app/helfer/createHelper/standort/"
+            link="/app/helper/createHelper/standort/"
           />
         </div>
         <div style={{ flex: 1 }}>

@@ -75,7 +75,7 @@ export default function CreateRequest() {
   return (
     <div
       style={{ position: "relative" }}
-      className="flex flex-col w-full h-full px-8 py-4  overflow-y-auto"
+      className="flex flex-col w-full h-full px-8 py-4 overflow-y-auto"
       ref={myContainerRef}
     >
       <div style={{ flex: 1 }} className="flex w-full">

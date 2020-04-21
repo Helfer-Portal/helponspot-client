@@ -28,7 +28,7 @@ export default function HelperSkills() {
         <ButtonWithLink
           className="w-full flex justify-center"
           children="Weiter"
-          link="/app/helfer/createHelper/name/"
+          link="/app/helper/createHelper/name/"
         />
       </div>
     </div>

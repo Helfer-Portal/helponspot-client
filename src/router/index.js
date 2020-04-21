@@ -45,6 +45,7 @@ import CreateHelperProvider from "../context/LocationContext";
 import AllRequestsHelper from "../features/RequestViews/AllRequestsHelper";
 
 import CurrentRequestsView from "../features/CurrentRequests";
+import RequestMapForHelper from "../features/HelperMap/RequestsMapForHelper";
 
 export default function RootRouter() {
   /*const showSettings = event => {
@@ -75,8 +76,8 @@ export default function RootRouter() {
                         <Route path="/app/:role/dashboard">
                           <Dashboard />
                         </Route>
-
-                        <Route exact path="/app/:role/map/">
+                        {/* temporarily removed :role, as it clashes with the map for helper, till we find a solution */}
+                        <Route exact path="/app/organisation/map/">
                           <HelperMap />
                         </Route>
 
@@ -132,30 +133,32 @@ export default function RootRouter() {
 
                       {/************** Helfer*/}
                       <CreateHelperProvider>
-                        <Route path="/app/helfer/">
-                          <Route exact path="/app/helfer/registrierung/">
+                        <Route path="/app/helper/">
+                          <Route exact path="/app/helper/registrierung/">
                             <ChooseUserType />
                           </Route>
-                          <Route exact path="/app/helfer/createHelper/skills">
+                          <Route exact path="/app/helper/createHelper/skills">
                             <HelperSkills />
                           </Route>
-                          <Route exact path="/app/helfer/createHelper/name">
+                          <Route exact path="/app/helper/createHelper/name">
                             <HelperName />
                           </Route>
-                          <Route exact path="/app/helfer/createHelper/standort">
+                          <Route exact path="/app/helper/createHelper/standort">
                             <HelperStandort />
                           </Route>
                         </Route>
                       </CreateHelperProvider>
-                      <Route exact path="/app/helfer/helperdashboard/">
+                      <Route exact path="/app/helper/helperdashboard/">
                         <UserDashboard />
                       </Route>
-
-                      <Route exact path="/app/helfer/request/details/:reqId">
+                      <Route exact path="/app/helper/request/details/:reqId">
                         <RequestDetails helper={true} />
                       </Route>
-                      <Route exact path="/app/helfer/request/currentrequests/">
+                      <Route exact path="/app/helper/request/currentrequests/">
                         <AllRequestsHelper />
+                      </Route>
+                      <Route exact path="/app/helper/map/">
+                        <RequestMapForHelper />
                       </Route>
                     </MobileFrame>
                   </LanderLayout>

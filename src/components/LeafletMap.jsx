@@ -82,7 +82,7 @@ class LeafletMap extends React.Component {
     this.setState({ viewport: this.state.previousViewport });
   }
 
-  createMarkerWithPopup(feature) {
+  createMarkerWithPopupForOrganization(feature) {
     const id = feature.properties.id;
     const name = feature.properties.name;
 
@@ -100,6 +100,34 @@ class LeafletMap extends React.Component {
           <Link to={`/app/organisation/user/${id}`}> {name}</Link>
           <p>
             <b>Bringt mit:</b>
+          </p>
+          "
+          {feature.properties.qualities.map((quality) => (
+            <li> {quality} </li>
+          ))}
+          ;
+        </Popup>
+      </Marker>
+    );
+  }
+  createMarkerWithPopupForHelper(feature) {
+    const id = feature.properties.id;
+    const title = feature.properties.title;
+
+    return (
+      <Marker
+        onClick={this.zoomToMarker(feature)}
+        onPopupclose={this.zoomBack.bind(this)}
+        icon={icons[this.props.icon]}
+        position={{
+          lat: feature.geometry.coordinates[1],
+          lng: feature.geometry.coordinates[0],
+        }}
+      >
+        <Popup>
+          <Link to={`/app/helper/request/details/${id}`}> {title}</Link>
+          <p>
+            <b>Es wird gesucht nach:</b>
           </p>
           "
           {feature.properties.qualities.map((quality) => (
@@ -132,7 +160,11 @@ class LeafletMap extends React.Component {
         />
 
         {this.data.map((feature) => {
-          return this.createMarkerWithPopup(feature);
+          if (this.props.role !== "helper")
+            return this.createMarkerWithPopupForOrganization(feature);
+          else {
+            return this.createMarkerWithPopupForHelper(feature);
+          }
         })}
       </Map>
     );
