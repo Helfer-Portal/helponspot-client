@@ -6,7 +6,7 @@ import ButtonPrimaryGreen from "../../components/UiKit/ButtonPrimaryGreen";
 
 export default function OpenRequest(props) {
   //TODO: define alias
-  const roleString = props.helper !== true ? "organisation" : "helfer";
+  const roleString = props.helper !== true ? "organisation" : "helper";
   return (
     <div className="flex flex-col my-4 p-4 max-w-sm bg-white rounded-lg">
       {/* use absolute path to prevent problems when calling from a different path than expected */}
@@ -52,7 +52,7 @@ export default function OpenRequest(props) {
           <div style={{ flex: 1 }} className="pr-2">
             <ButtonPrimaryGreen
               children="ja!"
-              link="/app/helfer/createHelper/standort/"
+              link="/app/helper/createHelper/standort/"
             />
           </div>
           <div style={{ flex: 1 }}>

@@ -11,7 +11,7 @@ const cardData = [
     // list: ['Grundausbildungen', 'körperlich fit', 'Führerschein'],
     list: [],
     img: require("../../assets/super_dad_1.png"),
-    to: "/app/helfer/createHelper/skills",
+    to: "/app/helper/createHelper/skills",
     alt: "Ich möchte helfen!",
   },
   {
