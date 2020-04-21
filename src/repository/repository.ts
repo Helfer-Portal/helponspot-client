@@ -241,14 +241,14 @@ class FetchService implements Service {
     return Promise.resolve({
       count: helperCount,
       skills: [
-        {
-          skill: { id: 4, name: "Erste Hilfe" },
-          count: 2,
-        },
-        {
-          skill: { id: 2, name: "Altenpflege" },
-          count: 1,
-        },
+        // {
+        //   skill: { id: "4", name: "Erste Hilfe" },
+        //   count: 2,
+        // },
+        // {
+        //   skill: { id: "2", name: "Altenpflege" },
+        //   count: 1,
+        // },
       ],
     });
   }

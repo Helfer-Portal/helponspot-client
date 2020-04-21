@@ -12,7 +12,7 @@ export interface HelpRequest {
 }
 
 export interface Skill {
-  id: number;
+  id: string;
   name: string;
   key?: string;
 }
