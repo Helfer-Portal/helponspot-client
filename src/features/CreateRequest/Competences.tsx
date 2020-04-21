@@ -6,14 +6,11 @@ import {
   RequestForm,
 } from "../../context/RequestFormStore";
 import { Skill } from "../../repository/model/helprequest";
-import {
-  ButtonPrimaryBlue,
-  ButtonTertiary,
-  ButtonTertiaryPlus,
-} from "../../components/UiKit";
+import { ButtonPrimaryBlue, ButtonTertiaryPlus } from "../../components/UiKit";
 import RepositoryImpl from "../../repository/repository";
 import Skeleton from "react-loading-skeleton";
 import { HelperOnBoardingStore } from "../../context/LocationContext";
+import ButtonPrimaryGreen from "../../components/UiKit/ButtonPrimaryGreen";
 
 let repository = new RepositoryImpl();
 
@@ -40,34 +37,100 @@ export interface CompetencesSelectorProps {
 export default function Competences(props: CompetencesSelectorProps) {
   /** state holds mock competences */
   const defaultButtonColor = props.defaultColorButtons;
-  const [options, setOptions] = useState([]);
+
+  /** options holds all available skills */
+  const [options, setOptions] = useState<Skill[]>([]);
+
+  /** indicates if still loading data from api */
   const [loading, setLoading] = useState<boolean>(false);
+
+  /** holds all the data from the new request form */
   let [data, setData] = React.useContext<RequestForm | any>(RequestFormContext);
+
+  // if we pass a specific context through props use this instead
   if (props.storeSelectedInThisContext) {
     [data, setData] = props.storeSelectedInThisContext;
   }
 
+  // should modal be displayed?
   const [modalIsOpen, setIsOpen] = useState(false);
 
   /** state holds the new competence input */
   const [value, setValue] = useState("");
 
-  const addCompetence = (competence: string) => {
-    let new_options =
-      data.added_competences != null
-        ? [...data.added_competences, competence]
-        : [competence];
-    setData({ ...data, added_competences: new_options });
-  };
-
+  /** initial side effect - called on the first render */
   React.useEffect(() => {
+    /** initialises the data from api */
     (async () => {
-      setLoading(true);
-      let qualifications = await repository.getQualifications();
-      setOptions(qualifications);
-      setLoading(false);
+      try {
+        setLoading(true);
+        let qualifications: Skill[] = await repository.getQualifications();
+        await setOptions(qualifications);
+
+        // default displayed competences
+        let displayed_competences: Skill[];
+
+        if (data.added_competences != null) {
+          displayed_competences = data.added_competences;
+        } else {
+          displayed_competences = [qualifications[0]];
+        }
+
+        setData({ ...data, added_competences: displayed_competences });
+        setLoading(false);
+      } catch (err) {
+        console.log(err);
+      }
     })();
   }, []);
+
+  /**
+   * returns a Skill object with the searched name, if it is present in the given array
+   * returns undefined if not found
+   * @param name
+   * @param skills
+   */
+  const searchSkillByName = (
+    name: string,
+    skills: Skill[]
+  ): Skill | undefined => {
+    let res = skills.map((el) => el.name == name).indexOf(true);
+
+    if (res < 0) {
+      return undefined;
+    } else {
+      return skills[res];
+    }
+  };
+
+  /**
+   * given a compentence string from the Interface this method searchs
+   * for the corresponing Skill object because we will need the sills
+   * key later on
+   * @param competence
+   */
+  const addCompetence = (competence: string): void => {
+    let new_competence = searchSkillByName(competence, options);
+
+    /* if new competence is undefinded, the skill is not in options */
+    if (new_competence) {
+      let new_options: Skill[];
+      if (data.added_competences != null) {
+        /** is this already selected? */
+        let res: boolean[] = data.added_competences.map(
+          (el) => el.id == new_competence.id
+        );
+        if (res.indexOf(true) < 0) {
+          new_options = [...data.added_competences, new_competence];
+        } else {
+          return;
+        }
+      } else {
+        new_options = [new_competence];
+      }
+      setData({ ...data, added_competences: new_options });
+    }
+  };
 
   /**
    * This function is async, as we need to set the context and then update the
@@ -77,8 +140,7 @@ export default function Competences(props: CompetencesSelectorProps) {
    */
   const selectCompetence = async (
     e: React.FormEvent<HTMLInputElement>,
-    text: string,
-    key: string
+    skill: Skill
   ): Promise<void> => {
     try {
       if (!data.selected_competences) data.selected_competences = [];
@@ -86,15 +148,12 @@ export default function Competences(props: CompetencesSelectorProps) {
         case true:
           await setData({
             ...data,
-            selected_competences: [
-              ...data.selected_competences,
-              { id: 0, name: text, key: key },
-            ],
+            selected_competences: [...data.selected_competences, skill],
           });
           break;
         case false:
           let newArray = data.selected_competences.filter((el: Skill) => {
-            return el.name != text;
+            return el.name != skill.name;
           });
           await setData({ ...data, selected_competences: newArray });
           break;
@@ -128,8 +187,10 @@ export default function Competences(props: CompetencesSelectorProps) {
     // prevent adding undefined when added_competences is empty. TODO: initialize data.added_competences with []
     let added_competences =
       data.added_competences != null ? data.added_competences : [];
-    setOptions([...options, ...added_competences]);
+    // setOptions([...options, added_competences]);
   }, [data.added_competences]);
+
+  /** Function belonging to modal */
 
   function openModal() {
     setIsOpen(true);
@@ -157,10 +218,13 @@ export default function Competences(props: CompetencesSelectorProps) {
     <div className="flex flex-col w-full">
       <div>
         {loading && <Skeleton count={4} />}
+        {/* when competences are loaded display them */}
         {!loading &&
-          options.map((entry, i) => (
+          data.added_competences &&
+          data.added_competences.map((entry, i) => (
             <CheckboxButton
               key={i}
+              id={entry.id}
               identifier={entry.key}
               color={defaultButtonColor}
               text={entry.name}
@@ -194,7 +258,7 @@ export default function Competences(props: CompetencesSelectorProps) {
         <div className="p-4 flex flex-col">
           <div className="font-dm-sans font-bold">Neue Kompetenz eingeben</div>
           <div className="p-4 flex flex-col">
-            <form className="gradient" onSubmit={handleSubmit}>
+            <form className="" onSubmit={handleSubmit}>
               <label>
                 Kompetenz
                 <input
@@ -205,6 +269,17 @@ export default function Competences(props: CompetencesSelectorProps) {
                   className="m-4"
                   data-testid="skill-input"
                 />
+                <div className="flex flex-col">
+                  {options.map((el, i) => (
+                    <ButtonPrimaryGreen
+                      key={i}
+                      children={el.name}
+                      onClick={() => {
+                        addCompetence(el.name);
+                      }}
+                    />
+                  ))}
+                </div>
               </label>
               <br />
               <ButtonPrimaryBlue onClick={closeModal}>

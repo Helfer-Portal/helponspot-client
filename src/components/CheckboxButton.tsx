@@ -1,15 +1,17 @@
 import React from "react";
 import "./CheckboxButton.css";
+import { Skill } from "../repository/model/helprequest";
 
 type CheckboxButtonProps = {
   color: string;
+  // TODO: pass a Skill type
   text: string;
+  id?: string;
   identifier?: string;
   /** A function which adds the selected Skill into the stored form datas selection */
   addToSelectedSkills?: (
     e: React.FormEvent<HTMLInputElement>,
-    text: string,
-    key: string
+    skill: Skill
   ) => Promise<void>;
   /** a function which tells the componenten if it is contained in the selected competences */
   isCompetenceSelected?: (text: string) => boolean;
@@ -29,7 +31,11 @@ const CheckboxButton = (props: CheckboxButtonProps) => {
   if (props.addToSelectedSkills) {
     passSelectedSkill = async (e: React.FormEvent<HTMLInputElement>) => {
       if (props.addToSelectedSkills)
-        await props.addToSelectedSkills(e, props.text, props.identifier);
+        await props.addToSelectedSkills(e, {
+          key: props.identifier,
+          name: props.text,
+          id: props.id,
+        });
       setChecked(!checked);
     };
   }
