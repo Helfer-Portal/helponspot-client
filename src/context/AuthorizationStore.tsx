@@ -6,7 +6,9 @@ export enum UserRole {
 }
 
 export interface Authorization {
+  useruuid: string;
   role: UserRole;
+  accessToken: string;
 }
 
 export const AuthorizationContext = React.createContext<
