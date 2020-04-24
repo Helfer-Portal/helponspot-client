@@ -27,10 +27,15 @@ export interface HelpRequestHelpers {
   skills: AvailableSkill[];
 }
 export interface OrganizationInfo {
-  id: number;
+  id: string;
   name: string;
   description: string;
   email: string;
   phone: string;
   address: string;
+}
+
+export interface UserInfo {
+  id: string;
+  organisations: OrganizationInfo[];
 }
