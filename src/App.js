@@ -6,7 +6,7 @@ import { withAuthenticator } from "aws-amplify-react";
 import "./App.css";
 import RootRouter from "./router/index.js";
 import { AuthorizationContext } from "./context/AuthorizationStore";
-console.log(process.env.SENTRY_KEY);
+console.log("logging", process.env.SENTRY_KEY);
 Amplify.configure(awsConfig);
 
 export function App() {
