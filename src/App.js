@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Amplify, { Auth, Hub } from "aws-amplify";
 import "@aws-amplify/ui/dist/style.css";
-import { awsConfig } from "./aws-exports";
+import { awsConfig } from "./aws-dummy-config";
 import { withAuthenticator } from "aws-amplify-react";
 import "./App.css";
 import RootRouter from "./router/index.js";
 import { AuthorizationContext } from "./context/AuthorizationStore";
-
+console.log(process.env.SENTRY_KEY);
 Amplify.configure(awsConfig);
 
 export function App() {

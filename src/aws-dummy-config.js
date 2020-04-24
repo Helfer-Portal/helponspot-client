@@ -1,6 +1,6 @@
 export const awsConfig = {
   Auth: {
-    mandatorySignIn: true,
+    mandatorySignIn: false,
     region: "eu-central-1",
     userPoolId: "<>",
     userPoolWebClientId: "<>",
