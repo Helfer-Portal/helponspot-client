@@ -15,7 +15,7 @@ let repository = new RepositoryImpl();
 
 export default function HelperStandort() {
   console.log("loaded HelperStandort");
-  let [locPermissionButton, setLocPermission] = useState(false);
+  let [locPermissionThroughButton, setLocPermission] = useState(false);
   let history = useHistory();
 
   let [requestData, setRequestData] = React.useContext(CreateHelperContext);
@@ -30,24 +30,19 @@ export default function HelperStandort() {
   };
 
   let { latitude, longitude, error } = usePosition(
-    locPermissionButton,
+    locPermissionThroughButton,
     callback
   );
 
-  if (locPermissionButton && !error) {
+  if (locPermissionThroughButton && !error) {
     console.log("returned permission");
-    let location = {
-      latitude: latitude,
-      longitude: longitude,
-      automatic: true,
-    };
     setRequestData(requestData);
     console.log(requestData);
     //history.push("/home");
     //setRedirect(true);
   }
   const triggerUpdate = () => {
-    locPermissionButton = true;
+    locPermissionThroughButton = true;
   };
 
   return (
