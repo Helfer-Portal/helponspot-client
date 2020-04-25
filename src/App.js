@@ -1,13 +1,16 @@
 import React, { useEffect, useState } from "react";
 import Amplify, { Auth, Hub } from "aws-amplify";
 import "@aws-amplify/ui/dist/style.css";
-import { awsConfig } from "./aws-dummy-config";
+import { awsConfig } from "./aws-exports";
 import { withAuthenticator } from "aws-amplify-react";
+
 import "./App.css";
+
 import RootRouter from "./router/index.js";
 import { AuthorizationContext } from "./context/AuthorizationStore";
-console.log("logging", process.env.REACT_APP_MY_ENV);
-Amplify.configure(awsConfig);
+import { returnAwsConfig } from "./load_aws_config";
+
+Amplify.configure(returnAwsConfig());
 
 export function App() {
   const [user, setUser] = useState(null);
