@@ -37,5 +37,15 @@ export interface OrganizationInfo {
 
 export interface UserInfo {
   id: string;
+  firstName: string;
+  lastName: string;
+  isGPSLocationAllowd: boolean;
+  email: string;
+  avatar: string;
+  travellingDistance: any;
+  qualifications: Skill[];
   organisations: OrganizationInfo[];
+  createdTime: string;
+  updateTime: string;
+  address: any;
 }

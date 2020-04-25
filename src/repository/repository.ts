@@ -25,6 +25,8 @@ export interface Repository {
    */
   getUserInfo(userId: string): Promise<UserInfo>;
 
+  patchUserInfo(userInfo: UserInfo): Promise<UserInfo>;
+
   /**
    * returns empty array if no org exists
    * @param userId
@@ -75,6 +77,10 @@ export interface Repository {
 export class RepositoryImpl implements Repository {
   getUserInfo(userId: string) {
     return this.service.getUserInfo(userId);
+  }
+
+  patchUserInfo(userInfo: UserInfo) {
+    return this.service.patchUserInfo(userInfo);
   }
 
   getOrganizationInfo(orgId: string): Promise<OrganizationInfo> {
@@ -163,6 +169,8 @@ export interface Service {
 
   getUserInfo(userId: string): Promise<UserInfo>;
 
+  patchUserInfo(userInfo: UserInfo): Promise<UserInfo>;
+
   returnUsersOrganisationIfExists(userId: string): Promise<OrganizationInfo[]>;
 
   getQualifications(): Promise<Skill[]>;
@@ -213,6 +221,31 @@ class FetchService implements Service {
       );
       if (res.data) {
         return res.data;
+      } else {
+        throw new Error("failed to fetch user Information");
+      }
+    } catch (error) {
+      return error;
+    }
+  }
+
+  async patchUserInfo(userInfo: UserInfo): Promise<UserInfo> {
+    try {
+      let userInfoWithQualificationKeys = {
+        ...userInfo,
+        qualifications: userInfo.qualifications.map((el) => el.key),
+      };
+      const { id, ...userInfoWithoutId } = userInfoWithQualificationKeys;
+      console.log("payload: ", userInfoWithoutId);
+      let res = await this.apigClient.invokeApi(
+        { userId: userInfo.id },
+        "/users/{userId}",
+        "patch",
+        {},
+        userInfoWithoutId
+      );
+      if (res.data) {
+        return res;
       } else {
         throw new Error("failed to fetch user Information");
       }
