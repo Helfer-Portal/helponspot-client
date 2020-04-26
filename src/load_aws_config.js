@@ -1,6 +1,7 @@
+process = require("process");
 export function returnAwsConfig() {
   let config;
-  if (process.env.REACT_APP_DEPLOYED === true) {
+  if (process.env.REACT_APP_DEPLOYED) {
     let module = require("./aws-dummy-config");
     let config = module.awsConfig;
     config.Auth.userPoolId = process.env.REACT_APP_USERPOOL_ID;
@@ -10,11 +11,12 @@ export function returnAwsConfig() {
     console.log(config);
   } else {
     try {
-      let module = require("./aws-exports");
+      var module = require("./aws-exports");
     } catch (e) {
-      console.log(e);
+      console.log("error", e);
     }
     config = module.awsConfig;
+    console.log(config);
   }
 
   return config;

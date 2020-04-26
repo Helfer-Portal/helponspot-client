@@ -73,7 +73,8 @@ export function App() {
 
 export default withAuthenticator(App, {
   // Render a sign out button once logged in
-  includeGreetings: true,
+  includeGreetings: false,
+  authState: "signedIn",
   // Show only certain components
   // display federation/social provider buttons
   // customize the UI/styling
