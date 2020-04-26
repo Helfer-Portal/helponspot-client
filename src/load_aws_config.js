@@ -1,4 +1,5 @@
 export function returnAwsConfig() {
+  let config;
   if (process.env.REACT_APP_DEPLOYED === true) {
     let module = require("./aws-dummy-config");
     let config = module.awsConfig;
@@ -8,8 +9,12 @@ export function returnAwsConfig() {
 
     console.log(config);
   } else {
-    let module = require("./aws-exports");
-    let config = module.awsConfig;
+    try {
+      let module = require("./aws-exports");
+    } catch (e) {
+      console.log(e);
+    }
+    config = module.awsConfig;
   }
 
   return config;

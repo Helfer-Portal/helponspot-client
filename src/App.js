@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Amplify, { Auth, Hub } from "aws-amplify";
 import "@aws-amplify/ui/dist/style.css";
-import { awsConfig } from "./aws-exports";
 import { withAuthenticator } from "aws-amplify-react";
 
 import "./App.css";
