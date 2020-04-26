@@ -9,7 +9,9 @@ import RootRouter from "./router/index.js";
 import { AuthorizationContext } from "./context/AuthorizationStore";
 import { returnAwsConfig } from "./load_aws_config";
 
-Amplify.configure(returnAwsConfig());
+let config = returnAwsConfig();
+console.log(config);
+Amplify.configure(config);
 
 export function App() {
   const [user, setUser] = useState(null);
