@@ -3,7 +3,7 @@ export function returnAwsConfig() {
   let config;
   if (process.env.REACT_APP_DEPLOYED) {
     let module = require("./aws-dummy-config");
-    let config = module.awsConfig;
+    config = module.awsConfig;
     config.Auth.userPoolId = process.env.REACT_APP_USERPOOL_ID;
     config.Auth.userPoolWebClientId =
       process.env.REACT_APP_USERPOOL_WEBCLIENTID;
