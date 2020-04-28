@@ -1,12 +1,13 @@
 export const awsConfig = {
   Auth: {
     mandatorySignIn: true,
-    region: "eu-central-1",
-    userPoolId: "<your-pool-id>",
-    userPoolWebClientId: "<your-pool-client-id>",
+    region: process.env.REACT_APP_AWS_REGION,
+    userPoolId: process.env.REACT_APP_COGNITO_USER_POOL_ID,
+    userPoolWebClientId: process.env.REACT_APP_COGNITO_USER_POOL_WEB_CLIENT_ID,
+    identityPoolId: process.env.REACT_APP_COGNITO_IDENTITY_POOL_ID,
     oauth: {
-      domain: "helponspot.auth.eu-central-1.amazoncognito.com",
-      scope: ["email", "openid"],
+      domain: process.env.REACT_APP_COGNITO_DOMAIN,
+      scope: ["openid"],
       redirectSignIn: "http://localhost:3000/",
       redirectSignOut: "http://localhost:3000/",
       responseType: "code",

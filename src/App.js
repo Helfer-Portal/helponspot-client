@@ -38,15 +38,6 @@ export default function App() {
   document.body.classList.add("gradient");
   const isAuthenticated = localStorage.getItem("isAuthenticated");
 
-  // if (!isAuthenticated || isAuthenticated == "false") {
-  //   Auth.federatedSignIn().then(() => {
-  //     debugger;
-  //     console.log("setting localstorage");
-  //     localStorage.setItem("isAuthenticated", true);
-  //   });
-  // } else {
-  //   logCurrentSession();
-  // }
   logCurrentSession();
 
   return (
