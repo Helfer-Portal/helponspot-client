@@ -39,7 +39,7 @@ export interface UserInfo {
   id: string;
   firstName: string;
   lastName: string;
-  isGPSLocationAllowd: boolean;
+  isGPSLocationAllowed: boolean;
   email: string;
   avatar: string;
   travellingDistance: any;

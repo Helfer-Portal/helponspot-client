@@ -132,7 +132,35 @@ export default function Competences(props: CompetencesSelectorProps) {
     }
   };
 
-  //keep Options in sync with data
+  const removeCompetence = async (competenceName: string): Promise<Skill[]> => {
+    let competenceToRemove = searchSkillByName(competenceName, options);
+
+    try {
+      if (competenceToRemove) {
+        let new_options: Skill[];
+        if (data.qualifications != null) {
+          /** is this already selected? */
+          let res: boolean[] = data.qualifications.map(
+            (el) => el.id == competenceToRemove.id
+          );
+          if (res.indexOf(true) < 0) {
+            throw new Error("The competence you want to remove does not exist");
+          } else {
+            new_options = data.qualifications.filter(
+              (skill) => skill.id != competenceToRemove.id
+            );
+          }
+        }
+        await setData({ ...data, qualifications: new_options });
+        console.log(data);
+        setShouldQualificationsPatch(true);
+        return new_options;
+      }
+    } catch (err) {
+      // TODO error handling
+    }
+  };
+
   React.useEffect(() => {
     console.log("qualifications changed");
     console.log(data);
@@ -180,13 +208,20 @@ export default function Competences(props: CompetencesSelectorProps) {
         {!loading &&
           data.qualifications &&
           data.qualifications.map((entry, i) => (
-            <CheckboxButton
-              key={i}
-              id={entry.id}
-              identifier={entry.key}
-              color={defaultButtonColor}
-              text={entry.name}
-            />
+            <div className="inline-flex">
+              <div className="inline-flex">
+                <button onClick={() => removeCompetence(entry.name)}>-</button>
+              </div>
+              <div className="inline-flex">
+                <CheckboxButton
+                  key={i}
+                  id={entry.id}
+                  identifier={entry.key}
+                  color={defaultButtonColor}
+                  text={entry.name}
+                />
+              </div>
+            </div>
           ))}
       </div>
       <div className="flex flex-row w-full ">

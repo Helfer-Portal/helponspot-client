@@ -231,23 +231,33 @@ class FetchService implements Service {
 
   async patchUserInfo(userInfo: UserInfo): Promise<UserInfo> {
     try {
-      let userInfoWithQualificationKeys = {
-        ...userInfo,
+      let payload = {
+        firstName: userInfo.firstName,
+        lastName: userInfo.lastName,
+        email: userInfo.email,
+        isGPSLocationAllowed: userInfo.isGPSLocationAllowed,
+        address: {
+          street: userInfo.address.street,
+          houseNumber: userInfo.address.houseNumber,
+          city: userInfo.address.city,
+          postalCode: userInfo.address.postalCode,
+          country: userInfo.address.country,
+        },
         qualifications: userInfo.qualifications.map((el) => el.key),
+        avatar: userInfo.avatar,
       };
-      const { id, ...userInfoWithoutId } = userInfoWithQualificationKeys;
-      console.log("payload: ", userInfoWithoutId);
+      console.log("payload: ", payload);
       let res = await this.apigClient.invokeApi(
         { userId: userInfo.id },
         "/users/{userId}",
         "patch",
         {},
-        userInfoWithoutId
+        payload
       );
-      if (res.data) {
+      if (res.data && res.status === 200) {
         return res;
       } else {
-        throw new Error("failed to fetch user Information");
+        throw new Error("failed to fetch user Information: " + res.status);
       }
     } catch (error) {
       return error;
