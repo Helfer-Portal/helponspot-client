@@ -45,10 +45,10 @@ export default function App() {
   return (
     <div>
       {user?.username}
-      <div style={{display: "flex", width: "30vw"}}>
-        <ButtonOrange onClick={() => Auth.federatedSignIn()}>login</ButtonOrange>
-        {user && <ButtonOrange onClick={() => Auth.signOut()}>logout</ButtonOrange>}
-        {user && <ButtonOrange onClick={() => ping()}>Ping</ButtonOrange>}
+      <div>
+        <div onClick={() => Auth.federatedSignIn()}><ButtonOrange>login</ButtonOrange></div>
+        {user && <div onClick={() => Auth.signOut()}><ButtonOrange>logout</ButtonOrange></div>}
+        {user && <div onClick={() => ping()}><ButtonOrange>Ping</ButtonOrange></div>}
       </div>
       <RootRouter/>
     </div>
