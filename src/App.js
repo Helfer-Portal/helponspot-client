@@ -4,7 +4,7 @@ import "@aws-amplify/ui/dist/style.css";
 import {awsConfig} from "./aws-exports";
 import "./App.css";
 import RootRouter from "./router/index.js";
-import ButtonPrimaryBlue from "./components/UiKit/ButtonPrimaryBlue";
+import ButtonOrange from "./components/UiKit/ButtonOrange";
 
 Amplify.configure(awsConfig);
 
@@ -46,9 +46,9 @@ export default function App() {
     <div>
       {user?.username}
       <div style={{display: "flex", width: "30vw"}}>
-        <ButtonPrimaryBlue onClick={() => Auth.federatedSignIn()}>login</ButtonPrimaryBlue>
-        {user && <ButtonPrimaryBlue onClick={() => Auth.signOut()}>logout</ButtonPrimaryBlue>}
-        {user && <ButtonPrimaryBlue onClick={() => ping()}>Ping</ButtonPrimaryBlue>}
+        <ButtonOrange onClick={() => Auth.federatedSignIn()}>login</ButtonOrange>
+        {user && <ButtonOrange onClick={() => Auth.signOut()}>logout</ButtonOrange>}
+        {user && <ButtonOrange onClick={() => ping()}>Ping</ButtonOrange>}
       </div>
       <RootRouter/>
     </div>
