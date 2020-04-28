@@ -27,7 +27,7 @@ export default function App() {
       });
       Auth.currentAuthenticatedUser()
         .then((user) => setUser(user))
-        .catch(() => console.log("Not signed in"));
+        .catch(e => console.log(e));
       return () => {
         Hub.remove("signIn");
         Hub.remove("signOut");
@@ -46,7 +46,7 @@ export default function App() {
     <div>
       {user?.username}
       <div style={{display: "flex", width: "30vw"}}>
-        {!user && <ButtonPrimaryBlue onClick={() => Auth.federatedSignIn()}>login</ButtonPrimaryBlue>}
+        <ButtonPrimaryBlue onClick={() => Auth.federatedSignIn()}>login</ButtonPrimaryBlue>
         {user && <ButtonPrimaryBlue onClick={() => Auth.signOut()}>logout</ButtonPrimaryBlue>}
         {user && <ButtonPrimaryBlue onClick={() => ping()}>Ping</ButtonPrimaryBlue>}
       </div>
