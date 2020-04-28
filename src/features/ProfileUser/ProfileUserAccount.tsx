@@ -14,6 +14,8 @@ import RepositoryImpl from "../../repository/repository";
 import Skeleton from "react-loading-skeleton";
 import { UserInfo } from "../../repository/model/helprequest";
 
+import { useForm } from "react-hook-form";
+
 let repository = new RepositoryImpl();
 
 const options_list = [
@@ -23,9 +25,15 @@ const options_list = [
   "medizinische Grundausbildung",
 ];
 
+type Inputs = {
+  email: string;
+};
+
 export default function ProfileUserAccount() {
   /** partial, as before request it is not defined */
   let [userInfo, setUserInfo] = React.useState<Partial<UserInfo>>({});
+
+  const { handleSubmit, register, errors } = useForm<Inputs>();
 
   React.useEffect(() => {
     console.log("hello");
@@ -41,6 +49,14 @@ export default function ProfileUserAccount() {
       }
     })();
   }, []);
+
+  const submitAlteredEmail = async (email: Inputs): Promise<void> => {
+    // todo validate email
+    if (email) {
+      console.log(email);
+    }
+    return;
+  };
 
   return (
     <div
@@ -74,9 +90,24 @@ export default function ProfileUserAccount() {
       {/* Kontaktdaten */}
       <div className="flex flex-col w-full">
         <Subheading>Kontaktdaten</Subheading>
-        <div className="my-2">
-          <InputWithIcon placeholder={userInfo.email} icon={MailIcon} />
-        </div>
+        <form onSubmit={handleSubmit(submitAlteredEmail)}>
+          <div className="my-2">
+            {/* TODO: Mit korrektem Tag ersetzen */}
+            <input
+              placeholder={userInfo.email}
+              name="email"
+              ref={register({
+                required: "Required",
+                pattern: {
+                  value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                  message: "invalid email address",
+                },
+              })}
+            />
+            {errors.email && errors.email.message}
+            <ButtonPrimaryBlue type="submit">Email ändern</ButtonPrimaryBlue>
+          </div>
+        </form>
         {/* <div className="my-2">
           <InputWithIcon placeholder={userPhone} icon={PhoneIcon} />
         </div> */}

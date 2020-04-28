@@ -11,7 +11,6 @@ import RepositoryImpl from "../../repository/repository";
 import Skeleton from "react-loading-skeleton";
 import { HelperOnBoardingStore } from "../../context/LocationContext";
 import ButtonPrimaryGreen from "../../components/UiKit/ButtonPrimaryGreen";
-import { userInfo } from "os";
 
 let repository = new RepositoryImpl();
 
@@ -43,7 +42,9 @@ export default function Competences(props: CompetencesSelectorProps) {
   const [options, setOptions] = useState<Skill[]>([]);
 
   /** indicates if still loading data from api */
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  const [isError, setIsError] = useState<boolean>(true);
 
   /** holds all the data from the new request form */
   let [data, setData] = React.useState<Partial<UserInfo>>(props.userInfo);
@@ -64,8 +65,13 @@ export default function Competences(props: CompetencesSelectorProps) {
     (async () => {
       try {
         setLoading(true);
+        setIsError(false);
         let qualifications: Skill[] = await repository.getQualifications();
         await setOptions(qualifications);
+
+        if (qualifications instanceof Error) {
+          throw new Error("Error loading qualifications");
+        }
 
         // default displayed competences
         let displayed_competences: Skill[];
@@ -78,6 +84,7 @@ export default function Competences(props: CompetencesSelectorProps) {
         setData({ ...props.userInfo, qualifications: displayed_competences });
         setLoading(false);
       } catch (err) {
+        setIsError(true);
         console.log(err);
       }
     })();
@@ -206,9 +213,9 @@ export default function Competences(props: CompetencesSelectorProps) {
         {loading && <Skeleton count={4} />}
         {/* when competences are loaded display them */}
         {!loading &&
-          data.qualifications &&
+          isError === false &&
           data.qualifications.map((entry, i) => (
-            <div className="inline-flex">
+            <div key={i} className="inline-flex">
               <div className="inline-flex">
                 <button onClick={() => removeCompetence(entry.name)}>-</button>
               </div>
@@ -261,15 +268,16 @@ export default function Competences(props: CompetencesSelectorProps) {
                   data-testid="skill-input"
                 />
                 <div className="flex flex-col">
-                  {options.map((el, i) => (
-                    <ButtonPrimaryGreen
-                      key={i}
-                      children={el.name}
-                      onClick={() => {
-                        addCompetence(el.name);
-                      }}
-                    />
-                  ))}
+                  {options.map &&
+                    options.map((el, i) => (
+                      <ButtonPrimaryGreen
+                        key={i}
+                        children={el.name}
+                        onClick={() => {
+                          addCompetence(el.name);
+                        }}
+                      />
+                    ))}
                 </div>
               </label>
               <br />
