@@ -4,10 +4,10 @@ const {
   REACT_APP_COGNITO_USER_POOL_WEB_CLIENT_ID,
   REACT_APP_COGNITO_DOMAIN,
   REACT_APP_COGNITO_IDENTITY_POOL_ID,
-  VERCEL_URL, // The URL of the ci deployment
+  REACT_APP_ENVIRONMENT_URL, // The URL of the ci deployment
 } = process.env;
 
-const ORIGIN = VERCEL_URL || "http://localhost:3000/";
+const ORIGIN = REACT_APP_ENVIRONMENT_URL || "http://localhost:3000/";
 
 export const awsConfig = {
   Auth: {
