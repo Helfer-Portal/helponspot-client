@@ -17,7 +17,8 @@ export const awsConfig = {
     endpoints: [
       {
       name: "Ping",
-      endpoint: "https://js7pyl1b87.execute-api.eu-central-1.amazonaws.com/dev-milad/ping"
+      endpoint: "https://js7pyl1b87.execute-api.eu-central-1.amazonaws.com/dev-milad/ping",
+      region: process.env.REACT_APP_AWS_REGION,
     }
     ]
   }
