@@ -46,6 +46,7 @@ import AllRequestsHelper from "../features/RequestViews/AllRequestsHelper";
 
 import CurrentRequestsView from "../features/CurrentRequests";
 import RequestMapForHelper from "../features/HelperMap/RequestsMapForHelper";
+import UpdateAddressHelper from "../features/OnBoarding/Helper/UpdateAddressHelper";
 
 export default function RootRouter() {
   /*const showSettings = event => {
@@ -145,6 +146,12 @@ export default function RootRouter() {
                           </Route>
                           <Route exact path="/app/helper/createHelper/standort">
                             <HelperStandort />
+                          </Route>
+                          <Route
+                            exact
+                            path="/app/helper/createHelper/standortmanuell"
+                          >
+                            <UpdateAddressHelper />
                           </Route>
                         </Route>
                       </CreateHelperProvider>
