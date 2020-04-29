@@ -22,7 +22,7 @@ const fetchDemoUser = async () => {
   // console.log(shouldOrganisationProfileBeLoaded);
 };
 
-export function App() {
+export default function App() {
   const [user, setUser] = useState(null);
   let [authData, setAuthData] = React.useContext(AuthorizationContext);
 
