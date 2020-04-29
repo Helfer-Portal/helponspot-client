@@ -33,7 +33,7 @@ export default function ProfileUserAccount() {
   /** partial, as before request it is not defined */
   let [userInfo, setUserInfo] = React.useState<Partial<UserInfo>>({});
 
-  const { handleSubmit, register, errors } = useForm<Inputs>();
+  const { handleSubmit, register, reset, errors } = useForm<Inputs>();
 
   React.useEffect(() => {
     console.log("hello");
@@ -51,12 +51,24 @@ export default function ProfileUserAccount() {
   }, []);
 
   const submitAlteredEmail = async (email: Inputs): Promise<void> => {
-    // todo validate email
     if (email) {
-      console.log(email);
+      setUserInfo({ ...userInfo, email: email.email });
     }
     return;
   };
+
+  // side Effect which patches the new email address of user
+  React.useEffect(() => {
+    (async () => {
+      try {
+        let res = await repository.patchUserInfo(userInfo as UserInfo);
+        console.log("response: ", res);
+      } catch (err) {
+        console.log(err);
+        alert("Sorry, please try again");
+      }
+    })();
+  }, [userInfo]);
 
   return (
     <div
@@ -93,7 +105,8 @@ export default function ProfileUserAccount() {
         <form onSubmit={handleSubmit(submitAlteredEmail)}>
           <div className="my-2">
             {/* TODO: Mit korrektem Tag ersetzen */}
-            <input
+            <InputWithIcon
+              icon={MailIcon}
               placeholder={userInfo.email}
               name="email"
               ref={register({
@@ -104,8 +117,10 @@ export default function ProfileUserAccount() {
                 },
               })}
             />
-            {errors.email && errors.email.message}
-            <ButtonPrimaryBlue type="submit">Email ändern</ButtonPrimaryBlue>
+            <div>{errors.email && errors.email.message}</div>
+            <div className="my-2">
+              <ButtonPrimaryBlue type="submit">Email ändern</ButtonPrimaryBlue>
+            </div>
           </div>
         </form>
         {/* <div className="my-2">
