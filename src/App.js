@@ -25,7 +25,7 @@ const fetchDemoUser = async () => {
 export default function App() {
   const [user, setUser] = useState(null);
   let [authData, setAuthData] = React.useContext(AuthorizationContext);
-
+  //authenticate default user for demonstration
   useEffect(
     // this is only executed once when the App renders
 
@@ -56,6 +56,7 @@ export default function App() {
     },
     []
   );
+  Auth.signIn("dummyuser", "Password13!");
 
   document.body.classList.add("gradient");
   //const isAuthenticated = localStorage.getItem("isAuthenticated");
