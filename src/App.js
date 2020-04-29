@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Amplify, { Auth, Hub } from "aws-amplify";
+import Amplify, { Auth, Hub, API } from "aws-amplify";
 import "@aws-amplify/ui/dist/style.css";
 import { awsConfig } from "./aws-exports";
 import { withAuthenticator } from "aws-amplify-react";
@@ -7,6 +7,7 @@ import "./App.css";
 import RootRouter from "./router/index.js";
 import { AuthorizationContext } from "./context/AuthorizationStore";
 import RepositoryImpl from "./repository/repository";
+import ButtonOrange from "./components/UiKit/ButtonOrange";
 
 let repository = new RepositoryImpl();
 
@@ -69,59 +70,29 @@ export function App() {
   //   logCurrentSession();
   // }
 
-  // logCurrentSession();
-  /*
-    {JSON.stringify(user)}
-      <button onClick={() => Auth.signOut()}>logout</button>
-      <button onClick={() => Auth.federatedSignIn()}>Open Hosted UI</button>
-   */
+  async function ping() {
+    await API.get("Ping", "", {});
+  }
 
   return (
     <div>
+      {user?.username}
+      <div>
+        <div onClick={() => Auth.federatedSignIn()}>
+          <ButtonOrange>login</ButtonOrange>
+        </div>
+        {user && (
+          <div onClick={() => Auth.signOut()}>
+            <ButtonOrange>logout</ButtonOrange>
+          </div>
+        )}
+        {user && (
+          <div onClick={() => ping()}>
+            <ButtonOrange>Ping</ButtonOrange>
+          </div>
+        )}
+      </div>
       <RootRouter />
     </div>
   );
 }
-
-export default withAuthenticator(App, {
-  // Render a sign out button once logged in
-  includeGreetings: true,
-  // Show only certain components
-  // display federation/social provider buttons
-  // customize the UI/styling
-});
-
-function logCurrentSession() {
-  try {
-    Auth.currentSession().then((session) => {
-      console.log(session);
-    });
-  } catch (e) {
-    console.log("Error getting currentSession: " + e);
-  }
-
-  try {
-    Auth.currentAuthenticatedUser().then((authenticatedUser) => {
-      console.log(authenticatedUser);
-    });
-  } catch (e) {
-    console.log("Error getting currentAuthenticatedUser: " + e);
-  }
-
-  try {
-    Auth.currentCredentials().then((credentials) => {
-      console.log(credentials);
-    });
-  } catch (e) {
-    console.log("Error getting currentCredentials: " + e);
-  }
-}
-
-// export default withAuthenticator(App, {
-//   includeGreetings: true,
-//   signUpConfig,
-//   federated: {
-//     amazon_client_id: "amzn1.application-oa2-client.6ba1a92ede974d9cb370d87475dcc9ba",
-//     google_client_id: "712951823298-63bvjn7kmibubnc1pae68egovm3rijo8.apps.googleusercontent.com"
-//   }
-// });
