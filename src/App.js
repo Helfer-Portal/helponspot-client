@@ -6,8 +6,20 @@ import { withAuthenticator } from "aws-amplify-react";
 import "./App.css";
 import RootRouter from "./router/index.js";
 import { AuthorizationContext } from "./context/AuthorizationStore";
+import RepositoryImpl from "./repository/repository";
+
+let repository = new RepositoryImpl();
 
 Amplify.configure(awsConfig);
+
+const fetchDemoUser = async () => {
+  // let shouldOrganisationProfileBeLoaded;
+  // console.log(await repository.getUserInfo('9d8af7fc-a430-43c3-aa75-32c5c73f90ca'))
+  // let orgInfo = await repository.returnUsersOrganisations('9d8af7fc-a430-43c3-aa75-32c5c73f90ca')
+  // console.log(orgInfo);
+  // shouldOrganisationProfileBeLoaded = orgInfo.length > 0? true : false;
+  // console.log(shouldOrganisationProfileBeLoaded);
+};
 
 export function App() {
   const [user, setUser] = useState(null);
@@ -15,7 +27,9 @@ export function App() {
 
   useEffect(
     // this is only executed once when the App renders
+
     () => {
+      fetchDemoUser();
       Hub.listen("auth", ({ payload: { event, data } }) => {
         console.log("Hub listen: ", event, data);
         switch (event) {

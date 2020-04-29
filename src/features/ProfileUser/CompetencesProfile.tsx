@@ -5,7 +5,7 @@ import {
   RequestFormContext,
   RequestForm,
 } from "../../context/RequestFormStore";
-import { Skill } from "../../repository/model/helprequest";
+import { Skill, UserInfo } from "../../repository/model/helprequest";
 import { ButtonPrimaryBlue, ButtonTertiaryPlus } from "../../components/UiKit";
 import RepositoryImpl from "../../repository/repository";
 import Skeleton from "react-loading-skeleton";
@@ -28,10 +28,8 @@ const customStyles = {
 
 export interface CompetencesSelectorProps {
   defaultColorButtons: string;
-  /** The component can use a passed context */
-  storeSelectedInThisContext?: [HelperOnBoardingStore, () => void];
 
-  preSelectedSkills?: Skill[];
+  userInfo: Partial<UserInfo>;
 }
 
 /** competence componente with add function */
@@ -44,15 +42,12 @@ export default function Competences(props: CompetencesSelectorProps) {
   const [options, setOptions] = useState<Skill[]>([]);
 
   /** indicates if still loading data from api */
-  const [loading, setLoading] = useState<boolean>(false);
+  const [loading, setLoading] = useState<boolean>(true);
+
+  const [isError, setIsError] = useState<boolean>(true);
 
   /** holds all the data from the new request form */
-  let [data, setData] = React.useContext<RequestForm | any>(RequestFormContext);
-
-  // if we pass a specific context through props use this instead
-  if (props.storeSelectedInThisContext) {
-    [data, setData] = props.storeSelectedInThisContext;
-  }
+  let [data, setData] = React.useState<Partial<UserInfo>>(props.userInfo);
 
   // should modal be displayed?
   const [modalIsOpen, setIsOpen] = useState(false);
@@ -60,37 +55,40 @@ export default function Competences(props: CompetencesSelectorProps) {
   /** state holds the new competence input */
   const [value, setValue] = useState("");
 
+  const [shouldQualificationsPatch, setShouldQualificationsPatch] = useState<
+    boolean
+  >(false);
+
   /** initial side effect - called on the first render */
   React.useEffect(() => {
     /** initialises the data from api */
     (async () => {
       try {
         setLoading(true);
+        setIsError(false);
         let qualifications: Skill[] = await repository.getQualifications();
         await setOptions(qualifications);
+
+        if (qualifications instanceof Error) {
+          throw new Error("Error loading qualifications");
+        }
 
         // default displayed competences
         let displayed_competences: Skill[];
 
-        if (data.added_competences != null) {
-          displayed_competences = data.added_competences;
+        if (props.userInfo.qualifications) {
+          displayed_competences = props.userInfo.qualifications;
         } else {
           displayed_competences = [qualifications[0]];
         }
-
-        setData({ ...data, added_competences: displayed_competences });
+        setData({ ...props.userInfo, qualifications: displayed_competences });
         setLoading(false);
       } catch (err) {
+        setIsError(true);
         console.log(err);
       }
     })();
-  }, []);
-
-  React.useEffect(() => {
-    if (props.preSelectedSkills) {
-      setData({ ...data, added_competences: props.preSelectedSkills });
-    }
-  }, [props.preSelectedSkills]);
+  }, [props.userInfo]);
 
   /**
    * returns a Skill object with the searched name, if it is present in the given array
@@ -117,86 +115,73 @@ export default function Competences(props: CompetencesSelectorProps) {
    * key later on
    * @param competence
    */
-  const addCompetence = (competence: string): void => {
+  const addCompetence = async (competence: string): Promise<void> => {
     let new_competence = searchSkillByName(competence, options);
 
     /* if new competence is undefinded, the skill is not in options */
     if (new_competence) {
       let new_options: Skill[];
-      if (data.added_competences != null) {
+      if (data.qualifications != null) {
         /** is this already selected? */
-        let res: boolean[] = data.added_competences.map(
+        let res: boolean[] = data.qualifications.map(
           (el) => el.id == new_competence.id
         );
         if (res.indexOf(true) < 0) {
-          new_options = [...data.added_competences, new_competence];
+          new_options = [...data.qualifications, new_competence];
         } else {
           return;
         }
       } else {
         new_options = [new_competence];
       }
-      setData({ ...data, added_competences: new_options });
+      await setData({ ...data, qualifications: new_options });
+      setShouldQualificationsPatch(true);
     }
   };
 
-  /**
-   * This function is async, as we need to set the context and then update the
-   * rendered Checkboxes.
-   * @param e event
-   * @param text TODO: This should be a Skill type in future
-   */
-  const selectCompetence = async (
-    e: React.FormEvent<HTMLInputElement>,
-    skill: Skill
-  ): Promise<void> => {
+  const removeCompetence = async (competenceName: string): Promise<Skill[]> => {
+    let competenceToRemove = searchSkillByName(competenceName, options);
+
     try {
-      if (!data.selected_competences) data.selected_competences = [];
-      switch (e.currentTarget.checked) {
-        case true:
-          await setData({
-            ...data,
-            selected_competences: [...data.selected_competences, skill],
-          });
-          break;
-        case false:
-          let newArray = data.selected_competences.filter((el: Skill) => {
-            return el.name != skill.name;
-          });
-          await setData({ ...data, selected_competences: newArray });
-          break;
-        default:
-          throw new Error("function should not be called now");
+      if (competenceToRemove) {
+        let new_options: Skill[];
+        if (data.qualifications != null) {
+          /** is this already selected? */
+          let res: boolean[] = data.qualifications.map(
+            (el) => el.id == competenceToRemove.id
+          );
+          if (res.indexOf(true) < 0) {
+            throw new Error("The competence you want to remove does not exist");
+          } else {
+            new_options = data.qualifications.filter(
+              (skill) => skill.id != competenceToRemove.id
+            );
+          }
+        }
+        await setData({ ...data, qualifications: new_options });
+        console.log(data);
+        setShouldQualificationsPatch(true);
+        return new_options;
       }
     } catch (err) {
-      console.log(err);
+      // TODO error handling
     }
   };
 
-  /** this should be somehow nicer via id or so */
-  const isCompetenceSelected = (text: string): boolean => {
-    console.log("searching for ", text, "in ", data.selected_competences);
-    if (data.selected_competences) {
-      let position = data.selected_competences
-        // TODO: Match competences via. ID
-        .map((el: Skill) => {
-          return el.name === text;
-        })
-        .indexOf(true);
-      console.log(position);
-      return position < 0 ? false : true;
-    } else {
-      return false;
-    }
-  };
-
-  //keep Options in sync with data
   React.useEffect(() => {
-    // prevent adding undefined when added_competences is empty. TODO: initialize data.added_competences with []
-    let added_competences =
-      data.added_competences != null ? data.added_competences : [];
-    // setOptions([...options, added_competences]);
-  }, [data.added_competences]);
+    console.log("qualifications changed");
+    console.log(data);
+    console.log("trying to patch new selection to api");
+    (async () => {
+      try {
+        let res = await repository.patchUserInfo(data as UserInfo);
+        console.log("response: ", res);
+      } catch (err) {
+        console.log(err);
+        alert("Sorry, please try again");
+      }
+    })();
+  }, [shouldQualificationsPatch]);
 
   /** Function belonging to modal */
 
@@ -228,17 +213,22 @@ export default function Competences(props: CompetencesSelectorProps) {
         {loading && <Skeleton count={4} />}
         {/* when competences are loaded display them */}
         {!loading &&
-          data.added_competences &&
-          data.added_competences.map((entry, i) => (
-            <CheckboxButton
-              key={i}
-              id={entry.id}
-              identifier={entry.key}
-              color={defaultButtonColor}
-              text={entry.name}
-              addToSelectedSkills={selectCompetence}
-              isCompetenceSelected={isCompetenceSelected}
-            />
+          isError === false &&
+          data.qualifications.map((entry, i) => (
+            <div key={i} className="inline-flex">
+              <div className="inline-flex">
+                <button onClick={() => removeCompetence(entry.name)}>-</button>
+              </div>
+              <div className="inline-flex">
+                <CheckboxButton
+                  key={i}
+                  id={entry.id}
+                  identifier={entry.key}
+                  color={defaultButtonColor}
+                  text={entry.name}
+                />
+              </div>
+            </div>
           ))}
       </div>
       <div className="flex flex-row w-full ">
@@ -278,15 +268,16 @@ export default function Competences(props: CompetencesSelectorProps) {
                   data-testid="skill-input"
                 />
                 <div className="flex flex-col">
-                  {options.map((el, i) => (
-                    <ButtonPrimaryGreen
-                      key={i}
-                      children={el.name}
-                      onClick={() => {
-                        addCompetence(el.name);
-                      }}
-                    />
-                  ))}
+                  {options.map &&
+                    options.map((el, i) => (
+                      <ButtonPrimaryGreen
+                        key={i}
+                        children={el.name}
+                        onClick={() => {
+                          addCompetence(el.name);
+                        }}
+                      />
+                    ))}
                 </div>
               </label>
               <br />

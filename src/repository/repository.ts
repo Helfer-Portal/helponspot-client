@@ -4,6 +4,7 @@ import {
   HelpRequestHelpers,
   Skill,
   OrganizationInfo,
+  UserInfo,
 } from "./model/helprequest";
 import Chance from "chance";
 
@@ -15,14 +16,22 @@ I adjusted some of them, but currently only getOrganisationInfo matches our need
  */
 
 export interface Repository {
-  /**
-   * create a helper
-   *
-   * @param helper the helper to be created. Set id: null to create new user
-   */
-
   getOrganizationInfo(orgId: string): Promise<OrganizationInfo>;
   // createHelper(helper: Helper): Promise<Helper>;
+
+  /**
+   *
+   * @param userId
+   */
+  getUserInfo(userId: string): Promise<UserInfo>;
+
+  patchUserInfo(userInfo: UserInfo): Promise<UserInfo>;
+
+  /**
+   * returns empty array if no org exists
+   * @param userId
+   */
+  returnUsersOrganisations(userId: string): Promise<OrganizationInfo[]>;
 
   // createHelper(helper: Helper): Promise<Helper>;
   createHelper(helper: NewHelperPostRequest): Promise<Helper>;
@@ -66,8 +75,20 @@ export interface Repository {
  * Currently, this is just a proxy for Service. We could implement some fancy caching strategies here...
  */
 export class RepositoryImpl implements Repository {
+  getUserInfo(userId: string) {
+    return this.service.getUserInfo(userId);
+  }
+
+  patchUserInfo(userInfo: UserInfo) {
+    return this.service.patchUserInfo(userInfo);
+  }
+
   getOrganizationInfo(orgId: string): Promise<OrganizationInfo> {
     return this.service.getOrganziationInfo(orgId);
+  }
+
+  returnUsersOrganisations(userId: string) {
+    return this.service.returnUsersOrganisationIfExists(userId);
   }
 
   constructor(private service: Service = new FetchService()) {}
@@ -146,6 +167,12 @@ export interface Service {
 
   getOrganziationInfo(orgId: string): Promise<OrganizationInfo>;
 
+  getUserInfo(userId: string): Promise<UserInfo>;
+
+  patchUserInfo(userInfo: UserInfo): Promise<UserInfo>;
+
+  returnUsersOrganisationIfExists(userId: string): Promise<OrganizationInfo[]>;
+
   getQualifications(): Promise<Skill[]>;
 }
 
@@ -183,6 +210,73 @@ class FetchService implements Service {
     this.apigClient = FetchService.apigClientFactory.newClient(
       FetchService.config
     );
+  }
+
+  async getUserInfo(userId: string): Promise<UserInfo> {
+    try {
+      let res = await this.apigClient.invokeApi(
+        { userId: userId },
+        "/users/{userId}",
+        "get"
+      );
+      if (res.data) {
+        return res.data;
+      } else {
+        throw new Error("failed to fetch user Information");
+      }
+    } catch (error) {
+      return error;
+    }
+  }
+
+  async patchUserInfo(userInfo: UserInfo): Promise<UserInfo> {
+    try {
+      let payload = {
+        firstName: userInfo.firstName,
+        lastName: userInfo.lastName,
+        email: userInfo.email,
+        isGPSLocationAllowed: userInfo.isGPSLocationAllowed,
+        address: {
+          street: userInfo.address.street,
+          houseNumber: userInfo.address.houseNumber,
+          city: userInfo.address.city,
+          postalCode: userInfo.address.postalCode,
+          country: userInfo.address.country,
+        },
+        qualifications: userInfo.qualifications.map((el) => el.key),
+        avatar: userInfo.avatar,
+      };
+      console.log("payload: ", payload);
+      let res = await this.apigClient.invokeApi(
+        { userId: userInfo.id },
+        "/users/{userId}",
+        "patch",
+        {},
+        payload
+      );
+      if (res.data && res.status === 200) {
+        return res;
+      } else {
+        throw new Error("failed to fetch user Information: " + res.status);
+      }
+    } catch (error) {
+      return error;
+    }
+  }
+
+  async returnUsersOrganisationIfExists(
+    userId: string
+  ): Promise<OrganizationInfo[]> {
+    try {
+      let userInfo = await this.getUserInfo(userId);
+      if (userInfo.organisations) {
+        return userInfo.organisations;
+      } else {
+        return [];
+      }
+    } catch (err) {
+      return err;
+    }
   }
 
   // createHelper(helper: Helper): Promise<Helper> {
