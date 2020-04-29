@@ -30,6 +30,8 @@ export interface CompetencesSelectorProps {
   defaultColorButtons: string;
   /** The component can use a passed context */
   storeSelectedInThisContext?: [HelperOnBoardingStore, () => void];
+
+  preSelectedSkills?: Skill[];
 }
 
 /** competence componente with add function */
@@ -83,6 +85,12 @@ export default function Competences(props: CompetencesSelectorProps) {
       }
     })();
   }, []);
+
+  React.useEffect(() => {
+    if (props.preSelectedSkills) {
+      setData({ ...data, added_competences: props.preSelectedSkills });
+    }
+  }, [props.preSelectedSkills]);
 
   /**
    * returns a Skill object with the searched name, if it is present in the given array
