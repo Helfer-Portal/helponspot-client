@@ -15,6 +15,7 @@ let repository = new RepositoryImpl();
 
 export default function HelperStandort() {
   console.log("loaded HelperStandort");
+  //this indicator is changed when the user clicks on the button, and triggers an update of the location on the next rerender
   let [locPermissionThroughButton, setLocPermission] = useState(false);
   let history = useHistory();
 
@@ -38,12 +39,11 @@ export default function HelperStandort() {
     console.log("returned permission");
     setRequestData(requestData);
     console.log(requestData);
-    //history.push("/home");
-    //setRedirect(true);
   }
-  const triggerUpdate = () => {
-    locPermissionThroughButton = true;
-  };
+  if (locPermissionThroughButton && error) {
+    console.log("error", error);
+    history.push("/app/helper/createHelper/standortmanuell");
+  }
 
   return (
     <div className="flex flex-col w-full h-full px-8 py-4 bg-bluePrimary">
