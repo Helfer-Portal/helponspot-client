@@ -1,4 +1,8 @@
 import React, { Dispatch } from "react";
+import { Auth } from "aws-amplify";
+import RepositoryImpl from "../repository/repository";
+
+let repository = new RepositoryImpl();
 
 export enum UserRole {
   helper,
@@ -24,6 +28,15 @@ export default function AuthorizationContextProvider(props: {
   const [data, setData] = React.useState<Partial<Authorization>>({
     role: UserRole.organisation,
   });
+
+  // This side effect loads the uuid for the user via context it is distributed over all components
+  React.useEffect(() => {
+    (async () => {
+      let user = await Auth.currentAuthenticatedUser();
+      let userData = await repository.getUserInfoByEmail(user.attributes.email);
+      setData({ ...data, useruuid: userData.id });
+    })();
+  }, []);
 
   return (
     <AuthorizationContext.Provider value={[data, setData]}>
