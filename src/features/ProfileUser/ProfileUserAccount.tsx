@@ -15,6 +15,7 @@ import Skeleton from "react-loading-skeleton";
 import { UserInfo } from "../../repository/model/helprequest";
 
 import { useForm } from "react-hook-form";
+import { Auth } from "aws-amplify";
 
 let repository = new RepositoryImpl();
 
@@ -39,9 +40,14 @@ export default function ProfileUserAccount() {
     console.log("hello");
     (async () => {
       try {
-        let userData = await repository.getUserInfo(
-          "9d8af7fc-a430-43c3-aa75-32c5c73f90ca"
+        let user = await Auth.currentAuthenticatedUser();
+        let userData = await repository.getUserInfoByEmail(
+          user.attributes.email
         );
+        // console.log(await repository.getUserInfoByEmail())
+        // let userData = await repository.getUserInfo(
+        //   "9d8af7fc-a430-43c3-aa75-32c5c73f90ca"
+        // );
         setUserInfo(userData);
         console.log(userData.firstName);
       } catch (err) {
@@ -119,7 +125,8 @@ export default function ProfileUserAccount() {
             />
             <div>{errors.email && errors.email.message}</div>
             <div className="my-2">
-              <ButtonPrimaryBlue type="submit">Email ändern</ButtonPrimaryBlue>
+              {/* Kommt noch */}
+              {/* <ButtonPrimaryBlue type="submit">Email ändern</ButtonPrimaryBlue> */}
             </div>
           </div>
         </form>

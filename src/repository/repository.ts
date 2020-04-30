@@ -8,6 +8,8 @@ import {
 } from "./model/helprequest";
 import Chance from "chance";
 
+import axios from "axios";
+
 /*
 
 This file is mostly taken from a similar project written by @Jeremy Boy.
@@ -24,6 +26,8 @@ export interface Repository {
    * @param userId
    */
   getUserInfo(userId: string): Promise<UserInfo>;
+
+  getUserInfoByEmail(email: string): Promise<UserInfo>;
 
   patchUserInfo(userInfo: UserInfo): Promise<UserInfo>;
 
@@ -77,6 +81,10 @@ export interface Repository {
 export class RepositoryImpl implements Repository {
   getUserInfo(userId: string) {
     return this.service.getUserInfo(userId);
+  }
+
+  getUserInfoByEmail(email: string) {
+    return this.service.getUserInfoByEmail(email);
   }
 
   patchUserInfo(userInfo: UserInfo) {
@@ -169,6 +177,8 @@ export interface Service {
 
   getUserInfo(userId: string): Promise<UserInfo>;
 
+  getUserInfoByEmail(email: string): Promise<UserInfo>;
+
   patchUserInfo(userInfo: UserInfo): Promise<UserInfo>;
 
   returnUsersOrganisationIfExists(userId: string): Promise<OrganizationInfo[]>;
@@ -226,6 +236,22 @@ class FetchService implements Service {
       }
     } catch (error) {
       return error;
+    }
+  }
+
+  async getUserInfoByEmail(email: string): Promise<UserInfo> {
+    try {
+      console.log("sending with email: ", email);
+      let res = await axios.get(
+        FetchService.config.invokeUrl + "/users/" + email
+      );
+      if (res.data) {
+        return res.data;
+      } else {
+        throw new Error("Failed to get user by email");
+      }
+    } catch (err) {
+      console.log(err);
     }
   }
 
