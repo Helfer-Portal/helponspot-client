@@ -56,6 +56,7 @@ export default function App() {
     },
     []
   );
+  //for deployment purposes, use dummyuser
   Auth.signIn("dummyuser", "Password13!");
 
   document.body.classList.add("gradient");
