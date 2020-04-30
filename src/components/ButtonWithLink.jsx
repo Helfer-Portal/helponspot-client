@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import { ButtonPrimaryOrange } from "./UiKit";
+import { ButtonOrange } from "./UiKit";
 
 export default class ButtonWithLink extends Component {
   render() {
