@@ -1,4 +1,5 @@
 import React from "react";
+import { useForm } from "react-hook-form";
 
 import "../../styles/organisation.css";
 
@@ -13,9 +14,7 @@ import { Subheading } from "../../components/Subheading";
 import RepositoryImpl from "../../repository/repository";
 import Skeleton from "react-loading-skeleton";
 import { UserInfo } from "../../repository/model/helprequest";
-
-import { useForm } from "react-hook-form";
-import { Auth } from "aws-amplify";
+import { AuthorizationContext } from "../../context/AuthorizationStore";
 
 let repository = new RepositoryImpl();
 
@@ -34,27 +33,20 @@ export default function ProfileUserAccount() {
   /** partial, as before request it is not defined */
   let [userInfo, setUserInfo] = React.useState<Partial<UserInfo>>({});
 
+  const [authInfo, setAuthInfo] = React.useContext(AuthorizationContext);
+
   const { handleSubmit, register, reset, errors } = useForm<Inputs>();
 
   React.useEffect(() => {
-    console.log("hello");
     (async () => {
       try {
-        let user = await Auth.currentAuthenticatedUser();
-        let userData = await repository.getUserInfoByEmail(
-          user.attributes.email
-        );
-        // console.log(await repository.getUserInfoByEmail())
-        // let userData = await repository.getUserInfo(
-        //   "9d8af7fc-a430-43c3-aa75-32c5c73f90ca"
-        // );
+        let userData = await repository.getUserInfo(authInfo.useruuid);
         setUserInfo(userData);
-        console.log(userData.firstName);
       } catch (err) {
         console.log(err);
       }
     })();
-  }, []);
+  }, [authInfo.useruuid]);
 
   const submitAlteredEmail = async (email: Inputs): Promise<void> => {
     if (email) {
@@ -63,18 +55,19 @@ export default function ProfileUserAccount() {
     return;
   };
 
-  // side Effect which patches the new email address of user
-  React.useEffect(() => {
-    (async () => {
-      try {
-        let res = await repository.patchUserInfo(userInfo as UserInfo);
-        console.log("response: ", res);
-      } catch (err) {
-        console.log(err);
-        alert("Sorry, please try again");
-      }
-    })();
-  }, [userInfo]);
+  // we will release this later
+  // // side Effect which patches the new email address of user
+  // React.useEffect(() => {
+  //   (async () => {
+  //     try {
+  //       let res = await repository.patchUserInfo(userInfo as UserInfo);
+  //       console.log("response: ", res);
+  //     } catch (err) {
+  //       console.log(err);
+  //       alert("Sorry, please try again");
+  //     }
+  //   })();
+  // }, [userInfo]);
 
   return (
     <div
@@ -166,21 +159,3 @@ const MailIcon = (
     />
   </svg>
 );
-
-// const PhoneIcon = (
-//   <svg
-//     width="20"
-//     height="20"
-//     viewBox="0 0 20 20"
-//     fill="none"
-//     xmlns="http://www.w3.org/2000/svg"
-//   >
-//     <path
-//       d="M1 3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H6.28C6.48979 1.00016 6.69422 1.0663 6.86436 1.18905C7.03449 1.3118 7.1617 1.48496 7.228 1.684L8.726 6.177C8.8019 6.40534 8.79293 6.65339 8.70072 6.87564C8.60851 7.0979 8.43925 7.27945 8.224 7.387L5.967 8.517C7.07332 10.9655 9.03446 12.9267 11.483 14.033L12.613 11.776C12.7205 11.5607 12.9021 11.3915 13.1244 11.2993C13.3466 11.2071 13.5947 11.1981 13.823 11.274L18.316 12.772C18.5152 12.8383 18.6885 12.9657 18.8112 13.136C18.934 13.3064 19.0001 13.511 19 13.721V17C19 17.5304 18.7893 18.0391 18.4142 18.4142C18.0391 18.7893 17.5304 19 17 19H16C7.716 19 1 12.284 1 4V3Z"
-//       stroke="#1661AA"
-//       stroke-width="2"
-//       stroke-linecap="round"
-//       stroke-linejoin="round"
-//     />
-//   </svg>
-// );
