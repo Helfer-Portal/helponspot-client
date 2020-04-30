@@ -69,6 +69,8 @@ export interface Repository {
    */
   getHelpRequestById(id: number): Promise<HelpRequest>;
 
+  getHelpRequestsForUserId(uuid: string): Promise<HelpRequest[]>;
+
   /**
    * Returns all available skills
    */
@@ -129,6 +131,10 @@ export class RepositoryImpl implements Repository {
     return this.service.getHelpRequestById(id);
   }
 
+  getHelpRequestsForUserId(uuid: string): Promise<HelpRequest[]> {
+    return this.service.getHelpRequestsForUserId(uuid);
+  }
+
   getQualifications(): Promise<Skill[]> {
     return this.service.getQualifications();
   }
@@ -172,6 +178,8 @@ export interface Service {
   getHelpRequests(): Promise<HelpRequest[]>;
 
   getHelpRequestById(id: number): Promise<HelpRequest>;
+
+  getHelpRequestsForUserId(uuid: string): Promise<HelpRequest[]>;
 
   getOrganziationInfo(orgId: string): Promise<OrganizationInfo>;
 
@@ -476,6 +484,28 @@ class FetchService implements Service {
     let ours = temp();
 
     return Promise.resolve(ours);
+  }
+
+  async getHelpRequestsForUserId(uuid: string): Promise<HelpRequest[]> {
+    try {
+      let res = await axios.get(
+        FetchService.config.invokeUrl + "/users/" + uuid + "/requests"
+      );
+      return res.data.map((req) => {
+        return {
+          id: req.id,
+          name: req.title,
+          created_at: req.createTime,
+          date_start: req.startDate,
+          organisation_id: "",
+          number_helpers: 0,
+          skills: req.qualifications,
+          requested_helpers: [],
+        };
+      });
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   async getQualifications(): Promise<Skill[]> {

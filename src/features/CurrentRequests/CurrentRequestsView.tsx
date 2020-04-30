@@ -14,6 +14,8 @@ import {
   SkillBadge,
 } from "../../components/UiKit";
 import { Subheading } from "../../components/Subheading";
+import { AuthorizationContext } from "../../context/AuthorizationStore";
+import { Auth } from "aws-amplify";
 
 // mock
 const chance = new Chance();
@@ -28,29 +30,28 @@ const CurrentRequestsView = (props) => {
   const [reqData, setReqData] = useState<HelpRequest[]>([]);
   const [orgInfo, setOrgInfo] = useState<OrganizationInfo>();
 
-  async function loadReqInfo(): Promise<void> {
-    setLoading(true);
-    setIsError(false);
-    try {
-      let res = await repository.getHelpRequests();
-      if (res) {
-        setReqData(res);
-        setLoading(false);
-      } else {
-        throw new Error("Unable to fetch All Requests");
-      }
-    } catch (err) {
-      setIsError(true);
-      console.log(err);
-    }
-  }
+  const [authInfo, setAuthInfo] = React.useContext(AuthorizationContext);
 
   React.useEffect(() => {
-    const loadData = async () => {
-      await loadReqInfo();
-    };
-    loadData();
-  }, []);
+    if (authInfo.useruuid) {
+      (async () => {
+        try {
+          let reqData = await repository.getHelpRequestsForUserId(
+            authInfo.useruuid
+          );
+          if (reqData) {
+            setReqData(reqData);
+            setLoading(false);
+          } else {
+            throw new Error("Unable to fetch All Requests");
+          }
+        } catch (err) {
+          setIsError(true);
+          console.log(err);
+        }
+      })();
+    }
+  }, [authInfo.useruuid]);
 
   const success = (
     <div className="bg-bluePrimary flex flex-col w-full h-full px-8 py-4 pt-8 w-full ">
