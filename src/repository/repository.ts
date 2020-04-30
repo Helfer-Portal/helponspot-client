@@ -67,7 +67,7 @@ export interface Repository {
    * Returns the help requests details
    * @param id Help Request ID
    */
-  getHelpRequestById(id: number): Promise<HelpRequest>;
+  getHelpRequestById(uuid: string): Promise<HelpRequest>;
 
   getHelpRequestsForUserId(uuid: string): Promise<HelpRequest[]>;
 
@@ -127,8 +127,8 @@ export class RepositoryImpl implements Repository {
     return this.service.getHelpRequests();
   }
 
-  getHelpRequestById(id: number): Promise<HelpRequest> {
-    return this.service.getHelpRequestById(id);
+  getHelpRequestById(uuid: string): Promise<HelpRequest> {
+    return this.service.getHelpRequestById(uuid);
   }
 
   getHelpRequestsForUserId(uuid: string): Promise<HelpRequest[]> {
@@ -177,7 +177,7 @@ export interface Service {
 
   getHelpRequests(): Promise<HelpRequest[]>;
 
-  getHelpRequestById(id: number): Promise<HelpRequest>;
+  getHelpRequestById(uuid: string): Promise<HelpRequest>;
 
   getHelpRequestsForUserId(uuid: string): Promise<HelpRequest[]>;
 
@@ -472,18 +472,29 @@ class FetchService implements Service {
     return this.get(Endpoint.HelpRequest, MOCKED_HELPREQUESTS);
   }
 
-  getHelpRequestById(id: number): Promise<HelpRequest> {
-    const temp = async () => {
-      let requests: HelpRequest[] = await this.getHelpRequests();
-      requests = requests.filter((el) => {
-        return el.id == id;
-      });
-      return requests[0];
-    };
-
-    let ours = temp();
-
-    return Promise.resolve(ours);
+  async getHelpRequestById(uuid: string): Promise<HelpRequest> {
+    try {
+      let res = await axios.get(
+        FetchService.config.invokeUrl + "/requests/" + uuid
+      );
+      console.log(res);
+      let req = res.data;
+      return {
+        id: req.id,
+        name: req.title,
+        description: req.description,
+        created_at: req.createTime,
+        date_start: req.startDate,
+        organisation_id: req.organisation,
+        organisation: req.organisation,
+        number_helpers: 0,
+        skills: req.qualifications,
+        requested_helpers: [],
+        confirmed_helpers: [],
+      };
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   async getHelpRequestsForUserId(uuid: string): Promise<HelpRequest[]> {
