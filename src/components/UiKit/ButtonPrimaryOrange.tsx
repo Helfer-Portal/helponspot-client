@@ -1,11 +1,11 @@
 import React from "react";
 
 /** Style guide: Primary, blue button */
-const ButtonPrimaryOrange = (
+export default function ButtonPrimaryOrange(
   props: React.PropsWithoutRef<JSX.IntrinsicElements["button"]> & {
     icon?: JSX.Element;
   }
-) => {
+) {
   return (
     // container styles, className is completed if props contain more classes
     <div
@@ -27,7 +27,6 @@ const ButtonPrimaryOrange = (
       </button>
     </div>
   );
-};
+}
 
 /* use memo here as this component will never rerender */
-export default React.memo(ButtonPrimaryOrange);
