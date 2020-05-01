@@ -9,6 +9,7 @@ import { AuthorizationContext } from "./context/AuthorizationStore";
 import RepositoryImpl from "./repository/repository";
 import ButtonOrange from "./components/UiKit/ButtonOrange";
 import { ButtonPrimaryBlue } from "./components/UiKit";
+import ButtonPrimaryGreen from "./components/UiKit/ButtonPrimaryGreen";
 
 let repository = new RepositoryImpl();
 
@@ -82,7 +83,7 @@ export default function App() {
       {user?.username}
       <div>
         <div onClick={() => Auth.federatedSignIn()}>
-          <ButtonPrimaryBlue>login</ButtonPrimaryBlue>
+          <ButtonPrimaryGreen>login</ButtonPrimaryGreen>
         </div>
         {user && (
           <div onClick={() => Auth.signOut()}>

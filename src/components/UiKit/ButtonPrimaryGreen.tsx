@@ -1,7 +1,7 @@
 import React from "react";
 
 /** Style guide: Primary, blue button */
-const ButtonPrimaryBlue = (
+const ButtonPrimaryGreen = (
   props: React.PropsWithoutRef<JSX.IntrinsicElements["button"]> & {
     icon?: JSX.Element;
   }
@@ -31,4 +31,4 @@ const ButtonPrimaryBlue = (
 };
 
 /* use memo here as this component will never rerender */
-export default React.memo(ButtonPrimaryBlue);
+export default React.memo(ButtonPrimaryGreen);
