@@ -13,10 +13,10 @@ const ButtonPrimaryBlue = (
         .filter(Boolean)
         .join(" ")}
     >
+      {/* ..props: pass all e.g. onClick */}
+      {/* props?.style if there is style passed, include it */}
       <button
-        // pass all e.g. onClick
         {...props}
-        // if there is style passed, include it
         style={{
           ...props?.style,
           background: "linear-gradient(270deg, #5FC0A9 0%, #89CEBE 100%)",

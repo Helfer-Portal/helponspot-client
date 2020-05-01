@@ -13,10 +13,10 @@ export default function ButtonPrimaryOrange(
         .filter(Boolean)
         .join(" ")}
     >
+      {/* ..props: pass all e.g. onClick */}
+      {/* props?.style if there is style passed, include it */}
       <button
-        // pass all e.g. onClick
         {...props}
-        // if there is style passed, include it
         style={{
           ...props?.style,
         }}

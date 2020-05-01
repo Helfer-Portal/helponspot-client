@@ -13,14 +13,14 @@ const ButtonPrimaryBlue = (
         .filter(Boolean)
         .join(" ")}
     >
+      {/* ..props: pass all e.g. onClick */}
+      {/* props?.style if there is style passed, include it */}
+      {/* if border is set, border classes will be added to CSS */}
       <button
-        // pass all e.g. onClick
         {...props}
-        // if there is style passed, include it
         style={{
           ...props?.style,
         }}
-        // if border is set, border classes will be added to CSS
         className={(() => {
           let styles: string[] = [
             "w-full py-2 bg-white text-center hover:underline rounded-full font-semibold font-inter text-figmaOrange text-sm",

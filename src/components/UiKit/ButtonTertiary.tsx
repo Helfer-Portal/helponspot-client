@@ -13,10 +13,10 @@ const ButtonTertiary = (
         .filter(Boolean)
         .join(" ")}
     >
+      {/* ..props: pass all e.g. onClick */}
+      {/* props?.style if there is style passed, include it */}
       <button
-        // pass all e.g. onClick
         {...props}
-        // if there is style passed, include it
         style={{
           ...props?.style,
           color: props.icon ? "#4A77A8" : "#577095",

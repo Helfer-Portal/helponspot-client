@@ -58,7 +58,7 @@ export default function App() {
     []
   );
   //for deployment purposes, use dummyuser
-  Auth.signIn("dummyuser", "Password13!");
+  Auth.signIn("dummyuser1", "Password13!");
 
   document.body.classList.add("gradient");
   //const isAuthenticated = localStorage.getItem("isAuthenticated");
