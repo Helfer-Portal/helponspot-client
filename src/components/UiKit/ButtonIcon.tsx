@@ -1,13 +1,13 @@
 import React from "react";
 
 /** Style guide: Primary, blue button */
-const ButtonIcon = (
+export default function ButtonIcon(
   props: React.PropsWithoutRef<JSX.IntrinsicElements["button"]> & {
     icon: JSX.Element;
     color?: string;
     border?: boolean;
   }
-) => {
+) {
   return (
     // container styles, className is completed if props contain more classes
     <div>
@@ -30,7 +30,6 @@ const ButtonIcon = (
       </button>
     </div>
   );
-};
+}
 
 /* use memo here as this component will never rerender */
-export default React.memo(ButtonIcon);
