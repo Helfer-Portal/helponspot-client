@@ -8,6 +8,7 @@ import RootRouter from "./router/index.js";
 import { AuthorizationContext } from "./context/AuthorizationStore";
 import RepositoryImpl from "./repository/repository";
 import ButtonOrange from "./components/UiKit/ButtonOrange";
+import { ButtonPrimaryBlue } from "./components/UiKit";
 
 let repository = new RepositoryImpl();
 
@@ -81,7 +82,7 @@ export default function App() {
       {user?.username}
       <div>
         <div onClick={() => Auth.federatedSignIn()}>
-          <ButtonOrange>login</ButtonOrange>
+          <ButtonPrimaryBlue>login</ButtonPrimaryBlue>
         </div>
         {user && (
           <div onClick={() => Auth.signOut()}>
