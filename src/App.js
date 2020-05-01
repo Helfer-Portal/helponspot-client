@@ -83,7 +83,7 @@ export default function App() {
       {user?.username}
       <div>
         <div onClick={() => Auth.federatedSignIn()}>
-          <ButtonPrimaryGreen>login</ButtonPrimaryGreen>
+          <ButtonOrange>login</ButtonOrange>
         </div>
         {user && (
           <div onClick={() => Auth.signOut()}>
