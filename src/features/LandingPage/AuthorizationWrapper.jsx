@@ -1,43 +1,80 @@
 import React, { useEffect, useState } from "react";
 import Footer from "./components/footer";
 import Menu from "./components/menu/index.js";
-import { AuthorizationContext } from "../../context/AuthorizationStore";
-import Amplify, { Auth, Hub } from "aws-amplify";
+import {
+  AuthorizationContext,
+  UserRole,
+} from "../../context/AuthorizationStore";
+import Amplify, { API, Auth, Hub } from "aws-amplify";
 import RepositoryImpl from "../../repository/repository";
 import { awsConfig } from "../../aws-exports";
 import { Redirect } from "react-router-dom";
+import { useHistory } from "react-router";
+import ButtonOrange from "../../components/UiKit/ButtonOrange";
+import RootRouter from "../../router";
 
 let repository = new RepositoryImpl();
 
-const fetchDemoUser = async (id) => {
-  let shouldOrganisationProfileBeLoaded;
-  console.log(
-    "user",
-    await repository.getUserInfo("9d8af7fc-a430-43c3-aa75-32c5c73f90ca")
-  );
-  let orgInfo = await repository.returnUsersOrganisations(
-    "9d8af7fc-a430-43c3-aa75-32c5c73f90ca"
-  );
-  console.log("org", orgInfo);
-  return [orgInfo > 0, true];
-};
-
 /** Layout for the register desktop story */
 export default function AuthorizationWrapper(props) {
+  console.log("authorizationwrap");
   let [authData, setAuthData] = React.useContext(AuthorizationContext);
   const [user, setUser] = useState(null);
+  let history = useHistory();
   let [redirect, setRedirect] = useState(true);
   let [redirectUrl, setRedirectUrl] = useState("/home");
+  let orgInfo = null;
+  const fetchDemoUser = async () => {
+    let shouldOrganisationProfileBeLoaded;
+    let user = await Auth.currentAuthenticatedUser();
+    console.log("user", user);
+    let hasMail = user.email === null;
+    hasMail = true;
+    if (hasMail) {
+      //let userData = await repository.getUserInfoByEmail(user.attributes.email);
+      let userData = await repository.getUserInfoByEmail(
+        "spam@yannickstreicher.org"
+      );
+      let userId = userData.id;
+      setAuthData({
+        ...authData,
+        useruuid: "9d8af7fc-a430-43c3-aa75-32c5c73f90ca",
+      });
+      let orgInfo = await repository.returnUsersOrganisations(
+        "9d8af7fc-a430-43c3-aa75-32c5c73f90ca"
+      );
+      if (orgInfo && orgInfo.length > 0) {
+        setAuthData({ ...authData, role: UserRole.organisation });
+      } else {
+        setAuthData({ ...authData, role: UserRole.helper });
+      }
+      console.log("userData", userData);
+    }
+
+    redirectUser(orgInfo && orgInfo.length > 0, hasMail);
+    //setData({ ...data, useruuid:"9d8af7fc-a430-43c3-aa75-32c5c73f90ca" });
+
+    /* console.log(
+           "user",
+           await repository.getUserInfo("9d8af7fc-a430-43c3-aa75-32c5c73f90ca")
+         );
+         let orgInfo = await repository.returnUsersOrganisations(
+           "9d8af7fc-a430-43c3-aa75-32c5c73f90ca"
+         );
+         console.log("org", orgInfo);
+
+         */
+  };
+
   function redirectUser(isOrg, hasMail) {
-    console.log("redirecting");
-    setRedirect(true);
     if (!hasMail) {
-      setRedirectUrl("/app/organisation/chooseType");
+      console.log("redirecting");
+      history.push("/app/organisation/chooseType");
     } else {
       if (isOrg) {
-        setRedirectUrl("/app/organisation/dashboard");
+        history.push("/app/organisation/dashboard");
       } else {
-        setRedirectUrl("/app/helper/helperdashboard");
+        history.push("/app/helper/helperdashboard");
       }
     }
   }
@@ -51,24 +88,29 @@ export default function AuthorizationWrapper(props) {
         console.log("Hub listen: ", event, data);
         switch (event) {
           case "signIn":
-            const accessToken = data
-              .getSignInUserSession()
-              .getIdToken()
-              .getJwtToken();
-            let isOrg,
-              hasMail = fetchDemoUser();
+            console.log("data", data);
 
+            console.log("signed in");
+            fetchDemoUser();
             //  redirectUser(isOrg, hasMail);
-            console.log("session", data.getSignInUserSession());
+            Auth.currentAuthenticatedUser()
+              .then((user) => {
+                console.log("setting user");
+                console.log(user);
+                setUser(user);
+              })
+              .catch(() => console.log("Not signed in"));
+            //   let userData = await repository.getUserInfoByEmail(user.attributes.email);
+
             break;
           case "signOut":
             setUser(null);
             break;
         }
       });
-      Auth.currentAuthenticatedUser()
-        .then((user) => setUser(user))
-        .catch(() => console.log("Not signed in"));
+
+      //  Auth.signIn("dummyuser1", "Password13!");
+
       return () => {
         Hub.remove("signIn");
         Hub.remove("signOut");
@@ -77,5 +119,29 @@ export default function AuthorizationWrapper(props) {
     []
   );
 
-  return <div>{props.children}</div>;
+  async function ping() {
+    await API.get("Ping", "", {});
+  }
+
+  return (
+    <div>
+      {user?.username}
+      <div className="flex flex-row">
+        <div onClick={() => Auth.federatedSignIn()}>
+          <ButtonOrange>login</ButtonOrange>
+        </div>
+        {user && (
+          <div onClick={() => Auth.signOut()}>
+            <ButtonOrange>logout</ButtonOrange>
+          </div>
+        )}
+        {user && (
+          <div onClick={() => ping()}>
+            <ButtonOrange>Ping</ButtonOrange>
+          </div>
+        )}
+      </div>
+      {props.children}
+    </div>
+  );
 }

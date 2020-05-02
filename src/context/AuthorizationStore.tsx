@@ -33,8 +33,9 @@ export default function AuthorizationContextProvider(props: {
   React.useEffect(() => {
     (async () => {
       let user = await Auth.currentAuthenticatedUser();
-      let userData = await repository.getUserInfoByEmail(user.attributes.email);
-      setData({ ...data, useruuid: userData.id });
+      //   let userData = await repository.getUserInfoByEmail(user.attributes.email);
+
+      // setData({ ...data, useruuid:"9d8af7fc-a430-43c3-aa75-32c5c73f90ca" });
     })();
   }, []);
 

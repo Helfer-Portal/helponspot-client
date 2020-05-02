@@ -47,6 +47,7 @@ import AllRequestsHelper from "../features/RequestViews/AllRequestsHelper";
 import CurrentRequestsView from "../features/CurrentRequests";
 import RequestMapForHelper from "../features/HelperMap/RequestsMapForHelper";
 import UpdateAddressHelper from "../features/OnBoarding/Helper/UpdateAddressHelper";
+import AuthorizationWrapper from "../features/LandingPage/AuthorizationWrapper";
 
 export default function RootRouter() {
   /*const showSettings = event => {
@@ -67,131 +68,139 @@ export default function RootRouter() {
         </Route> */}
 
             <Switch>
-              <div id="content-wrapper" className={"min-h-screen"}>
-                <Route path="/app">
-                  <LanderLayout>
-                    <MobileFrame>
-                      {/* hybrid */}
+              <AuthorizationWrapper>
+                <div id="content-wrapper" className={"min-h-screen"}>
+                  <Route path="/app">
+                    <LanderLayout>
+                      <MobileFrame>
+                        {/* hybrid */}
 
-                      <Route path="/app/:role/">
-                        <Route path="/app/:role/dashboard">
-                          <Dashboard />
-                        </Route>
-                        {/* temporarily removed :role, as it clashes with the map for helper, till we find a solution */}
-                        <Route exact path="/app/organisation/map/">
-                          <HelperMap />
-                        </Route>
+                        <Route path="/app/:role/">
+                          <Route path="/app/:role/dashboard">
+                            <Dashboard />
+                          </Route>
+                          {/* temporarily removed :role, as it clashes with the map for helper, till we find a solution */}
+                          <Route exact path="/app/organisation/map/">
+                            <HelperMap />
+                          </Route>
 
-                        <Route
-                          exact
-                          path="/app/:role/profile"
-                          component={ProfileView}
-                        />
+                          <Route
+                            exact
+                            path="/app/:role/profile"
+                            component={ProfileView}
+                          />
 
-                        <Route
-                          exact
-                          path="/app/:role/request"
-                          component={RequestsView}
-                        />
-                      </Route>
-
-                      {/************** ORGANISATION*/}
-
-                      <Route path="/app/organisation">
-                        <Route exact path="/app/organisation/chooseType">
-                          <ChooseUserType />
-                        </Route>
-                        <Route
-                          exact
-                          path="/app/organisation/createOrganisation"
-                        >
-                          <CreateOrganisation />
-                        </Route>
-                        <Route
-                          exact
-                          path="/app/organisation/createOrganisation/standort/"
-                        >
-                          <UpdateAddress />
+                          <Route
+                            exact
+                            path="/app/:role/request"
+                            component={RequestsView}
+                          />
                         </Route>
 
-                        <Route exact path="/app/organisation/request/create">
-                          <CreateRequest />
-                        </Route>
+                        {/************** ORGANISATION*/}
 
-                        <Route
-                          exact
-                          path="/app/organisation/request/details/:reqId"
-                        >
-                          <RequestDetails />
-                        </Route>
-
-                        <Route
-                          exact
-                          path="/app/organisation/user/:id"
-                          component={UserProfileView}
-                        />
-                      </Route>
-
-                      {/************** Helfer*/}
-                      <CreateHelperProvider>
-                        <Route path="/app/helper/">
-                          <Route exact path="/app/helper/registrierung/">
+                        <Route path="/app/organisation">
+                          <Route exact path="/app/organisation/chooseType">
                             <ChooseUserType />
-                          </Route>
-                          <Route exact path="/app/helper/createHelper/skills">
-                            <HelperSkills />
-                          </Route>
-                          <Route exact path="/app/helper/createHelper/name">
-                            <HelperName />
-                          </Route>
-                          <Route exact path="/app/helper/createHelper/standort">
-                            <HelperStandort />
                           </Route>
                           <Route
                             exact
-                            path="/app/helper/createHelper/standortmanuell"
+                            path="/app/organisation/createOrganisation"
                           >
-                            <UpdateAddressHelper />
+                            <CreateOrganisation />
                           </Route>
+                          <Route
+                            exact
+                            path="/app/organisation/createOrganisation/standort/"
+                          >
+                            <UpdateAddress />
+                          </Route>
+
+                          <Route exact path="/app/organisation/request/create">
+                            <CreateRequest />
+                          </Route>
+
+                          <Route
+                            exact
+                            path="/app/organisation/request/details/:reqId"
+                          >
+                            <RequestDetails />
+                          </Route>
+
+                          <Route
+                            exact
+                            path="/app/organisation/user/:id"
+                            component={UserProfileView}
+                          />
                         </Route>
-                      </CreateHelperProvider>
-                      <Route exact path="/app/helper/helperdashboard/">
-                        <UserDashboard />
-                      </Route>
-                      <Route exact path="/app/helper/request/details/:reqId">
-                        <RequestDetails helper={true} />
-                      </Route>
-                      <Route exact path="/app/helper/request/currentrequests/">
-                        <AllRequestsHelper />
-                      </Route>
-                      <Route exact path="/app/helper/map/">
-                        <RequestMapForHelper />
-                      </Route>
-                    </MobileFrame>
-                  </LanderLayout>
-                </Route>
 
-                <Route path="/home">
-                  <LanderLayout>
-                    {/************** Landing Page*/}
+                        {/************** Helfer*/}
+                        <CreateHelperProvider>
+                          <Route path="/app/helper/">
+                            <Route exact path="/app/helper/registrierung/">
+                              <ChooseUserType />
+                            </Route>
+                            <Route exact path="/app/helper/createHelper/skills">
+                              <HelperSkills />
+                            </Route>
+                            <Route exact path="/app/helper/createHelper/name">
+                              <HelperName />
+                            </Route>
+                            <Route
+                              exact
+                              path="/app/helper/createHelper/standort"
+                            >
+                              <HelperStandort />
+                            </Route>
+                            <Route
+                              exact
+                              path="/app/helper/createHelper/standortmanuell"
+                            >
+                              <UpdateAddressHelper />
+                            </Route>
+                          </Route>
+                        </CreateHelperProvider>
+                        <Route exact path="/app/helper/helperdashboard/">
+                          <UserDashboard />
+                        </Route>
+                        <Route exact path="/app/helper/request/details/:reqId">
+                          <RequestDetails helper={true} />
+                        </Route>
+                        <Route
+                          exact
+                          path="/app/helper/request/currentrequests/"
+                        >
+                          <AllRequestsHelper />
+                        </Route>
+                        <Route exact path="/app/helper/map/">
+                          <RequestMapForHelper />
+                        </Route>
+                      </MobileFrame>
+                    </LanderLayout>
+                  </Route>
 
-                    <Route exact path="/home">
-                      <LandingPage />
-                    </Route>
-                    <Route exact path="/home/ueber-uns">
-                      <AboutUs />
-                    </Route>
-                  </LanderLayout>
-                </Route>
+                  <Route path="/home">
+                    <LanderLayout>
+                      {/************** Landing Page*/}
 
-                {/* <Route>
+                      <Route exact path="/home">
+                        <LandingPage />
+                      </Route>
+                      <Route exact path="/home/ueber-uns">
+                        <AboutUs />
+                      </Route>
+                    </LanderLayout>
+                  </Route>
+
+                  {/* <Route>
               <Redirect
                 to={{
                   pathname: "/home"
                 }}
               />
             </Route> */}
-              </div>
+                </div>
+              </AuthorizationWrapper>
             </Switch>
           </Router>
         </AuthorizationContextProvider>

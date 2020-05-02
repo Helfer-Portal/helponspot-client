@@ -15,92 +15,13 @@ let repository = new RepositoryImpl();
 
 Amplify.configure(awsConfig);
 
-const fetchDemoUser = async (id) => {
-  let shouldOrganisationProfileBeLoaded;
-  console.log(
-    "user",
-    await repository.getUserInfo("9d8af7fc-a430-43c3-aa75-32c5c73f90ca")
-  );
-  let orgInfo = await repository.returnUsersOrganisations(
-    "9d8af7fc-a430-43c3-aa75-32c5c73f90ca"
-  );
-  console.log("org", orgInfo);
-  return [orgInfo > 0, true];
-};
-
 export default function App() {
   const [user, setUser] = useState(null);
   let [authData, setAuthData] = React.useContext(AuthorizationContext);
   let [redirect, setRedirect] = useState(false);
   let [redirectUrl, setRedirectUrl] = useState("/home");
-  function redirectUser(isOrg, hasMail) {
-    console.log("redirecting");
-    setRedirect(true);
-    if (!hasMail) {
-      setRedirectUrl("/app/organisation/chooseType");
-    } else {
-      if (isOrg) {
-        setRedirectUrl("/app/organisation/dashboard");
-      } else {
-        setRedirectUrl("/app/helper/helperdashboard");
-      }
-    }
-  }
 
   //authenticate default user for demonstration
-  useEffect(
-    // this is only executed once when the App renders
-
-    () => {
-      Hub.listen("auth", ({ payload: { event, data } }) => {
-        console.log("Hub listen: ", event, data);
-        switch (event) {
-          case "signIn":
-            const accessToken = data
-              .getSignInUserSession()
-              .getIdToken()
-              .getJwtToken();
-            //let isOrg, hasMail = fetchDemoUser();
-
-            console.log("session", data.getSignInUserSession());
-            //  redirectUser(isOrg, hasMail);
-            break;
-          case "signOut":
-            setUser(null);
-
-            let repository = new RepositoryImpl();
-
-            Amplify.configure(awsConfig);
-
-            const fetchDemoUser = async (id) => {
-              let shouldOrganisationProfileBeLoaded;
-              console.log(
-                "user",
-                await repository.getUserInfo(
-                  "9d8af7fc-a430-43c3-aa75-32c5c73f90ca"
-                )
-              );
-              let orgInfo = await repository.returnUsersOrganisations(
-                "9d8af7fc-a430-43c3-aa75-32c5c73f90ca"
-              );
-              console.log("org", orgInfo);
-              return [orgInfo > 0, true];
-            };
-            break;
-        }
-      });
-      Auth.currentAuthenticatedUser()
-        .then((user) => setUser(user))
-        .catch(() => console.log("Not signed in"));
-      return () => {
-        Hub.remove("signIn");
-        Hub.remove("signOut");
-      };
-    },
-    []
-  );
-  //for deployment purposes, use dummyuser
-  Auth.signIn("dummyuser1", "Password13!");
 
   document.body.classList.add("gradient");
   //const isAuthenticated = localStorage.getItem("isAuthenticated");
@@ -121,22 +42,6 @@ export default function App() {
 
   return (
     <div>
-      {user?.username}
-      <div>
-        <div onClick={() => Auth.federatedSignIn()}>
-          <ButtonOrange>login</ButtonOrange>
-        </div>
-        {user && (
-          <div onClick={() => Auth.signOut()}>
-            <ButtonOrange>logout</ButtonOrange>
-          </div>
-        )}
-        {user && (
-          <div onClick={() => ping()}>
-            <ButtonOrange>Ping</ButtonOrange>
-          </div>
-        )}
-      </div>
       <RootRouter />
     </div>
   );
