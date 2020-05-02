@@ -8,6 +8,8 @@ import {
 } from "./model/helprequest";
 import Chance from "chance";
 
+import axios from "axios";
+
 /*
 
 This file is mostly taken from a similar project written by @Jeremy Boy.
@@ -24,6 +26,8 @@ export interface Repository {
    * @param userId
    */
   getUserInfo(userId: string): Promise<UserInfo>;
+
+  getUserInfoByEmail(email: string): Promise<UserInfo>;
 
   patchUserInfo(userInfo: UserInfo): Promise<UserInfo>;
 
@@ -63,7 +67,9 @@ export interface Repository {
    * Returns the help requests details
    * @param id Help Request ID
    */
-  getHelpRequestById(id: number): Promise<HelpRequest>;
+  getHelpRequestById(uuid: string): Promise<HelpRequest>;
+
+  getHelpRequestsForUserId(uuid: string): Promise<HelpRequest[]>;
 
   /**
    * Returns all available skills
@@ -77,6 +83,10 @@ export interface Repository {
 export class RepositoryImpl implements Repository {
   getUserInfo(userId: string) {
     return this.service.getUserInfo(userId);
+  }
+
+  getUserInfoByEmail(email: string) {
+    return this.service.getUserInfoByEmail(email);
   }
 
   patchUserInfo(userInfo: UserInfo) {
@@ -117,8 +127,12 @@ export class RepositoryImpl implements Repository {
     return this.service.getHelpRequests();
   }
 
-  getHelpRequestById(id: number): Promise<HelpRequest> {
-    return this.service.getHelpRequestById(id);
+  getHelpRequestById(uuid: string): Promise<HelpRequest> {
+    return this.service.getHelpRequestById(uuid);
+  }
+
+  getHelpRequestsForUserId(uuid: string): Promise<HelpRequest[]> {
+    return this.service.getHelpRequestsForUserId(uuid);
   }
 
   getQualifications(): Promise<Skill[]> {
@@ -163,11 +177,15 @@ export interface Service {
 
   getHelpRequests(): Promise<HelpRequest[]>;
 
-  getHelpRequestById(id: number): Promise<HelpRequest>;
+  getHelpRequestById(uuid: string): Promise<HelpRequest>;
+
+  getHelpRequestsForUserId(uuid: string): Promise<HelpRequest[]>;
 
   getOrganziationInfo(orgId: string): Promise<OrganizationInfo>;
 
   getUserInfo(userId: string): Promise<UserInfo>;
+
+  getUserInfoByEmail(email: string): Promise<UserInfo>;
 
   patchUserInfo(userInfo: UserInfo): Promise<UserInfo>;
 
@@ -226,6 +244,22 @@ class FetchService implements Service {
       }
     } catch (error) {
       return error;
+    }
+  }
+
+  async getUserInfoByEmail(email: string): Promise<UserInfo> {
+    try {
+      console.log("sending with email: ", email);
+      let res = await axios.get(
+        FetchService.config.invokeUrl + "/users/" + email
+      );
+      if (res.data) {
+        return res.data;
+      } else {
+        throw new Error("Failed to get user by email");
+      }
+    } catch (err) {
+      console.log(err);
     }
   }
 
@@ -438,18 +472,51 @@ class FetchService implements Service {
     return this.get(Endpoint.HelpRequest, MOCKED_HELPREQUESTS);
   }
 
-  getHelpRequestById(id: number): Promise<HelpRequest> {
-    const temp = async () => {
-      let requests: HelpRequest[] = await this.getHelpRequests();
-      requests = requests.filter((el) => {
-        return el.id == id;
+  async getHelpRequestById(uuid: string): Promise<HelpRequest> {
+    try {
+      let res = await axios.get(
+        FetchService.config.invokeUrl + "/requests/" + uuid
+      );
+      console.log(res);
+      let req = res.data;
+      return {
+        id: req.id,
+        name: req.title,
+        description: req.description,
+        created_at: req.createTime,
+        date_start: req.startDate,
+        organisation_id: req.organisation,
+        organisation: req.organisation,
+        number_helpers: 0,
+        skills: req.qualifications,
+        requested_helpers: [],
+        confirmed_helpers: [],
+      };
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async getHelpRequestsForUserId(uuid: string): Promise<HelpRequest[]> {
+    try {
+      let res = await axios.get(
+        FetchService.config.invokeUrl + "/users/" + uuid + "/requests"
+      );
+      return res.data.map((req) => {
+        return {
+          id: req.id,
+          name: req.title,
+          created_at: req.createTime,
+          date_start: req.startDate,
+          organisation_id: "",
+          number_helpers: 0,
+          skills: req.qualifications,
+          requested_helpers: [],
+        };
       });
-      return requests[0];
-    };
-
-    let ours = temp();
-
-    return Promise.resolve(ours);
+    } catch (err) {
+      console.log(err);
+    }
   }
 
   async getQualifications(): Promise<Skill[]> {

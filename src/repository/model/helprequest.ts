@@ -5,6 +5,8 @@ export interface HelpRequest {
   created_at: string;
   date_start: string;
   organisation_id: number;
+  organisation?: OrganizationInfo;
+  description?: string;
   number_helpers: number;
   skills: Skill[];
   requested_helpers: Helper[];

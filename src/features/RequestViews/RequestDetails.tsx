@@ -27,30 +27,11 @@ const RequestDetails = (props: RequestDetailsProps = { helper: false }) => {
 
   let { reqId } = useParams();
 
-  async function loadOrgInfo(id: number): Promise<void> {
-    setIsError(false);
-    try {
-      if (id) {
-        let res = await repository.getOrganizationInfo(String(id));
-        if (res) {
-          setOrgData(res);
-        } else {
-          throw new Error("Unable to fetch Org Infos");
-        }
-      } else {
-        throw new Error("Error fetching with Org ID");
-      }
-    } catch (err) {
-      setIsError(true);
-      console.log(err);
-    }
-  }
-
   async function loadReqInfo(): Promise<HelpRequest> {
     setIsError(false);
     try {
       if (reqId) {
-        let res = await repository.getHelpRequestById(parseInt(reqId));
+        let res = await repository.getHelpRequestById(reqId);
         if (res) {
           setReqData(res);
           return res;
@@ -70,7 +51,7 @@ const RequestDetails = (props: RequestDetailsProps = { helper: false }) => {
   React.useLayoutEffect(() => {
     const loadData = async () => {
       let reqData = await loadReqInfo();
-      loadOrgInfo(reqData.organisation_id);
+      setOrgData({ ...reqData.organisation });
     };
     loadData();
   }, []);
@@ -93,8 +74,7 @@ const RequestDetails = (props: RequestDetailsProps = { helper: false }) => {
       {/* Description */}
       <div style={{ flex: 3 }}>
         <div className="font-inter text-figmaParagraph text-sm">
-          Das DRK Bochum sucht fleißige Helfer- und Helferinnen, die uns helfen
-          Betten aus einem Hotel in ein Krankenhaus zu transportieren!
+          {reqData?.description}
         </div>
       </div>
 
@@ -105,7 +85,7 @@ const RequestDetails = (props: RequestDetailsProps = { helper: false }) => {
           {reqData?.number_helpers} Helfer gesucht
         </div>
         <div className="font-inter text-figmaParagraph text-sm">
-          {reqData?.date_start} Tage
+          {new Date(reqData?.date_start).getDay()} Tage
         </div>
       </div>
 
