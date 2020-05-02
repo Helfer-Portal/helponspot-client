@@ -1,38 +1,57 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Amplify, { Auth, Hub, API } from "aws-amplify";
 import "@aws-amplify/ui/dist/style.css";
 import { awsConfig } from "./aws-exports";
 import { withAuthenticator } from "aws-amplify-react";
 import "./App.css";
+
 import RootRouter from "./router/index.js";
-import { AuthorizationContext } from "./context/AuthorizationStore";
+import { AuthorizationContext, UserRole } from "./context/AuthorizationStore";
 import RepositoryImpl from "./repository/repository";
 import ButtonOrange from "./components/UiKit/ButtonOrange";
-import { ButtonPrimaryBlue } from "./components/UiKit";
-import ButtonPrimaryGreen from "./components/UiKit/ButtonPrimaryGreen";
+import { Redirect, useHistory } from "react-router-dom";
 
 let repository = new RepositoryImpl();
 
 Amplify.configure(awsConfig);
 
-const fetchDemoUser = async () => {
-  // let shouldOrganisationProfileBeLoaded;
-  // console.log(await repository.getUserInfo('9d8af7fc-a430-43c3-aa75-32c5c73f90ca'))
-  // let orgInfo = await repository.returnUsersOrganisations('9d8af7fc-a430-43c3-aa75-32c5c73f90ca')
-  // console.log(orgInfo);
-  // shouldOrganisationProfileBeLoaded = orgInfo.length > 0? true : false;
-  // console.log(shouldOrganisationProfileBeLoaded);
+const fetchDemoUser = async (id) => {
+  let shouldOrganisationProfileBeLoaded;
+  console.log(
+    "user",
+    await repository.getUserInfo("9d8af7fc-a430-43c3-aa75-32c5c73f90ca")
+  );
+  let orgInfo = await repository.returnUsersOrganisations(
+    "9d8af7fc-a430-43c3-aa75-32c5c73f90ca"
+  );
+  console.log("org", orgInfo);
+  return [orgInfo > 0, true];
 };
 
 export default function App() {
   const [user, setUser] = useState(null);
   let [authData, setAuthData] = React.useContext(AuthorizationContext);
+  let [redirect, setRedirect] = useState(false);
+  let [redirectUrl, setRedirectUrl] = useState("/home");
+  function redirectUser(isOrg, hasMail) {
+    console.log("redirecting");
+    setRedirect(true);
+    if (!hasMail) {
+      setRedirectUrl("/app/organisation/chooseType");
+    } else {
+      if (isOrg) {
+        setRedirectUrl("/app/organisation/dashboard");
+      } else {
+        setRedirectUrl("/app/helper/helperdashboard");
+      }
+    }
+  }
+
   //authenticate default user for demonstration
   useEffect(
     // this is only executed once when the App renders
 
     () => {
-      fetchDemoUser();
       Hub.listen("auth", ({ payload: { event, data } }) => {
         console.log("Hub listen: ", event, data);
         switch (event) {
@@ -41,10 +60,32 @@ export default function App() {
               .getSignInUserSession()
               .getIdToken()
               .getJwtToken();
-            setAuthData({ ...authData, accessToken: accessToken });
+            //let isOrg, hasMail = fetchDemoUser();
+
+            console.log("session", data.getSignInUserSession());
+            //  redirectUser(isOrg, hasMail);
             break;
           case "signOut":
             setUser(null);
+
+            let repository = new RepositoryImpl();
+
+            Amplify.configure(awsConfig);
+
+            const fetchDemoUser = async (id) => {
+              let shouldOrganisationProfileBeLoaded;
+              console.log(
+                "user",
+                await repository.getUserInfo(
+                  "9d8af7fc-a430-43c3-aa75-32c5c73f90ca"
+                )
+              );
+              let orgInfo = await repository.returnUsersOrganisations(
+                "9d8af7fc-a430-43c3-aa75-32c5c73f90ca"
+              );
+              console.log("org", orgInfo);
+              return [orgInfo > 0, true];
+            };
             break;
         }
       });
