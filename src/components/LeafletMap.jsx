@@ -48,7 +48,7 @@ export const icons = {
 class LeafletMap extends React.Component {
   constructor(props) {
     super(props);
-    this.data = this.props.geojson.default.features;
+    this.data = this.props.geojson.features;
 
     this.state = {
       viewport: {
@@ -159,13 +159,14 @@ class LeafletMap extends React.Component {
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
-        {this.data.map((feature) => {
-          if (this.props.role !== "helper")
-            return this.createMarkerWithPopupForOrganization(feature);
-          else {
-            return this.createMarkerWithPopupForHelper(feature);
-          }
-        })}
+        {this.props.geojson &&
+          this.props.geojson.features?.map((feature) => {
+            if (this.props.role !== "helper")
+              return this.createMarkerWithPopupForOrganization(feature);
+            else {
+              return this.createMarkerWithPopupForHelper(feature);
+            }
+          })}
       </Map>
     );
   }

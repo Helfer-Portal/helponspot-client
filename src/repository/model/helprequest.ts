@@ -11,6 +11,22 @@ export interface HelpRequest {
   skills: Skill[];
   requested_helpers: Helper[];
   confirmed_helpers: Helper[];
+  address: Address;
+}
+
+export interface Address {
+  id: string;
+  street: string;
+  houseNumber: string;
+  postalCode: string;
+  city: string;
+  country: string;
+  point: Point;
+}
+
+export interface Point {
+  type: string;
+  coordinates: string;
 }
 
 export interface Skill {

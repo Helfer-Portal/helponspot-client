@@ -408,7 +408,7 @@ class FetchService implements Service {
     return arr;
   }
 
-  async getHelpRequests(): Promise<HelpRequest[]> {
+  async getHelpRequests(): Promise<any[]> {
     const response = await fetch(
       "https://cors-anywhere.herokuapp.com/https://js7pyl1b87.execute-api.eu-central-1.amazonaws.com/dev/qualifications"
     );
@@ -491,6 +491,7 @@ class FetchService implements Service {
         skills: req.qualifications,
         requested_helpers: [],
         confirmed_helpers: [],
+        address: req.address,
       };
     } catch (err) {
       console.log(err);

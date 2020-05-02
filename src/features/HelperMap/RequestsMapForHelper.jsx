@@ -2,7 +2,10 @@ import React from "react";
 import LeafletMap from "../../components/LeafletMap";
 import * as requestsJson from "../../assets/requestsForMap.json";
 import HelperMap from "./HelperMap"; // Mock data until api is ready
+import { AuthorizationContext } from "../../context/AuthorizationStore";
+import RepositoryImpl from "../../repository/repository";
 
+let repository = new RepositoryImpl();
 /*
 These are bits of information that need to be passed to the generalised LeafletMap component
 */
@@ -11,16 +14,40 @@ let location = [53.55, 10.05]; // from geocoding the address of the request
 let icon = "organisation"; // currently available: "helper", "organisation"
 
 export function RequestMap(props) {
-  console.log(props);
+  let { reqData, ...rest } = props;
+  console.log(reqData);
   return (
     <div style={{ position: "relative" }} className="h-full w-full">
-      {/* <QuestionWithLabel
-            question="Diese Leute sind bereit zu helfen:"
-            label="Helferkarte"
-        /> */}
       <LeafletMap
-        {...props}
-        geojson={geojson}
+        {...rest}
+        geojson={{
+          type: "FeatureCollection",
+          name: "helpers",
+          crs: {
+            type: "name",
+            properties: { name: "urn:ogc:def:crs:OGC:1.3:CRS84" },
+          },
+          bbox: [
+            9.77211481047126,
+            53.4183350054373,
+            10.2690464035447,
+            53.6905187299499,
+          ],
+          features: [
+            {
+              type: "Feature",
+              properties: {
+                id: 0,
+                title: "Jetzt beim DRK anpacken",
+                qualities: ["LKW", "Ersthelfer", "Blutspender"],
+              },
+              bbox: [10.227297, 53.418335, 10.227297, 53.418335],
+              geometry: { type: "Point", coordinates: [10.227297, 53.418335] },
+            },
+            ,
+            ...reqData,
+          ],
+        }}
         location={location}
         icon={icon}
       ></LeafletMap>
@@ -29,6 +56,54 @@ export function RequestMap(props) {
 }
 
 export default function RequestsMapForHelper(props) {
+  const [authInfo, setAuthInfo] = React.useContext(AuthorizationContext);
+  const [reqData, setReqData] = React.useState([]);
+  const [reqDetails, setReqDetails] = React.useState([]);
+  const [loading, setLoading] = React.useState(true);
+  const [isError, setIsError] = React.useState(false);
+
+  React.useEffect(() => {
+    if (authInfo.useruuid) {
+      (async () => {
+        try {
+          setLoading(true);
+          setIsError(false);
+          let reqData = await repository.getHelpRequestsForUserId(
+            authInfo.useruuid
+          );
+          let reqDetailsApiCalls = reqData.map(async (req) => {
+            let reqDetailsResult = await repository.getHelpRequestById(req.id);
+            return reqDetailsResult;
+          });
+          let apiResults = await Promise.all(reqDetailsApiCalls);
+          setReqDetails(apiResults);
+          if (reqData) {
+            setReqData(reqData);
+            setLoading(false);
+          } else {
+            throw new Error("Unable to fetch All Requests");
+          }
+        } catch (err) {
+          setIsError(true);
+          console.log(err);
+        }
+      })();
+    }
+  }, [authInfo.useruuid]);
+
+  const geoJsonFeatureForReqResult = (reqResult) => {
+    return {
+      type: "Feature",
+      properties: {
+        id: reqResult.id,
+        title: reqResult.name,
+        qualities: reqResult.skills.map((el) => el.name),
+      },
+      bbox: [10.227297, 53.418335, 10.227297, 53.418335],
+      geometry: reqResult.address.point,
+    };
+  };
+
   return (
     <div
       style={{ position: "relative" }}
@@ -76,7 +151,10 @@ export default function RequestsMapForHelper(props) {
           }}
           className="px-4"
         ></div>
-        <RequestMap role="helper" />
+        <RequestMap
+          reqData={reqDetails.map((el) => geoJsonFeatureForReqResult(el))}
+          role="helper"
+        />
       </div>
     </div>
   );
