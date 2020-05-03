@@ -54,7 +54,7 @@ export interface PostRequest {
   startDate: string;
   endDate: string;
   isActive: boolean;
-  qualifications: SkillKeys[];
+  qualificationKeys: SkillKeys[];
 }
 
 export interface PostAddress {
