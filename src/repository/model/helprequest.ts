@@ -45,6 +45,18 @@ export interface HelpRequestHelpers {
   skills: AvailableSkill[];
 }
 
+export type SkillKeys = string;
+
+export interface PostRequest {
+  title: string;
+  address: PostAddress;
+  description: string;
+  startDate: string;
+  endDate: string;
+  isActive: boolean;
+  qualifications: SkillKeys[];
+}
+
 export interface PostAddress {
   street: string;
   houseNumber: string;
