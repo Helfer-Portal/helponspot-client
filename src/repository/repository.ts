@@ -317,9 +317,9 @@ class FetchService implements Service {
   //   return this.post(Endpoint.Helper, helper);
   // }
   async createHelper(helper: NewHelperPostRequest): Promise<Helper> {
-    console.log(helper);
+    console.log("helper", helper);
     let res = await this.apigClient.invokeApi({}, "/users", "post", {}, helper);
-    console.log(res);
+    console.log("res", res);
     return {
       name: "",
       email: "",
