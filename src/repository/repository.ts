@@ -501,7 +501,7 @@ class FetchService implements Service {
 
   async getHelpRequestsForUserId(uuid: string): Promise<HelpRequest[]> {
     try {
-      let res = await axios.get("/users/" + uuid + "/requests" + "?radius=500");
+      let res = await axios.get("/users/" + uuid + "/requests");
       return res.data.map((req) => {
         return {
           id: req.id,
