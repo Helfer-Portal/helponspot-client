@@ -5,6 +5,10 @@ import {
   Skill,
   OrganizationInfo,
   UserInfo,
+  PostOrganisation,
+  PostAddress,
+  UUID,
+  PostRequest,
 } from "./model/helprequest";
 import Chance from "chance";
 
@@ -45,7 +49,9 @@ export interface Repository {
    *
    * @param request the HelpRequest to be created
    */
-  createHelpRequest(request: HelpRequest): Promise<HelpRequest>;
+  postRequest(orgId: UUID, reqData: PostRequest): Promise<HelpRequest>;
+
+  postOrganisation(ordData: PostOrganisation): Promise<OrganizationInfo>;
 
   /**
    * find helpers
@@ -110,8 +116,12 @@ export class RepositoryImpl implements Repository {
     return this.service.createHelper(helper);
   }
 
-  createHelpRequest(request: HelpRequest): Promise<HelpRequest> {
-    return this.service.createHelpRequest(request);
+  postRequest(orgId: UUID, reqData: PostRequest): Promise<HelpRequest> {
+    return this.service.postRequest(orgId, reqData);
+  }
+
+  postOrganisation(orgData: PostOrganisation): Promise<OrganizationInfo> {
+    return this.service.postOrganisation(orgData);
   }
 
   findHelpers(matching: HelperSearchDefinition): Promise<HelpRequestHelpers> {
@@ -161,7 +171,9 @@ export interface Service {
    * Create a help request
    * @param request
    */
-  createHelpRequest(request: HelpRequest): Promise<HelpRequest>;
+  postRequest(orgId: UUID, reqData: PostRequest): Promise<HelpRequest>;
+
+  postOrganisation(orgData: PostOrganisation): Promise<OrganizationInfo>;
 
   /**
    * find helpers for request
@@ -218,8 +230,7 @@ class FetchService implements Service {
 
   private chance = new Chance.Chance();
   static config = {
-    invokeUrl:
-      "https://cors-anywhere.herokuapp.com/https://js7pyl1b87.execute-api.eu-central-1.amazonaws.com/dev",
+    invokeUrl: "https://js7pyl1b87.execute-api.eu-central-1.amazonaws.com/dev",
   };
   static apigClientFactory = require("aws-api-gateway-client").default;
   private apigClient;
@@ -232,11 +243,7 @@ class FetchService implements Service {
 
   async getUserInfo(userId: string): Promise<UserInfo> {
     try {
-      let res = await this.apigClient.invokeApi(
-        { userId: userId },
-        "/users/{userId}",
-        "get"
-      );
+      let res = await axios.get("/users/" + userId);
       if (res.data) {
         return res.data;
       } else {
@@ -250,16 +257,15 @@ class FetchService implements Service {
   async getUserInfoByEmail(email: string): Promise<UserInfo> {
     try {
       console.log("sending with email: ", email);
-      let res = await axios.get(
-        FetchService.config.invokeUrl + "/users/" + email
-      );
+      let res = await axios.get("/users/" + email);
+      console.log("debug: ", res);
       if (res.data) {
         return res.data;
       } else {
         throw new Error("Failed to get user by email");
       }
     } catch (err) {
-      console.log(err);
+      console.log(err.response);
     }
   }
 
@@ -281,15 +287,9 @@ class FetchService implements Service {
         avatar: userInfo.avatar,
       };
       console.log("payload: ", payload);
-      let res = await this.apigClient.invokeApi(
-        { userId: userInfo.id },
-        "/users/{userId}",
-        "patch",
-        {},
-        payload
-      );
+      let res = await axios.patch("/users/" + userInfo.id, payload);
       if (res.data && res.status === 200) {
-        return res;
+        return res.data;
       } else {
         throw new Error("failed to fetch user Information: " + res.status);
       }
@@ -328,34 +328,37 @@ class FetchService implements Service {
     };
   }
 
-  createHelpRequest(request: HelpRequest): Promise<HelpRequest> {
-    return this.post(Endpoint.HelpRequest, request);
+  async postRequest(orgId: UUID, reqData: PostRequest): Promise<HelpRequest> {
+    try {
+      let res = await axios.post(
+        "/organisations/" + orgId + "/requests",
+        reqData
+      );
+      return res.data;
+    } catch (err) {}
   }
-  async getOrganziationInfo(orgId: string): Promise<OrganizationInfo> {
-    let res = await this.apigClient.invokeApi({}, "/organisations", "get");
-    console.log(res);
-    let [mockOrg] = res.data;
 
-    // we use the first organisation until we have authentification
-    res = await this.apigClient.invokeApi(
-      { organisationId: mockOrg.id },
-      "/organisations/{organisationId}",
-      "get"
-    );
-
-    if (res.status === 200) {
-      let [orgData] = res.data;
-      return Promise.resolve({
-        id: orgData.id,
-        name: orgData.name,
-        description:
-          orgData.teaser ||
-          "Good organisation, only high motivated helpers here. And some more text could be here.",
-        address: orgData.street || "no address given",
-        email: orgData.responsibles[0].email,
-        phone: String(this.chance.integer({ min: 10000000, max: 100000000 })),
-      });
+  async postOrganisation(orgData: PostOrganisation): Promise<OrganizationInfo> {
+    let res = await axios.post("/organisations", orgData);
+    if (res) {
+      return res.data;
     }
+  }
+
+  async getOrganziationInfo(orgId: string): Promise<OrganizationInfo> {
+    let res = await axios.get("/organisations/" + orgId);
+
+    let orgData = res.data;
+    return Promise.resolve({
+      id: orgData.id,
+      name: orgData.name,
+      description:
+        orgData.teaser ||
+        "Good organisation, only high motivated helpers here. And some more text could be here.",
+      address: orgData.address.city || "no address given",
+      email: orgData.responsibles[0].email,
+      phone: String(this.chance.integer({ min: 10000000, max: 100000000 })),
+    });
   }
 
   findHelpers(matching: HelperSearchDefinition): Promise<HelpRequestHelpers> {
@@ -474,9 +477,7 @@ class FetchService implements Service {
 
   async getHelpRequestById(uuid: string): Promise<HelpRequest> {
     try {
-      let res = await axios.get(
-        FetchService.config.invokeUrl + "/requests/" + uuid
-      );
+      let res = await axios.get("/requests/" + uuid);
       console.log(res);
       let req = res.data;
       return {
@@ -500,9 +501,7 @@ class FetchService implements Service {
 
   async getHelpRequestsForUserId(uuid: string): Promise<HelpRequest[]> {
     try {
-      let res = await axios.get(
-        FetchService.config.invokeUrl + "/users/" + uuid + "/requests"
-      );
+      let res = await axios.get("/users/" + uuid + "/requests");
       return res.data.map((req) => {
         return {
           id: req.id,
@@ -521,21 +520,16 @@ class FetchService implements Service {
   }
 
   async getQualifications(): Promise<Skill[]> {
-    try {
-      let res = await this.apigClient.invokeApi({}, "/qualifications", "get");
-      if (res.status == 200) {
-        let qualifications: Skill[] = res.data.map((el) => ({
-          id: el.id,
-          name: el.name,
-          key: el.key,
-        }));
-        console.log(qualifications);
-        return qualifications;
-      }
-      throw new Error();
-    } catch (err) {
-      return err;
-    }
+    let res = await axios.get("/qualifications");
+    console.log(res);
+
+    let qualifications: Skill[] = res.data.map((el) => ({
+      id: el.id,
+      name: el.name,
+      key: el.key,
+    }));
+    console.log(qualifications);
+    return qualifications;
   }
 
   private get<T>(endpoint: Endpoint, mockValue: T): Promise<T> {

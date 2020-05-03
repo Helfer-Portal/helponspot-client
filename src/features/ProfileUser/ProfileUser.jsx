@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import "../../styles/organisation.css";
 import { Redirect } from "react-router-dom";
@@ -8,6 +8,9 @@ import { ContactInput } from "../ProfileOrg";
 import BackButton from "../../components/BackButton";
 import ButtonSecondaryBlue from "../../components/UiKit/ButtonSecondaryBlue";
 import ButtonPrimaryOrange from "../../components/UiKit/ButtonPrimaryOrange";
+import RepositoryImpl from "../../repository/repository";
+
+let repository = new RepositoryImpl();
 
 const options_list = [
   "super",

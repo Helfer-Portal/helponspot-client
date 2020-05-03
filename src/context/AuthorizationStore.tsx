@@ -11,6 +11,7 @@ export enum UserRole {
 
 export interface Authorization {
   useruuid: string;
+  orgUUIDs?: UUID[];
   role: UserRole;
   accessToken: string;
 }
@@ -35,7 +36,13 @@ export default function AuthorizationContextProvider(props: {
       let user = await Auth.currentAuthenticatedUser();
       //   let userData = await repository.getUserInfoByEmail(user.attributes.email);
 
-      // setData({ ...data, useruuid:"9d8af7fc-a430-43c3-aa75-32c5c73f90ca" });
+      /* moved to AuthorizationWrapper, so values are loaded after login
+      setData({
+        ...data,
+        useruuid: userData.id,
+        orgUUIDs: userData.organisations.map((el) => el.id),
+
+       */
     })();
   }, []);
 

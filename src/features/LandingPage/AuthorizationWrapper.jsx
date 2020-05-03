@@ -21,13 +21,17 @@ export default function AuthorizationWrapper(props) {
   let [authData, setAuthData] = React.useContext(AuthorizationContext);
   const [user, setUser] = useState(null);
   let history = useHistory();
+
   let orgInfo = null;
   const redirectAndSetUser = async () => {
     let user = await Auth.currentAuthenticatedUser();
+    //display buttons based on user presence
     setUser(user);
     console.log("user", user);
+    //user that just signed up
     let hasMail = user.email === null;
     hasMail = false;
+    let isOrg = false;
     if (hasMail) {
       //let userData = await repository.getUserInfoByEmail(user.attributes.email);
       let userData = await repository.getUserInfoByEmail(
@@ -36,19 +40,17 @@ export default function AuthorizationWrapper(props) {
       let userId = userData.id;
       setAuthData({
         ...authData,
-        useruuid: "9d8af7fc-a430-43c3-aa75-32c5c73f90ca",
+        useruuid: userData.id,
+        orgUUIDs: userData.organisations.map((el) => el.id),
       });
-      let orgInfo = await repository.returnUsersOrganisations(
-        "9d8af7fc-a430-43c3-aa75-32c5c73f90ca"
-      );
-      if (orgInfo && orgInfo.length > 0) {
+      isOrg = userData.organisations && userData.organisations.length > 0;
+      if (isOrg) {
         setAuthData({ ...authData, role: UserRole.organisation });
       } else {
         setAuthData({ ...authData, role: UserRole.helper });
       }
-      console.log("userData", userData);
     }
-    redirectUser(orgInfo && orgInfo.length > 0, hasMail);
+    redirectUser(isOrg, hasMail);
   };
 
   function redirectUser(isOrg, hasMail) {

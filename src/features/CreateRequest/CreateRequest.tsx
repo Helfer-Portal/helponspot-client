@@ -12,16 +12,32 @@ import Counter from "./Counter";
 
 import HelperMap from "../HelperMap/HelperMap";
 import BackButton from "../../components/BackButton";
-import { ButtonPrimaryBlue } from "../../components/UiKit";
+import { ButtonPrimaryBlue, InputWithLabel } from "../../components/UiKit";
 import ButtonPrimaryOrange from "../../components/UiKit/ButtonPrimaryOrange";
+import { useForm } from "react-hook-form";
+import {
+  PostAddress,
+  PostRequest,
+  UUID,
+} from "../../repository/model/helprequest";
+import { AuthorizationContext } from "../../context/AuthorizationStore";
+import RepositoryImpl from "../../repository/repository";
+
+type Inputs = PostRequest & PostAddress;
 
 export default function CreateRequest() {
   let [redirect, setRedirect] = React.useState<boolean>(false);
+
+  const { handleSubmit, register, reset, errors } = useForm<Inputs>();
 
   let [data, setData] = React.useContext<RequestForm | any>(RequestFormContext);
 
   // Modal
   let [modal, setModal] = React.useState<boolean>(false);
+
+  let [orgUUID, setOrgUUID] = React.useState<UUID>("");
+
+  const [authInfo] = React.useContext(AuthorizationContext);
 
   // scroll ref on map click
   const myContainerRef = React.useRef<HTMLDivElement | null>(null);
@@ -35,41 +51,29 @@ export default function CreateRequest() {
     }
   };
 
-  const updateTitle = (e: React.FormEvent<HTMLInputElement>): void => {
-    setData({ ...data, title: e.currentTarget.value });
-  };
+  React.useEffect(() => {
+    if (authInfo.orgUUIDs) {
+      setOrgUUID(authInfo.orgUUIDs[0]);
+    }
+  }, [authInfo.orgUUIDs]);
 
-  const updateStreet = (e: React.FormEvent<HTMLInputElement>): void => {
-    setData({ ...data, street: e.currentTarget.value });
-  };
-
-  const updateTown = (e: React.FormEvent<HTMLInputElement>): void => {
-    setData({ ...data, town: e.currentTarget.value });
-  };
-
-  const updateDate = (e: React.FormEvent<HTMLInputElement>): void => {
-    let diff = datediff(Date.now(), new Date(e.currentTarget.value));
-    setData({ ...data, date: e.currentTarget.value, dateDiff: diff });
-  };
-
-  /** thank you Stackoverflow https://stackoverflow.com/questions/542938/how-do-i-get-the-number-of-days-between-two-dates-in-javascript */
-  function datediff(first: any, second: any): number {
-    // Take the difference between the dates and divide by milliseconds per day.
-    // Round to nearest whole number to deal with DST.
-    return Math.round((second - first) / (1000 * 60 * 60 * 24));
-  }
-
-  const updateCount = (count: number) => {
-    setData({ ...data, helperNum: count });
-  };
-
-  const updateDescription = (e: React.FormEvent<HTMLInputElement>): void => {
-    setData({ ...data, description: e.currentTarget.value });
-  };
-
-  const addData = (e: React.SyntheticEvent): void => {
-    e.preventDefault();
-    setRedirect(true);
+  const postRequestData = async (reqData: Inputs) => {
+    let { title, description, startDate, endDate, ...address } = reqData;
+    let payload: PostRequest = {
+      title,
+      description,
+      startDate,
+      endDate,
+      address: address,
+      isActive: true,
+      qualificationKeys: data.selected_competences?.map((el) => el.key),
+    };
+    console.log(payload);
+    let repository = new RepositoryImpl();
+    if (orgUUID) {
+      let res = await repository.postRequest(orgUUID, payload);
+      console.log(res);
+    }
   };
 
   return (
@@ -82,89 +86,156 @@ export default function CreateRequest() {
         <BackButton />
       </div>
       <QuestionWithLabel question="Anzeige erstellen" label="Schritt 3 von 3" />
-
-      {/* Title */}
-      <div>
-        <div className="mb-1 text-figmaDescription font-inter">Titel</div>
-        <input
-          type="text"
-          name="name"
-          className="p-2"
-          value={data?.title ? data.title : ""}
-          onChange={updateTitle}
-          placeholder={data?.title ? data.title : "z.B. Brauchen Anpacker"}
-        />
-      </div>
-
-      {/* address */}
-      <div className="mt-4">
-        <div className="mb-1 text-figmaDescription font-inter">Adresse</div>
-        <input
-          type="text"
-          placeholder="Straße, Nr"
-          className="my-1 p-2"
-          value={data?.street}
-          onChange={updateStreet}
-        ></input>
-        <input
-          value={data?.town}
-          onChange={updateTown}
-          type="text"
-          placeholder="Ort"
-          className="my-2 p-2"
-        ></input>
-      </div>
-
-      {/* Competences */}
-      <div className="my-2 flex flex-col align-start">
-        <div className="mb-3 text-figmaDescription font-inter">
-          Gesuchte Kompetenzen
-        </div>
+      <form
+        style={{ flex: 1 }}
+        className="w-full"
+        onSubmit={handleSubmit(postRequestData)}
+      >
+        {/* Title */}
         <div>
-          <Competences defaultColorButtons={"#fff"} />
+          <div className="mb-1 text-figmaDescription font-inter">Titel</div>
+          <InputWithLabel
+            placeholder={"Titel"}
+            name="title"
+            ref={register({
+              required: "Required",
+              pattern: {
+                value: /^[A-Za-z\s]+$/i,
+                message: "invalid street",
+              },
+            })}
+          />
         </div>
-      </div>
 
-      {/* Helper Number */}
+        {/* address */}
+        <div className="mt-4">
+          <div className="mb-1 text-figmaDescription font-inter">Adresse</div>
+          <div>
+            <InputWithLabel
+              placeholder={"Straße"}
+              name="street"
+              ref={register({
+                required: "Required",
+                pattern: {
+                  value: /^[A-Za-z\s]+$/i,
+                  message: "invalid street",
+                },
+              })}
+            />
+            <InputWithLabel
+              placeholder={"Hausnummer"}
+              name="houseNumber"
+              ref={register({
+                required: "Required",
+                pattern: {
+                  value: /^[0-9]+$/i,
+                  message: "invalid Housenumber",
+                },
+              })}
+            />
+            <InputWithLabel
+              placeholder={"Plz"}
+              name="postalCode"
+              ref={register({
+                required: "Required",
+                pattern: {
+                  value: /^[0-9]+$/i,
+                  message: "invalid Postal number",
+                },
+              })}
+            />
+            <InputWithLabel
+              placeholder={"Stadt"}
+              name="city"
+              ref={register({
+                required: "Required",
+                pattern: {
+                  value: /^[a-zA-z]+$/i,
+                  message: "invalid Stadt",
+                },
+              })}
+            />
+            <InputWithLabel
+              placeholder={"Land"}
+              name="country"
+              ref={register({
+                required: "Required",
+                pattern: {
+                  value: /^[a-zA-z]+$/i,
+                  message: "invalid Land",
+                },
+              })}
+            />
+          </div>
+        </div>
+
+        {/* Competences */}
+        <div className="my-2 flex flex-col align-start">
+          <div className="mb-3 text-figmaDescription font-inter">
+            Gesuchte Kompetenzen
+          </div>
+          <div>
+            <Competences defaultColorButtons={"#fff"} />
+          </div>
+        </div>
+
+        {/* Helper Number
       <div className="flex flex-col py-2">
         <div className="mb-1 text-figmaDescription font-inter">Helferzahl</div>
         <div className="w-full p-2 flex container-helper-numbers">
           <Counter countState={[data?.helperNum, updateCount]} />
         </div>
-      </div>
+      </div> */}
 
-      {/* map */}
+        {/* map
       <MapOverlay modal={modal} showMap={showMap}></MapOverlay>
       <ButtonPrimaryBlue onClick={showMap}>
         Mögliche Helfer anzeigen lassen
-      </ButtonPrimaryBlue>
+      </ButtonPrimaryBlue> */}
 
-      {/* date */}
-      <DatePicker dateState={[data?.date, updateDate]}></DatePicker>
+        {/* date */}
+        {/* <DatePicker dateState={[data?.date, updateDate]}></DatePicker> */}
+        <input
+          type="date"
+          placeholder="startDate"
+          name="startDate"
+          ref={register}
+        />
+        <input
+          type="date"
+          placeholder="endDate"
+          name="endDate"
+          ref={register}
+        />
 
-      {/* last textfield */}
-      <div className="py-2 w-full flex flex-col">
-        <div className="mb-1 text-figmaDescription font-inter">
-          Beschreibung
+        {/* last textfield */}
+        <div className="py-2 w-full flex flex-col">
+          <div className="mb-1 text-figmaDescription font-inter">
+            Beschreibung
+          </div>
+
+          <div className="w-full">
+            <InputWithLabel
+              placeholder={"Beschreibung"}
+              name="description"
+              ref={register({
+                required: "Required",
+                pattern: {
+                  value: /^[a-zA-z\s]+$/i,
+                  message: "invalid Beschreibung",
+                },
+              })}
+            />
+          </div>
+        </div>
+        <div className="my-2">
+          <ButtonPrimaryOrange type="submit">Bestätigen</ButtonPrimaryOrange>
         </div>
 
-        <div className="w-full">
-          <input
-            style={{ width: "100%" }}
-            className="lastQuestion flex"
-            type="text"
-            placeholder="Wir suchen Menschen, die..."
-            value={data?.description}
-            onChange={updateDescription}
-          />
-        </div>
-      </div>
+        <ButtonPrimaryOrange>Anzeige erstellen</ButtonPrimaryOrange>
 
-      <ButtonPrimaryOrange onClick={addData}>
-        Anzeige erstellen
-      </ButtonPrimaryOrange>
-
-      {redirect ? <Redirect to="/app/organisation/dashboard"></Redirect> : ""}
+        {redirect ? <Redirect to="/app/organisation/dashboard"></Redirect> : ""}
+      </form>
     </div>
   );
 }
@@ -181,61 +252,61 @@ const DatePicker = (props: { dateState: any }) => {
   );
 };
 
-const MapOverlay = (props: { modal: boolean; showMap: any }) => (
-  <div
-    style={{
-      position: "absolute",
-      zIndex: 2,
-      // overflow: "hidden",
-      height: "100%",
-      // minHeight: 1000,
-      width: "100%",
-      top: 0,
-      left: 0,
-      visibility: props.modal ? "initial" : "hidden",
-    }}
-  >
-    {/* Info about the Map */}
-    <div
-      style={{
-        position: "absolute",
-        zIndex: 1,
-        right: "5%",
-        width: "60%",
-      }}
-      className="bg-white my-4 p-1 rounded"
-    >
-      <h4 className="font-bold font-dm-sans text-md">Was kann ich machen?</h4>
-      <p className="font-inter text-sm">
-        Durch klicken, können einzelne Helfer vorgemerkt werden.
-      </p>
-    </div>
-    {/* Buttons bottom */}
-    <div
-      style={{
-        position: "absolute",
-        zIndex: 1,
-        top: "auto",
-        left: "auto",
-        bottom: "10%",
-        width: "100%",
-      }}
-      className="px-4"
-    >
-      <button
-        className="bg-white rounded-full w-full px-4 py-2 border-black border-2"
-        onClick={props.showMap}
-      >
-        Helfer Einstellungen modifizieren
-      </button>
-      {/* Use smaller buttons here, to not take away space on the map */}
-      <button
-        className="orange_button_noheight py-2"
-        onClick={() => alert("was machen wir hier?")}
-      >
-        Alle Helfer einberufen
-      </button>
-    </div>
-    <HelperMap />
-  </div>
-);
+// const MapOverlay = (props: { modal: boolean; showMap: any }) => (
+//   <div
+//     style={{
+//       position: "absolute",
+//       zIndex: 2,
+//       // overflow: "hidden",
+//       height: "100%",
+//       // minHeight: 1000,
+//       width: "100%",
+//       top: 0,
+//       left: 0,
+//       visibility: props.modal ? "initial" : "hidden",
+//     }}
+//   >
+//     {/* Info about the Map */}
+//     <div
+//       style={{
+//         position: "absolute",
+//         zIndex: 1,
+//         right: "5%",
+//         width: "60%",
+//       }}
+//       className="bg-white my-4 p-1 rounded"
+//     >
+//       <h4 className="font-bold font-dm-sans text-md">Was kann ich machen?</h4>
+//       <p className="font-inter text-sm">
+//         Durch klicken, können einzelne Helfer vorgemerkt werden.
+//       </p>
+//     </div>
+//     {/* Buttons bottom */}
+//     <div
+//       style={{
+//         position: "absolute",
+//         zIndex: 1,
+//         top: "auto",
+//         left: "auto",
+//         bottom: "10%",
+//         width: "100%",
+//       }}
+//       className="px-4"
+//     >
+//       <button
+//         className="bg-white rounded-full w-full px-4 py-2 border-black border-2"
+//         onClick={props.showMap}
+//       >
+//         Helfer Einstellungen modifizieren
+//       </button>
+//       {/* Use smaller buttons here, to not take away space on the map */}
+//       <button
+//         className="orange_button_noheight py-2"
+//         onClick={() => alert("was machen wir hier?")}
+//       >
+//         Alle Helfer einberufen
+//       </button>
+//     </div>
+//     <HelperMap />
+//   </div>
+// );
