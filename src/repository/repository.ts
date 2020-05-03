@@ -338,30 +338,22 @@ class FetchService implements Service {
   }
 
   async getOrganziationInfo(orgId: string): Promise<OrganizationInfo> {
-    let res = await this.apigClient.invokeApi({}, "/organisations", "get");
+    let res = await axios.get("/users/9d8af7fc-a430-43c3-aa75-32c5c73f90ca");
     console.log(res);
-    let [mockOrg] = res.data;
 
-    // we use the first organisation until we have authentification
-    res = await this.apigClient.invokeApi(
-      { organisationId: mockOrg.id },
-      "/organisations/{organisationId}",
-      "get"
-    );
+    res = await axios.get("/organisations/" + res.data.organisations[0].id);
 
-    if (res.status === 200) {
-      let [orgData] = res.data;
-      return Promise.resolve({
-        id: orgData.id,
-        name: orgData.name,
-        description:
-          orgData.teaser ||
-          "Good organisation, only high motivated helpers here. And some more text could be here.",
-        address: orgData.street || "no address given",
-        email: orgData.responsibles[0].email,
-        phone: String(this.chance.integer({ min: 10000000, max: 100000000 })),
-      });
-    }
+    let orgData = res.data;
+    return Promise.resolve({
+      id: orgData.id,
+      name: orgData.name,
+      description:
+        orgData.teaser ||
+        "Good organisation, only high motivated helpers here. And some more text could be here.",
+      address: orgData.address.city || "no address given",
+      email: orgData.responsibles[0].email,
+      phone: String(this.chance.integer({ min: 10000000, max: 100000000 })),
+    });
   }
 
   findHelpers(matching: HelperSearchDefinition): Promise<HelpRequestHelpers> {
