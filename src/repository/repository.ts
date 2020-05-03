@@ -5,6 +5,8 @@ import {
   Skill,
   OrganizationInfo,
   UserInfo,
+  PostOrganisation,
+  PostAddress,
 } from "./model/helprequest";
 import Chance from "chance";
 
@@ -46,6 +48,8 @@ export interface Repository {
    * @param request the HelpRequest to be created
    */
   createHelpRequest(request: HelpRequest): Promise<HelpRequest>;
+
+  postOrganisation(ordData: PostOrganisation): Promise<OrganizationInfo>;
 
   /**
    * find helpers
@@ -114,6 +118,10 @@ export class RepositoryImpl implements Repository {
     return this.service.createHelpRequest(request);
   }
 
+  postOrganisation(orgData: PostOrganisation): Promise<OrganizationInfo> {
+    return this.service.postOrganisation(orgData);
+  }
+
   findHelpers(matching: HelperSearchDefinition): Promise<HelpRequestHelpers> {
     // TODO: we could add some fancy caching strategies here and only fetch using `service` if data doesn't exist or expired
     return this.service.findHelpers(matching);
@@ -162,6 +170,8 @@ export interface Service {
    * @param request
    */
   createHelpRequest(request: HelpRequest): Promise<HelpRequest>;
+
+  postOrganisation(orgData: PostOrganisation): Promise<OrganizationInfo>;
 
   /**
    * find helpers for request
@@ -319,6 +329,14 @@ class FetchService implements Service {
   createHelpRequest(request: HelpRequest): Promise<HelpRequest> {
     return this.post(Endpoint.HelpRequest, request);
   }
+
+  async postOrganisation(orgData: PostOrganisation): Promise<OrganizationInfo> {
+    let res = await axios.post("/organisations", orgData);
+    if (res) {
+      return res.data;
+    }
+  }
+
   async getOrganziationInfo(orgId: string): Promise<OrganizationInfo> {
     let res = await this.apigClient.invokeApi({}, "/organisations", "get");
     console.log(res);
