@@ -66,7 +66,7 @@ export default function CreateRequest() {
       endDate,
       address: address,
       isActive: true,
-      qualifications: data.selected_competences?.map((el) => el.key),
+      qualificationKeys: data.selected_competences?.map((el) => el.key),
     };
     console.log(payload);
     let repository = new RepositoryImpl();
