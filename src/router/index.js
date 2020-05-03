@@ -48,6 +48,7 @@ import CurrentRequestsView from "../features/CurrentRequests";
 import RequestMapForHelper from "../features/HelperMap/RequestsMapForHelper";
 import UpdateAddressHelper from "../features/OnBoarding/Helper/UpdateAddressHelper";
 import OrgBoardingPostStoreContextProvider from "../context/OrgBoardingPostStore";
+import AuthorizationWrapper from "../features/LandingPage/AuthorizationWrapper";
 
 export default function RootRouter() {
   /*const showSettings = event => {

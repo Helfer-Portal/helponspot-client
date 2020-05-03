@@ -1,7 +1,7 @@
 import React, { Dispatch } from "react";
 import { Auth } from "aws-amplify";
 import RepositoryImpl from "../repository/repository";
-
+import { UUID } from "../repository/model/helprequest";
 let repository = new RepositoryImpl();
 
 export enum UserRole {
@@ -14,6 +14,7 @@ export interface Authorization {
   orgUUIDs?: UUID[];
   role: UserRole;
   accessToken: string;
+  email?: string;
 }
 
 export const AuthorizationContext = React.createContext<

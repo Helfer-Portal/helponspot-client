@@ -275,16 +275,30 @@ class FetchService implements Service {
         firstName: userInfo.firstName,
         lastName: userInfo.lastName,
         email: userInfo.email,
-        isGPSLocationAllowed: userInfo.isGPSLocationAllowed,
-        address: {
-          street: userInfo.address.street,
-          houseNumber: userInfo.address.houseNumber,
-          city: userInfo.address.city,
-          postalCode: userInfo.address.postalCode,
-          country: userInfo.address.country,
-        },
-        qualifications: userInfo.qualifications.map((el) => el.key),
-        avatar: userInfo.avatar,
+
+        ...(userInfo.qualifications && {
+          isGPSLocationAllowed: userInfo.isGPSLocationAllowed,
+        }),
+        ...(userInfo.address && {
+          address: {
+            ...(userInfo.address.street && { street: userInfo.address.street }),
+            ...(userInfo.address.houseNumber && {
+              houseNumber: userInfo.address.houseNumber,
+            }),
+            ...(userInfo.address.city && { city: userInfo.address.city }),
+            ...(userInfo.address.postalCode && {
+              postalCode: userInfo.address.postalCode,
+            }),
+            ...(userInfo.address.country && {
+              country: userInfo.address.country,
+            }),
+            ...(userInfo.address.point && { point: userInfo.address.point }),
+          },
+        }),
+        ...(userInfo.qualifications && {
+          qualifications: userInfo.qualifications.map((el) => el.key),
+        }),
+        ...(userInfo.avatar && { avatar: userInfo.avatar }),
       };
       console.log("payload: ", payload);
       let res = await axios.patch("/users/" + userInfo.id, payload);

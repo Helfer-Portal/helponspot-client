@@ -21,13 +21,14 @@ export default function AuthorizationWrapper(props) {
   let [authData, setAuthData] = React.useContext(AuthorizationContext);
   const [user, setUser] = useState(null);
   let history = useHistory();
-
   let orgInfo = null;
   const redirectAndSetUser = async () => {
     let user = await Auth.currentAuthenticatedUser();
+
     //display buttons based on user presence
     setUser(user);
     console.log("user", user);
+    console.log("email", user.email);
     //user that just signed up
     let hasMail = user.email === null;
     hasMail = false;
@@ -41,6 +42,7 @@ export default function AuthorizationWrapper(props) {
       setAuthData({
         ...authData,
         useruuid: userData.id,
+        email: user.email,
         orgUUIDs: userData.organisations.map((el) => el.id),
       });
       isOrg = userData.organisations && userData.organisations.length > 0;
@@ -69,7 +71,6 @@ export default function AuthorizationWrapper(props) {
   //authenticate default user for demonstration
   useEffect(
     // this is only executed once when the App renders
-
     () => {
       Hub.listen("auth", ({ payload: { event, data } }) => {
         console.log("Hub listen: ", event, data);

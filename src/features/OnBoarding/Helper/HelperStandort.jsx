@@ -10,6 +10,7 @@ import { Redirect } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import { convertToNewHelperPostRequest } from "../../../context/LocationContext";
 import RepositoryImpl from "../../../repository/repository";
+import { AuthorizationContext } from "../../../context/AuthorizationStore";
 
 let repository = new RepositoryImpl();
 
@@ -18,7 +19,7 @@ export default function HelperStandort() {
   //this indicator is changed when the user clicks on the button, and triggers an update of the location on the next rerender
   let [locPermissionThroughButton, setLocPermission] = useState(false);
   let history = useHistory();
-
+  let [authData, setAuthData] = React.useContext(AuthorizationContext);
   let [requestData, setRequestData] = React.useContext(CreateHelperContext);
 
   const callback = async (location) => {
@@ -27,6 +28,13 @@ export default function HelperStandort() {
       location: { ...location, automatic: true },
     });
     console.log("callback called");
+    let userInfo = {
+      firstName: requestData.firstName,
+      lastName: requestData.lastName,
+      qualifications: requestData.qualifications,
+      email: authData.email,
+    };
+    await repository.patchUserInfo(userInfo);
     history.push("/app/helper/createHelper/name");
   };
 
