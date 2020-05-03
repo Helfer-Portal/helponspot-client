@@ -21,15 +21,14 @@ export default function AuthorizationWrapper(props) {
   let [authData, setAuthData] = React.useContext(AuthorizationContext);
   const [user, setUser] = useState(null);
   let history = useHistory();
-  let [redirect, setRedirect] = useState(true);
-  let [redirectUrl, setRedirectUrl] = useState("/home");
   let orgInfo = null;
-  const fetchDemoUser = async () => {
+  const redirectAndSetUser = async () => {
     let shouldOrganisationProfileBeLoaded;
     let user = await Auth.currentAuthenticatedUser();
+    setUser(user);
     console.log("user", user);
     let hasMail = user.email === null;
-    hasMail = true;
+    hasMail = false;
     if (hasMail) {
       //let userData = await repository.getUserInfoByEmail(user.attributes.email);
       let userData = await repository.getUserInfoByEmail(
@@ -50,20 +49,7 @@ export default function AuthorizationWrapper(props) {
       }
       console.log("userData", userData);
     }
-
     redirectUser(orgInfo && orgInfo.length > 0, hasMail);
-    //setData({ ...data, useruuid:"9d8af7fc-a430-43c3-aa75-32c5c73f90ca" });
-
-    /* console.log(
-           "user",
-           await repository.getUserInfo("9d8af7fc-a430-43c3-aa75-32c5c73f90ca")
-         );
-         let orgInfo = await repository.returnUsersOrganisations(
-           "9d8af7fc-a430-43c3-aa75-32c5c73f90ca"
-         );
-         console.log("org", orgInfo);
-
-         */
   };
 
   function redirectUser(isOrg, hasMail) {
@@ -91,25 +77,13 @@ export default function AuthorizationWrapper(props) {
             console.log("data", data);
 
             console.log("signed in");
-            fetchDemoUser();
-            //  redirectUser(isOrg, hasMail);
-            Auth.currentAuthenticatedUser()
-              .then((user) => {
-                console.log("setting user");
-                console.log(user);
-                setUser(user);
-              })
-              .catch(() => console.log("Not signed in"));
-            //   let userData = await repository.getUserInfoByEmail(user.attributes.email);
-
+            redirectAndSetUser();
             break;
           case "signOut":
-            setUser(null);
+            setAuthData(null);
             break;
         }
       });
-
-      //  Auth.signIn("dummyuser1", "Password13!");
 
       return () => {
         Hub.remove("signIn");
@@ -127,9 +101,11 @@ export default function AuthorizationWrapper(props) {
     <div>
       {user?.username}
       <div className="flex flex-row">
-        <div onClick={() => Auth.federatedSignIn()}>
-          <ButtonOrange>login</ButtonOrange>
-        </div>
+        {!user && (
+          <div onClick={() => Auth.federatedSignIn()}>
+            <ButtonOrange>login</ButtonOrange>
+          </div>
+        )}
         {user && (
           <div onClick={() => Auth.signOut()}>
             <ButtonOrange>logout</ButtonOrange>
