@@ -44,6 +44,24 @@ export interface HelpRequestHelpers {
   count: number;
   skills: AvailableSkill[];
 }
+
+export interface PostAddress {
+  street: string;
+  houseNumber: string;
+  postalCode: string;
+  city: string;
+  country: string;
+}
+
+type UUID = string;
+
+export interface PostOrganisation {
+  address: PostAddress;
+  name: string;
+  responsibles: [UUID];
+  logoPath: string;
+}
+
 export interface OrganizationInfo {
   id: string;
   name: string;
