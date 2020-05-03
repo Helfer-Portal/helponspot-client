@@ -49,6 +49,7 @@
     "build-storybook": "build-storybook -s public",
     "build:tailwind": "postcss src/scss/base.scss -o src/scss/tailwind.scss"
   },
+  "proxy": "https://js7pyl1b87.execute-api.eu-central-1.amazonaws.com/dev",
   "eslintConfig": {
     "extends": "react-app"
   },
