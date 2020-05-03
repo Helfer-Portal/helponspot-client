@@ -23,7 +23,6 @@ export default function AuthorizationWrapper(props) {
   let history = useHistory();
   let orgInfo = null;
   const redirectAndSetUser = async () => {
-    let shouldOrganisationProfileBeLoaded;
     let user = await Auth.currentAuthenticatedUser();
     setUser(user);
     console.log("user", user);
