@@ -9,6 +9,7 @@ import {
   ButtonSecondaryBlue,
   InputWithIcon,
 } from "../../components/UiKit";
+import { AuthorizationContext } from "../../context/AuthorizationStore";
 
 /** Profile view of organisation story */
 const OrgProfileView = () => {
@@ -16,13 +17,14 @@ const OrgProfileView = () => {
 
   let [orgInfo, setOrgInfo] = React.useState<OrganizationInfo | null>();
   const [isError, setIsError] = React.useState<boolean>(false);
+  const [authInfo] = React.useContext(AuthorizationContext);
 
-  React.useLayoutEffect(() => {
+  React.useEffect(() => {
     async function loadOrgInfo() {
       setIsError(false);
       try {
         let orgInfo: OrganizationInfo = await repository.getOrganizationInfo(
-          "42"
+          authInfo.orgUUIDs[0]
         );
         if (orgInfo) {
           setOrgInfo(orgInfo);
@@ -35,7 +37,7 @@ const OrgProfileView = () => {
       }
     }
     loadOrgInfo();
-  }, []);
+  }, [authInfo.orgUUIDs]);
 
   const ProfileViewContent = (
     <div className="flex flex-col h-full items-center justify-center p-4 bg-bluePrimary">

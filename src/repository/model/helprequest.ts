@@ -53,7 +53,7 @@ export interface PostAddress {
   country: string;
 }
 
-type UUID = string;
+export type UUID = string;
 
 export interface PostOrganisation {
   address: PostAddress;

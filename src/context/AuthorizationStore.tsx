@@ -1,6 +1,7 @@
 import React, { Dispatch } from "react";
 import { Auth } from "aws-amplify";
 import RepositoryImpl from "../repository/repository";
+import { UUID } from "../repository/model/helprequest";
 
 let repository = new RepositoryImpl();
 
@@ -11,6 +12,7 @@ export enum UserRole {
 
 export interface Authorization {
   useruuid: string;
+  orgUUIDs?: UUID[];
   role: UserRole;
   accessToken: string;
 }
@@ -34,7 +36,11 @@ export default function AuthorizationContextProvider(props: {
     (async () => {
       let user = await Auth.currentAuthenticatedUser();
       let userData = await repository.getUserInfoByEmail(user.attributes.email);
-      setData({ ...data, useruuid: userData.id });
+      setData({
+        ...data,
+        useruuid: userData.id,
+        orgUUIDs: userData.organisations.map((el) => el.id),
+      });
     })();
   }, []);
 

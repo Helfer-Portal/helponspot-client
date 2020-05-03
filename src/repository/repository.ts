@@ -338,10 +338,7 @@ class FetchService implements Service {
   }
 
   async getOrganziationInfo(orgId: string): Promise<OrganizationInfo> {
-    let res = await axios.get("/users/9d8af7fc-a430-43c3-aa75-32c5c73f90ca");
-    console.log(res);
-
-    res = await axios.get("/organisations/" + res.data.organisations[0].id);
+    let res = await axios.get("/organisations/" + orgId);
 
     let orgData = res.data;
     return Promise.resolve({
