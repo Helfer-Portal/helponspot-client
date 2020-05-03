@@ -7,6 +7,8 @@ import {
   UserInfo,
   PostOrganisation,
   PostAddress,
+  UUID,
+  PostRequest,
 } from "./model/helprequest";
 import Chance from "chance";
 
@@ -47,7 +49,7 @@ export interface Repository {
    *
    * @param request the HelpRequest to be created
    */
-  createHelpRequest(request: HelpRequest): Promise<HelpRequest>;
+  postRequest(orgId: UUID, reqData: PostRequest): Promise<HelpRequest>;
 
   postOrganisation(ordData: PostOrganisation): Promise<OrganizationInfo>;
 
@@ -114,8 +116,8 @@ export class RepositoryImpl implements Repository {
     return this.service.createHelper(helper);
   }
 
-  createHelpRequest(request: HelpRequest): Promise<HelpRequest> {
-    return this.service.createHelpRequest(request);
+  postRequest(orgId: UUID, reqData: PostRequest): Promise<HelpRequest> {
+    return this.service.postRequest(orgId, reqData);
   }
 
   postOrganisation(orgData: PostOrganisation): Promise<OrganizationInfo> {
@@ -169,7 +171,7 @@ export interface Service {
    * Create a help request
    * @param request
    */
-  createHelpRequest(request: HelpRequest): Promise<HelpRequest>;
+  postRequest(orgId: UUID, reqData: PostRequest): Promise<HelpRequest>;
 
   postOrganisation(orgData: PostOrganisation): Promise<OrganizationInfo>;
 
@@ -326,8 +328,14 @@ class FetchService implements Service {
     };
   }
 
-  createHelpRequest(request: HelpRequest): Promise<HelpRequest> {
-    return this.post(Endpoint.HelpRequest, request);
+  async postRequest(orgId: UUID, reqData: PostRequest): Promise<HelpRequest> {
+    try {
+      let res = await axios.post(
+        "/organisations/" + orgId + "/requests",
+        reqData
+      );
+      return res.data;
+    } catch (err) {}
   }
 
   async postOrganisation(orgData: PostOrganisation): Promise<OrganizationInfo> {
