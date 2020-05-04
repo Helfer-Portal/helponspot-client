@@ -14,7 +14,7 @@ import { Redirect, useHistory } from "react-router-dom";
 let repository = new RepositoryImpl();
 
 Amplify.configure(awsConfig);
-
+console.log("aws", awsConfig);
 export default function App() {
   const [user, setUser] = useState(null);
   let [authData, setAuthData] = React.useContext(AuthorizationContext);
