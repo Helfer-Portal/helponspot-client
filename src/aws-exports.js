@@ -7,7 +7,7 @@ const {
   REACT_APP_ENVIRONMENT_URL, // The URL of the ci deployment
 } = process.env;
 
-const ORIGIN = REACT_APP_ENVIRONMENT_URL || "http://localhost:3000/";
+const ORIGIN = "http://localhost:3000/" || "http://localhost:3000/";
 
 export const awsConfig = {
   Auth: {

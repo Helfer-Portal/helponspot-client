@@ -25,10 +25,12 @@ export default function AuthorizationWrapper(props) {
   const redirectAndSetUser = async () => {
     let user = await Auth.currentAuthenticatedUser();
 
+    let ob = await Auth.currentUserInfo();
+    console.log("ob", ob);
     //display buttons based on user presence
     setUser(user);
     console.log("user", user);
-    console.log("email", user.email);
+    console.log("email", user.attributes.email);
     //user that just signed up
     let hasMail = user.email === null;
     hasMail = false;
