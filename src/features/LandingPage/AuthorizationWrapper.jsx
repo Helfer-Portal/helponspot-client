@@ -17,11 +17,12 @@ let repository = new RepositoryImpl();
 
 /** Layout for the register desktop story */
 export default function AuthorizationWrapper(props) {
-  console.log("authorizationwrap");
+  console.log("authorization started");
   let [authData, setAuthData] = React.useContext(AuthorizationContext);
   const [user, setUser] = useState(null);
   let history = useHistory();
   let orgInfo = null;
+
   const redirectAndSetUser = async () => {
     let user = await Auth.currentAuthenticatedUser();
 
