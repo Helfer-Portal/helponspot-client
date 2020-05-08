@@ -8,7 +8,7 @@ const {
 } = process.env;
 
 const ORIGIN =
-  "http://helponspot-client-git-patchhelper.helpteam.now.sh/" ||
+  "https://helponspot-client-git-patchhelper.helpteam.now.sh/" ||
   "http://localhost:3000/";
 //const ORIGIN = "http://localhost:3000/" || "http://localhost:3000/";
 
