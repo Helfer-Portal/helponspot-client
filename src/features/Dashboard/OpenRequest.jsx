@@ -9,7 +9,7 @@ export default function OpenRequest(props) {
   const roleString = props.helper !== true ? "organisation" : "helper";
   return (
     <div className="flex flex-col my-4 p-4 max-w-sm bg-white rounded-lg">
-      {/* use absolute path to prevent problems when calling from a different path than expected */}
+      {/* use absolute path to p    revent problems when calling from a different path than expected */}
       <Link to={`/app/${roleString}/request/details/${props.req_id}`}>
         <div>
           <h5 className="font-dm-sans font-bold text-figmaDescription">

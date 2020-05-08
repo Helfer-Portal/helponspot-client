@@ -26,34 +26,42 @@ export default function AuthorizationWrapper(props) {
   const redirectAndSetUser = async () => {
     let user = await Auth.currentAuthenticatedUser();
 
-    let ob = await Auth.currentUserInfo();
+    let ob = await Auth.currentSession();
+
     console.log("ob", ob);
     //display buttons based on user presence
     setUser(user);
-    console.log("user", user);
-    console.log("email", user.attributes.email);
+    let email = ob.getIdToken().payload.email;
+    console.log("email", ob.getIdToken().payload.email);
+    console.log("email");
+    let userData = await repository.getUserInfoByEmail(email);
     //user that just signed up
-    let hasMail = user.email === null;
-    hasMail = false;
+    let hasMail = user.email !== null;
     let isOrg = false;
+    console.log("auth1", authData);
+    console.log("mailpresent", hasMail);
     if (hasMail) {
+      console.log("enteredhasMail");
       //let userData = await repository.getUserInfoByEmail(user.attributes.email);
-      let userData = await repository.getUserInfoByEmail(
-        "spam@yannickstreicher.org"
-      );
-      let userId = userData.id;
+      let userData = await repository.getUserInfoByEmail(email);
+      console.log("userData", userData);
+
+      let userRole = undefined;
+      isOrg = userData.organisations && userData.organisations.length > 0;
+      if (isOrg) {
+        userRole = UserRole.organisation;
+      } else if (userData.lastName !== "") {
+        userRole = UserRole.helper;
+      } else {
+        hasMail = false;
+      }
       setAuthData({
         ...authData,
         useruuid: userData.id,
-        email: user.email,
+        email: email,
         orgUUIDs: userData.organisations.map((el) => el.id),
+        role: userRole,
       });
-      isOrg = userData.organisations && userData.organisations.length > 0;
-      if (isOrg) {
-        setAuthData({ ...authData, role: UserRole.organisation });
-      } else {
-        setAuthData({ ...authData, role: UserRole.helper });
-      }
     }
     redirectUser(isOrg, hasMail);
   };

@@ -29,6 +29,7 @@ export default function AuthorizationContextProvider(props: {
 }) {
   const [data, setData] = React.useState<Partial<Authorization>>({
     role: UserRole.organisation,
+    email: null,
   });
 
   // This side effect loads the uuid for the user via context it is distributed over all components

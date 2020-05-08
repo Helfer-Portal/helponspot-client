@@ -270,13 +270,23 @@ class FetchService implements Service {
   }
 
   async patchUserInfo(userInfo: UserInfo): Promise<UserInfo> {
+    let qualifications;
     try {
+      if (
+        userInfo.qualifications === null ||
+        userInfo.qualifications === undefined
+      ) {
+        qualifications = [];
+      } else {
+        qualifications = userInfo.qualifications.map((el) => el.key);
+      }
       let payload = {
         firstName: userInfo.firstName,
         lastName: userInfo.lastName,
         email: userInfo.email,
+        qualifications: qualifications,
 
-        ...(userInfo.qualifications && {
+        ...(userInfo.isGPSLocationAllowed && {
           isGPSLocationAllowed: userInfo.isGPSLocationAllowed,
         }),
         ...(userInfo.address && {
@@ -301,7 +311,9 @@ class FetchService implements Service {
         ...(userInfo.avatar && { avatar: userInfo.avatar }),
       };
       console.log("payload: ", payload);
+
       let res = await axios.patch("/users/" + userInfo.id, payload);
+      console.log("ress", res);
       if (res.data && res.status === 200) {
         return res.data;
       } else {

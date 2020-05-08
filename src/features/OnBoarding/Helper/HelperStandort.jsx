@@ -15,7 +15,6 @@ import { AuthorizationContext } from "../../../context/AuthorizationStore";
 let repository = new RepositoryImpl();
 
 export default function HelperStandort() {
-  console.log("loaded HelperStandort");
   //this indicator is changed when the user clicks on the button, and triggers an update of the location on the next rerender
   let [locPermissionThroughButton, setLocPermission] = useState(false);
   let history = useHistory();
@@ -27,15 +26,18 @@ export default function HelperStandort() {
       ...requestData,
       location: { ...location, automatic: true },
     });
-    console.log("callback called");
+    console.log("loc", location);
+    console.log("auth", authData);
     let userInfo = {
       firstName: requestData.firstName,
       lastName: requestData.lastName,
       qualifications: requestData.qualifications,
       email: authData.email,
+      id: authData.useruuid,
     };
-    await repository.patchUserInfo(userInfo);
-    history.push("/app/helper/createHelper/name");
+    let res = await repository.patchUserInfo(userInfo);
+    console.log("res outside", res);
+    history.push("/app/helper/helperdashboard");
   };
 
   let { latitude, longitude, error } = usePosition(
@@ -46,11 +48,11 @@ export default function HelperStandort() {
   if (locPermissionThroughButton && !error) {
     console.log("returned permission");
     setRequestData(requestData);
-    console.log(requestData);
+    console.log("requestData", requestData);
   }
   if (locPermissionThroughButton && error) {
     console.log("error", error);
-    history.push("/app/helper/createHelper/standortmanuell");
+    //history.push("/app/helper/createHelper/standortmanuell");
   }
 
   return (
