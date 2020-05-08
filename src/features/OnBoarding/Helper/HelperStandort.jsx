@@ -26,17 +26,16 @@ export default function HelperStandort() {
       ...requestData,
       location: { ...location, automatic: true },
     });
-    console.log("loc", location);
-    console.log("auth", authData);
+    //TODO: send location as well
     let userInfo = {
       firstName: requestData.firstName,
       lastName: requestData.lastName,
-      qualifications: requestData.qualifications,
+      qualifications: requestData.added_competences.map((ob) => ob.key),
       email: authData.email,
       id: authData.useruuid,
     };
     let res = await repository.patchUserInfo(userInfo);
-    console.log("res outside", res);
+    console.log("response", res);
     history.push("/app/helper/helperdashboard");
   };
 
@@ -52,7 +51,7 @@ export default function HelperStandort() {
   }
   if (locPermissionThroughButton && error) {
     console.log("error", error);
-    //history.push("/app/helper/createHelper/standortmanuell");
+    history.push("/app/helper/createHelper/standortmanuell");
   }
 
   return (

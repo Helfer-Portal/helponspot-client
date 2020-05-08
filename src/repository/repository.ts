@@ -271,6 +271,8 @@ class FetchService implements Service {
 
   async patchUserInfo(userInfo: UserInfo): Promise<UserInfo> {
     let qualifications;
+    // mandatory fields: qualification, firstName, lastName
+    // only send other fields if they are actually present, otherwise they are overwritten in the db with null values
     try {
       if (
         userInfo.qualifications === null ||
