@@ -17,31 +17,41 @@ let repository = new RepositoryImpl();
 
 /** Layout for the register desktop story */
 export default function AuthorizationWrapper(props) {
-  console.log("authorization started");
+  console.log("authorization called");
   let [authData, setAuthData] = React.useContext(AuthorizationContext);
   const [user, setUser] = useState(null);
   let history = useHistory();
-  let orgInfo = null;
 
-  const redirectAndSetUser = async () => {
-    let user = await Auth.currentAuthenticatedUser();
+  React.useEffect(() => {
+    console.log("init user", user);
+    console.log("Wrapper started for the first time");
+  }, []);
 
+  const setUserStart = async () => {};
+
+  const redirectAndSetUser = async (redirect = false) => {
+    if (!redirect) {
+      console.log("called from refresh");
+      try {
+        //if user is not logged in yet, skip
+        Auth.currentUserInfo();
+      } catch (e) {
+        return null;
+      }
+    }
+
+    let authUser = await Auth.currentAuthenticatedUser();
+
+    console.log("user object", authUser);
     let ob = await Auth.currentSession();
 
     console.log("ob", ob);
     //display buttons based on user presence
-    setUser(user);
+    setUser(authUser);
     let email = ob.getIdToken().payload.email;
-    console.log("email", ob.getIdToken().payload.email);
-    console.log("email");
-    let userData = await repository.getUserInfoByEmail(email);
-    //user that just signed up
-    let hasMail = user.email !== null;
+    let hasSignedUp = authUser.email !== null;
     let isOrg = false;
-    console.log("auth1", authData);
-    console.log("sessionData", ob);
-    console.log("mailpresent", hasMail);
-    if (hasMail) {
+    if (hasSignedUp) {
       console.log("enteredhasMail");
       //let userData = await repository.getUserInfoByEmail(user.attributes.email);
       let userData = await repository.getUserInfoByEmail(email);
@@ -54,7 +64,7 @@ export default function AuthorizationWrapper(props) {
       } else if (userData.lastName !== "") {
         userRole = UserRole.helper;
       } else {
-        hasMail = false;
+        hasSignedUp = false;
       }
       setAuthData({
         ...authData,
@@ -64,7 +74,9 @@ export default function AuthorizationWrapper(props) {
         role: userRole,
       });
     }
-    redirectUser(isOrg, hasMail);
+    if (redirect) {
+      redirectUser(isOrg, hasSignedUp);
+    }
   };
 
   function redirectUser(isOrg, hasMail) {
@@ -91,14 +103,19 @@ export default function AuthorizationWrapper(props) {
             console.log("data", data);
 
             console.log("signed in");
-            redirectAndSetUser();
+            redirectAndSetUser(true);
             break;
           case "signOut":
             setAuthData(null);
+            setUser(null);
             break;
         }
       });
 
+      // if the page is refreshed, set AuthContext again so the user does not have to log in
+      redirectAndSetUser(false);
+      //TODO: return a function that places rest of state in local storage, so the User continues with
+      //e.g. his form data, even after a refresh.
       return () => {
         Hub.remove("signIn");
         Hub.remove("signOut");
