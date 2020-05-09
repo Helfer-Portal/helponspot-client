@@ -36,6 +36,7 @@ export default function UpdateAddressHelper() {
       email: authData.email,
       id: authData.useruuid,
     };
+    console.log("info", userInfo);
     let res = await repository.patchUserInfo(userInfo);
     console.log("response", res);
     history.push("/app/helper/helperdashboard");

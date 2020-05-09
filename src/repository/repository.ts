@@ -280,7 +280,7 @@ class FetchService implements Service {
       ) {
         qualifications = [];
       } else {
-        qualifications = userInfo.qualifications.map((el) => el.key);
+        qualifications = userInfo.qualifications;
       }
       let payload = {
         firstName: userInfo.firstName,
@@ -307,9 +307,7 @@ class FetchService implements Service {
             ...(userInfo.address.point && { point: userInfo.address.point }),
           },
         }),
-        ...(userInfo.qualifications && {
-          qualifications: userInfo.qualifications.map((el) => el.key),
-        }),
+
         ...(userInfo.avatar && { avatar: userInfo.avatar }),
       };
       console.log("payload: ", payload);
