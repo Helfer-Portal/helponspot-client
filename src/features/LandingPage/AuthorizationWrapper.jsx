@@ -39,6 +39,7 @@ export default function AuthorizationWrapper(props) {
     let hasMail = user.email !== null;
     let isOrg = false;
     console.log("auth1", authData);
+    console.log("sessionData", ob);
     console.log("mailpresent", hasMail);
     if (hasMail) {
       console.log("enteredhasMail");

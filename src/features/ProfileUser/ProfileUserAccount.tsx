@@ -8,6 +8,7 @@ import {
   ButtonSecondaryBlue,
   InputWithIcon,
 } from "../../components/UiKit";
+import { Auth } from "aws-amplify";
 import Competences from "./CompetencesProfile";
 import ProfilePic from "../../components/ProfilePic";
 import { Subheading } from "../../components/Subheading";
@@ -115,6 +116,7 @@ export default function ProfileUserAccount() {
                   message: "invalid email address",
                 },
               })}
+              value={authInfo.email}
             />
             <div>{errors.email && errors.email.message}</div>
             <div className="my-2">
@@ -131,12 +133,14 @@ export default function ProfileUserAccount() {
       {/* Account */}
       <div className="mt-4">
         <Subheading>Account verwalten</Subheading>
-        <div className="py-2">
+        <div className="py-2" onClick={() => Auth.signOut()}>
           <ButtonPrimaryBlue>Ausloggen</ButtonPrimaryBlue>
         </div>
+        {/*
         <div className="py-2">
           <ButtonSecondaryBlue>Account löschen</ButtonSecondaryBlue>
         </div>
+        */}
       </div>
     </div>
   );
