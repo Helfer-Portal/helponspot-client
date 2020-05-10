@@ -279,6 +279,11 @@ class FetchService implements Service {
         userInfo.qualifications === undefined
       ) {
         qualifications = [];
+      } else if (
+        userInfo.qualifications != null &&
+        userInfo.qualifications[0].id != null
+      ) {
+        qualifications = userInfo.qualifications.map((el) => el.key);
       } else {
         qualifications = userInfo.qualifications;
       }

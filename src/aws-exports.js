@@ -7,7 +7,9 @@ const {
   REACT_APP_ENVIRONMENT_URL, // The URL of the ci deployment
 } = process.env;
 
-const ORIGIN = "http://localhost:3000/" || "http://localhost:3000/";
+const ORIGIN =
+  "https://helponspot-client-git-patchhelper.helpteam.now.sh/" ||
+  "http://localhost:3000/";
 //const ORIGIN = "http://localhost:3000/" || "http://localhost:3000/";
 
 export const awsConfig = {
