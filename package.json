@@ -19,7 +19,7 @@
     "aws-amplify": "^3.0.8",
     "aws-amplify-react": "^4.1.7",
     "aws-api-gateway-client": "^0.3.3",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "chance": "^1.1.4",
     "enzyme": "^3.11.0",
     "enzyme-adapter-react-16": "^1.15.2",
